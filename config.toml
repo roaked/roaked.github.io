@@ -1,6 +1,6 @@
 baseURL = "https://xsleaks.dev/"
 languageCode = "en-us"
-title = "Ricardo de Oliveira Chin"
+title = "Ricardo Chin"
 enableGitInfo = false
 theme = "hugo-book"
 
