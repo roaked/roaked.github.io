@@ -18,7 +18,7 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 
 <--->
 
-## 
+## "Good things take time"
 
 <img src="https://live.staticflickr.com/1234/5678901234_abcd1234ef_o.jpg" alt="Sunset" style="max-width: 100%; height: auto;">
 
