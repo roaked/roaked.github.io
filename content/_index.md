@@ -8,9 +8,7 @@ type: docs
 {{< columns >}}
 ## Astris ipse furtiva
 
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora _adicit cursu_, ad facies
+From conceptualization to realization, I'm passionate about pushing the boundaries of what's possible. By seamlessly blending FEA with AI, I aim to redefine the design process — creating not just products, but experiences that resonate with efficiency, sustainability, and innovation. 
 
 <--->
 
