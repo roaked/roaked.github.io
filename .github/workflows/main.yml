@@ -1,4 +1,4 @@
-ame: Build with Hugo
+name: Build with Hugo
 
 on: [push, pull_request]
 
