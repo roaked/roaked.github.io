@@ -5,11 +5,6 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        hugo-version:
-          - 'latest'
-          - '0.79.0'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -19,9 +14,16 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: ${{ matrix.hugo-version }}
+          hugo-version: 'latest'
           extended: true
 
-      - name: Run Hugo
-        working-directory: .
-        run: hugo --themesDir ../..
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
