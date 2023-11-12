@@ -3,7 +3,7 @@ title: I'm
 type: docs
 ---
 
-# <span style="color:#a81954;">Introduction</span>
+# <span style="color:#a81954;">Ricardo Chin</span>
 
 {{< columns >}}
 ## Introduction
