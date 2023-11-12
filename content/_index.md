@@ -20,7 +20,7 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 
 ## "Good things take time"
 
-<img src="https://live.staticflickr.com/65535/53327145128_ae51e42f04.jpg" width="100" height="100">
+<img src="https://live.staticflickr.com/65535/53327145128_ae51e42f04.jpg" width="20" height="20">
 
 {{< /columns >}}
 
