@@ -2,7 +2,7 @@ baseURL = "https://xsleaks.dev/"
 languageCode = "en-us"
 title = "Ricardo Chin"
 enableGitInfo = false
-theme = "book"
+theme = "hugo-book"
 
 [params]
   BookRepo = 'https://github.com/roaked/roaked.github.io'
