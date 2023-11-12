@@ -8,5 +8,4 @@ theme = "book"
   BookRepo = 'https://github.com/roaked/roaked.github.io'
   BookDateFormat = 'January 2, 2006'
   BookEditPath = 'edit/main/content'
-  BookDateFormat = 'January 2, 2006'
   BookServiceWorker = true
