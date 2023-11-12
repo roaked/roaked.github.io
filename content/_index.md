@@ -20,9 +20,7 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 
 ## Suis quot vota
 
-Ea _furtique_ risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio _quam_ velatus posset ait quod
-nunc! Fragosis suae dextra geruntur functus vulgata.
+![Example Image](https://www.flickr.com/photos/199515201@N07/53327145128/)
 {{< /columns >}}
 
 
