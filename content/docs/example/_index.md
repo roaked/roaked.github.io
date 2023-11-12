@@ -25,7 +25,7 @@ solebat [litore](http://lacrimas-ab.net/); noctes. *Hostem haerentem* circuit
 Locum nullus nisi vomentes. Ab Persea sermone vela, miratur aratro; eandem
 Argolicas gener.
 
-![Example Image](https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png)
+![Example Image](https://drive.google.com/file/d/1TRjN0jPFBc_03s7VjduvIaRuziOc7OeP/view?usp=drive_link)
 
 ## Me sol
 
