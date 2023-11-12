@@ -20,8 +20,9 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 
 ## Suis quot vota
 
-![Example Image](https://www.flickr.com/photos/199515201@N07/53327145128/in/dateposted-public/)
+![Example Image](https://live.staticflickr.com/65535/53327145128_ae51e42f04.jpg)
 {{< /columns >}}
+
 
 ## Tempora nisi nunc
 
