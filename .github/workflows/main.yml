@@ -1,4 +1,4 @@
-name: Build with Hugo
+ame: Build with Hugo
 
 on: [push, pull_request]
 
@@ -23,5 +23,5 @@ jobs:
           extended: true
 
       - name: Run Hugo
-        working-directory: exampleSite
+        working-directory: .
         run: hugo --themesDir ../..
