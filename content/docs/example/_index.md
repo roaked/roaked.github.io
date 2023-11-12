@@ -16,6 +16,8 @@ longa; sententia [mandat](http://pastor-ad.io/questussilvas) quascumque nescio
 solebat [litore](http://lacrimas-ab.net/); noctes. *Hostem haerentem* circuit
 [plenaque tamen](http://www.sine.io/in).
 
+![Example Image](https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png)
+
 - Pedum ne indigenae finire invergens carpebat
 - Velit posses summoque
 - De fumos illa foret
