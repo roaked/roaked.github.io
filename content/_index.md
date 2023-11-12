@@ -3,7 +3,7 @@ title: I'm
 type: docs
 ---
 
-# Introduction
+# <span style="color:#a81954;">Introduction</span>
 
 {{< columns >}}
 ## Introduction
