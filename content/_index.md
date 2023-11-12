@@ -12,7 +12,7 @@ type: docs
     }
 </style>
 
-## Introduction
+## 
 
 From conceptualization to realization, I'm passionate about pushing the boundaries of what's possible. By seamlessly blending FEA with AI, I aim to redefine the design process — creating not just products, but experiences that resonate with efficiency, sustainability, and innovation. 
 
@@ -20,7 +20,7 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 
 ## Suis quot vota
 
-<img src="https://live.staticflickr.com/1234/5678901234_abcd1234ef_o.jpg" alt="Sunset" style="max-width: 100%; height: auto;">
+<img src="https://live.staticflickr.com/1234/5678901234_abcd1234ef_o.jpg" alt="Sunset" style="max-width: 80%; height: auto;">
 {{< /columns >}}
 
 
