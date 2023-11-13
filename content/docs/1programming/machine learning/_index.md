@@ -1,6 +1,6 @@
 ---
-title: Evolutionary Computation
-weight: 2
+title: Machine Learning 
+weight: 3
 ---
 
 # Introduction
