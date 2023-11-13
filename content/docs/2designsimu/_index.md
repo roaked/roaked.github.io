@@ -1,7 +1,6 @@
 ---
 weight: 2
 bookFlatSection: true
-bookHidden: true
 title: "Design and Simulation Portfolio"
 ---
 
