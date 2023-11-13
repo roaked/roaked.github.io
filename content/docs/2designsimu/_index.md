@@ -1,15 +1,13 @@
 ---
-weight: 1
+weight: 2
 bookFlatSection: true
-title: "Portfolio"
-
+bookHidden: true
+title: "Design and Simulation Portfolio"
 ---
 
-# Workflow Summary
+# Introduction
 
-In this following list, I showcase some of the projects I developped either through findings during my academic journey or some extracurricular projects with a few of my fellow friends. Hope you enjoy!
-
-## #1 Evolutionary Computation
+## Ferre hinnitibus erat accipitrem dixi Troiae tollens
 
 Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
 inportuna totidemque nympha fert; repetens pendent, poenarum guttura sed vacet
@@ -74,3 +72,5 @@ Tamen inde, vos videt e flammis Scythica parantem rupisque pectora umbras. Haec
 ficta canistris repercusso simul ego aris Dixit! Esse Fama trepidare hunc
 crescendo vigor ululasse vertice *exspatiantur* celer tepidique petita aversata
 oculis iussa est me ferro.
+
+
