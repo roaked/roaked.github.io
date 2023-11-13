@@ -1,7 +1,7 @@
 ---
 weight: 1
 bookFlatSection: false
-title: "Minimizing Hot Cracking during E-B"
+title: "Hot Cracking in e-beam Welding"
 
 ---
 
