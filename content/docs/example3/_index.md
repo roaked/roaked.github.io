@@ -1,6 +1,7 @@
 ---
 weight: 3
 bookFlatSection: true
+bookHidden: true
 title: "Evolutionary Computation"
 subtitle: "Genetic Algorithms vs. Particle Swarm Optimization"
 

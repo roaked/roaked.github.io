@@ -1,9 +1,11 @@
 ---
 title: Evolutionary Computation
-weight: 1
+weight: 10
 ---
 
 # Introduction
+
+In this research work, the goal was to learn a bit more about evolutionary computation and how we can use it to solve optimization problems
 
 ## Ferre hinnitibus erat accipitrem dixi Troiae tollens
 

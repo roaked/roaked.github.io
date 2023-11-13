@@ -1,12 +1,15 @@
 ---
 weight: 1
 bookFlatSection: true
-title: "Example Site"
+title: "Portfolio"
+
 ---
 
-# Introduction
+# Workflow Summary
 
-## Ferre hinnitibus erat accipitrem dixi Troiae tollens
+In this following list, I showcase some of the projects I developped either through findings during my academic journey or some extracurricular projects with a few of my fellow friends. Hope you enjoy!
+
+## #1 Evolutionary Computation
 
 Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
 inportuna totidemque nympha fert; repetens pendent, poenarum guttura sed vacet

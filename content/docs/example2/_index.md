@@ -1,6 +1,7 @@
 ---
 weight: 2
 bookFlatSection: true
+bookHidden: true
 title: "Predicting Fake News using Deep Learning"
 ---
 
