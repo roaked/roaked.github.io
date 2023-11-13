@@ -1,7 +1,7 @@
 ---
 weight: 1
 bookFlatSection: false
-title: "Mitigating Hot Cracking during E-B"
+title: "Minimizing Hot Cracking during E-B"
 
 ---
 
