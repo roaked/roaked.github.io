@@ -1,7 +1,9 @@
 ---
 weight: 3
 bookFlatSection: true
-title: "Genetic Algorithsm vs. Particle Swarm Optimization"
+title: "Evolutionary Computation"
+subtitle: "Genetic Algorithms vs. Particle Swarm Optimization"
+
 ---
 
 # Introduction
