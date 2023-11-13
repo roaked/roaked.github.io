@@ -5,24 +5,9 @@ type: docs
 
 # About me!
 
-{{< columns >}}
-<style>
-    h2 {
-        color: #a81954;
-    }
-</style>
-
 ## Introduction
 
 From conceptualization to realization, I'm passionate about pushing the boundaries of what's possible. By seamlessly blending FEA with AI, I aim to redefine the design process — creating not just products, but experiences that resonate with efficiency, sustainability, and innovation. 
-
-<--->
-
-## "Good things take time"
-
-<img src="https://live.staticflickr.com/65535/53327145128_ae51e42f04.jpg" width="20" height="20">
-
-{{< /columns >}}
 
 
 ## Tempora nisi nunc
