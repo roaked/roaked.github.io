@@ -1,7 +1,7 @@
 ---
-weight: 2
+weight: 3
 bookFlatSection: true
-title: "Predicting Fake News using Deep Learning"
+title: "Genetic Algorithsm vs. Particle Swarm Optimization"
 ---
 
 # Introduction

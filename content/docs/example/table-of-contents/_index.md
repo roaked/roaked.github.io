@@ -1,6 +1,6 @@
 ---
 weight: 10
-hiddenBook: true
+bookHidden: true
 ---
 
 # Ubi loqui
