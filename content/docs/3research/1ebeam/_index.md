@@ -1,7 +1,7 @@
 ---
 weight: 1
 bookFlatSection: false
-title: "Hot Cracking in e-beam Welding"
+title: "Electron Beam Welding"
 
 ---
 
