@@ -1,7 +1,7 @@
 ---
 weight: 4
 bookHidden: false
-title: "Finite Element Analysis Formulation"
+title: "FEM Formulation"
 
 ---
 
