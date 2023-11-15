@@ -1,7 +1,5 @@
 ---
-weight: 15
 headless: true
-bookFlatSection: true
 ---
 
 - [**Example Site**]({{< relref "/docs/example" >}})
