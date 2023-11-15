@@ -1,12 +1,6 @@
 name: Build and Deploy Hugo
 
-on:
-  push:
-    branches:
-      - main  # Set your branch name here
-  pull_request:
-    branches:
-      - main  # Set your branch name here
+on: [push, pull_request]
 
 jobs:
   build-and-deploy:
