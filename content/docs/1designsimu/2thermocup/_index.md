@@ -5,21 +5,11 @@ title: "ThermoCup"
 
 ---
 
-# Introduction
+# ThermoCup Competition
 
-## Ferre hinnitibus erat accipitrem dixi Troiae tollens
+## Introduction
 
-Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
-inportuna totidemque nympha fert; repetens pendent, poenarum guttura sed vacet
-non, mortali undas. Omnis pharetramque gramen portentificisque membris servatum
-novabis fallit de nubibus atque silvas mihi. **Dixit repetitaque Quid**; verrit
-longa; sententia [mandat](http://pastor-ad.io/questussilvas) quascumque nescio
-solebat [litore](http://lacrimas-ab.net/); noctes. *Hostem haerentem* circuit
-[plenaque tamen](http://www.sine.io/in).
-
-- Pedum ne indigenae finire invergens carpebat
-- Velit posses summoque
-- De fumos illa foret
+ThermoCup is an interesting competition that was initially introduced at the Technical University of Lisbon during the MecanIST conferences in 2016. The goal of the competition was to design and build a steam boat, encompassing all aspects of the project, from initial design work to prototyping and optimization, using computational fluid dynamic simulations with Ansys Fluent workbench.
 
 ## Est simul fameque tauri qua ad
 
