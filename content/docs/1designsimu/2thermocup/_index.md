@@ -47,7 +47,7 @@ In the context of ThermoCup, the incorporation of Ansys Fluent implied a multifa
 - Performance Optimization
 - Predictive Analysis
 
-Surely using machine learnings this could have been improved, but for that moment it yielded good results!
+Surely using machine learning tools this could have been more efficient, but for that moment it yielded good results!
 
 
 ## Our Solution
