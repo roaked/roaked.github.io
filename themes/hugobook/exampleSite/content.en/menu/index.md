@@ -1,5 +1,6 @@
 ---
 headless: true
+bookFlatSection: true
 ---
 
 - [**Example Site**]({{< relref "/docs/example" >}})
