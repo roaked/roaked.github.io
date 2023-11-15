@@ -14,4 +14,9 @@ From conceptualization to realization, I'm passionate about pushing the boundari
 ## Interests
 
 - To be added
+- To be added
+
+## Hobbies
+
+- To be added
 
