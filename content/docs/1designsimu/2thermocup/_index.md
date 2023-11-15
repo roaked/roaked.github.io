@@ -58,7 +58,7 @@ After countless combinations of material and design, the choice of cork as the s
 ## Outcomes
 
 {{< katex display >}}
-v_{\text{km/h}} = \frac{8}{18.9} \times 3.6 \approx 1.53\text{ result in km/h}
+v_{\text{km/h}} = \frac{8}{18.9} \times 3.6 \approx 1.53\text{ km/h}
 {{< /katex >}}
 
 Securing 3rd place in the competition, covering an 8-meter water lane in just 18.9 seconds, while achieving a average speed of 1.53 km/h, is a notable result. While it is not perfect, it compromised diverse engineering problem-solving skills between meticulous material selection and thoughtful design considerations by the team. 
