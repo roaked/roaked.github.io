@@ -12,11 +12,7 @@ title: "ThermoCup"
 ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
 
 
-## Key-use of Computation Fluid Dynamics (CFD)
-
-The use of **CFD** simulations with **Ansys Fluent** workbench stands as a pivotal aspect of this competition. **Ansys Fluent** is a powerful software suite extensively used in engineering for simulating fluid flow, heat transfer, and other related phenomena. Its utilization within ThermoCup implies that participants are tasked with not only physically constructing a steam boat but also employing sophisticated virtual simulations to refine their designs and enhance the boat's performance characteristics.
-
-## Problem-solving Competences
+## Problem-solving Competences Enhanced!
 
 The challenges within ThermoCup likely encompass a range of engineering disciplines, including:
 
@@ -40,6 +36,18 @@ In the context of designing a steam boat for ThermoCup, the significance of defi
 # But...
 
 Keep in mind that the competition's rules imposed caused certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.
+
+## Key-use of Computation Fluid Dynamics
+
+The utilization of Computational Fluid Dynamics (CFD) simulations with Ansys Fluent workbench within the ThermoCup competition marked a significant and intriguing facet of the event. Ansys Fluent is a robust software suite widely employed in engineering disciplines to simulate and analyze fluid flow, heat transfer, and associated phenomena in intricate detail.
+
+In the context of ThermoCup, the incorporation of Ansys Fluent implied a multifaceted challenge for everyone beyond merely constructing a physical steam boat! It introduced a dimension where participants leverage advanced virtual simulations to iteratively refine their designs and optimize the performance of their boats via:
+
+- Virtual Prototyping
+- Performance Optimization
+- Predictive Analysis
+
+Surely using machine learnings this could have been improved, but for that moment it yielded good results!
 
 
 ## Our Solution
