@@ -45,3 +45,12 @@ Keep in mind that the competition's rules imposed caused certain constraints or 
 ## Our Solution
 
 After countless combinations of material and design, the choice of cork as the structural material for the steam boat in the ThermoCup competition seemed to have been a well-considered decision. Cork is known for its buoyant and lightweight properties (refer to previous Ch.2), and its higher density compared to materials like polystyrene likely provided the necessary weight and structural stability for the boat. This was especially important when simulating the boat's performance under the natural conditions of flow, which can be challenging at higher speeds due to introduced turbulence flow and higher hydrodynamic forces, including drag and lift that can lead to steer off course as it interacts with the surrounding water.
+
+
+## Outcomes
+
+\[
+v_{\text{km/h}} = \frac{18.9}{8} \times 3.6 \approx \text{result in km/h}
+\]
+
+Securing 3rd place in the competition, covering an 8-meter water lane in just 18.9 seconds, while achieving a top speed of 1.53 km/h, is a notable result. While it is not perfect, it comprimised diverse problem-solving in engineering skills between meticulous material selection and thoughtful design considerations by the team. It signifies adeptness in crafting an efficient and competitive steam boat that not only met but exceeded expectations within the specified competition conditions.
