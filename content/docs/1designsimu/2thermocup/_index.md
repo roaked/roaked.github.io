@@ -28,8 +28,20 @@ The challenges within ThermoCup likely encompass a range of engineering discipli
 
 - Computational Modeling: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
 
-## Our Approach
+## Initial Conditions
 
 In the context of designing a steam boat for ThermoCup, the significance of defining boundary conditions and material selection cannot be overstated. These initial steps essentially set the groundwork for the entire project, exerting a profound influence on the boat's performance and its eventual success in the competition.
 
 - **Boundary Conditions**: Determining the environmental constraints, operational parameters, and physical limitations within which the steam boat will be mainly vital to perform **CFD** simulations. This includes factors such as the type of water body the boat will navigate, assumption of variations in temperature and pressure, and even limitations on the size and weight of the boat. In this case, it was intended to be an indoors competition - involving not so high velocities. Hence, mostly laminar flow, therefore a lot of simplifications were conducted to get a rough estimation of how each parameter would impact our results. However, accurately defining these boundary conditions allows participants to tailor their designs to suit real-world scenarios, ensuring the boat's functionality under specific circumstances.
+
+- **Material Selection**: The choice of materials for constructing the steam boat significantly impacts its structural integrity, weight, buoyancy, and overall performance. For instance, selecting lightweight yet durable materials for the boat's structure can enhance its maneuverability and efficiency. Similarly, heat-resistant materials might be crucial for components exposed to high temperatures in the steam propulsion system.
+
+
+# But...
+
+Always kept in mind that the competition's rules imposed certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.
+
+
+## Our Solution
+
+After countless combinations of material and design, the choice of cork as the structural material for the steam boat in the ThermoCup competition seemed to have been a well-considered decision. Cork is known for its buoyant and lightweight properties, and its higher density compared to materials like polystyrene likely provided the necessary weight and structural stability for the boat. This was especially important when simulating the boat's performance under the natural conditions of flow, which can be challenging at higher speeds due to introduced turbulence flow and higher hydrodynamic forces, including drag and lift that can lead to steer off course as it interacts with the surrounding water.
