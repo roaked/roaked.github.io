@@ -12,7 +12,7 @@ title: "ThermoCup"
 ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
 
 
-## Problem-solving Competences Enhanced!
+## Problem-Solving Competences
 
 The challenges within ThermoCup likely encompass a range of engineering disciplines, including:
 
