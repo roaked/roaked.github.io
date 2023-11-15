@@ -15,19 +15,3 @@ theme = "hugo-book"
   email = "ricardo.chin@tecnico.ulisboa.pt"
   github = "roaked"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About"s
-    url = "/about/"
-    weight = 1
-
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/blog/"
-    weight = 2
