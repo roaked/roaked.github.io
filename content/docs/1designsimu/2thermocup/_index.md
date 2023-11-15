@@ -24,7 +24,7 @@ The challenges within ThermoCup likely encompass a range of engineering discipli
 
 - Computational Modeling: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
 
-## Initial Conditions
+## Initial Considerations
 
 In the context of designing a steam boat for ThermoCup, the significance of defining boundary conditions and material selection cannot be overstated. These initial steps essentially set the groundwork for the entire project, exerting a profound influence on the boat's performance and its eventual success in the competition.
 
