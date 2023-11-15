@@ -9,7 +9,20 @@ title: "ThermoCup"
 
 ## Introduction
 
-ThermoCup is an interesting competition that was initially introduced at the Technical University of Lisbon during the MecanIST conferences in 2016. The goal of the competition was to design and build a steam boat, encompassing all aspects of the project, from initial design work to prototyping and optimization, using computational fluid dynamic simulations with Ansys Fluent workbench.
+ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
+
+
+The use of computational fluid dynamics (CFD) simulations with Ansys Fluent workbench stands as a pivotal aspect of this competition. Ansys Fluent is a powerful software suite extensively used in engineering for simulating fluid flow, heat transfer, and other related phenomena. Its utilization within ThermoCup implies that participants are tasked with not only physically constructing a steam boat but also employing sophisticated virtual simulations to refine their designs and enhance the boat's performance characteristics.
+
+The challenges within ThermoCup likely encompass a range of engineering disciplines, including:
+
+- Mechanical Engineering: To design the physical structure of the steam boat, accounting for structural integrity and efficiency.
+
+- Thermal Engineering: Understanding and optimizing the heat transfer mechanisms involved in generating steam to power the boat.
+
+- Fluid Dynamics: Analyzing the flow of steam and water within the boat's components to maximize propulsion and efficiency.
+
+- Computational Modeling: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
 
 ## Est simul fameque tauri qua ad
 
