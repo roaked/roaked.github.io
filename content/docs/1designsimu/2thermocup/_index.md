@@ -37,7 +37,7 @@ In the context of designing a steam boat for ThermoCup, the significance of defi
 
 Keep in mind that the competition's rules imposed caused certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.
 
-## Key-use of Computation Fluid Dynamics
+## Key-use of Computational Fluid Dynamics
 
 The utilization of Computational Fluid Dynamics (CFD) simulations with Ansys Fluent workbench within the ThermoCup competition marked a significant and intriguing facet of the event. Ansys Fluent is a robust software suite widely employed in engineering disciplines to simulate and analyze fluid flow, heat transfer, and associated phenomena in intricate detail.
 
