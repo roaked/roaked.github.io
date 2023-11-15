@@ -9,3 +9,25 @@ theme = "hugo-book"
   BookDateFormat = 'January 2, 2006'
   BookEditPath = 'edit/main/content'
   BookServiceWorker = true
+
+[author]
+  name = "Ricardo Chin"
+  email = "ricardo.chin@tecnico.ulisboa.pt"
+  github = "roaked"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
