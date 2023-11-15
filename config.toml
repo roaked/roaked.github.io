@@ -22,7 +22,7 @@ theme = "hugo-book"
 [menu]
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "About"s
     url = "/about/"
     weight = 1
 
