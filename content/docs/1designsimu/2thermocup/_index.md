@@ -14,7 +14,7 @@ ThermoCup is a unique competition introduced initially at the Technical Universi
 
 ## Key-use of Computation Fluid Dynamics (CFD)
 
-The use of **CFD** simulations with Ansys Fluent workbench stands as a pivotal aspect of this competition. **Ansys Fluent** is a powerful software suite extensively used in engineering for simulating fluid flow, heat transfer, and other related phenomena. Its utilization within ThermoCup implies that participants are tasked with not only physically constructing a steam boat but also employing sophisticated virtual simulations to refine their designs and enhance the boat's performance characteristics.
+The use of **CFD** simulations with **Ansys Fluent** workbench stands as a pivotal aspect of this competition. **Ansys Fluent** is a powerful software suite extensively used in engineering for simulating fluid flow, heat transfer, and other related phenomena. Its utilization within ThermoCup implies that participants are tasked with not only physically constructing a steam boat but also employing sophisticated virtual simulations to refine their designs and enhance the boat's performance characteristics.
 
 ## Problem-solving Competences
 
