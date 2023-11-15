@@ -1,15 +1,19 @@
-name: Build with Hugo
+name: Build and Deploy Hugo
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Set your branch name here
+  pull_request:
+    branches:
+      - main  # Set your branch name here
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -17,10 +21,10 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
+      - name: Build site
         run: hugo --minify
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
