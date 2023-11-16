@@ -11,7 +11,7 @@ title: "FEM Formulation"
 
 In engineering and physics, problems are often described by partial differential equations (PDEs). The "strong form" refers to the original differential equation that must hold exactly throughout the domain, including both the governing equation and the boundary conditions.
 
-However, there are cases where directly solving the strong form might be challenging due to complexities in the equation, irregular geometries, or varying boundary conditions. This is where the "weak form" (also known as the variational form) becomes advantageous.
+However, there are cases where directly solving the strong form might be challenging due to complexities in the equation, irregular geometries, or varying boundary conditions. This is where the "weak formulation" or (weak form)becomes advantageous.
 
 The weak form introduces a relaxation of the constraints imposed by the strong form by multiplying the governing equation with a weight function (typically a test function) and integrating it over the domain. This relaxation allows for more flexibility in solution techniques and offers several advantages:
 
@@ -27,7 +27,7 @@ The weak form introduces a relaxation of the constraints imposed by the strong f
 
 Overall, the weak form is favored in many situations because it relaxes the strictness of the original problem while maintaining the essential properties required for solutions, making it more adaptable for various solution techniques, especially in numerical analysis.
 
-## 1.2 Strong Formulation
+## 1.2 Strong Form
 
 Let's begin by establishing the strong formulation of the problem, which serves as the foundation of our problem. In this formulation, we encapsulate the fundamental differential equation governing the system's behaviour. This equation, along with the precise boundary conditions and initial values, constitutes the direct representation of the underlying physical laws guiding the system's dynamics.
 
@@ -72,7 +72,7 @@ G \theta = \frac{Mt}{J}
 
 In the previous formula, the M (torsional moment) and t (thickness) take the value of 1.
 
-## 1.3 Weak Formulation
+## 1.3 Weak Form
 
 The weak formulation enables transforming the differential equation into an integral equation, where the initial approach involves integrating the equation across the entire domain. Rules are applied to obtain the weak formulation, namely, defining the residual by multiplying it with an arbitrary function, integrating by parts the highest-order term, and rearranging the equation.
 
