@@ -12,8 +12,13 @@ With honors in mechanical engineering and a background in materials science rese
 ## Not so fast...
 
 {{< details "Secret" close >}}
+
+
 Besides loving mountain or winter sports and having a serious addiction to running, I'm always eager to learn. With a family scattered across the globe, languages have become my gateway to connection. Mandarin, in particular, holds a special place as it's the language spoken by most of my family. By growing up in such environment, I came to realize that truly connecting with someone necessitates interaction in their native language. It hit me that speaking the local language is the most genuine way to establish a deep and meaningful connection with others, regardless of where they are in the world."
+
+
 ![Me](https://live.staticflickr.com/65535/53336769189_73f6ec79a2.jpg)
+
 {{< /details >}}
 
 
