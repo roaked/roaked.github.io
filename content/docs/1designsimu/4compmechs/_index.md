@@ -152,7 +152,7 @@ Consequently:
 {{< katex display >}} \text{2x2 Rule} : \overline{x_{1,2}}=\frac{a}{2}(1 \pm \sqrt{\frac{1}{3}}) \quad \text{and} \quad \overline{y_{1,2}}=\frac{b}{2}(1 \pm \sqrt{\frac{1}{3}})
 {{< /katex >}}  
 
-## 1.6 Computing Torsional Constant 
+## 1.6 Torsional Constant 
 
 After calculating the nodal solution, the torsion constant J can be determined by:
 
@@ -160,7 +160,7 @@ After calculating the nodal solution, the torsion constant J can be determined b
 J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + \psi_4) \qquad J = \sum_i J_i^e
 {{< /katex >}}  
 
-## 1.6 Computing Shear Stress
+## 1.7 Shear Stresses
 
 {{< katex display >}}
 \tau_{yz} =  -G \theta \frac{\partial \psi}{\partial x} = -G \theta (\frac{\partial \phi_1}{\partial \overline{x}}\psi_1 + \frac{\partial \phi_2}{\partial \overline{x}}\psi_2 + \frac{\partial \phi_3}{\partial \overline{x}}\psi_3 + \frac{\partial \phi_4}{\partial \overline{x}}\psi_4)
@@ -173,6 +173,10 @@ J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + 
 {{< katex display >}}
 \tau_{xy} = \sqrt{\tau_{yz}^2 +\tau_{xz}^2}
 {{< /katex >}} 
+
+# 2 Time for some coding!
+
+## 2.1 READ_ME
 
 
 
