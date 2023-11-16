@@ -7,6 +7,8 @@ title: "FEM Formulation"
 
 # Formulating Finite Element Mathematical Models
 
+## Solving Partial Differential Equations (PDEs)
+
 ## Strong Formulation
 
 {{< katex display >}}
