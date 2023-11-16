@@ -5,14 +5,14 @@ title: "FEM Formulation"
 
 ---
 
-# Formulating Finite Element Mathematical Models
+# 1. Formulating Finite Element Mathematical Models
 
-## Solving Partial Differential Equations (PDEs)
+## 1.1 Partial Differential Equations (PDEs)
 
 - Strong Formulation
 - Weak Formulation
 
-## Strong Formulation
+## 1.2 Strong Formulation
 
 
 {{< katex display >}}
@@ -47,6 +47,17 @@ To do this, the Prandtl function is divided by {{< katex >}}G\theta{{< /katex >}
 {{< katex display >}}
 \tau_{yz} = -G \theta \frac{\partial \psi}{\partial x} \text{    and    } \tau_{xz} = G \theta \frac{\partial \psi}{\partial y}
 {{< /katex >}}
+
+The developed program will calculate the solution given by {{< katex >}}\psi{{< /katex >}} for each node, the shear stresses, and the value of torsional rigidity. The problem of {{< katex >}}G \theta{{< /katex >}} is solved using the formula:
+
+{{< katex display >}}
+G \theta = \frac{Mt}{J}
+{{< /katex >}}
+
+In the previous formula, the M (torsional moment) and t (thickness) take the value of 1.
+
+## 1.3 Weak Formulation
+
 
 
 
