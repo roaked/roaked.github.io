@@ -25,6 +25,13 @@ This is referring to the Prandtl stress function, which defines shear stresses a
 \tau_{xz} = \frac{\partial \phi}{\partial y} and \tau_{yz} = \frac{\partial \phi}{\partial x}
 {{< /katex >}}
 
+The resolution of a torsion problem involves solving the Prandtl equation by imposing the boundary condition around the entire perimeter of the figure, as is known:
+
+{{< katex display >}}
+\phi = 0
+{{< /katex >}}
+
+To do this, the Prandtl function is divided by {{< katex display >}}G theta{{< /katex >}}, as this value is not known, like this:
 
 
 
