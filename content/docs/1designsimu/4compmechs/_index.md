@@ -146,10 +146,10 @@ In the previous Gauss integration, 'w' corresponds to the integration weights. F
 
 Consequently:
 
-{{< katex display >}} \text{1x1 Rule} : \overline{x}=\frac{a}{2} \text{and} \overline{y}=\frac{b}{2}
+{{< katex display >}} \text{1x1 Rule} : \overline{x}=\frac{a}{2} \quad \text{and} \quad \overline{y}=\frac{b}{2}
 {{< /katex >}}
 
-{{< katex display >}} \text{2x2 Rule} : \overline{x_{1,2}}=\frac{a}{2}(1 \pm \sqrt{\frac{1}{3}}) \text{and} \overline{y_{1,2}}=\frac{b}{2}(1 \pm \sqrt{\frac{1}{3}})
+{{< katex display >}} \text{2x2 Rule} : \overline{x_{1,2}}=\frac{a}{2}(1 \pm \sqrt{\frac{1}{3}}) \quad \text{and} \quad \overline{y_{1,2}}=\frac{b}{2}(1 \pm \sqrt{\frac{1}{3}})
 {{< /katex >}}  
 
 ## 1.6 Computing Torsional Constant 
