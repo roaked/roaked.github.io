@@ -11,18 +11,20 @@ title: "ThermoCup"
 
 ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
 
+![11e](https://live.staticflickr.com/65535/53336443281_ef63a9f75e.jpg)
+![12e](https://live.staticflickr.com/65535/53336908180_08d5489b12_n.jpg)
 
 ## Problem-Solving Competences
 
 The challenges within ThermoCup likely encompass a range of engineering disciplines, including:
 
-- Mechanical Engineering: To design the physical structure of the steam boat, accounting for structural integrity and efficiency.
+- **Mechanical Engineering**: To design the physical structure of the steam boat, accounting for structural integrity and efficiency.
 
-- Thermal Engineering: Understanding and optimizing the heat transfer mechanisms involved in generating steam to power the boat.
+- **Thermal Engineering**: Understanding and optimizing the heat transfer mechanisms involved in generating steam to power the boat.
 
-- Fluid Dynamics: Analyzing the flow of steam and water within the boat's components to maximize propulsion and efficiency.
+- **Fluid Dynamics**: Analyzing the flow of steam and water within the boat's components to maximize propulsion and efficiency.
 
-- Computational Modeling: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
+- **Computational Modeling**: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
 
 ## Initial Considerations
 
@@ -36,6 +38,8 @@ In the context of designing a steam boat for ThermoCup, the significance of defi
 # But...
 
 Keep in mind that the competition's rules imposed caused certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.
+
+
 
 ## Key-use of Computational Fluid Dynamics
 
@@ -52,10 +56,15 @@ Surely using machine learning tools this could have been more efficient, but for
 
 ## Our Solution
 
+![14e](https://live.staticflickr.com/65535/53335570407_8c8504613f_c.jpg)
+
 After countless combinations of material and design, the choice of cork as the structural material for the steam boat in the ThermoCup competition seemed to have been a well-considered decision. Cork is known for its buoyant and lightweight properties (refer to previous Ch.2), and its higher density compared to materials like polystyrene likely provided the necessary weight and structural stability for the boat. This was especially important when simulating the boat's performance under the natural conditions of flow, which can be challenging at higher speeds due to introduced turbulence flow and higher hydrodynamic forces, including drag and lift that can lead to steer off course as it interacts with the surrounding water.
 
 
+
 ## Outcomes
+
+![15e](https://live.staticflickr.com/65535/53336678438_b04bd3672c_c.jpg)
 
 {{< katex display >}}
 v_{\text{km/h}} = \frac{8}{18.9} \times 3.6 \approx 1.53\text{ km/h}
