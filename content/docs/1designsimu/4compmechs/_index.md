@@ -10,7 +10,7 @@ title: "FEM Formulation"
 ## Strong Formulation
 
 {{< katex display >}}
-\theta - \nabla \dot (k \nabla u) = f
+\theta - \nabla \cdot (k \nabla u) = f
 {{< /katex >}}
 
 For the torsional loading problem k = 1 and f = 2. The following equations indulges:
