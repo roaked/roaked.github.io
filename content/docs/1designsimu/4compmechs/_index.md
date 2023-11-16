@@ -22,7 +22,7 @@ For the torsional loading problem k = 1 and f = 2. The following equations indul
 This is referring to the Prandtl stress function, which defines shear stresses as:
 
 {{< katex display >}}
-\tau_{xz} = \frac{\partial \phi}{\partial y} and \tau_{yz} = \frac{\partial \phi}{\partial x}
+\tau_{xz} = \frac{\partial \phi}{\partial y} \text{ and } \tau_{yz} = \frac{\partial \phi}{\partial x}
 {{< /katex >}}
 
 The resolution of a torsion problem involves solving the Prandtl equation by imposing the boundary condition around the entire perimeter of the figure, as is known:
