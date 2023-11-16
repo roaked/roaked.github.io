@@ -25,7 +25,7 @@ The weak form introduces a relaxation of the constraints imposed by the strong f
 
 - Minimization of Requirements: In some cases, the requirement for differentiability or the number of times an equation needs to be differentiated is reduced, easing computational complexity.
 
-Overall, the weak form is favored in many situations because it relaxes the strictness of the original problem while maintaining the essential properties required for solutions, making it more adaptable for various solution techniques, especially in numerical analysis.
+Overall, the weak form is favoured in many situations because it relaxes the strictness of the original problem while maintaining the essential properties required for solutions, making it more adaptable for various solution techniques, especially in numerical analysis.
 
 ## 1.2 Strong Form
 
