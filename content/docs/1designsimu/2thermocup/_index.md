@@ -56,7 +56,24 @@ Surely using machine learning tools this could have been more efficient, but for
 
 ## Our Solution
 
+{{< details "Attempts 1" close >}}
+
+![ss](https://live.staticflickr.com/65535/53336960300_e441411f17_w.jpg)
+
+{{< /details >}}
+
+{{< details "Attempts 2" close >}}
+
 ![14e](https://live.staticflickr.com/65535/53335570407_8c8504613f_c.jpg)
+
+{{< /details >}}
+
+{{< details "Attempts ALL" close >}}
+
+![14e](https://live.staticflickr.com/65535/53335622417_63e481330f_w.jpg)
+
+{{< /details >}}
+
 
 After countless combinations of material and design, the choice of cork as the structural material for the steam boat in the ThermoCup competition seemed to have been a well-considered decision. Cork is known for its buoyant and lightweight properties (refer to previous Ch.2), and its higher density compared to materials like polystyrene likely provided the necessary weight and structural stability for the boat. This was especially important when simulating the boat's performance under the natural conditions of flow, which can be challenging at higher speeds due to introduced turbulence flow and higher hydrodynamic forces, including drag and lift that can lead to steer off course as it interacts with the surrounding water.
 
