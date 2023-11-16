@@ -116,7 +116,7 @@ Where 'a' corresponds to the length of the base of the element, and 'b' correspo
 
 ## 1.5 Numerical Integration
 
-These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}} (\qsi, \eta) {{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
+These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}} (\xi, \eta) {{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
 
 In Gauss integration, the stiffness matrix K is computed through reduced integrals:
 
@@ -126,8 +126,8 @@ K_{ij} = \frac{\partial \phi_i}{\partial x} \frac{\partial \phi_j}{\partial x} +
 
 {{< katex display >}}
 J = \begin{bmatrix}
-\frac{\partial x}{\partial \qsi} & \frac{\partial x}{\partial \eta}\\
-\frac{\partial y}{\partial \qsi} & \frac{\partial y}{\partial \eta}\\
+\frac{\partial x}{\partial \xi} & \frac{\partial x}{\partial \eta}\\
+\frac{\partial y}{\partial \xi} & \frac{\partial y}{\partial \eta}\\
 \end{bmatrix}  = \frac{ab}{4}
 {{< /katex >}}  
 
