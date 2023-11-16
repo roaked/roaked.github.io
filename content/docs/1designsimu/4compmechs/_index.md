@@ -5,7 +5,7 @@ title: "FEM Formulation"
 
 ---
 
-# 1. Formulating Finite Element Mathematical Models
+# 1. Mathematical Background
 
 ## 1.1 Partial Differential Equations (PDEs)
 
@@ -162,7 +162,19 @@ After calculating the nodal solution, the torsion constant J can be determined b
 J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + \psi_4) \qquad J = \sum_i J_i^e
 {{< /katex >}}  
 
+## 1.6 Computing Shear Stress
 
+{{< katex display >}}
+\tau_{yz} =  -G \theta \frac{\partial \psi}{\partial x} = -G \theta (\frac{\partial \phi_1}{\partial \overline{x}}\psi_1 + \frac{\partial \phi_2}{\partial \overline{x}}\psi_2 + \frac{\partial \phi_3}{\partial \overline{x}}\psi_3 + \frac{\partial \phi_4}{\partial \overline{x}}\psi_4)
+{{< /katex >}}  
+
+{{< katex display >}}
+\tau_{xz} =  G \theta \frac{\partial \psi}{\partial y} = G \theta (\frac{\partial \phi_1}{\partial \overline{y}}\psi_1 + \frac{\partial \phi_2}{\partial \overline{y}}\psi_2 + \frac{\partial \phi_3}{\partial \overline{y}}\psi_3 + \frac{\partial \phi_4}{\partial \overline{y}}\psi_4)
+{{< /katex >}} 
+
+{{< katex display >}}
+\tau_{xy} = \sqrt{\tau_{yz}^2 +\tau_{xz}^2}
+{{< /katex >}} 
 
 
 
