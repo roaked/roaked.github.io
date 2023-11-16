@@ -120,7 +120,16 @@ These functions aim to calculate the elemental stiffness matrix using the Gauss-
 
 In Gauss integration, the stiffness matrix K is computed through reduced integrals:
 
+{{< katex display >}}
+K_{ij} = \frac{\partial \phi_i}{\partial x} \frac{\partial \phi_j}{\partial x} + \frac{\partial \phi_i}{\partial y} \frac{\partial \phi_j}{\partial y} \times J \times w
+{{< /katex >}}
 
+{{< katex display >}}
+J = \begin{bmatrix}
+\frac{\partial x}{\partial \qsi} & \frac{\partial x}{\partial \eta}\\
+\frac{\partial y}{\partial \qsi} & \frac{\partial y}{\partial \eta}\\
+\end{bmatrix}  = \frac{ab}{4}
+{{< /katex >}}
 
 
 
