@@ -76,5 +76,51 @@ In the previous formula, the M (torsional moment) and t (thickness) take the val
 
 The weak form enables transforming the differential equation into an integral equation, where the initial approach involves integrating the equation across the entire domain. Rules are applied to obtain the weak form, namely, defining the residual by multiplying it with an arbitrary function, integrating by parts the highest-order term, and rearranging the equation. Thus:
 
+{{< katex display >}}
+\iint_S \frac{\partial \phi_i}{\partial x} \frac{\partial \phi_j}{\partial x} + \frac{\partial \phi_i}{\partial y} \frac{\partial \phi_j}{\partial y} dA = \iint_S 2\phi_i dA
+{{< /katex >}}
+
+The stiffnex matrix is given by:
+
+{{< katex display >}}
+K_{ij} = \iint_S \frac{\partial \phi_i}{\partial x} \frac{\partial \phi_j}{\partial x} + \frac{\partial \phi_i}{\partial y} \frac{\partial \phi_j}{\partial y} dx dy
+{{< /katex >}}
+
+Additionally, the load vector is presented as:
+
+{{< katex display >}}
+F_i = \iint_S 2 \phi_i dx dy
+{{< /katex >}}
+
+In the considered problem, the only essential boundary condition will be the null solution across the entire perimeter of the figure, accompanied by a distributed load of magnitude 2 applied across the entire mesh.
+
+## 1.4 Analytical Integration
+
+Simplifying the problem's resolution, only regular 4-node elements with 1 degree of freedom will be considered. Information from the book ["Introduction to the Finite Element Method (3rd edition)" by J.N. Reddy](https://books.google.at/books/about/An_Introduction_to_the_Finite_Element_Me.html?id=8gqnRwAACAAJ&redir_esc=y) provides the following details:
+
+- Stiffness matrix (e): {{< katex >}}K^e = \frac{k}{6ab}  \begin{bmatrix}
+2(a^2+b^2) & a^2-2b^2 & -(a^2+b^2) & -2a^2+b^2\\
+a^2-2b^2 & 2(a^2+b^2) & -2a^2+b^2 & -(a^2+b^2)\\
+-(a^2+b^2) & -2a^2+b^2 & 2(a^2+b^2) & a^2-2b^2\\
+-2a^2+b^2 & -(a^2+b^2) & a^2-2b^2 & 2(a^2+b^2)\\
+\end{bmatrix}   {{< /katex >}}
+
+- Load vector (e): {{< katex >}}f^e =\frac{fab}{4} \begin{bmatrix}
+1\\
+1\\
+1\\
+1\\
+\end{bmatrix}   {{< /katex >}}
+
+Where 'a' corresponds to the length of the base of the element, and 'b' corresponds to the height of the element.
+
+## 1.5 Numerical Integration
+
+These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}}(\qsi, \eta){{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
+
+In Gauss integration, the stiffness matrix K is computed through reduced integrals:
+
+
+
 
 
