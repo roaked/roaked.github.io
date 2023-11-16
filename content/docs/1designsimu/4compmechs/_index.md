@@ -178,7 +178,7 @@ After submitting the data file, the program reads the file and automatically ope
 Upon program completion, a file is created containing the data obtained from the last integration performed.
 
 
-## Validation based on Book Example
+## 2.2 Validation Based on Book
 
 The developed program has been tested for a known problem described in the book ["Introduction to the Finite Element Method (3rd edition)" by J.N. Reddy](https://books.google.at/books/about/An_Introduction_to_the_Finite_Element_Me.html?id=8gqnRwAACAAJ&redir_esc=y) - **Example 8.5.6**. In this example, torsion of a square section bar was considered. As the problem is axisymmetric, nodal solution and shear stresses were calculated for a quarter of the square. The following results were obtained at the nodes for the nodal solution, using a 4x4 mesh:
 
