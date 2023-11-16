@@ -133,24 +133,34 @@ J = \begin{bmatrix}
 
 In the previous Gauss integration, 'w' corresponds to the integration weights. For a 1x1 integration, the integration is performed solely at the center of the element, with a weight of w = 1. For 2x1 or 1x2 integration, each 'w' value represents the sum of 2 reduced integrals (2 different points within the element), and the weight is w=2. For a 2x2 integration, the summation includes 4 reduced integrals (4 different points), and w=1. The following values of {{< katex >}}\overline{x}{{< /katex >}} and {{< katex >}}\overline{y}{{< /katex >}} correspond to the Gauss points:
 
-- {{< katex display >}}
+{{< katex display >}}
 \phi_1 = (1-\frac{\overline{y}}{b})(1-\frac{\overline{x}}{a})
 {{< /katex >}}
-- {{< katex display >}}
+{{< katex display >}}
 \phi_2 = \frac{\overline{x}}{a}(1-\frac{\overline{y}}{b})
 {{< /katex >}}   
-- {{< katex display >}}
+{{< katex display >}}
 \phi_3 = \frac{\overline{y}}{b}\frac{\overline{x}}{a}
 {{< /katex >}}   
-- {{< katex display >}}
+{{< katex display >}}
 \phi_4 = \frac{\overline{y}}{b}(1-\frac{\overline{x}}{a})
 {{< /katex >}}   
 
 Consequently:
 
-- {{< katex display >}}
+{{< katex display >}} \text{1x1 Rule} : \overline{x}=\frac{a}{2} \text{and} \overline{y}=\frac{b}{2}
 {{< /katex >}}
 
+{{< katex display >}} \text{2x2 Rule} : \overline{x_{1,2}}=\frac{a}{2}(1 \pm \sqrt{\frac{1}{3}}) \text{and} \overline{y_{1,2}}=\frac{b}{2}(1 \pm \sqrt{\frac{1}{3}})
+{{< /katex >}}  
+
+## 1.6 Computing Torsional Constant 
+
+After calculating the nodal solution, the torsion constant J can be determined by:
+
+{{< katex display >}}
+J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + \psi_4) \qquad J = \sum_i J_i^e
+{{< /katex >}}  
 
 
 
