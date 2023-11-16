@@ -5,16 +5,16 @@ title: "ThermoCup"
 
 ---
 
-# ThermoCup Competition
+# ThermoCup 
 
-## Introduction
+## 1.1 What is the ThermoCup?
 
 ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
 
 ![11e](https://live.staticflickr.com/65535/53336443281_ef63a9f75e.jpg)
 ![12e](https://live.staticflickr.com/65535/53336908180_08d5489b12_n.jpg)
 
-## Problem-Solving Competences
+## 1.2 Transversal Disciplines
 
 The challenges within ThermoCup likely encompass a range of engineering disciplines, including:
 
@@ -26,7 +26,7 @@ The challenges within ThermoCup likely encompass a range of engineering discipli
 
 - **Computational Modeling**: Employing Ansys Fluent workbench for virtual simulations to predict and optimize the boat's performance before physical construction.
 
-## Initial Considerations
+## 1.3 Initial Considerations
 
 In the context of designing a steam boat for ThermoCup, the significance of defining boundary conditions and material selection cannot be overstated. These initial steps essentially set the groundwork for the entire project, exerting a profound influence on the boat's performance and its eventual success in the competition.
 
@@ -35,13 +35,13 @@ In the context of designing a steam boat for ThermoCup, the significance of defi
 - **Material Selection**: The choice of materials for constructing the steam boat significantly impacts its structural integrity, weight, buoyancy, and overall performance. For instance, selecting lightweight yet durable materials for the boat's structure can enhance its maneuverability and efficiency. Similarly, heat-resistant materials might be crucial for components exposed to high temperatures in the steam propulsion system.
 
 
-# But...
+ **But...**
 
 Keep in mind that the competition's rules imposed caused certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.
 
 
 
-## Key-use of Computational Fluid Dynamics
+## 1.4 Computational Fluid Dynamics
 
 The utilization of Computational Fluid Dynamics (CFD) simulations with Ansys Fluent workbench within the ThermoCup competition marked a significant and intriguing facet of the event. Ansys Fluent is a robust software suite widely employed in engineering disciplines to simulate and analyze fluid flow, heat transfer, and associated phenomena in intricate detail.
 
@@ -54,7 +54,7 @@ In the context of ThermoCup, the incorporation of Ansys Fluent implied a multifa
 Surely using machine learning tools this could have been more efficient, but for that moment it yielded good results!
 
 
-## Our Solution
+## 1.5 Our Solution
 
 {{< details "Attempts 1" close >}}
 
@@ -79,7 +79,7 @@ After countless combinations of material and design, the choice of cork as the s
 
 
 
-## Outcomes
+## 1.6 Outlook
 
 ![15e](https://live.staticflickr.com/65535/53336678438_b04bd3672c_c.jpg)
 
