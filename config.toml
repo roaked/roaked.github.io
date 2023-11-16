@@ -9,8 +9,8 @@ theme = "hugobook"
   BookDateFormat = 'January 2, 2006'
   BookEditPath = 'edit/main/content'
   BookServiceWorker = true
-  BookTheme = 'dark'
-
+  BookTheme = 'light
+  
 [author]
   name = "Ricardo Chin"
   email = "ricardo.chin@tecnico.ulisboa.pt"
