@@ -1,7 +1,7 @@
 ---
 weight: 1
 bookFlatSection: true
-title: "Design and Simulation Portfolio"
+title: "Design Portfolio"
 ---
 
 # Workflow
