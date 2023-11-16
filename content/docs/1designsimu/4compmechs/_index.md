@@ -31,7 +31,7 @@ The resolution of a torsion problem involves solving the Prandtl equation by imp
 \phi = 0
 {{< /katex >}}
 
-To do this, the Prandtl function is divided by {{< katex display >}}G theta{{< /katex >}}, as this value is not known, like this:
+To do this, the Prandtl function is divided by {{< katex >}}G\theta{{< /katex >}}, as this value is not known, like this:
 
 
 
