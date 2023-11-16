@@ -133,11 +133,9 @@ J = \begin{bmatrix}
 
 In the previous Gauss integration, 'w' corresponds to the integration weights. For a 1x1 integration, the integration is performed solely at the center of the element, with a weight of w = 1. For 2x1 or 1x2 integration, each 'w' value represents the sum of 2 reduced integrals (2 different points within the element), and the weight is w=2. For a 2x2 integration, the summation includes 4 reduced integrals (4 different points), and w=1. The following values of {{< katex >}}\overline{x}{{< /katex >}} and {{< katex >}}\overline{y}{{< /katex >}} correspond to the Gauss points:
 
-{{< katex display >}}
-\phi_1 = (1-\frac{\overline{y}}{b})(1-\frac{\overline{x}}{a})
-{{< /katex >}}
-{{< katex display >}}
-\phi_2 = \frac{\overline{x}}{a}(1-\frac{\overline{y}}{b})
+{{< katex display >}}\phi_1 = (1-\frac{\overline{y}}{b})(1-\frac{\overline{x}}{a}) \\quad \\quad \phi_2 = \frac{\overline{x}}{a}(1-\frac{\overline{y}}{b}){{< /katex >}}
+
+
 {{< /katex >}}   
 {{< katex display >}}
 \phi_3 = \frac{\overline{y}}{b}\frac{\overline{x}}{a}{{< /katex >}}   
@@ -177,6 +175,19 @@ J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + 
 # 2 Time for some coding!
 
 ## 2.1 READ_ME
+
+The program starts by executing the script ["MainG10.m"](https://github.com/roaked/fem-math-formulation/tree/main/code) **available in my github page** and should contain all the subfunctions and their respective 'txt' file in the respective folder. Once the program is initiated, the user inputs the data file name in the form of "name.txt." The data file should contain the node coordinates, connectivity matrix, and boundary conditions. The data file created for this problem is named ["dadosg10.txt"](https://github.com/roaked/fem-math-formulation/tree/main/code).
+
+After submitting the data file, the program reads the file and automatically opens a figure displaying the mesh with numbered nodes and elements. Simultaneously, a menu with various options is displayed. The user should first choose the type of integration and then select the desired plots for shear stresses, stress contour lines, and nodal solutions. Submitting the options is done by entering the corresponding number. The program is terminated by entering the number 0.
+
+Upon program completion, a file is created containing the data obtained from the last integration performed.
+
+
+
+
+
+
+
 
 
 
