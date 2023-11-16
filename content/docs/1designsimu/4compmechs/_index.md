@@ -135,12 +135,7 @@ In the previous Gauss integration, 'w' corresponds to the integration weights. F
 
 {{< katex display >}}\phi_1 = (1-\frac{\overline{y}}{b})(1-\frac{\overline{x}}{a}) \\quad \\quad \phi_2 = \frac{\overline{x}}{a}(1-\frac{\overline{y}}{b}){{< /katex >}}
 
-
-{{< /katex >}}   
-{{< katex display >}}
-\phi_3 = \frac{\overline{y}}{b}\frac{\overline{x}}{a}{{< /katex >}}   
-{{< katex display >}}\phi_4 = \frac{\overline{y}}{b}(1-\frac{\overline{x}}{a})
-{{< /katex >}}   
+{{< katex display >}}\phi_3 = \frac{\overline{y}}{b}\frac{\overline{x}}{a} \\quad \\quad \phi_4 = \frac{\overline{y}}{b}(1-\frac{\overline{x}}{a}){{< /katex >}}   
 
 Consequently:
 
