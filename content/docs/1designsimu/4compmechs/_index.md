@@ -35,7 +35,7 @@ Let's begin by establishing the strong formulation of the problem, which serves 
 \theta - \nabla \cdot (k \nabla u) = f
 {{< /katex >}}
 
-For the torsional loading problem k = 1 and f = 2. The following equations indulges:
+For the torsional loading problem k = 1 and f = 2. The following equations indulge:
 
 {{< katex display >}}
 \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} = - 2G \theta
