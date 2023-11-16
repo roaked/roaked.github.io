@@ -116,7 +116,7 @@ Where 'a' corresponds to the length of the base of the element, and 'b' correspo
 
 ## 1.5 Numerical Integration
 
-These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}}(\qsi, \eta){{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
+These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}} (\qsi, \eta) {{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
 
 In Gauss integration, the stiffness matrix K is computed through reduced integrals:
 
@@ -129,7 +129,16 @@ J = \begin{bmatrix}
 \frac{\partial x}{\partial \qsi} & \frac{\partial x}{\partial \eta}\\
 \frac{\partial y}{\partial \qsi} & \frac{\partial y}{\partial \eta}\\
 \end{bmatrix}  = \frac{ab}{4}
-{{< /katex >}}
+{{< /katex >}}  
+
+
+In the previous Gauss integration, 'w' corresponds to the integration weights. For a 1x1 integration, the integration is performed solely at the center of the element, with a weight of w = 1. For 2x1 or 1x2 integration, each 'w' value represents the sum of 2 reduced integrals (2 different points within the element), and the weight is w=2. For a 2x2 integration, the summation includes 4 reduced integrals (4 different points), and w=1. The values of {{< katex >}}\overline x and \overline \y{{< /katex >}} correspond to the Gauss points.
+
+
+
+
+
+
 
 
 
