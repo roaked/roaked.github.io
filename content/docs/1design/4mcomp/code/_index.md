@@ -1,6 +1,8 @@
 ---
 bookCollapseSection: true
+bookHidden: true
 weight: 20
+title: Code
 ---
 
 # Introduction
