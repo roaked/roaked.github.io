@@ -1,6 +1,5 @@
 ---
-title: Evolutionary Computation
-weight: 5
+title: "Manipulator Robotics: JACO"
+weight: 7
 ---
 
-# Introduction

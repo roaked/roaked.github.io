@@ -1,5 +1,5 @@
 ---
-weight: 1
+weight: 4
 bookHidden: false
 title: "Finite Element Model Formulation"
 
