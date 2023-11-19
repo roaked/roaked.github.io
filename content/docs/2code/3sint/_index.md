@@ -191,7 +191,7 @@ Let's assume an ideal threshold of 0.51: a visual representation illustrates thi
 
 It was previously mentioned that increasing the number of clusters might not always lead to higher accuracy in Fuzzy Modeling. To confirm this, a study was conducted to explore the relationship between accuracy and the number of clusters.
 
-{{< details "**Study:** Car's adaptive cruise control system with fuzzy logic - (click to expand)" close >}}
+{{< details "**Study:** Impact of numbers of clusters on the model's accuracy - (click to expand)" close >}}
 
 For all features:
 
@@ -206,3 +206,39 @@ While an increase in clusters appears to enhance the overall consistency of aver
 For in-depth study, extracting the membership functions for each features could be done by consulting [Fuzzy Modeling and Identification Toolbox fm2tex function](https://de.mathworks.com/matlabcentral/fileexchange/47171-constrained-fuzzy-model-identification-files-for-fuzzy-modeling-and-identification-toolbox?s_tid=srchtitle)
 
 {{< /details >}}
+
+### 1.4.3 Artifficial Neural Networks
+
+{{< details "**Background:** What are Artifficial Neural Networks and how do they work? - (click to expand)" close >}}
+
+Artificial Neural Networks (ANNs) were initially inspired by the human brain's structure to handle tasks where traditional algorithms struggled. To implement an effective ANN, understanding how it predicts various inputs, its associated phases, and its adaptability to new, unknown inputs is crucial. 
+
+A Multilayer Perceptron (MLP) is a type of feedforward ANN composed of an input layer, a hidden layer, and an output layer. The hidden and output layers consist of nonlinear activation function-equipped neurons. Unlike linear perceptrons, MLPs employ supervised learning, specifically the backpropagation technique, allowing them to handle non-linear data by adjusting node biases and connection weights.
+
+During training, the network adjusts biases and weights via backpropagation to compute output values using input weights and activation functions. To compute weight adjustments **(δw_ij)**, the network calculates the gradient of the Mean Squared Error (MSE) cost function and multiplies it by a learning rate **(α)**.
+
+Validation ensures the network's performance by comparing computed and known outputs, detecting overfitting. Testing evaluates the fully trained network using a separate set of examples.
+
+The pattern recognition neural network chosen aims to classify news as true or fake based on news parameters. Data partitioned for training (70%), validation (5%), and testing (25%) using dividerand function. Mean Squared Error as the cost function was preferred over Mean Absolute Error due to its suitability for situations where large errors are undesirable.
+
+{{< /details >}}
+
+Various training methods exist, with factors like problem type, network size, and memory influencing selection. For this project, Levenberg-Marquardt (LM) algorithm was chosen due to its robustness and standard usage for pattern recognition problems.
+
+The activation function 'tansig' (hyperbolic tangent sigmoid) was utilized for neurons to ensure smooth activation, less computation demand, and easier weight learning, aligning well with the LM algorithm.
+
+The number of neurons in the hidden layer was also left to the user’s choice, it was varied between 5, 10 and 15 neurons.
+
+| Layers & Neurons| All Features | Linguistic Features |
+|-----------------|--------------|---------------------|
+| [ 5 ]           | 96.7%        | 89.1%               |
+| [ 10 ]          | 96.5%        | 89.1%               |
+| [ 15 ]          | 96.5%        | 89.3%               |
+| [2 2]           | 96.8%        | 88.7%               |
+| [5 5]           | 96.6%        | 89.0%               |
+| [10 10]         | 96.8%        | 89.0%               |
+| [2 2 2]         | 96.7%        | 88.7%               |
+| [4 4 4]         | 96.7%        | 88.6%               |
+| [6 6 6]         | 96.6%        | 88.6%               |
+| [2 2 2 2]       | 96.8%        | 88.8%               |
+| [4 4 4 4]       | 96.8%        | 88.7%               |
