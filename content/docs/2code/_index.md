@@ -14,18 +14,3 @@ Beyond academia, I've collaborated with a bunch of amazing friends on side proje
 I believe in the power of code to turn ideas into reality and am thrilled to share a glimpse of my coding escapades with you. Feel free to explore these projects; I hope they bring as much joy to you as they did to me!
 
 Drop me a message, let's share ideas or discuss the latest tech trends. Meanwhile, enjoy this little coding-themed gif! 🤓✨
-
-## #1 Evolutionary Computation
-
-Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
-inportuna totidemque nympha fert; repetens pendent, poenarum guttura sed vacet
-non, mortali undas. Omnis pharetramque gramen portentificisque membris servatum
-novabis fallit de nubibus atque silvas mihi. **Dixit repetitaque Quid**; verrit
-longa; sententia [mandat](http://pastor-ad.io/questussilvas) quascumque nescio
-solebat [litore](http://lacrimas-ab.net/); noctes. *Hostem haerentem* circuit
-[plenaque tamen](http://www.sine.io/in).
-
-- Pedum ne indigenae finire invergens carpebat
-- Velit posses summoque
-- De fumos illa foret
-
