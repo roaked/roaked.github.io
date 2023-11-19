@@ -25,6 +25,8 @@ The goal of this project is to utilize established machine learning techniques, 
 
 Following the problem description, there are 21 features to be analyzed:
 
+<details>
+  <summary>Total amount of features (click to expand)</summary>
 | Number | Feature                                             |
 | ------ | ---------------------------------------------------- |
 | 1      | number of tokens                                    |
@@ -118,8 +120,7 @@ K-means clustering partitions observations into sets to minimize the within-clus
 Cost Function = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
 \]
 
-<details>
-<summary>Variables Description for K-means clustering (click to expand)</summary>
+{{< details "Variables Description for K-means clustering (click to expand)" close >}}
 - \(S\) denotes the set of clusters.
 - \(k\) represents the number of clusters.
 - \(x\) is a data point.
@@ -127,7 +128,7 @@ Cost Function = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \
 - \(S_i\) indicates the \(i^{th}\) cluster.
 - \(\|\|_2^2\) denotes the squared Euclidean distance.
 - \(\text{Var}(S_i)\) represents the variance of cluster \(i\).
-</details>
+{{< /details >}}
 
 
 Identifying clusters containing fake news varied across simulations due to differing cluster numbering. To resolve this, the mode was employed to determine the cluster with the most data points, logically corresponding to fake news, given an equal split between true and fake data points.
@@ -137,11 +138,11 @@ Subsequently, fuzzy c-means clustering was executed, allowing data points to bel
 The FCM algorithm partitions a collection of data into fuzzy clusters, returning cluster centers and a partition matrix indicating each data point's degree of belonging to clusters.
 
 \[
-\text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
+Cost Function = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
 \]
 
-<details>
-  <summary>Variables Description for FCM clustering (click to expand)</summary>
+
+{{< details "Variables Description for FCM clustering (click to expand)" close >}}
 - \(C\) signifies the collection of clusters.
 - \(n\) represents the number of data elements.
 - \(c\) denotes the number of fuzzy clusters.
@@ -150,7 +151,8 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 - \(w_{ij}\) represents the degree to which \(x_i\) belongs to cluster \(j\).
 - \(m\) represents the fuzzifier controlling cluster fuzziness.
 - \(\|\|_2^2\) denotes the squared Euclidean distance.
-</details>
+{{< /details >}}
+
 
 
 
