@@ -3,7 +3,9 @@ title: Predicting Fake News with ML
 weight: 3
 ---
 
-# A Growing Case
+# Leveraging Language Characteristics for Automated Detection of Fake News in Portuguese Social Media
+
+## A Growing Case
 
 Fake news, a term emblematic of fabricated information intentionally disseminated across traditional news outlets or online social platforms, embodies deliberate disinformation strategies. These falsehoods aim to tarnish individuals, entities, or gain financial or political advantages, often employing misleading, attention-grabbing headlines. Some counterfeit news pieces disguise themselves as satirical content, sounding incredulous to the point of absurdity, yet managing to deceive unsuspecting audiences.
 
@@ -18,6 +20,8 @@ Additionally, reports by [Facebook and FactCheck.org](https://www.factcheck.org/
 In this project, drawing upon a meticulously curated corpus comprising 3600 true and 3600 fake Portuguese news samples, collected from January 2016 to January 2018, I aimed to automatically identify fake news using aforementioned language characteristics. This endeavour relied on analyzing 21 specific language traits meticulously classified by the corpus' authors to transform news articles into metadata, aligning with methodologies outlined by academic works and industry efforts in the field.
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
+
+# Data Preprocessing
 
 
 {{< katex display >}}
