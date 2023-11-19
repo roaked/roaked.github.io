@@ -96,7 +96,7 @@ The dataset underwent a division into training and validation subsets. Employing
 
 Analyzing the pivotal features responsible for differentiating between authentic and deceptive news involved employing various statistical methods such as 'corrplot,' 'matrixplot,' and 'boxplot'. However, the outcomes indicated that many features exhibited high non-linearity, posing a challenge in extracting meaningful correlations and insights.
 
-The only meaningful contribution came from the [**Boxplot.py Python function**]((https://github.com/roaked/fake-news-machine-learning/blob/main/Boxplot.py)) given its concise visualization using key statistics like the minimum, quartiles, median, and maximum values, providing insights into data distribution. It efficiently identifies outliers, assesses symmetry, measures data clustering, and detects potential skewness in the dataset.
+The only meaningful contribution came from the [Boxplot.py Python function]((https://github.com/roaked/fake-news-machine-learning/blob/main/Boxplot.py)) given its concise visualization using key statistics like the minimum, quartiles, median, and maximum values, providing insights into data distribution. It efficiently identifies outliers, assesses symmetry, measures data clustering, and detects potential skewness in the dataset.
 
 ## 1.4 Methodology
 
@@ -114,18 +114,21 @@ Commencing with K-Means clustering, an algorithm using centroids and distance me
 
 K-means clustering partitions observations into sets to minimize the within-cluster sum of squares. The **objective function** minimizes the variance by grouping observations into clusters.
 
-{{< katex display >}}
-Objective F = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
+\[
+Cost Function = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
+\]
 
-\text(Given:)
-& S \text{ denotes the set of clusters.} \
-& k \text{ represents the number of clusters.} \
-& x \text{ is a data point.} \
-& \mu_i \text{ signifies the centroid associated with cluster } i. \
-& S_i \text{ indicates the } i^{th} \text{ cluster.} \
-& ||_2^2 \text{ denotes the squared Euclidean distance.} \
-& \text{Var}(S_i) \text{ represents the variance of cluster } i.
-{{< /katex >}} 
+<details>
+<summary>Variables Description for K-means clustering (click to expand)</summary>
+- \(S\) denotes the set of clusters.
+- \(k\) represents the number of clusters.
+- \(x\) is a data point.
+- \(\mu_i\) signifies the centroid associated with cluster \(i\).
+- \(S_i\) indicates the \(i^{th}\) cluster.
+- \(\|\|_2^2\) denotes the squared Euclidean distance.
+- \(\text{Var}(S_i)\) represents the variance of cluster \(i\).
+</details>
+
 
 Identifying clusters containing fake news varied across simulations due to differing cluster numbering. To resolve this, the mode was employed to determine the cluster with the most data points, logically corresponding to fake news, given an equal split between true and fake data points.
 
@@ -133,21 +136,23 @@ Subsequently, fuzzy c-means clustering was executed, allowing data points to bel
 
 The FCM algorithm partitions a collection of data into fuzzy clusters, returning cluster centers and a partition matrix indicating each data point's degree of belonging to clusters.
 
-{{< katex display >}}
-Objective F = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
+\[
+\text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
+\]
 
-\text(Given:)
-& C \text{ signifies the collection of clusters.} \
-& n \text{ represents the number of data elements.} \
-& c \text{ denotes the number of fuzzy clusters.} \
-& x_i \text{ represents a data point.} \
-& c_j \text{ signifies the } j^{th} \text{ cluster center.} \
-& w_{ij} \text{ represents the degree to which } x_i \text{ belongs to cluster } j. \
-& m \text{ represents the fuzzifier controlling cluster fuzziness.} \
-& ||_2^2 \text{ denotes the squared Euclidean distance.}
-{{< /katex >}} 
+<details>
+  <summary>Variables Description for FCM clustering (click to expand)</summary>
+- \(C\) signifies the collection of clusters.
+- \(n\) represents the number of data elements.
+- \(c\) denotes the number of fuzzy clusters.
+- \(x_i\) represents a data point.
+- \(c_j\) signifies the \(j^{th}\) cluster center.
+- \(w_{ij}\) represents the degree to which \(x_i\) belongs to cluster \(j\).
+- \(m\) represents the fuzzifier controlling cluster fuzziness.
+- \(\|\|_2^2\) denotes the squared Euclidean distance.
+</details>
 
-Where 
+
 
 Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
 
