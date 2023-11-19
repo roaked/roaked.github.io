@@ -25,7 +25,7 @@ The goal of this project is to utilize established machine learning techniques, 
 
 Following the problem description, there are 21 features to be analyzed:
 
-{{< details "Features" close >}}
+{{< details "Features (click to expand)" close >}}
 | Number | Feature                                             |
 | ------ | ---------------------------------------------------- |
 | 1      | number of tokens                                    |
@@ -117,7 +117,7 @@ Commencing with K-Means clustering, an algorithm using centroids and distance me
 K-means clustering partitions observations into sets to minimize the within-cluster sum of squares. The **objective function** minimizes the variance by grouping observations into clusters.
 
 {{< katex display >}}
-Cost Function = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
+\text{Cost Function} = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
 {{< /katex >}} 
 
 
@@ -139,7 +139,7 @@ Subsequently, fuzzy c-means clustering was executed, allowing data points to bel
 The FCM algorithm partitions a collection of data into fuzzy clusters, returning cluster centers and a partition matrix indicating each data point's degree of belonging to clusters.
 
 {{< katex display >}}
-Cost Function = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
+\text{Cost Function} = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
 {{< /katex >}} 
 
 
@@ -156,4 +156,14 @@ Cost Function = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - 
 
 Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
 
+{{< details "Study on the exponent 'm' for all features and linguistic features (click to expand)" close >}}
 
+The observed trend indicates that the peak accuracy aligns with the lowest exponent value of 'm,' typically slightly above one unit. Moreover, as the value of 'm' increases, there is an observable exponential decrease in accuracy.
+
+![Max Accuracy vs. Fuzzy Partition Exponent (m) for all features](https://live.staticflickr.com/65535/53342293266_18477c93e5_c.jpg)
+
+Applying clustering to linguistic features followed a similar process. The analysis revealed a maximum accuracy of 87.51% concerning the exponent value. 
+
+![Max Accuracy vs. Fuzzy Partition Exponent (m) for linguistic features](https://live.staticflickr.com/65535/53342617799_f2443f4c18_c.jpg)
+
+{{< /details >}}
