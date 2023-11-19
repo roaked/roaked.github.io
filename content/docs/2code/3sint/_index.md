@@ -167,3 +167,20 @@ Applying clustering to linguistic features followed a similar process. The analy
 ![Max Accuracy vs. Fuzzy Partition Exponent (m) for linguistic features](https://live.staticflickr.com/65535/53342617799_f2443f4c18_c.jpg)
 
 {{< /details >}}
+
+### 1.4.2 Fuzzy Modelling
+
+Fuzzy modeling uses rules that are like "if-then" statements in everyday language. These rules connect input to output in systems that work with vague or uncertain information. There are two main types of rules: one that's easier for people to understand and gives fuzzy (not exact) outputs, and another that's more mathematical, precise, and better for complex systems.
+
+To make a fuzzy system, you start by grouping similar data together, allowing for some overlap between the groups. There are different ways to do this grouping. The number of groups usually matches the number of rules used in the system.
+
+In these systems, the choice of rules affects how well they work for different tasks. Considering these differences, one type of rule, the Takagi-Sugeno model, was chosen for a specific case because it's better suited for complex systems and provides precise outputs.
+
+{{< details "**Example:** Car's adaptive cruise control system with fuzzy logic - (click to expand)" close >}}
+
+- If the distance to the car in front is relatively close and the speed is moderately high, then reduce acceleration slightly.
+- If the distance to the car in front is quite far and the speed is low, then increase acceleration moderately.
+
+In this scenario, fuzzy logic allows the system to interpret vague terms like "relatively close" or "quite far" regarding the distance to the car ahead. If the system were based on the Takagi-Sugeno model, it would precisely adjust acceleration based on these conditions, ensuring smoother driving and safer distance management.
+
+{{< /details >}}
