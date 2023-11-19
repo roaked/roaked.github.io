@@ -154,7 +154,7 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 
 Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
 
-{{< details "Study on the exponent 'm' for all features and linguistic features (click to expand)" close >}}
+{{< details "**Study:** Evaluation of exponent 'm' for all features and linguistic features (click to expand)" close >}}
 
 The observed trend indicates that the peak accuracy aligns with the lowest exponent value of 'm,' typically slightly above one unit. Moreover, as the value of 'm' increases, there is an observable exponential decrease in accuracy.
 
@@ -180,5 +180,29 @@ In these systems, the choice of rules affects how well they work for different t
 - If the distance to the car in front is quite far and the speed is low, then increase acceleration moderately.
 
 In this scenario, fuzzy logic allows the system to interpret vague terms like "relatively close" or "quite far" regarding the distance to the car ahead. If the system were based on the Takagi-Sugeno model, it would precisely adjust acceleration based on these conditions, ensuring smoother driving and safer distance management.
+
+{{< /details >}}
+
+In setting up the fuzzy model, the threshold for the membership function was carefully selected to prioritize minimizing false negatives over false positives. This choice aimed to err on the side of categorizing genuine news as potentially fake rather than labeling false news as true. To pinpoint the most effective threshold value, a dedicated function was designed to identify the optimal point that maximizes the model's accuracy. Across various simulations, this optimal threshold typically fell between 0.45 and 0.55.
+
+Let's assume an ideal threshold of 0.51: a visual representation illustrates this point. News pieces with a membership value above 0.51 were classified as true (shown above the black lines), while those below were categorized as fake.
+
+![Optimal Threshold](https://live.staticflickr.com/65535/53342552453_91d5f2cc05_c.jpg)
+
+It was previously mentioned that increasing the number of clusters might not always lead to higher accuracy in Fuzzy Modeling. To confirm this, a study was conducted to explore the relationship between accuracy and the number of clusters.
+
+{{< details "**Study:** Car's adaptive cruise control system with fuzzy logic - (click to expand)" close >}}
+
+For all features:
+
+![21 features](https://live.staticflickr.com/65535/53342663434_5eb9800f9f_c.jpg)
+
+For linguistic features:
+
+![4 features](https://live.staticflickr.com/65535/53341450212_925f6179e7.jpg)
+
+While an increase in clusters appears to enhance the overall consistency of average maximum accuracy, an interesting observation arises. In the simulation involving the highest number of clusters (represented as the last point), the resulting accuracy doesn't perfectly align with the maximum accuracy achieved. Considering that all features were utilized to attain this result, and the accuracy was already quite satisfactory, the differences among the increasing clusters aren't distinctly noticeable. 
+
+For in-depth study, extracting the membership functions for each features could be done by consulting [Fuzzy Modeling and Identification Toolbox fm2tex function](https://de.mathworks.com/matlabcentral/fileexchange/47171-constrained-fuzzy-model-identification-files-for-fuzzy-modeling-and-identification-toolbox?s_tid=srchtitle)
 
 {{< /details >}}
