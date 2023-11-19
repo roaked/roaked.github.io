@@ -45,6 +45,8 @@ Keep in mind that the competition's rules imposed caused certain constraints or 
 
 The utilization of Computational Fluid Dynamics (CFD) simulations with Ansys Fluent workbench within the ThermoCup competition marked a significant and intriguing facet of the event. Ansys Fluent is a robust software suite widely employed in engineering disciplines to simulate and analyze fluid flow, heat transfer, and associated phenomena in intricate detail.
 
+![simmm](https://8020engineering.com/wp-content/uploads/2018/10/8to15knots.gif)
+
 In the context of ThermoCup, the incorporation of Ansys Fluent implied a multifaceted challenge for everyone beyond merely constructing a physical steam boat! It introduced a dimension where participants leverage advanced virtual simulations to iteratively refine their designs and optimize the performance of their boats via:
 
 - Virtual Prototyping
