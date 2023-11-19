@@ -23,62 +23,31 @@ The goal of this project is to utilize established machine learning techniques, 
 
 # Data Preprocessing
 
+Following the problem description, there are 21 features to be analyzed:
 
-{{< katex display >}}
+| Number | Feature                                             |
+| ------ | ---------------------------------------------------- |
+| 1      | number of tokens                                    |
+| 2      | number of words without punctuation                  |
+| 3      | number of types                                     |
+| 4      | number of links inside the news                      |
+| 5      | number of words in upper case                        |
+| 6      | number of verbs                                     |
+| 7      | number of subjunctive and imperative verbs           |
+| 8      | number of nouns                                     |
+| 9      | number of adjectives                                |
+| 10     | number of adverbs                                   |
+| 11     | number of modal verbs (mainly auxiliary verbs)       |
+| 12     | number of singular first and second personal pronouns|
+| 13     | number of plural first personal pronouns             |
+| 14     | number of pronouns                                  |
+| 15     | pausality                                           |
+| 16     | number of characters                                |
+| 17     | average sentence length                             |
+| 18     | average word length                                 |
+| 19     | percentage of news with spelling errors              |
+| 20     | emotiveness                                         |
+| 21     | diversity                                           |
 
-\begin{table}[hbt!]
-\begin{center}
-\begin{tabular}{ |c|c| } 
-\hline
-Number & Feature    \\
-\hline
-1 & number of tokens \\
-\hline
-2& number of words without punctuation \\
-\hline
-3& number of types  \\
-\hline
-4& number of links inside the news\\
-\hline
-5& number of words in upper case\\
-\hline
-6& number of verbs\\
-\hline
-7& number of subjunctive and imperative verbs \\
-\hline
-8& number of nouns \\
-\hline
-9& number of adjectives\\
-\hline
-10& number of adverbs \\
-\hline
-11& number of modal verbs (mainly auxiliary verbs) \\
-\hline
-12& number of singular first and second personal pronouns \\
-\hline
-13& number of plural first personal pronouns \\
-\hline
-14& number of pronouns\\
-\hline
-15& pausality\\
-\hline
-16& number of characters\\
-\hline
-17& average sentence length \\
-\hline
-18& average word length\\
-\hline
-19& percentage of news with spelling errors\\
-\hline
-20& emotiveness \\
-\hline
-21& diversity \\
-\hline
 
-\end{tabular}
-\end{center}
-\caption{Features}
-\label{table:finalresults}
-\end{table}
-
-{{< /katex >}} 
+The initial step towards obtaining meaningful results involves preprocessing the available data. Determining which features to utilize for further division into training and testing sets was a crucial decision point, expounded upon in the following section. **How were these features selected?**
