@@ -21,7 +21,7 @@ In this project, drawing upon a meticulously curated corpus comprising 3600 true
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
 
-# Approach Brainstorming
+## Approach Brainstorming
 
 Following the problem description, there are 21 features to be analyzed:
 
@@ -59,3 +59,39 @@ Two distinct datasets were created: one encompassing all *21 features* and anoth
 Consideration for computational resources remained pivotal. The project emphasized optimizing computational efficiency, recognizing that certain models, such as clustering or neural networks, could demand substantial computation power. Maintaining a balance between model complexity and computational demand was crucial. Efficiency was prioritized without compromising noticeable accuracy outcomes.
 
 Finally, acknowledging the variance in model results across simulations and the potential for parameter customization, efforts focused on identifying optimal parameter values for maximizing accuracy within each model. This iterative approach aimed to fine-tune model parameters for improved performance, considering the inherent variability in results across different simulations.
+
+## Data Preprocessing
+
+The dataset utilized in this project originated from the "Fake.Br Corpus" directly available at *Roney Santos'* [github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.
+
+This corpus originally contained complete news articles. However, the focus narrowed down to extract the essential features embedded within each news piece. All data was initially formatted in .txt files, necessitating the development of a [MATLAB script](https://github.com/roaked/fake-news-machine-learning/blob/main/Preprocessing.m) to convert it into a more manageable .mat format.
+
+```
+# Preprocessing data
+
+# N = number of news
+N = 1:3602
+
+# Remove news that for some reason don't exist
+N(697) = []
+N(1467) = []
+
+for i in N:
+    # metaInputs will be the input for the models
+    # importfile opens the txt files and saves them as mat variables
+    # metaInputsTrue[:,i] = importfile(sprintf('%d-meta.txt',i))
+    metaInputsFake[:,i] = importfile(sprintf('%d-meta.txt',i))
+
+    # metaTargets will be the targets of the neural network
+    # metaTargetsTrue[:,i] = [1, 0]
+    metaTargetsFake[:,i] = [0, 1]
+
+metaInputs = [metaInputsTrue metaInputsFake]
+metaTargets = [metaTargetsTrue metaTargetsFake]
+```
+
+As it is seen, this transformation yielded two primary files: 'metaInputs.mat,' housing parameters for all news articles, and 'metaTargets.mat,' distinguishing true news (indicated by a '1' in the first row) from false news (marked with a '0' in the second row). To simplify navigation, a structural layout was adopted: the first half of the parameter files consistently represented true news, while the subsequent half constituted false news. This deliberate arrangement facilitated easier comprehension through the interpretation of variables and generated plots.
+
+The dataset underwent a division into training and validation subsets. Employing a random selection method, 75% of the dataset was allocated for model training, while the remaining 25% served as a validation set.
+
+Analyzing the pivotal features responsible for differentiating between authentic and deceptive news involved employing various statistical methods such as 'corrplot,' 'matrixplot,' and 'boxplot.' However, the outcomes indicated that many features exhibited high non-linearity, posing a challenge in extracting meaningful correlations and insights, as depicted in the subsequent figure.
