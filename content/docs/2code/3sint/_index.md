@@ -147,7 +147,7 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 - C signifies the collection of clusters.
 - n represents the number of data elements.
 - c denotes the number of fuzzy clusters.
-- {{< katex display >}}x_i{{< /katex >}}  represents a data point.
+- x_i  represents a data point.
 - {{< katex display >}}c_j{{< /katex >}}  signifies the {{< katex display >}}j^{th}{{< /katex >}}  cluster center.
 - {{< katex display >}}w_{ij}{{< /katex >}}  represents the degree to which {{< katex display >}}x_i{{< /katex >}}  belongs to cluster {{< katex display >}}j{{< /katex >}} .
 - m represents the fuzzifier controlling cluster fuzziness.
