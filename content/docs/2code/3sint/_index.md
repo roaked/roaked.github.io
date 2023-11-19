@@ -3,7 +3,7 @@ title: Predicting Fake News with ML
 weight: 3
 ---
 
-# Leveraging Language Characteristics for Automated Detection of Fake News in Portuguese Social Media
+# Language Characteristics for Detection of Fake News 
 
 ## A Growing Case
 
