@@ -1,61 +1,9 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Language Characteristics for Detection of Fake News # A Growing Case # Fake news, a term emblematic of fabricated information intentionally disseminated across traditional news outlets or online social platforms, embodies deliberate disinformation strategies. These falsehoods aim to tarnish individuals, entities, or gain financial or political advantages, often employing misleading, attention-grabbing headlines. Some counterfeit news pieces disguise themselves as satirical content, sounding incredulous to the point of absurdity, yet managing to deceive unsuspecting audiences."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Predicting Fake News with ML"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://xsleaks.dev/docs/2code/3sint/"><title>Predicting Fake News with ML | Ricardo Chin</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.4b874ff9f7c2fbda179c7321369152217ebdbe4eba8fdd827500d1f828e667db.js integrity="sha256-S4dP+ffC+9oXnHMhNpFSIX69vk66j92CdQDR+CjmZ9s=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://xsleaks.dev/docs/2code/3sint/index.xml title="Ricardo Chin"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.b3f634561f8f2ac18f46a7799364ea4481e5fb0e3601acff3521de7d13ba5fd7.js integrity="sha256-s/Y0Vh+PKsGPRqd5k2TqRIHl+w42Aaz/NSHefRO6X9c=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://xsleaks.dev/docs/2code/3sint/index.xml title="Ricardo Chin"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/4mcomp/>Finite Element Model Formulation</a><ul></ul></li><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Project Design</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>RedBull Drone Racing</a><ul></ul></li><li><a href=/docs/2code/3sint/ class=active>Predicting Fake News with ML</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/3research/>Research</a><ul><li><a href=/docs/3research/1ebeam/>Electron Beam Welding</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Predicting Fake News with ML</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#a-growing-case>A Growing Case</a></li></ul></nav></aside></header><article class=markdown><h1 id=language-characteristics-for-detection-of-fake-news>Language Characteristics for Detection of Fake News
 <a class=anchor href=#language-characteristics-for-detection-of-fake-news>#</a></h1><h2 id=a-growing-case>A Growing Case
 <a class=anchor href=#a-growing-case>#</a></h2><p>Fake news, a term emblematic of fabricated information intentionally disseminated across traditional news outlets or online social platforms, embodies deliberate disinformation strategies. These falsehoods aim to tarnish individuals, entities, or gain financial or political advantages, often employing misleading, attention-grabbing headlines. Some counterfeit news pieces disguise themselves as satirical content, sounding incredulous to the point of absurdity, yet managing to deceive unsuspecting audiences.</p><p>The proliferation of digital media and social networks has led to a rampant increase in fake news dissemination, presenting a contemporary societal challenge. Misinformation, with its potential to adversely impact lives, demands the crucial ability to differentiate between genuine and counterfeit news. This task is intricate; genuine news might appear implausible to the average reader, while fake news endeavours to appear credible.</p><p>Addressing this contemporary issue involves the automatic identification and prevention of fake news dissemination. Efforts by digital corporations and journalistic agencies have attempted to combat fake news, but these solutions have shown imperfections. Academic research has delved into understanding the propagation of fake news, recognizing language usage as a vital parameter in these investigations.</p><p>Studies such as those by Mahyoob in his paper titled <a href=https://www.researchgate.net/publication/345997025_Linguistic-Based_Detection_of_Fake_News_in_Social_Media>Linguistic-Based Detection of Fake News in Social Media</a> and by Preston <a href=https://pubmed.ncbi.nlm.nih.gov/33705405/>Detecting fake news on Facebook: The role of emotional intelligence</a> shed light on the analysis of language characteristics in detecting fake news, providing insights, particularly for this application within the context of Portuguese news.</p><p>Additionally, reports by <a href=https://www.factcheck.org/fake-news/>Facebook and FactCheck.org</a> detail the challenges and strategies in combatting misinformation, emphasizing the significance of linguistic analysis in verifying news authenticity.</p><p>In this project, drawing upon a meticulously curated corpus comprising 3600 true and 3600 fake Portuguese news samples, collected from January 2016 to January 2018, I aimed to automatically identify fake news using aforementioned language characteristics. This endeavour relied on analyzing 21 specific language traits meticulously classified by the corpus&rsquo; authors to transform news articles into metadata, aligning with methodologies outlined by academic works and industry efforts in the field.</p><p>The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.</p><h1 id=data-preprocessing>Data Preprocessing
-<a class=anchor href=#data-preprocessing>#</a></h1><link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script><script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>\[\begin{table}[hbt!]
-\begin{center}
-\begin{tabular}{ |c|c| }
-\hline
-Number & Feature \\
-\hline
-1 & number of tokens \\
-\hline
-2& number of words without punctuation \\
-\hline
-3& number of types \\
-\hline
-4& number of links inside the news\\
-\hline
-5& number of words in upper case\\
-\hline
-6& number of verbs\\
-\hline
-7& number of subjunctive and imperative verbs \\
-\hline
-8& number of nouns \\
-\hline
-9& number of adjectives\\
-\hline
-10& number of adverbs \\
-\hline
-11& number of modal verbs (mainly auxiliary verbs) \\
-\hline
-12& number of singular first and second personal pronouns \\
-\hline
-13& number of plural first personal pronouns \\
-\hline
-14& number of pronouns\\
-\hline
-15& pausality\\
-\hline
-16& number of characters\\
-\hline
-17& average sentence length \\
-\hline
-18& average word length\\
-\hline
-19& percentage of news with spelling errors\\
-\hline
-20& emotiveness \\
-\hline
-21& diversity \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Features}
-\label{table:finalresults}
-\end{table}\]</span></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/3sint/_index.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<a class=anchor href=#data-preprocessing>#</a></h1><p>Following the problem description, there are 21 features to be analyzed:</p><table><thead><tr><th>Number</th><th>Feature</th></tr></thead><tbody><tr><td>1</td><td>number of tokens</td></tr><tr><td>2</td><td>number of words without punctuation</td></tr><tr><td>3</td><td>number of types</td></tr><tr><td>4</td><td>number of links inside the news</td></tr><tr><td>5</td><td>number of words in upper case</td></tr><tr><td>6</td><td>number of verbs</td></tr><tr><td>7</td><td>number of subjunctive and imperative verbs</td></tr><tr><td>8</td><td>number of nouns</td></tr><tr><td>9</td><td>number of adjectives</td></tr><tr><td>10</td><td>number of adverbs</td></tr><tr><td>11</td><td>number of modal verbs (mainly auxiliary verbs)</td></tr><tr><td>12</td><td>number of singular first and second personal pronouns</td></tr><tr><td>13</td><td>number of plural first personal pronouns</td></tr><tr><td>14</td><td>number of pronouns</td></tr><tr><td>15</td><td>pausality</td></tr><tr><td>16</td><td>number of characters</td></tr><tr><td>17</td><td>average sentence length</td></tr><tr><td>18</td><td>average word length</td></tr><tr><td>19</td><td>percentage of news with spelling errors</td></tr><tr><td>20</td><td>emotiveness</td></tr><tr><td>21</td><td>diversity</td></tr></tbody></table><p>The initial step towards obtaining meaningful results involves preprocessing the available data. Determining which features to utilize for further division into training and testing sets was a crucial decision point, expounded upon in the following section. <strong>How were these features selected?</strong></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/3sint/_index.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#a-growing-case>A Growing Case</a></li></ul></nav></div></aside></main></body></html>
