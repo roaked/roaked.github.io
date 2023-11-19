@@ -1,5 +1,5 @@
 ---
-title: Industrial Automation
+title: "Industrial Automation"
 weight: 6
 ---
 
