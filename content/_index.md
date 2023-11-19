@@ -7,7 +7,16 @@ type: docs
 
 ### Ricardo. 26. Portugal / China.
 
+
+{{< columns >}}
+
 With a master's degree in mechanical engineering (got some honors, too!) specialized in simulation and all those various technical aspects, coupled with exploration in modern materials science research, I've found myself super into all sorts of computer science stuff circling back to the roots of my bachelor's journey.
+
+<--->
+
+![pic](https://live.staticflickr.com/65535/53342909673_50cb020c56_n.jpg)
+
+{{< /columns >}}
 
 I'm really into pushing boundaries and adding my own twist to science. That said, my sweet spot? Mixing my expertise in FEA with AI using my software skills to shake up engineering solutions. From conceptualization to realization, I'm all about making the design process better, using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation.
 
