@@ -13,6 +13,8 @@ The proliferation of digital media and social networks has led to a rampant incr
 
 Addressing this contemporary issue involves the automatic identification and prevention of fake news dissemination. Efforts by digital corporations and journalistic agencies have attempted to combat fake news, but these solutions have shown imperfections. Academic research has delved into understanding the propagation of fake news, recognizing language usage as a vital parameter in these investigations.
 
+![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
+
 Studies such as those by Mahyoob in his paper titled [Linguistic-Based Detection of Fake News in Social Media](https://www.researchgate.net/publication/345997025_Linguistic-Based_Detection_of_Fake_News_in_Social_Media) and by Preston [Detecting fake news on Facebook: The role of emotional intelligence](https://pubmed.ncbi.nlm.nih.gov/33705405/) shed light on the analysis of language characteristics in detecting fake news, providing insights, particularly for this application within the context of Portuguese news.
 
 Additionally, reports by [Facebook and FactCheck.org](https://www.factcheck.org/fake-news/) detail the challenges and strategies in combatting misinformation, emphasizing the significance of linguistic analysis in verifying news authenticity.
@@ -242,3 +244,48 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 | [6 6 6]         | 96.6%        | 88.6%               |
 | [2 2 2 2]       | 96.8%        | 88.8%               |
 | [4 4 4 4]       | 96.8%        | 88.7%               |
+
+## 1.5 Outcomes
+
+{{< details "**Study:** Confusion matrices results - (click to expand)" close >}}
+
+
+{{< /details >}}
+
+### 1.5.1 Outcome Interpretation
+
+After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
+
+| Model Methods               | ANN   | T-S FIS | FCM   | KM    |
+|-----------------------------|-------|---------|-------|-------|
+| All Features Accuracy       | 97.3% | 95.9%   | 94.1% | 94.1% |
+| All Features True Positive  | 96.6% | 93.8%   | 93.3% | 93.3% |
+| All Features False Positive | 2.9%  | 1.9%    | 5.2%  | 5.2%  |
+| Linguistic Features Accuracy| 89.0% | 87.6%   | 87.1% | 87.0% |
+| Linguistic Features True Positive| 86.7% | 85.8% | 89.2% | 89.1% |
+| Linguistic Features False Positive| 8.8% | 10.5% | 15.1% | 15.2% |
+
+
+Upon reviewing the results from the testing set, the anticipated hierarchy of performance among models held true: neural networks outperformed fuzzy models, which, in turn, surpassed clustering methods. The accuracies obtained for all features were as follows: Artificial Neural Network (ANN) at 97.3%, Takagi-Sugeno Fuzzy Inference System (T-S FIS) at 95.9%, Fuzzy Clustering Means (FCM) at 94.1%, and K-Means (KM) also at 94.1%. As expected, the use of only linguistic features resulted in lower accuracies due to fewer comparison terms.
+
+Observing the performance on training versus testing sets revealed slight overfitting in the NN and T-S FIS models, showcasing approximately 1% higher accuracy in the training set. To address this issue, augmenting the dataset and employing regularization techniques could enhance model generalization, ensuring better learning of patterns from the training data.
+
+Interestingly, FCM and KM showed closely aligned results, especially with linguistic features where they were identical. Altering the exponent for the fuzzy partition matrix could prompt FCM to converge towards KM values.
+
+All methods exhibited accuracies exceeding 94% when using all features, indicating proficient performance in categorizing news. This implies that out of 7200 news pieces, more than 6760 were accurately identified based on their features, with the highest accuracy of 97.3% signaling misclassification of only about 200 news articles.
+
+Using solely linguistic features yielded satisfactory results, with all methods achieving accuracy equal to or greater than 87%. This indicates that, among 7200 news items, more than 6264 were correctly categorized based on their features. However, the highest accuracy of 89.1% suggested misidentification of 784 news articles.
+
+It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.
+
+### 1.5.2 My Thoughts on Applying Machine Learning for Fake News Detections
+
+Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
+
+Sure, the accuracy obtained was good enough for the work performed, but in the real world, aiming for near-perfect accuracy—like nudging towards that 100% mark—holds serious weight. Think about it, labeling something as fake when it's not, or the other way around, carries hefty ethical, legal, and economic implications.
+
+Boosting accuracy is a puzzle. Tweaking model parameters or even experimenting with more clusters might help, but there's a catch—those simulations could drag on forever. Another trick is amping up the features, like diving into the writing style or digging into the website URL to suss out if the source is trustworthy. But beware, piling up features might lead to overfitting headaches.
+
+I could've explored different models too; who knows, they might've bumped up the accuracy. Or, here's a thought: splitting news by their subject could've been a game-changer. I mean, the language in political news can be totally different from religious or society-related stuff.
+
+Here's the kicker though: who's the big shot deciding if an article's legit or not? Right now, it's mostly on the audience to figure that out. But can we really rely solely on them to spot the good from the bad? Food for thought, right?
