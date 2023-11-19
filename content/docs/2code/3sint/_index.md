@@ -19,3 +19,62 @@ In this project, drawing upon a meticulously curated corpus comprising 3600 true
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
 
+
+{{< katex display >}}
+
+\begin{table}[hbt!]
+\begin{center}
+\begin{tabular}{ |c|c| } 
+\hline
+Number & Feature    \\
+\hline
+1 & number of tokens \\
+\hline
+2& number of words without punctuation \\
+\hline
+3& number of types  \\
+\hline
+4& number of links inside the news\\
+\hline
+5& number of words in upper case\\
+\hline
+6& number of verbs\\
+\hline
+7& number of subjunctive and imperative verbs \\
+\hline
+8& number of nouns \\
+\hline
+9& number of adjectives\\
+\hline
+10& number of adverbs \\
+\hline
+11& number of modal verbs (mainly auxiliary verbs) \\
+\hline
+12& number of singular first and second personal pronouns \\
+\hline
+13& number of plural first personal pronouns \\
+\hline
+14& number of pronouns\\
+\hline
+15& pausality\\
+\hline
+16& number of characters\\
+\hline
+17& average sentence length \\
+\hline
+18& average word length\\
+\hline
+19& percentage of news with spelling errors\\
+\hline
+20& emotiveness \\
+\hline
+21& diversity \\
+\hline
+
+\end{tabular}
+\end{center}
+\caption{Features}
+\label{table:finalresults}
+\end{table}
+
+{{< /katex >}} 
