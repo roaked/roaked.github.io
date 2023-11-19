@@ -25,8 +25,7 @@ The goal of this project is to utilize established machine learning techniques, 
 
 Following the problem description, there are 21 features to be analyzed:
 
-<details>
-  <summary>Total amount of features (click to expand)</summary>
+{{< details "Features" close >}}
 | Number | Feature                                             |
 | ------ | ---------------------------------------------------- |
 | 1      | number of tokens                                    |
@@ -50,6 +49,7 @@ Following the problem description, there are 21 features to be analyzed:
 | 19     | percentage of news with spelling errors              |
 | 20     | emotiveness                                         |
 | 21     | diversity                                           |
+{{< /details >}}
 
 
 The initial step towards obtaining meaningful results involves preprocessing the available data. Determining which features to utilize for further division into training and testing sets was a crucial decision point, expounded upon in the following section. **How were these features selected?**
