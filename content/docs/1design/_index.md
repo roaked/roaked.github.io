@@ -6,9 +6,11 @@ title: "Design Portfolio"
 
 # Workflow
 
-Hey there! Welcome to my project portfolio—an exciting showcase collected from my academic journey and collaborative endeavours. Within these digital pages, you'll immerse yourself in an environment driven by Computational Fluid Dynamics (CFD) and Finite Element Analysis (FEA), coupled with a plethora of 3D CAD project designs. From conceptualization to execution, these projects were born from late-night brainstorming sessions, leveraging cutting-edge tools to simulate fluid dynamics and structural mechanics, and to bring innovative 3D concepts to life -- Exploring the thrilling realm where design meets simulation!
+Hey hey! Welcome to my design project hangout — a mashup of my academic journey and awesome collaborations. This place is packed with my adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and loads of cool 3D CAD projects.
 
-I am always open to collaborate in any design projects!
+Picture this: late-night brainstorming, diving into simulations of fluid dynamics, thermal analysis, and structural mechanics, and then making those wild ideas real. It's like a ride where design and simulation crash together in the coolest ways.
+
+I'm totally up for collaborating on any design projects — let's create something new!
 
 ![12e](https://wallpapercave.com/dwp1x/wp9380795.png)
 

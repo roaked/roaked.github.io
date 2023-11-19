@@ -7,10 +7,17 @@ title: "Coding Portfolio"
 
 # Workflow Summary
 
-Some of the projects showcased here are the fruits of my academic endeavors. From tackling algorithmic puzzles to delving into data analysis, these ventures represent the learning milestones that shaped my coding proficiency.
 
-Beyond academia, I've collaborated with a bunch of amazing friends on side projects that fuse fun and innovation. Together, we've developed exciting apps, tinkered with robotics, and even ventured into the world of AI, all driven by our shared passion for coding and tech.
+Hey hey! Welcome to my coding project hub — a spot where you'll find the fruits of my academic hustle. These projects? They're like little milestones in my coding journey, from cracking algorithmic puzzles to diving deep into data analysis.
 
-I believe in the power of code to turn ideas into reality and am thrilled to share a glimpse of my coding escapades with you. Feel free to explore these projects; I hope they bring as much joy to you as they did to me!
+But hey, it's not just textbooks and lectures (though I have a soft spot for the math and logic behind it) — I've teamed up with some awesome friends from all corners of the globe. My playground has been a mix of deciphering data, diving into the realms of AI, tinkering with robotics, and optimizing systems using clever computational techniques.
 
-Drop me a message, let's share ideas or discuss the latest tech trends. Meanwhile, enjoy this little coding-themed gif! 🤓✨
+I'm a firm believer in code's magic to bring ideas to life, and I'm stoked to give you a peek into my coding adventures. Take a tour through these projects; hope they spark as much joy in you as they did in me!
+
+Shoot me a message if you are interested in more. 🤓✨
+
+
+
+
+
+
