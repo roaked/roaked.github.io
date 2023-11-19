@@ -1,5 +1,5 @@
 ---
-title: Predicting Fake News with ML 
+title: Deep Learning on Fake News
 weight: 3
 ---
 
