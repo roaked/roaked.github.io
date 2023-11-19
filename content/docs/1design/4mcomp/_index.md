@@ -5,7 +5,7 @@ title: "Finite Element Model Formulation"
 
 ---
 
-# 1. Mathematical Background
+# Mathematical Background
 
 ## 1.1 Partial Differential Equations (PDEs)
 
