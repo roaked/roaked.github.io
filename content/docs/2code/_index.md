@@ -5,7 +5,7 @@ title: "Coding Portfolio"
 
 ---
 
-# Workflow Summary
+# Workflow
 
 
 Hey hey! Welcome to my coding project hub — a spot where you'll find the fruits of my academic hustle. These projects? They're like little milestones in my coding journey, from cracking algorithmic puzzles to diving deep into data analysis.
