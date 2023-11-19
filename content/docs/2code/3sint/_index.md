@@ -13,7 +13,7 @@ The proliferation of digital media and social networks has led to a rampant incr
 
 Addressing this contemporary issue involves the automatic identification and prevention of fake news dissemination. Efforts by digital corporations and journalistic agencies have attempted to combat fake news, but these solutions have shown imperfections. Academic research has delved into understanding the propagation of fake news, recognizing language usage as a vital parameter in these investigations.
 
-![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
+![fakee](https://media3.giphy.com/media/VDTOChMWX1BmFflzyr/giphy.gif)
 
 Studies such as those by Mahyoob in his paper titled [Linguistic-Based Detection of Fake News in Social Media](https://www.researchgate.net/publication/345997025_Linguistic-Based_Detection_of_Fake_News_in_Social_Media) and by Preston [Detecting fake news on Facebook: The role of emotional intelligence](https://pubmed.ncbi.nlm.nih.gov/33705405/) shed light on the analysis of language characteristics in detecting fake news, providing insights, particularly for this application within the context of Portuguese news.
 
@@ -254,7 +254,7 @@ I will add these plots later... I have both a MATLAB and Python code for this.
 
 {{< /details >}}
 
-### 1.5.1 Outcome Interpretation
+### 1.5.1 Results Interpretation
 
 After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
 
@@ -280,6 +280,8 @@ Using solely linguistic features yielded satisfactory results, with all methods 
 
 It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.
 
+![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
+
 ### 1.5.2 My Thoughts on Applying Machine Learning for Fake News Detections
 
 Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
@@ -291,3 +293,4 @@ Boosting accuracy is a puzzle. Tweaking model parameters or even experimenting w
 I could've explored different models too; who knows, they might've bumped up the accuracy. Or, here's a thought: splitting news by their subject could've been a game-changer. I mean, the language in political news can be totally different from religious or society-related stuff.
 
 Here's the kicker though: who's the big shot deciding if an article's legit or not? Right now, it's mostly on the audience to figure that out. But can we really rely solely on them to spot the good from the bad? Food for thought, right?
+
