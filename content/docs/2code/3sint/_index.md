@@ -5,7 +5,7 @@ weight: 3
 
 # Language Characteristics for Detection of Fake News 
 
-## A Growing Case
+## 1.1 A Growing Case
 
 Fake news, a term emblematic of fabricated information intentionally disseminated across traditional news outlets or online social platforms, embodies deliberate disinformation strategies. These falsehoods aim to tarnish individuals, entities, or gain financial or political advantages, often employing misleading, attention-grabbing headlines. Some counterfeit news pieces disguise themselves as satirical content, sounding incredulous to the point of absurdity, yet managing to deceive unsuspecting audiences.
 
@@ -21,7 +21,7 @@ In this project, drawing upon a meticulously curated corpus comprising 3600 true
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
 
-## Approach Brainstorming
+## 1.2 Approach Brainstorming
 
 Following the problem description, there are 21 features to be analyzed:
 
@@ -60,9 +60,9 @@ Consideration for computational resources remained pivotal. The project emphasiz
 
 Finally, acknowledging the variance in model results across simulations and the potential for parameter customization, efforts focused on identifying optimal parameter values for maximizing accuracy within each model. This iterative approach aimed to fine-tune model parameters for improved performance, considering the inherent variability in results across different simulations.
 
-## Data Preprocessing
+## 1.3 Data Preprocessing
 
-The dataset utilized in this project originated from the "Fake.Br Corpus" directly available at *Roney Santos'* [github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.
+The dataset utilized in this project originated from the ["Fake.Br Corpus" directly available at *Roney Santos'* github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.
 
 This corpus originally contained complete news articles. However, the focus narrowed down to extract the essential features embedded within each news piece. All data was initially formatted in .txt files, necessitating the development of a [MATLAB script](https://github.com/roaked/fake-news-machine-learning/blob/main/Preprocessing.m) to convert it into a more manageable .mat format.
 
@@ -92,6 +92,13 @@ metaTargets = [metaTargetsTrue metaTargetsFake]
 
 As it is seen, this transformation yielded two primary files: 'metaInputs.mat,' housing parameters for all news articles, and 'metaTargets.mat,' distinguishing true news (indicated by a '1' in the first row) from false news (marked with a '0' in the second row). To simplify navigation, a structural layout was adopted: the first half of the parameter files consistently represented true news, while the subsequent half constituted false news. This deliberate arrangement facilitated easier comprehension through the interpretation of variables and generated plots.
 
-The dataset underwent a division into training and validation subsets. Employing a random selection method, 75% of the dataset was allocated for model training, while the remaining 25% served as a validation set.
+The dataset underwent a division into training and validation subsets. Employing a random selection method, **75% of the dataset was allocated for model training, while the remaining 25% served as a validation set**.
 
-Analyzing the pivotal features responsible for differentiating between authentic and deceptive news involved employing various statistical methods such as 'corrplot,' 'matrixplot,' and 'boxplot.' However, the outcomes indicated that many features exhibited high non-linearity, posing a challenge in extracting meaningful correlations and insights, as depicted in the subsequent figure.
+Analyzing the pivotal features responsible for differentiating between authentic and deceptive news involved employing various statistical methods such as 'corrplot,' 'matrixplot,' and 'boxplot'. However, the outcomes indicated that many features exhibited high non-linearity, posing a challenge in extracting meaningful correlations and insights.
+
+The only meaningful contribution came from the [**Boxplot.py Python function**]((https://github.com/roaked/fake-news-machine-learning/blob/main/Boxplot.py)) given its concise visualization using key statistics like the minimum, quartiles, median, and maximum values, providing insights into data distribution. It efficiently identifies outliers, assesses symmetry, measures data clustering, and detects potential skewness in the dataset.
+
+## 1.4 Methodology
+
+Previously, all methods were initially applied to the entire set of features, followed by a re-execution using only the linguistic features for comparison. This approach aimed to gauge the potential trade-off between accuracy and computational efficiency, as eliminating numerous features could expedite processing time. Moreover, the objective shifted from merely identifying blatantly obvious fake news (e.g., those with poor punctuation or grammar) to developing a model adept at detecting less instances of misinformation, as indicated by the selected linguistic features.
+
