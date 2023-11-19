@@ -125,10 +125,9 @@ K-means clustering partitions observations into sets to minimize the within-clus
 - S denotes the set of clusters.
 - k represents the number of clusters.
 - x is a data point.
-- {{< katex display >}}\mu_i{{< /katex >}}  signifies the centroid associated with cluster i.
-- {{< katex display >}}S_i{{< /katex >}} indicates the {{< katex display >}}i^{th}{{< /katex >}}  cluster.
-- {{< katex display >}}\|\|_2^2{{< /katex >}}  denotes the squared Euclidean distance.
-- {{< katex display >}}\text{Var}(S_i){{< /katex >}}  represents the variance of cluster i.
+- \mu_i signifies the centroid associated with cluster i.
+- S_i indicates the i^{th}  cluster.
+- Var(S_i) represents the variance of cluster i.
 {{< /details >}}
 
 
@@ -148,10 +147,9 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 - n represents the number of data elements.
 - c denotes the number of fuzzy clusters.
 - x_i  represents a data point.
-- {{< katex display >}}c_j{{< /katex >}}  signifies the {{< katex display >}}j^{th}{{< /katex >}}  cluster center.
-- {{< katex display >}}w_{ij}{{< /katex >}}  represents the degree to which {{< katex display >}}x_i{{< /katex >}}  belongs to cluster {{< katex display >}}j{{< /katex >}} .
+- c_j  signifies the j^{th} cluster center.
+- w_{ij}  represents the degree to which x_i belongs to cluster j.
 - m represents the fuzzifier controlling cluster fuzziness.
-- {{< katex display >}}\|\|_2^2{{< /katex >}}  denotes the squared Euclidean distance.
 {{< /details >}}
 
 Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
