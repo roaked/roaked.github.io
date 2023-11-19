@@ -102,3 +102,53 @@ The only meaningful contribution came from the [**Boxplot.py Python function**](
 
 Previously, all methods were initially applied to the entire set of features, followed by a re-execution using only the linguistic features for comparison. This approach aimed to gauge the potential trade-off between accuracy and computational efficiency, as eliminating numerous features could expedite processing time. Moreover, the objective shifted from merely identifying blatantly obvious fake news (e.g., those with poor punctuation or grammar) to developing a model adept at detecting less instances of misinformation, as indicated by the selected linguistic features.
 
+### 1.4.1 Clustering
+
+The clustering classification method involves creating distinct clusters based on the available features and assigning each cluster a class label, distinguishing between true and fake news.
+
+Two types of clustering techniques, fuzzy c-means and k-means clustering, were employed. Crisp clustering algorithms allocate each data point to a single cluster based on quantified similarity, while fuzzy clustering allows varying degrees of membership to multiple clusters, reflecting diverse similarities.
+
+Determining the optimal number of clusters was an initial consideration. Initially, there was a belief that higher cluster counts might yield better results, supported by a [MATLAB function 'evalclusters'](https://www.mathworks.com/help/stats/evalclusters.html). However, a comprehensive study later revealed this wasn't always the case.
+
+Commencing with K-Means clustering, an algorithm using centroids and distance metrics, data points are associated with the nearest centroid, often calculated using squared Euclidean distances.
+
+K-means clustering partitions observations into sets to minimize the within-cluster sum of squares. The **objective function** minimizes the variance by grouping observations into clusters.
+
+{{< katex display >}}
+Objective F = \text{argmin}_S k \sum_{i=1}^{k} \sum_{x \in S_i} \| x - \mu_i \|_2^2 = \text{argmin}_S k \sum_{i=1}^{k} |S_i| \text{Var}(S_i)
+
+\text(Given:)
+& S \text{ denotes the set of clusters.} \
+& k \text{ represents the number of clusters.} \
+& x \text{ is a data point.} \
+& \mu_i \text{ signifies the centroid associated with cluster } i. \
+& S_i \text{ indicates the } i^{th} \text{ cluster.} \
+& ||_2^2 \text{ denotes the squared Euclidean distance.} \
+& \text{Var}(S_i) \text{ represents the variance of cluster } i.
+{{< /katex >}} 
+
+Identifying clusters containing fake news varied across simulations due to differing cluster numbering. To resolve this, the mode was employed to determine the cluster with the most data points, logically corresponding to fake news, given an equal split between true and fake data points.
+
+Subsequently, fuzzy c-means clustering was executed, allowing data points to belong to multiple clusters with varying degrees of membership. Parameters such as the initial number of clusters 'c' and the exponent controlling fuzzy overlap 'm' were fine-tuned to optimize accuracy.
+
+The FCM algorithm partitions a collection of data into fuzzy clusters, returning cluster centers and a partition matrix indicating each data point's degree of belonging to clusters.
+
+{{< katex display >}}
+Objective F = \text{argmin}_C \sum_{i=1}^{n} \sum_{i=1}^{c} w_{ij}^m \| x_i - c_j \|_2^2
+
+\text(Given:)
+& C \text{ signifies the collection of clusters.} \
+& n \text{ represents the number of data elements.} \
+& c \text{ denotes the number of fuzzy clusters.} \
+& x_i \text{ represents a data point.} \
+& c_j \text{ signifies the } j^{th} \text{ cluster center.} \
+& w_{ij} \text{ represents the degree to which } x_i \text{ belongs to cluster } j. \
+& m \text{ represents the fuzzifier controlling cluster fuzziness.} \
+& ||_2^2 \text{ denotes the squared Euclidean distance.}
+{{< /katex >}} 
+
+Where 
+
+Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
+
+
