@@ -22,7 +22,7 @@ Breaking it down this way helps in focusing on and understanding each aspect sep
 The actuation subsystem involves individual DC motors powering propellers to generate lift forces in the drone's four independently controlled motors (i=1,2,3,4). The values of I and {{< katex >}}\Omega{{< /katex >}} change over time based on the applied motor voltage, Vm, while constants like Lm, Rm, Ke, Kt, and Jm characterize the motor. This results in a second-order system for each drone motor, expressed as:
 
 {{< katex display >}}
-\dot{\tilde{x}} = A\tilde{x} + B\tilde{u} = \begin{bmatrix} \dot{\tilde{I}}_i \\ \dot{\tilde{\Omega}} \end{bmatrix} = \begin{bpmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \begin{bmatrix} \tilde{I}_i \\ \Omega \end{bmatrix} + \begin{bmatrix} b_2 \\ 0 \end{bmatrix} \tilde{V}_m
+\dot{\tilde{x}} = A\tilde{x} + B\tilde{u} = \begin{bmatrix} \dot{\tilde{I}}_i \\ \dot{\tilde{\Omega}} \end{bmatrix} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \begin{bmatrix} \tilde{I}_i \\ \Omega \end{bmatrix} + \begin{bmatrix} b_2 \\ 0 \end{bmatrix} \tilde{V}_m
 {{< /katex >}}
 
 {{< katex display >}}
@@ -106,4 +106,81 @@ I_i \\
 L_{m1} \\
 0
 \end{pmatrix} \tilde{V}_{mi}
+{{< /katex >}}  
+
+The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}} and {{< katex >}}\tilde{\Omega}_i{{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}}\tilde{V}_m^i{{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
+
+{{< katex display >}}
+
+\begin{align*}
+\begin{bmatrix}
+\dot{\tilde{I}}_1 \\
+\dot{\tilde{\Omega}}_1 \\
+\dot{\tilde{I}}_2 \\
+\dot{\tilde{\Omega}}_2 \\
+\dot{\tilde{I}}_3 \\
+\dot{\tilde{\Omega}}_3 \\
+\dot{\tilde{I}}_4 \\
+\dot{\tilde{\Omega}}_4 \\
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+A_1 & 0 & 0 & 0 \\
+0 & A_2 & 0 & 0 \\
+0 & 0 & A_3 & 0 \\
+0 & 0 & 0 & A_4 \\
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{I}_1 \\
+\tilde{\Omega}_1 \\
+\tilde{I}_2 \\
+\tilde{\Omega}_2 \\
+\tilde{I}_3 \\
+\tilde{\Omega}_3 \\
+\tilde{I}_4 \\
+\tilde{\Omega}_4 \\
+\end{bmatrix}
++
+\begin{bmatrix}
+B_1 & 0 & 0 & 0 \\
+0 & B_2 & 0 & 0 \\
+0 & 0 & B_3 & 0 \\
+0 & 0 & 0 & B_4 \\
+\end{bmatrix}
+\begin{bmatrix}
+\dot{\tilde{V}}_{m1} \\
+0 \\
+\dot{\tilde{V}}_{m2} \\
+0 \\
+\dot{\tilde{V}}_{m3} \\
+0 \\
+\dot{\tilde{V}}_{m4} \\
+0 \\
+\end{bmatrix} \\
+(\text{13})
+\begin{bmatrix}
+\tilde{\Omega}_1 \\
+\tilde{\Omega}_2 \\
+\tilde{\Omega}_3 \\
+\tilde{\Omega}_4 \\
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{I}_1 \\
+\tilde{\Omega}_1 \\
+\tilde{I}_2 \\
+\tilde{\Omega}_2 \\
+\tilde{I}_3 \\
+\tilde{\Omega}_3 \\
+\tilde{I}_4 \\
+\tilde{\Omega}_4 \\
+\end{bmatrix}
+\end{align*}
+
 {{< /katex >}}  
