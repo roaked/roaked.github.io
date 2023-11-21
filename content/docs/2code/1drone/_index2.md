@@ -215,3 +215,19 @@ With this outcome in consideration, we can represent the angular velocities {{< 
 
 
 This process essentially proportionally adjusts the input variables​ {{< katex >}}\delta_i{{< /katex >}}. Labeling the diagonal matrix as {{< katex >}}T_M{{< /katex >}} we can express this relationship by considering the linear deviations around the nominal operating point.
+
+
+{{< katex display >}}
+
+\tilde{\Omega} = T_M \tilde{\delta}
+{{< /katex >}}  
+
+#### 1.1.2 Transfer Function Model
+
+With the state space model acquired for the actuation subsystem, it is possible to derive the transfer function.
+
+{{< katex display >}}
+G(s) = C(sI - A)^{-1}B + D
+{{< /katex >}}  
+
+The relationship between the output (angular speed ​ {{< katex >}}\tilde{\Omega}_i{{< /katex >}}) and the input (applied voltage ​ {{< katex >}}\tilde{V}_{mi}{{< /katex >}}) is expressed as the transfer function:
