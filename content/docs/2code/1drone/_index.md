@@ -35,13 +35,13 @@ Given how complex this project turned out to be, I have decided to structure it 
 
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 
-Follow the left sidebar for more!
+**Follow the left sidebar for more!**
 
 
 ## 4 Drone Characteristics
 
 {{< details "**Drone parameters** - click to expand" close >}}
-
+{{< katex display >}}
 \text{Mass } M : 0.475 \, \text{kg} \\
 \text{Moment of inertia } J_{xx} : 2.2 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
 \text{Moment of inertia } J_{yy} : 2.5 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
@@ -52,5 +52,5 @@ Follow the left sidebar for more!
 \text{Momentum constant } K_Q : 0.32 \times 10^{-6} \, \text{Nm} \cdot \text{(rad/s)}^{-2} \\
 \text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
 \text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
-
+{{< /katex >}}
 {{< /details>}}
