@@ -1,9 +1,9 @@
 ---
-title: Drone Dynamics & Controller  /// [Literature Revision Needed]
+title: Drone Dynamics /// [Literature Revision Needed]
 weight: 2
 ---
 
-# System Dynamics & Controller 
+# System Dynamics
 
 ## 1 System Dynamics Modeling 
 
@@ -242,6 +242,39 @@ When the aforementioned parameters are replaced with typical values for a DC mot
 G(s) = \frac{4.901 \times 10^6}{s^2 + 576.3s + 1.687 \times 10^5}
 {{< /katex >}}  
 
+#### 1.1.3 Stability
+
+To assess stability, the system poles need computation, achievable through two approaches. First, by determining the roots of the denominator the defined transfer function G(s), or second, by computing the eigenvalues of matrix A as depicted as follows:
+
+{{< katex display >}}
+\text{det}(sI - A) = s^2 + 576.3s + 1.687 \times 10^5 = 0 \quad \Leftrightarrow \quad s = -288.13 \pm 292.67i \quad (21)
+{{< /katex >}}  
+
+The poles, located in the left half-plane and forming complex conjugates, signify system stability. Expect an overshoot with a step input. The unit step response demonstrates a small overshoot ({{< katex >}}M_p{{< /katex >}} = 4.54%) and rapid system response ({{< katex >}}T_s{{< /katex >}} = 0.15s). Consequently, approximating the actuation subsystem as a static gain seems plausible. The root locus plot confirms system stability across various proportional controllers.
+
+![step1](https://live.staticflickr.com/65535/53346470672_2611f02168_c.jpg)
+
+
+#### 1.1.4 Controllability
+
+The controllability of a state space model implies the capability to transition any initial state to a final state through a finite control action within a finite duration. This assurance exists when the rank of matrix C matches the dimension of the previously defined state vector, represented as n.
+For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /katex >}} is thus expressed as follows. Upon observation, it's evident that C holds a rank of 2, affirming the system's controllability.
+
+{{< katex display >}}
+\mathcal{C} = [B \quad AB] = \begin{bmatrix} 1 & \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & 0 & \frac{Kt}{JmLm} \end{bmatrix} \quad (22)
+{{< /katex >}}
+
+
+#### 1.1.5 Observability
+
+Observability of a state space model implies the ability to deduce any initial state from the system output within a given time interval. This certainty prevails when the rank of the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} matches the dimension of the state vector.
+
+Given the state vector's dimension as n = 2, the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} is defined according to equation 23. Upon inspection, it's evident that the resulting matrix has a rank of 2, affirming the system's observability.
+
+{{< katex >}}\mathcal{O}{{< /katex >}} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ \frac{1}{Lm} & -\frac{Rm}{Lm} \end{bmatrix} \quad (23) \]
+
+
+### 1.2 Movement Subsytem
 
 
 

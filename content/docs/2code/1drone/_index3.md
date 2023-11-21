@@ -1,8 +1,6 @@
 ---
-title: Drone Computer Vision
-weight: 3
+title: Drone Controller Design Pt. 1 /// [Literature Revision Needed]
+weight: 2
 ---
 
-# Computer Vision for Real-Time Obstacle Detection
-
-## 1 Computer Vision
+# Controller Design
