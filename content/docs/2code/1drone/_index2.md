@@ -112,7 +112,6 @@ The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}}
 
 {{< katex display >}}
 
-\begin{align*}
 \begin{bmatrix}
 \dot{\tilde{I}}_1 \\
 \dot{\tilde{\Omega}}_1 \\
@@ -181,7 +180,6 @@ B_1 & 0 & 0 & 0 \\
 \tilde{I}_4 \\
 \tilde{\Omega}_4 \\
 \end{bmatrix}
-\end{align*}
 
 {{< /katex >}}  
 
