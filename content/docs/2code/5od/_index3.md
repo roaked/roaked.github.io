@@ -1,6 +1,6 @@
 ---
 title: "Particle Swarm Optimization"
-weight: 2
+weight: 3
 ---
 
 # Introduction

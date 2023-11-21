@@ -1,5 +1,5 @@
 ---
-title: "Genetic Algorithm"
+title: "Evolutionary Computation"
 weight: 1
 ---
 
