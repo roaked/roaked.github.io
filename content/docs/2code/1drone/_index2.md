@@ -316,8 +316,7 @@ Considering the four angular velocities from the motors as inputs {{< katex >}}\
 
 {{< katex display >}}
 \begin{bmatrix} \dot{\tilde{v}} \\ \dot{\tilde{\omega}} \\ \dot{\tilde{p}} \\ \dot{\tilde{\Phi}} \\ \end{bmatrix}
-=
-\begin{bmatrix} 0 & 0 & 0 & A_V \\ 0 & 0 & 0 & 0 \\ I_3 & 0 & 0 & 0 \\ 0 & I_3 & 0 & 0 \\ \end{bmatrix}
+= \begin{bmatrix} 0 & 0 & 0 & A_V \\ 0 & 0 & 0 & 0 \\ I_3 & 0 & 0 & 0 \\ 0 & I_3 & 0 & 0 \\ \end{bmatrix}
 \begin{bmatrix} \tilde{v} \\ \tilde{\omega} \\ \tilde{p} \\ \tilde{\Phi} \\ \end{bmatrix}
 +
 \begin{bmatrix} B_V \\ B_{\omega} \\ 0 \\ 0 \\ \end{bmatrix}
@@ -329,3 +328,75 @@ Where Av, Bv, Bω are given by:
 {{< katex display >}}
 A_V = \begin{bmatrix} 0 & -g & 0 \\ g & 0 & 0 \\ 0 & 0 & 0 \\ \end{bmatrix}, \quad B_V = \begin{bmatrix} 0 & 0 & 0 & 0 \\ g & 0 & 0 & 0 \\ -b_z -b_z -b_z -b_z \end{bmatrix}, \quad B_{\omega} = \begin{bmatrix} 0 & -b_p & 0 & b_p \\ b_q & 0 & -b_q & 0 \\ -b_q b_p -b_p b_p \\ \end{bmatrix}
 {{< /katex >}}
+
+The coefficients for the matrix {{< katex >}}B_V{{< /katex >}} and {{< katex >}}B_{\omega}{{< /katex >}} depend on the parameters of the quad rotor and flight conditions. But combining previous equations, it is obtained:
+
+{{< katex display >}}
+\begin{bmatrix}
+\dot{\tilde{v}}_x \\
+\dot{\tilde{v}}_y \\
+\dot{\tilde{v}}_z \\
+\dot{\tilde{\omega}}_x \\
+\dot{\tilde{\omega}}_y \\
+\dot{\tilde{\omega}}_z \\
+\dot{\tilde{p}}_x \\
+\dot{\tilde{p}}_y \\
+\dot{\tilde{p}}_z \\
+\dot{\tilde{\phi}} \\
+\dot{\tilde{\theta}} \\
+\dot{\tilde{\psi}} \\
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -g & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & g & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{v}_x \\
+\tilde{v}_y \\
+\tilde{v}_z \\
+\tilde{\omega}_x \\
+\tilde{\omega}_y \\
+\tilde{\omega}_z \\
+\tilde{p}_x \\
+\tilde{p}_y \\
+\tilde{p}_z \\
+\tilde{\phi} \\
+\tilde{\theta} \\
+\tilde{\psi} \\
+\end{bmatrix}
++
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+g & 0 & 0 & 0 \\
+-bz & -bz & -bz & -bz \\
+0 & -bp & 0 & bp \\
+bq & 0 & -bq & 0 \\
+-bq & bp & -bp & bp \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{\Omega}_1 \\
+\tilde{\Omega}_2 \\
+\tilde{\Omega}_3 \\
+\tilde{\Omega}_4 \\
+\end{bmatrix}
+{{< /katex >}}
+
+
+
+
