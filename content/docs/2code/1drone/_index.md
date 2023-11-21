@@ -23,7 +23,7 @@ The following topics are studied:
 
 This approach enhances drone maneuverability and agility when navigating intricate racecourses, elevates safety by detecting and avoiding obstacles in real time, and fine-tunes control algorithms for high-speed racing situations.
 
-## 3 Sections
+## 3 Division
 
 I have decided to structured into distinct sections to comprehensively cover various aspects of the design and coding parts:
 
