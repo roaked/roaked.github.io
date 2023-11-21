@@ -1,5 +1,5 @@
 ---
-title: RedBull Drone Racing Pt.1
+title: Drone Dynamics & Controller
 weight: 1
 ---
 
