@@ -9,7 +9,7 @@ weight: 2
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 
-- Actuation System: This handles the rotors' model, the forces they generate ({{< katex >}}F_p{{< /katex >}}), and the moments they create ({{< katex >}}M_p{{< /katex >}}). Each rotor gets an input voltage ({{< katex >}}\V_{m_i}{{< /katex >}}) and produces an angular velocity ({{< katex >}}\Omega{{< /katex >}} i).
+- Actuation System: This handles the rotors' model, the forces they generate ({{< katex >}}F_p{{< /katex >}}), and the moments they create ({{< katex >}}M_p{{< /katex >}}). Each rotor gets an input voltage ({{< katex >}}V_{m_i}{{< /katex >}}) and produces an angular velocity ({{< katex >}}\Omega_i{{< /katex >}}).
 
 - Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone's movement. It uses physics laws, dynamics, and kinematics to determine the drone's position and velocity.
 
@@ -397,6 +397,47 @@ bq & 0 & -bq & 0 \\
 \end{bmatrix}
 {{< /katex >}}
 
+It is revelant to note that another possibility would be to divide the quad rotor dynamics into six subsystems, instead of a big matrix. Following up the state equation, the output would translate to:
 
 
+{{< katex display >}}
+y = \begin{bmatrix} 0 & 0 & I_3 & 0 \\ 0 & 0 & 0 & I_3 \\ \end{bmatrix} \begin{bmatrix} \tilde{v} \\ \tilde{\omega} \\ \tilde{p} \\ \tilde{\Phi} \\ \end{bmatrix} = \begin{bmatrix} \tilde{p} \\ \tilde{\Phi} \\ \end{bmatrix}
 
+{{< /katex >}}
+
+Which would expand to:
+
+{{< katex display >}}
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{v}_x \\
+\tilde{v}_y \\
+\tilde{v}_z \\
+\tilde{\omega}_x \\
+\tilde{\omega}_y \\
+\tilde{\omega}_z \\
+\tilde{p}_x \\
+\tilde{p}_y \\
+\tilde{p}_z \\
+\tilde{\phi} \\
+\tilde{\theta} \\
+\tilde{\psi} \\
+\end{bmatrix}
+=\begin{bmatrix}
+\tilde{p}_x \\
+\tilde{p}_y \\
+\tilde{p}_z \\
+\tilde{\phi} \\
+\tilde{\theta} \\
+\tilde{\psi} \\
+\end{bmatrix}
+{{< /katex >}}
+
+### 1.2.1 Model Simplification and Analysis
