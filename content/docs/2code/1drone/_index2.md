@@ -1,5 +1,5 @@
 ---
-title: Drone Dynamics & Controller
+title: Drone Dynamics & Controller  /// [Literature Revision Needed]
 weight: 2
 ---
 
