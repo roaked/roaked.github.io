@@ -104,7 +104,7 @@ The linearized state space model for each actuation subsystem, where the output 
 \tilde{\Omega}_i
 \end{bmatrix} + \begin{bmatrix}
 \frac{1}{L_m} \\
-0
+0 \\
 \end{bmatrix} \tilde{V}_{mi}
 {{< /katex >}}  
 
@@ -190,7 +190,7 @@ Each matrix Ai and Bi represent a 2 × 2 matrix. As all four motors share identi
 \delta_i = K_{\Omega} \Omega_i
 {{< /katex >}}  
 
-With this outcome in consideration, we can represent the angular velocities {{< katex >}}\Omega_i{{< /katex >}} solely as a function of the voltage constant {{< katex >}}K_{\Omega}_i{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
+With this outcome in consideration, the angular velocities {{< katex >}}\Omega_i{{< /katex >}} can be presented solely as a function of the voltage constant {{< katex >}}K_{\Omega}_i{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
 
 {{< katex display >}}
 \begin{bmatrix}
@@ -214,7 +214,7 @@ With this outcome in consideration, we can represent the angular velocities {{< 
 {{< /katex >}}  
 
 
-This process essentially proportionally adjusts the input variables​ {{< katex >}}\delta_i{{< /katex >}}. Labeling the diagonal matrix as {{< katex >}}T_M{{< /katex >}} we can express this relationship by considering the linear deviations around the nominal operating point.
+This process essentially proportionally adjusts the input variables​ {{< katex >}}\delta_i{{< /katex >}}. Labeling the diagonal matrix as {{< katex >}}T_M{{< /katex >}}, this relationship can be expressed by considering the linear deviations around the nominal operating point.
 
 
 {{< katex display >}}
@@ -233,7 +233,7 @@ G(s) = C(sI - A)^{-1}B + D
 The relationship between the output (angular speed ​ {{< katex >}}\tilde{\Omega}_i{{< /katex >}}) and the input (applied voltage ​ {{< katex >}}\tilde{V}_{mi}{{< /katex >}}) is expressed as the transfer function:
 
 {{< katex display >}}
-G(s) = \frac{\tilde{\Omega}_i(s)}{\tilde{V}_{mi}(s)} = \begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} s + \frac{R_m}{L_m} & \frac{K_e}{L_m} \\ -\frac{K_t}{J_m} & s + \frac{2K_Q \Omega_{i_o} + B_m}{J_m}  \end{bmatrix}^{-1} \begin{bmatrix} 1 \\ \frac{1}{L_m} \\ 0 \end{bmatrix}
+G(s) = \frac{\tilde{\Omega}_i(s)}{\tilde{V}_{mi}(s)} = \begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} s + \frac{R_m}{L_m} & \frac{K_e}{L_m} \\ -\frac{K_t}{J_m} & s + \frac{2K_Q \Omega_{i_o} + B_m}{J_m}  \end{bmatrix}^{-1} \begin{bmatrix} 1 \\ \frac{1}{L_m} \\ 0 \\ \end{bmatrix}
 {{< /katex >}}  
 
 When the aforementioned parameters are replaced with typical values for a DC motor, the resulting transfer function model can be represented.
@@ -261,7 +261,7 @@ The controllability of a state space model implies the capability to transition 
 For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /katex >}} is thus expressed as follows. Upon observation, it's evident that C holds a rank of 2, affirming the system's controllability.
 
 {{< katex display >}}
-\mathcal{C} = [B \quad AB] = \begin{bmatrix} \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & \frac{Kt}{Jm Lm} \end{bmatrix}
+\mathcal{C} = [B \quad AB] = \begin{bmatrix} \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & \frac{Kt}{Jm Lm} \\ \end{bmatrix}
 {{< /katex >}}
 
 
@@ -272,7 +272,7 @@ Observability of a state space model implies the ability to deduce any initial s
 Given the state vector's dimension as n = 2, the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} is defined according to equation 23. Upon inspection, it's evident that the resulting matrix has a rank of 2, affirming the system's observability.
 
 {{< katex display >}}
-\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ \frac{K_t}{J_m} & -\frac{B_m + 2K_q \Omega_o}{J_m} \end{bmatrix} 
+\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ \frac{K_t}{J_m} & -\frac{B_m + 2K_q \Omega_o}{J_m} \\ \end{bmatrix} 
 {{< /katex >}}
 
 ## 1.2 Movement Subsytem
@@ -440,4 +440,47 @@ Which would expand to:
 \end{bmatrix}
 {{< /katex >}}
 
-### 1.2.1 Model Simplification and Analysis
+### 1.2.1 Simplification and Analysis
+
+The analysis of the movement subsystem can be simplified by approximating the motor dynamics by a static gain. This means it is possible to change the matrix B such that the actuation variables {{< katex >}}\delta_i{{< /katex >}} becomes the inputs instead of the motor angular speeds {{< katex >}}\Omega_i{{< /katex >}}. This transformation is expressed:
+
+{{< katex display >}}
+\dot{X} = AX + B\tilde{\Omega} = AX + BT_M \tilde{\delta}
+{{< /katex >}}
+
+The matrix {{< katex >}}T_M{{< /katex >}} represents the voltage constant ({{< katex >}}K\Omega{{< /katex >}}) as depicted previously. This adjustment does not alter the subsequent analysis; it merely scales the inputs. However, this transformation proves valuable for future use when implementing a controller.
+
+
+### 1.2.2 Stability
+
+The stability assessment involves determining the system's poles, achieved by computing the eigenvalues of matrix A derived previously, encompassing the entire movement subsystem. Upon computation in Matlab, it reveals that all 12 eigenvalues, corresponding to the poles, are zero, indicating system instability.
+
+### 1.2.3 Controllability 
+
+In order to assess the controllability of a state space model, it is necessary to compute its controllability matrix. When considering the entire movement subsystem, the controllability matrix {{< katex >}}\mathcal{C}{{< /katex >}} is defined:
+
+{{< katex display >}}
+C = \begin{bmatrix}
+B & AB & A^2B & A^3B & A^4B & A^5B & A^6B & A^7B & A^8B & A^9B & A^{10}B & A^{11}B
+\end{bmatrix}
+{{< /katex >}}
+
+Upon conducting a rank computation of this matrix in Matlab, it is established that it holds a rank of 12. Consequently, indicating the controllability of the system.
+
+
+### 1.2.3 Observability
+
+When assessing observability, the rank of the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} is computed. Considering the entirety of the movement subsystem, the matrix {{< katex >}}\mathcal{O}{{< /katex >}} is represented as:
+
+{{< katex display >}}
+\mathcal{O} = \begin{bmatrix}
+C \\
+CA \\
+\vdots \\
+CA^{11} \\
+\end{bmatrix}
+{{< /katex >}}
+
+This matrix has also rank 12 and, therefore, the system is observable.
+
+## 2. State Feedback Control
