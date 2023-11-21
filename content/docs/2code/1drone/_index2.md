@@ -3,9 +3,9 @@ title: Drone Dynamics
 weight: 2
 ---
 
-# System Dynamics
+# **System Dynamics**
 
-## 1 System Dynamics Modeling 
+# 1 System Dynamics Modeling 
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 
@@ -17,7 +17,7 @@ Breaking down the drone into subsystems helps manage its complexity. The quadrot
 
 Breaking it down this way helps in focusing on and understanding each aspect separately, making the overall understanding and development of the drone more manageable.
 
-### 1.1 Actuation Subsystem
+## 1.1 Actuation Subsystem
 
 The actuation subsystem involves individual DC motors powering propellers to generate lift forces in the drone's four independently controlled motors (i=1,2,3,4). The values of I and {{< katex >}}\Omega{{< /katex >}} change over time based on the applied motor voltage, Vm, while constants like Lm, Rm, Ke, Kt, and Jm characterize the motor. This results in a second-order system for each drone motor, expressed as:
 
@@ -32,7 +32,7 @@ The actuation subsystem involves individual DC motors powering propellers to gen
 The parameters in matrices A and B are determined by the motor specifications and the chosen flight conditions for linearization.
 
 
-#### 1.1.1 Model and Linearization
+### 1.1.1 Model and Linearization
 
 The actuation subsystem dynamics are defined by the following nonlinear equations:
 
@@ -222,7 +222,7 @@ This process essentially proportionally adjusts the input variables​ {{< katex
 \tilde{\Omega} = T_M \tilde{\delta}
 {{< /katex >}}  
 
-#### 1.1.2 Transfer Function Model
+### 1.1.2 Transfer Function Model
 
 With the state space model acquired for the actuation subsystem, it is possible to derive the transfer function.
 
@@ -242,7 +242,7 @@ When the aforementioned parameters are replaced with typical values for a DC mot
 G(s) = \frac{4.901 \times 10^6}{s^2 + 576.3s + 1.687 \times 10^5}
 {{< /katex >}}  
 
-#### 1.1.3 Stability
+### 1.1.3 Stability
 
 To assess stability, the system poles need computation, achievable through two approaches. First, by determining the roots of the denominator the defined transfer function G(s), or second, by computing the eigenvalues of matrix A as depicted as follows:
 
@@ -252,10 +252,10 @@ To assess stability, the system poles need computation, achievable through two a
 
 The poles, located in the left half-plane and forming complex conjugates, signify system stability. Expect an overshoot with a step input. The unit step response demonstrates a small overshoot ({{< katex >}}M_p{{< /katex >}} = 4.54%) and rapid system response ({{< katex >}}T_s{{< /katex >}} = 0.15s). Consequently, approximating the actuation subsystem as a static gain seems plausible. The root locus plot confirms system stability across various proportional controllers.
 
-![step1](https://live.staticflickr.com/65535/53346470672_2611f02168_c.jpg)
+![step1](https://live.staticflickr.com/65535/53346502082_8cc9596829_c.jpg)
 
 
-#### 1.1.4 Controllability
+### 1.1.4 Controllability
 
 The controllability of a state space model implies the capability to transition any initial state to a final state through a finite control action within a finite duration. This assurance exists when the rank of matrix C matches the dimension of the previously defined state vector, represented as n.
 For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /katex >}} is thus expressed as follows. Upon observation, it's evident that C holds a rank of 2, affirming the system's controllability.
@@ -265,16 +265,17 @@ For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /kate
 {{< /katex >}}
 
 
-#### 1.1.5 Observability
+### 1.1.5 Observability
 
 Observability of a state space model implies the ability to deduce any initial state from the system output within a given time interval. This certainty prevails when the rank of the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} matches the dimension of the state vector.
 
 Given the state vector's dimension as n = 2, the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} is defined according to equation 23. Upon inspection, it's evident that the resulting matrix has a rank of 2, affirming the system's observability.
 
-{{< katex >}}\mathcal{O}{{< /katex >}} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ \frac{1}{Lm} & -\frac{Rm}{Lm} \end{bmatrix} \quad (23) \]
+{{< katex display >}}
+\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ \frac{1}{Lm} & -\frac{Rm}{Lm} \end{bmatrix} 
+{{< /katex >}}
 
-
-### 1.2 Movement Subsytem
+## 1.2 Movement Subsytem
 
 
 

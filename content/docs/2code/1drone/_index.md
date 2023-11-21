@@ -3,7 +3,7 @@ title: RedBull Racing Competition
 weight: 1
 ---
 
-# An Autonomous Drone Racing Competition
+# **An Autonomous Drone Racing Competition**
 
 ## 1 RedBull Racing 
 
