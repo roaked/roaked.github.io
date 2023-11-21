@@ -13,7 +13,7 @@ The world of Red Bull drone racing stands at the intersection of high-speed comp
 
 This interesting concept revolves around the development of a comprehensive system that seamlessly combines state-of-the-art technologies to enhance Red Bull drone racing. It is desired to fuse AI-driven algorithms, computer vision systems, and simulated dynamics modeling to optimize drone navigation through complex racecourses.
 
-The branches in which we are hoping to develop are:
+The following topics are studied:
 
 - **Computer Vision or AI-Enabled Obstacle Detection and Avoidance**: Implement sophisticated AI algorithms coupled with computer vision systems onboard the drones. These systems will enable real-time obstacle detection and swift maneuvering to avoid collisions during high-speed races.
 
@@ -33,4 +33,4 @@ I have decided to structured into distinct sections to comprehensively cover var
 
 - **Integration of AI with System Components**: This section aims to unify AI algorithms with the previously developed system dynamics model, controller, and computer vision capabilities. It seeks to leverage AI to further enhance overall performance, responsiveness, and decision-making of the drone during Red Bull racing scenarios.
 
-By splitting the report into these segments, we aim to explore each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
+By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.

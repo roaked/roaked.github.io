@@ -460,7 +460,7 @@ The stability assessment involves determining the system's poles, achieved by co
 In order to assess the controllability of a state space model, it is necessary to compute its controllability matrix. When considering the entire movement subsystem, the controllability matrix {{< katex >}}\mathcal{C}{{< /katex >}} is defined:
 
 {{< katex display >}}
-C = \begin{bmatrix}
+\mathcal{C} = \begin{bmatrix}
 B & AB & A^2B & A^3B & A^4B & A^5B & A^6B & A^7B & A^8B & A^9B & A^{10}B & A^{11}B
 \end{bmatrix}
 {{< /katex >}}
