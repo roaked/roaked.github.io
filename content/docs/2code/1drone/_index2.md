@@ -5,7 +5,7 @@ weight: 2
 
 # **System Dynamics**
 
-# 1 System Dynamics Modeling 
+# 1. System Dynamics Modeling 
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 
@@ -233,7 +233,7 @@ G(s) = C(sI - A)^{-1}B + D
 The relationship between the output (angular speed ​ {{< katex >}}\tilde{\Omega}_i{{< /katex >}}) and the input (applied voltage ​ {{< katex >}}\tilde{V}_{mi}{{< /katex >}}) is expressed as the transfer function:
 
 {{< katex display >}}
-G(s) = \frac{\tilde{\Omega}_i(s)}{\tilde{V}_{mi}(s)} = \begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} \frac{s + R_m/L_m}{s + \frac{K_e}{L_m} - \frac{K_t}{J_m}} & \frac{-K_t}{J_m(s + 2K_Q\Omega_i + B_m/J_m)} \end{bmatrix}^{-1} \begin{bmatrix} 1 \\ \frac{1}{L_m} \\ 0 \end{bmatrix}
+G(s) = \frac{\tilde{\Omega}_i(s)}{\tilde{V}_{mi}(s)} = \begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} s + \frac{R_m}{L_m} & \frac{K_e}{L_m} \\ -\frac{K_t}{J_m} & s + \frac{2K_Q \Omega_{i_o} + B_m}{J_m}  \end{bmatrix}^{-1} \begin{bmatrix} 1 \\ \frac{1}{L_m} \\ 0 \end{bmatrix}
 {{< /katex >}}  
 
 When the aforementioned parameters are replaced with typical values for a DC motor, the resulting transfer function model can be represented.
@@ -261,7 +261,7 @@ The controllability of a state space model implies the capability to transition 
 For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /katex >}} is thus expressed as follows. Upon observation, it's evident that C holds a rank of 2, affirming the system's controllability.
 
 {{< katex display >}}
-\mathcal{C} = [B \quad AB] = \begin{bmatrix} \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & \frac{Kt}{JmLm} \end{bmatrix}
+\mathcal{C} = [B \quad AB] = \begin{bmatrix} \frac{1}{Lm} & \vspace -\frac{Rm}{L^2m} \\ 0 & \frac{Kt}{JmLm} \end{bmatrix}
 {{< /katex >}}
 
 
@@ -272,7 +272,7 @@ Observability of a state space model implies the ability to deduce any initial s
 Given the state vector's dimension as n = 2, the observability matrix {{< katex >}}\mathcal{O}{{< /katex >}} is defined according to equation 23. Upon inspection, it's evident that the resulting matrix has a rank of 2, affirming the system's observability.
 
 {{< katex display >}}
-\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ \frac{1}{Lm} & -\frac{Rm}{Lm} \end{bmatrix} 
+\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ \frac{K_t}{J_m} & -\frac{B_m + 2K_q \Omega_o}{J_m} \end{bmatrix} 
 {{< /katex >}}
 
 ## 1.2 Movement Subsytem
