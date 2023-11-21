@@ -111,6 +111,8 @@ L_{m1} \\
 The state space variables are, therefore, {{< katex >}} \tilde{I}_i {{< /katex >}} and {{< katex >}} \tilde{\Omega}_{i} {{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}} \tilde{V}_{m_{i}} {{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
 
 {{< katex display >}} 
+
+
 \begin{bmatrix}
 \dot{\tilde{I}}_1 \\
 \dot{\tilde{\Omega}}_1 \\
@@ -121,8 +123,7 @@ The state space variables are, therefore, {{< katex >}} \tilde{I}_i {{< /katex >
 \dot{\tilde{I}}_4 \\
 \dot{\tilde{\Omega}}_4 \\
 \end{bmatrix}
-= 
-\begin{bmatrix}
+= \begin{bmatrix}
 A_1 & 0 & 0 & 0 \\
 0 & A_2 & 0 & 0 \\
 0 & 0 & A_3 & 0 \\
@@ -164,8 +165,7 @@ B_1 & 0 & 0 & 0 \\
 \tilde{\Omega}_3 \\
 \tilde{\Omega}_4 \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
@@ -199,8 +199,7 @@ With this outcome in consideration, we can represent the angular velocities {{< 
 \Omega_3 \\
 \Omega_4 \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 1 & K_{\Omega} & 0 & 0 \\
 0 & 1 & K_{\Omega} & 0 \\
 0 & 0 & 1 & K_{\Omega} \\
