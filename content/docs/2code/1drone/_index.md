@@ -40,7 +40,6 @@ By splitting the report into these segments, it is expected to inspect each aspe
 
 ## 4 Drone Characteristics
 
-{{< details "**Drone parameters** - click to expand" close >}}
 {{< katex display >}}
 \text{Mass } M : 0.475 \, \text{kg} \\
 \text{Moment of inertia } J_{xx} : 2.2 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
@@ -53,4 +52,3 @@ By splitting the report into these segments, it is expected to inspect each aspe
 \text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
 \text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
 {{< /katex >}}
-{{< /details>}}
