@@ -122,8 +122,8 @@ The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}}
 \(\dot{\tilde{I}}_4\) | 0 | 0 | \(B_3\) | 0 |
 \(\dot{\tilde{\Omega}}_4\) | 0 | 0 | 0 | \(B_4\) |
 
-\(\begin{aligned}\text{(13)}\end{aligned}\)
-
+{{< /katex >}}  
+{{< katex display >}}
 |  |  |  |  |  |  |  |  |  |
 |--|--|--|--|--|--|--|--|--|
 \(\tilde{\Omega}_1\) | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
@@ -143,25 +143,12 @@ Each matrix Ai and Bi represent a 2 × 2 matrix. As all four motors share identi
 With this outcome in consideration, we can represent the angular velocities {{< katex >}}\Omega_i{{< /katex >}} solely as a function of the voltage constant {{< katex >}}K_{\Omega}_i{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
 
 {{< katex display >}}
-\begin{bmatrix}
-\Omega_1 \\
-\Omega_2 \\
-\Omega_3 \\
-\Omega_4 \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-1 & K_{\Omega} & 0 & 0 \\
-0 & 1 & K_{\Omega} & 0 \\
-0 & 0 & 1 & K_{\Omega} \\
-0 & 0 & 0 & 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-\delta_1 \\
-\delta_2 \\
-\delta_3 \\
-\delta_4 \\
-\end{bmatrix} \\
+|  |  |  |  |  |
+|--|--|--|--|--|
+\(\Omega_1\) | 1 | \(K_{\Omega}\) | 0 | 0 |
+\(\Omega_2\) | 0 | 1 | \(K_{\Omega}\) | 0 |
+\(\Omega_3\) | 0 | 0 | 1 | \(K_{\Omega}\) |
+\(\Omega_4\) | 0 | 0 | 0 | 1 |
 {{< /katex >}}  
 
 
