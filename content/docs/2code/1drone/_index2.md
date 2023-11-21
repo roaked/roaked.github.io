@@ -38,13 +38,13 @@ The actuation subsystem dynamics are defined by the following nonlinear equation
 
 {{< katex display >}}
 
-\dot{I}_i = \frac(1)(L_m) (V_{mi} - R_{m}I_{i} - K_{e}\Omega_{i})
+\dot{I}_i = \frac{1}{L_m} (V_{mi} - R_{m}I_{i} - K_{e}\Omega_{i})
 
 {{< /katex >}}  
 
 {{< katex display >}}
 
-\dot{\Omega}_i = \frac(1)(J_m) (K_t I_i - Q_i - B_m\Omega_{i})
+\dot{\Omega}_i = \frac{1}{J_m} (K_t I_i - Q_i - B_m\Omega_{i})
 
 {{< /katex >}}  
 
@@ -79,13 +79,13 @@ Using these relationships, the linearized dynamics are obtained as:
 
 {{< katex display >}}
 
-\dot{\tilde{I}}_i = \frac(1)(L_m) (\tilde{V}_{mi} - R_m \tilde{I}_i - K_e \tilde{\Omega}_i)
+\dot{\tilde{I}}_i = \frac{1}{L_m} (\tilde{V}_{mi} - R_m \tilde{I}_i - K_e \tilde{\Omega}_i)
 
 {{< /katex >}}  
 
 {{< katex display >}}
 
-\dot{\tilde{\Omega}}_i = \frac(1)(J_m) (K_t \tilde{I}_{i} - 2 K_Q \Omega_{io} \tilde{\Omega}_i - B_m \tilde{\Omega}_i)
+\dot{\tilde{\Omega}}_i = \frac{1}{J_m} (K_t \tilde{I}_{i} - 2 K_Q \Omega_{io} \tilde{\Omega}_i - B_m \tilde{\Omega}_i)
 
 {{< /katex >}}  
 
