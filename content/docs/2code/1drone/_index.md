@@ -7,7 +7,7 @@ weight: 1
 
 ## 1 RedBull Racing 
 
-The world of Red Bull drone racing stands at the intersection of high-speed competition and very advanced technology. In this exhilarating arena, unmanned aerial vehicles (UAVs) navigate intricate courses filled with obstacles, pushing the limits of flight capabilities and piloting skills. To revolutionize this dynamic sport, our project aims to integrate advanced AI, computer vision, and simulated dynamics to elevate drone performance and safety within the competitive realm.
+The world of Red Bull drone racing stands at the intersection of high-speed competition and very advanced technology. In this exhilarating arena, unmanned aerial vehicles (UAVs) navigate intricate courses filled with obstacles, pushing the limits of flight capabilities and piloting skills. To revolutionize this dynamic sport, I developped a model that aims to integrate advanced AI, computer vision, and simulated dynamics to elevate drone performance and safety within the competitive realm.
 
 ## 2 Overview
 
@@ -17,15 +17,15 @@ The following topics are studied:
 
 - **Computer Vision or AI-Enabled Obstacle Detection and Avoidance**: Implement sophisticated AI algorithms coupled with computer vision systems onboard the drones. These systems will enable real-time obstacle detection and swift maneuvering to avoid collisions during high-speed races.
 
-- **Simulated Dynamics Modeling**: Develop intricate models that encapsulate the intricate dynamics of the drones, including aerodynamics, motor responses, and environmental interactions. This simulation will accurately predict drone behavior in various scenarios, aiding in performance optimization.
+- **Simulated Dynamics Modeling**: Develop intricate models that encapsulate the intricate dynamics of the drones, including aerodynamics, motor responses, and environmental interactions. This simulation will accurately predict drone behaviour in various scenarios, aiding in performance optimization.
 
-- **Simulink Integration via TCP/IP**: Establish a robust connection between the simulated drone dynamics model in Simulink and the actual drones using TCP/IP. This connection facilitates real-time communication, enabling testing and refinement of control algorithms in a virtual environment. This will be done by using an external library.
+- **Simulink Integration via TCP/IP**: Establish a robust connection between the simulated drone dynamics model in Simulink and the actual drones using TCP/IP. This connection facilitates real-time communication, enabling testing and refinement of control algorithms in a virtual environment. This will be done by accessing an external library.
 
-This approach enhances drone maneuverability and agility when navigating intricate racecourses, elevates safety by detecting and avoiding obstacles in real time, and fine-tunes control algorithms for high-speed racing situations.
+As previously mentioned, this approach enhances drone maneuverability and agility when navigating intricate racecourses, elevates safety by detecting and avoiding obstacles in real time, and fine-tunes control algorithms for high-speed racing situations.
 
-## 3 Division
+## 3 Work Division
 
-I have decided to structured into distinct sections to comprehensively cover various aspects of the design and coding parts:
+Given how complex this project turned out to be, I have decided to structure it into distinct sections to comprehensively cover various aspects of the system design:
 
 - **Drone System Dynamics Modeling and Controller Design**: This section will focus on developing and analyzing models for the drone's dynamics. It will delve into understanding how the drone behaves under different conditions and designing an appropriate controller to optimize its performance.
 
@@ -38,7 +38,9 @@ By splitting the report into these segments, it is expected to inspect each aspe
 Follow the left sidebar for more!
 
 
-<< details "**Drone parameters** - click to expand" 'close' >>
+## 4 Drone Characteristics
+
+{{< details "**Drone parameters** - click to expand" close >}}
 
 \text{Mass } M : 0.475 \, \text{kg} \\
 \text{Moment of inertia } J_{xx} : 2.2 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
@@ -51,4 +53,4 @@ Follow the left sidebar for more!
 \text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
 \text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
 
-<< /details>>
+{{< /details>}}
