@@ -97,13 +97,13 @@ The linearized state space model for each actuation subsystem, where the output 
 \dot{I}_i \\
 \dot{\Omega}_i
 \end{bmatrix} = \begin{bmatrix}
--L_m R_m & J_m K_t \\
--L_m K_e & -J_m 2K_Q \Omega_{io} + B_m
+-\frac{R_m}{L_m} & -\frac{K_e}{L_m} \\
+\frac{K_t}{J_m} & -\frac{K_Q \Omega_{i_o}+B_m}{J_m}
 \end{bmatrix} \begin{bmatrix}
-I_i \\
-\Omega_i
+\tilde{I_i} \\
+\tilde{\Omega}_i
 \end{bmatrix} + \begin{bmatrix}
-L_{m1} \\
+\frac{1}{L_m} \\
 0
 \end{bmatrix} \tilde{V}_{mi}
 {{< /katex >}}  
