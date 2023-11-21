@@ -27,7 +27,6 @@ The actuation subsystem involves individual DC motors powering propellers to gen
 
 {{< katex display >}}
 \tilde{y} &= C\tilde{x} + D\tilde{u} = \Omega, \quad i = [0 \, 1]
-\end{align*} \]
 {{< /katex >}}
 
 The parameters in matrices A and B are determined by the motor specifications and the chosen flight conditions for linearization.
