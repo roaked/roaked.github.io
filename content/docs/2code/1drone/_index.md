@@ -1,11 +1,11 @@
 ---
-title: RedBull Drone Racing
+title: RedBull Racing Competition
 weight: 1
 ---
 
-# A Racing Competition
+# An Autonomous Drone Racing Competition
 
-## 1 RedBull Racing
+## 1 RedBull Racing 
 
 The world of Red Bull drone racing stands at the intersection of high-speed competition and very advanced technology. In this exhilarating arena, unmanned aerial vehicles (UAVs) navigate intricate courses filled with obstacles, pushing the limits of flight capabilities and piloting skills. To revolutionize this dynamic sport, our project aims to integrate advanced AI, computer vision, and simulated dynamics to elevate drone performance and safety within the competitive realm.
 
