@@ -1,5 +1,5 @@
 ---
-title: Evolutionary Computation
+title: "Evolutionary Computation"
 weight: 5
 ---
 
