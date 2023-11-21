@@ -3,7 +3,7 @@ Actuation System: This handles the rotors&rsquo; model, the forces they generate
 Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone&rsquo;s movement."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Drone Dynamics & Controller"><meta property="og:description" content="System Dynamics & Controller # 1 System Dynamics Modeling # Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 Actuation System: This handles the rotors&rsquo; model, the forces they generate (Fp), and the moments they create (Mp). Each rotor gets an input voltage (Vmi) and produces an angular velocity ( \(\Omega\) i).
 Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone&rsquo;s movement."><meta property="og:type" content="article"><meta property="og:url" content="https://xsleaks.dev/docs/2code/1drone/_index2/"><meta property="article:section" content="docs"><title>Drone Dynamics & Controller | Ricardo Chin</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.92eff5bc9cc2b9a421aa69617076bcc236ab06773f29bb4caa6f3814094e2b48.js integrity="sha256-ku/1vJzCuaQhqmlhcHa8wjarBnc/KbtMqm84FAlOK0g=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.c1b0953300c98335530eff22ebb3f08a1f29f6f133debd71bba6abfc81826f97.js integrity="sha256-wbCVMwDJgzVTDv8i67Pwih8p9vEz3r1xu6ar/IGCb5c=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Project Design</a><ul></ul></li><li><a href=/docs/1design/4mcomp/>Finite Element Model Formulation</a><ul></ul></li><li><a href=/docs/1design/5om/>Compound Cylindrical Gear Train</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>RedBull Racing Competition</a><ul><li><a href=/docs/2code/1drone/_index2/ class=active>Drone Dynamics & Controller</a></li><li><a href=/docs/2code/1drone/_index3/>Drone Computer Vision</a></li></ul></li><li><a href=/docs/2code/3sint/>Deep Learning on Fake News</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul></ul></li><li><a href=/docs/2code/6auto/>Industrial Automation</a><ul></ul></li><li><a href=/docs/2code/7rman/>Manipulator Robotics: JACO</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/3research/>Research</a><ul><li><a href=/docs/3research/1ebeam/>Electron Beam Welding</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Drone Dynamics & Controller</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#1-system-dynamics-modeling>1 System Dynamics Modeling</a><ul><li><a href=#11-actuation-subsystem>1.1 Actuation Subsystem</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=system-dynamics--controller>System Dynamics & Controller
@@ -19,19 +19,19 @@ Movement System: This part deals with forces (not just from rotors but also exte
 </span><span>\[\text{Where: } Q_i = K_Q \Omega_i^2\]</span><p>To linearize this model, a nominal point around which small deviations are considered for the variables I, Vm and Ω is selected, representing the hovering condition:</p><span>\[I_i = I_o + \tilde{I}_i\]
 </span><span>\[V_{mi} = V_{mo} + \tilde{V}_{mi}\]
 </span><span>\[\Omega_i = \Omega_{io} + \tilde{\Omega}_{i}\]</span><p>Using these relationships, the linearized dynamics are obtained as:</p><span>\[\dot{\tilde{I}}_i = \frac{1}{L_m} (\tilde{V}_{mi} - R_m \tilde{I}_i - K_e \tilde{\Omega}_i)\]
-</span><span>\[\dot{\tilde{\Omega}}_i = \frac{1}{J_m} (K_t \tilde{I}_{i} - 2 K_Q \Omega_{io} \tilde{\Omega}_i - B_m \tilde{\Omega}_i)\]</span><p>The linearized state space model for each actuation subsystem, where the output is the motor angular speed, is given by:</p><span>\[\begin{pmatrix}
+</span><span>\[\dot{\tilde{\Omega}}_i = \frac{1}{J_m} (K_t \tilde{I}_{i} - 2 K_Q \Omega_{io} \tilde{\Omega}_i - B_m \tilde{\Omega}_i)\]</span><p>The linearized state space model for each actuation subsystem, where the output is the motor angular speed, is given by:</p><span>\[\begin{bmatrix}
 \dot{I}_i \\
 \dot{\Omega}_i
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 -L_m R_m & J_m K_t \\
 -L_m K_e & -J_m 2K_Q \Omega_{io} + B_m
-\end{pmatrix} \begin{pmatrix}
+\end{bmatrix} \begin{bmatrix}
 I_i \\
 \Omega_i
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 L_{m1} \\
 0
-\end{pmatrix} \tilde{V}_{mi}\]</span><p>The state space variables are, therefore, <span>\(\tilde{I}_i\)
+\end{bmatrix} \tilde{V}_{mi}\]</span><p>The state space variables are, therefore, <span>\(\tilde{I}_i\)
 </span>and <span>\(\tilde{\Omega}_i\)
 </span>. The only input provided to each motor is the applied voltage <span>\(\tilde{V}_m^i\)
 </span>. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:</p><span>\[\begin{align*}
@@ -103,5 +103,27 @@ B_1 & 0 & 0 & 0 \\
 \tilde{I}_4 \\
 \tilde{\Omega}_4 \\
 \end{bmatrix}
-\end{align*}\]</span></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/1drone/_index2.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+\end{align*}\]</span><p>Each matrix Ai and Bi represent a 2 × 2 matrix. As all four motors share identical parameters, the matrices Ai and Bi exhibit identical properties. However, due to the independent dynamics of each motor, the subsystem analysis simplifies. Subsequent sections will confirm the motors&rsquo; rapid response times, allowing an approximation using a static gain, as demonstrated:</p><span>\[\delta_i = K_{\Omega} \Omega_i\]</span><p>With this outcome in consideration, we can represent the angular velocities <span>\(\Omega_i\)
+</span>solely as a function of the voltage constant <span>\(K_{\Omega}_i\)
+</span>and the actuations <span>\(\delta_i\)</span></p><span>\[\begin{bmatrix}
+\Omega_1 \\
+\Omega_2 \\
+\Omega_3 \\
+\Omega_4 \\
+\end{bmatrix}
+&=
+\begin{bmatrix}
+1 & K_{\Omega} & 0 & 0 \\
+0 & 1 & K_{\Omega} & 0 \\
+0 & 0 & 1 & K_{\Omega} \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+\delta_1 \\
+\delta_2 \\
+\delta_3 \\
+\delta_4 \\
+\end{bmatrix} \\\]</span><p>This process essentially proportionally adjusts the input variables​ <span>\(\delta_i\)
+</span>. Labeling the diagonal matrix as <span>\(T_M\)
+</span>we can express this relationship by considering the linear deviations around the nominal operating point.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/1drone/_index2.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#1-system-dynamics-modeling>1 System Dynamics Modeling</a><ul><li><a href=#11-actuation-subsystem>1.1 Actuation Subsystem</a></li></ul></li></ul></nav></div></aside></main></body></html>
