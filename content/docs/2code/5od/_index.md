@@ -1,6 +1,6 @@
 ---
 title: "Evolutionary Computation"
-weight: 1
+weight: 5
 ---
 
 # Introduction
