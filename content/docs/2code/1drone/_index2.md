@@ -326,7 +326,7 @@ Considering the four angular velocities from the motors as inputs {{< katex >}}\
 Where Av, Bv, Bω are given by:
 
 {{< katex display >}}
-A_V = \begin{bmatrix} 0 & -g & 0 \\ g & 0 & 0 \\ 0 & 0 & 0 \\ \end{bmatrix}, \quad B_V = \begin{bmatrix} 0 & 0 & 0 & 0 \\ g & 0 & 0 & 0 \\ -b_z -b_z -b_z -b_z \end{bmatrix}, \quad B_{\omega} = \begin{bmatrix} 0 & -b_p & 0 & b_p \\ b_q & 0 & -b_q & 0 \\ -b_q b_p -b_p b_p \\ \end{bmatrix}
+A_V = \begin{bmatrix} 0 & -g & 0 \\ g & 0 & 0 \\ 0 & 0 & 0 \\ \end{bmatrix}, \quad B_V = \begin{bmatrix} 0 & 0 & 0 & 0 \\ g & 0 & 0 & 0 \\ -b_z -b_z -b_z -b_z \end{bmatrix}, \quad B_{\omega} = \begin{bmatrix} 0 & -b_p & 0 & b_p \\ b_q & 0 & -b_q & 0 \\ -b_q & b_p & -b_p & b_p \\ \end{bmatrix}
 {{< /katex >}}
 
 The coefficients for the matrix {{< katex >}}B_V{{< /katex >}} and {{< katex >}}B_{\omega}{{< /katex >}} depend on the parameters of the quad rotor and flight conditions. But combining previous equations, it is obtained:
