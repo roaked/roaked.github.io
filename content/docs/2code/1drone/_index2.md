@@ -261,7 +261,7 @@ The controllability of a state space model implies the capability to transition 
 For the actuation subsystem, n = 2, and matrix {{< katex >}}\mathcal{C}{{< /katex >}} is thus expressed as follows. Upon observation, it's evident that C holds a rank of 2, affirming the system's controllability.
 
 {{< katex display >}}
-\mathcal{C} = [B \quad AB] = \begin{bmatrix} 1 & \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & 0 & \frac{Kt}{JmLm} \end{bmatrix} \quad (22)
+\mathcal{C} = [B \quad AB] = \begin{bmatrix} \frac{1}{Lm} & -\frac{Rm}{L^2m} \\ 0 & \frac{Kt}{JmLm} \end{bmatrix}
 {{< /katex >}}
 
 
