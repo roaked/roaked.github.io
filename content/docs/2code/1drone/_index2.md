@@ -9,7 +9,7 @@ weight: 2
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 
-- Actuation System: This handles the rotors' model, the forces they generate (Fp), and the moments they create (Mp). Each rotor gets an input voltage (Vmi) and produces an angular velocity ({{< katex >}}\Omega{{< /katex >}} i).
+- Actuation System: This handles the rotors' model, the forces they generate ({{< katex >}}F_p{{< /katex >}}), and the moments they create ({{< katex >}}M_p{{< /katex >}}). Each rotor gets an input voltage ({{< katex >}}\V_{m_i}{{< /katex >}}) and produces an angular velocity ({{< katex >}}\Omega{{< /katex >}} i).
 
 - Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone's movement. It uses physics laws, dynamics, and kinematics to determine the drone's position and velocity.
 
