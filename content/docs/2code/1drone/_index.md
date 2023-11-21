@@ -1,6 +1,6 @@
 ---
 title: Drone Dynamics & Controller
-weight: 1
+weight: 2
 ---
 
 # Drone - System Dynamics & Controller 
