@@ -249,8 +249,9 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 
 {{< details "**Study:** Confusion matrices results - (click to expand)" close >}}
 
-I will add these plots later... I have both a MATLAB and Python code for this.
+Using the available function in MATLAB and Python to retrieve the confusion matrices, it was possible to study certain parameters such as accuracy.
 
+*(I will expand a bit more when I have time!)*
 
 {{< /details >}}
 
