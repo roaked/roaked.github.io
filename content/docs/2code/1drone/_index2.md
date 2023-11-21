@@ -314,4 +314,18 @@ J\dot{\omega} = -\omega \times J\omega + M_p  \\
 
 Considering the four angular velocities from the motors as inputs {{< katex >}}\tilde{u} = \tilde{\Omega} = [\tilde{\Omega}_1, \tilde{\Omega}_2, \tilde{\Omega}_3, \tilde{\Omega}_4]{{< /katex >}} and the twelve variables denoting both the linear and angular positions and velocities as the state {{< katex >}}X = [\tilde{v}^T, \tilde{\omega}^T, \tilde{p}^T, \tilde{\Phi}^T]^T{{< /katex >}}, the model is then represented:
 
+{{< katex display >}}
+\begin{bmatrix} \dot{\tilde{v}} \\ \dot{\tilde{\omega}} \\ \dot{\tilde{p}} \\ \dot{\tilde{\Phi}} \\ \end{bmatrix}
+=
+\begin{bmatrix} 0 & 0 & 0 & A_V \\ 0 & 0 & 0 & 0 \\ I_3 & 0 & 0 & 0 \\ 0 & I_3 & 0 & 0 \\ \end{bmatrix}
+\begin{bmatrix} \tilde{v} \\ \tilde{\omega} \\ \tilde{p} \\ \tilde{\Phi} \\ \end{bmatrix}
++
+\begin{bmatrix} B_V \\ B_{\omega} \\ 0 \\ 0 \\ \end{bmatrix}
+\tilde{\Omega}
+{{< /katex >}}
 
+Where Av, Bv, Bω are given by:
+
+{{< katex display >}}
+A_V = \begin{bmatrix} 0 & -g & 0 \\ g & 0 & 0 \\ 0 & 0 & 0 \\ \end{bmatrix}, \quad B_V = \begin{bmatrix} 0 & 0 & 0 & 0 \\ g & 0 & 0 & 0 \\ -b_z -b_z -b_z -b_z \end{bmatrix}, \quad B_{\omega} = \begin{bmatrix} 0 & -b_p & 0 & b_p \\ b_q & 0 & -b_q & 0 \\ -b_q b_p -b_p b_p \\ \end{bmatrix}
+{{< /katex >}}
