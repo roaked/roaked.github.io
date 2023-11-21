@@ -1,5 +1,5 @@
 ---
-title: Drone Dynamics /// [Literature Revision Needed]
+title: Drone Dynamics
 weight: 2
 ---
 
