@@ -3,7 +3,7 @@ Actuation System: This handles the rotors&rsquo; model, the forces they generate
 Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone&rsquo;s movement."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Drone Dynamics & Controller"><meta property="og:description" content="System Dynamics & Controller # 1 System Dynamics Modeling # Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 Actuation System: This handles the rotors&rsquo; model, the forces they generate (Fp), and the moments they create (Mp). Each rotor gets an input voltage (Vmi) and produces an angular velocity ( \(\Omega\) i).
 Movement System: This part deals with forces (not just from rotors but also external factors like wind) and moments that drive the drone&rsquo;s movement."><meta property="og:type" content="article"><meta property="og:url" content="https://xsleaks.dev/docs/2code/1drone/_index2/"><meta property="article:section" content="docs"><title>Drone Dynamics & Controller | Ricardo Chin</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.60a97381380c8bbb0e1d502d0a7e217214bb897f686984761918528acb5c1ea4.js integrity="sha256-YKlzgTgMi7sOHVAtCn4hchS7iX9oaYR2GRhSistcHqQ=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.f8da2a98d94a9edd8f150feca0d129ee66bb00809829baf15a9d0790472cff95.js integrity="sha256-+NoqmNlKnt2PFQ/soNEp7ma7AICYKbrxWp0HkEcs/5U=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Project Design</a><ul></ul></li><li><a href=/docs/1design/4mcomp/>Finite Element Model Formulation</a><ul></ul></li><li><a href=/docs/1design/5om/>Compound Cylindrical Gear Train</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>RedBull Racing Competition</a><ul><li><a href=/docs/2code/1drone/_index2/ class=active>Drone Dynamics & Controller</a></li><li><a href=/docs/2code/1drone/_index3/>Drone Computer Vision</a></li></ul></li><li><a href=/docs/2code/3sint/>Deep Learning on Fake News</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul></ul></li><li><a href=/docs/2code/6auto/>Industrial Automation</a><ul></ul></li><li><a href=/docs/2code/7rman/>Manipulator Robotics: JACO</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/3research/>Research</a><ul><li><a href=/docs/3research/1ebeam/>Electron Beam Welding</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Drone Dynamics & Controller</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#1-system-dynamics-modeling>1 System Dynamics Modeling</a><ul><li><a href=#11-actuation-subsystem>1.1 Actuation Subsystem</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=system-dynamics--controller>System Dynamics & Controller
@@ -44,7 +44,7 @@ L_{m1} \\
 \dot{\tilde{I}}_4 \\
 \dot{\tilde{\Omega}}_4 \\
 \end{bmatrix}
-&=
+=
 \begin{bmatrix}
 A_1 & 0 & 0 & 0 \\
 0 & A_2 & 0 & 0 \\
@@ -85,7 +85,7 @@ B_1 & 0 & 0 & 0 \\
 \tilde{\Omega}_3 \\
 \tilde{\Omega}_4 \\
 \end{bmatrix}
-&=
+=
 \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
@@ -109,7 +109,7 @@ B_1 & 0 & 0 & 0 \\
 \Omega_3 \\
 \Omega_4 \\
 \end{bmatrix}
-&=
+=
 \begin{bmatrix}
 1 & K_{\Omega} & 0 & 0 \\
 0 & 1 & K_{\Omega} & 0 \\
