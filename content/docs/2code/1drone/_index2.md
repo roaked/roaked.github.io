@@ -111,75 +111,26 @@ L_{m1} \\
 The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}} and {{< katex >}}\tilde{\Omega}_i{{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}}\tilde{V}_{m_i}{{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
 
 {{< katex display >}}
+|  |  |  |  |  |
+|--|--|--|--|--|
+\(\dot{\tilde{I}}_1\) | \(A_1\) | 0 | 0 | 0 |
+\(\dot{\tilde{\Omega}}_1\) | 0 | \(A_2\) | 0 | 0 |
+\(\dot{\tilde{I}}_2\) | 0 | 0 | \(A_3\) | 0 |
+\(\dot{\tilde{\Omega}}_2\) | 0 | 0 | 0 | \(A_4\) |
+\(\dot{\tilde{I}}_3\) | \(B_1\) | 0 | 0 | 0 |
+\(\dot{\tilde{\Omega}}_3\) | 0 | \(B_2\) | 0 | 0 |
+\(\dot{\tilde{I}}_4\) | 0 | 0 | \(B_3\) | 0 |
+\(\dot{\tilde{\Omega}}_4\) | 0 | 0 | 0 | \(B_4\) |
 
-\begin{bmatrix}
-\dot{\tilde{I}}_1 \\
-\dot{\tilde{\Omega}}_1 \\
-\dot{\tilde{I}}_2 \\
-\dot{\tilde{\Omega}}_2 \\
-\dot{\tilde{I}}_3 \\
-\dot{\tilde{\Omega}}_3 \\
-\dot{\tilde{I}}_4 \\
-\dot{\tilde{\Omega}}_4 \\
-\end{bmatrix}
-= 
-\begin{bmatrix}
-A_1 & 0 & 0 & 0 \\
-0 & A_2 & 0 & 0 \\
-0 & 0 & A_3 & 0 \\
-0 & 0 & 0 & A_4 \\
-\end{bmatrix}
-\begin{bmatrix}
-\tilde{I}_1 \\
-\tilde{\Omega}_1 \\
-\tilde{I}_2 \\
-\tilde{\Omega}_2 \\
-\tilde{I}_3 \\
-\tilde{\Omega}_3 \\
-\tilde{I}_4 \\
-\tilde{\Omega}_4 \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-B_1 & 0 & 0 & 0 \\
-0 & B_2 & 0 & 0 \\
-0 & 0 & B_3 & 0 \\
-0 & 0 & 0 & B_4 \\
-\end{bmatrix}
-\begin{bmatrix}
-\dot{\tilde{V}}_{m1} \\
-0 \\
-\dot{\tilde{V}}_{m2} \\
-0 \\
-\dot{\tilde{V}}_{m3} \\
-0 \\
-\dot{\tilde{V}}_{m4} \\
-0 \\
-\end{bmatrix} \\
-(\text{13})
-\begin{bmatrix}
-\tilde{\Omega}_1 \\
-\tilde{\Omega}_2 \\
-\tilde{\Omega}_3 \\
-\tilde{\Omega}_4 \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-\tilde{I}_1 \\
-\tilde{\Omega}_1 \\
-\tilde{I}_2 \\
-\tilde{\Omega}_2 \\
-\tilde{I}_3 \\
-\tilde{\Omega}_3 \\
-\tilde{I}_4 \\
-\tilde{\Omega}_4 \\
-\end{bmatrix}
+\(\begin{aligned}\text{(13)}\end{aligned}\)
+
+|  |  |  |  |  |  |  |  |  |
+|--|--|--|--|--|--|--|--|--|
+\(\tilde{\Omega}_1\) | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+\(\tilde{\Omega}_2\) | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+\(\tilde{\Omega}_3\) | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
+\(\tilde{\Omega}_4\) | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+
 
 {{< /katex >}}  
 
@@ -241,6 +192,7 @@ When the aforementioned parameters are replaced with typical values for a DC mot
 {{< katex display >}}
 G(s) = \frac{4.901 \times 10^6}{s^2 + 576.3s + 1.687 \times 10^5}
 {{< /katex >}}  
+
 
 
 
