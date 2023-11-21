@@ -231,3 +231,17 @@ G(s) = C(sI - A)^{-1}B + D
 {{< /katex >}}  
 
 The relationship between the output (angular speed ​ {{< katex >}}\tilde{\Omega}_i{{< /katex >}}) and the input (applied voltage ​ {{< katex >}}\tilde{V}_{mi}{{< /katex >}}) is expressed as the transfer function:
+
+{{< katex display >}}
+G(s) = \frac{\tilde{\Omega}_i(s)}{\tilde{V}_{mi}(s)} = \begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} \frac{s + R_m/L_m}{s + \frac{K_e}{L_m} - \frac{K_t}{J_m}} & \frac{-K_t}{J_m(s + 2K_Q\Omega_i + B_m/J_m)} \end{bmatrix}^{-1} \begin{bmatrix} 1 \\ \frac{1}{L_m} \\ 0 \end{bmatrix}
+{{< /katex >}}  
+
+When the aforementioned parameters are replaced with typical values for a DC motor, the resulting transfer function model can be represented.
+
+{{< katex display >}}
+G(s) = \frac{4.901 \times 10^6}{s^2 + 576.3s + 1.687 \times 10^5}
+{{< /katex >}}  
+
+
+
+
