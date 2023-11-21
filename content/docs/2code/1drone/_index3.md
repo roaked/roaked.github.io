@@ -1,5 +1,5 @@
 ---
-title: Drone Dynamics & Controller
+title: Drone Computer Vision
 weight: 3
 ---
 
