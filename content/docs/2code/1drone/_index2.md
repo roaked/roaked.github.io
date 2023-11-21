@@ -93,19 +93,19 @@ The linearized state space model for each actuation subsystem, where the output 
 
 
 {{< katex display >}}
-\begin{pmatrix}
+\begin{bmatrix}
 \dot{I}_i \\
 \dot{\Omega}_i
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 -L_m R_m & J_m K_t \\
 -L_m K_e & -J_m 2K_Q \Omega_{io} + B_m
-\end{pmatrix} \begin{pmatrix}
+\end{bmatrix} \begin{bmatrix}
 I_i \\
 \Omega_i
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 L_{m1} \\
 0
-\end{pmatrix} \tilde{V}_{mi}
+\end{bmatrix} \tilde{V}_{mi}
 {{< /katex >}}  
 
 The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}} and {{< katex >}}\tilde{\Omega}_i{{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}}\tilde{V}_m^i{{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
@@ -184,3 +184,36 @@ B_1 & 0 & 0 & 0 \\
 \end{align*}
 
 {{< /katex >}}  
+
+Each matrix Ai and Bi represent a 2 × 2 matrix. As all four motors share identical parameters, the matrices Ai and Bi exhibit identical properties. However, due to the independent dynamics of each motor, the subsystem analysis simplifies. Subsequent sections will confirm the motors' rapid response times, allowing an approximation using a static gain, as demonstrated:
+
+{{< katex display >}}
+\delta_i = K_{\Omega} \Omega_i
+{{< /katex >}}  
+
+With this outcome in consideration, we can represent the angular velocities {{< katex >}}\Omega_i{{< /katex >}} solely as a function of the voltage constant {{< katex >}}K_{\Omega}_i{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
+
+{{< katex display >}}
+\begin{bmatrix}
+\Omega_1 \\
+\Omega_2 \\
+\Omega_3 \\
+\Omega_4 \\
+\end{bmatrix}
+&=
+\begin{bmatrix}
+1 & K_{\Omega} & 0 & 0 \\
+0 & 1 & K_{\Omega} & 0 \\
+0 & 0 & 1 & K_{\Omega} \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+\delta_1 \\
+\delta_2 \\
+\delta_3 \\
+\delta_4 \\
+\end{bmatrix} \\
+{{< /katex >}}  
+
+
+This process essentially proportionally adjusts the input variables​ {{< katex >}}\delta_i{{< /katex >}}. Labeling the diagonal matrix as {{< katex >}}T_M{{< /katex >}} we can express this relationship by considering the linear deviations around the nominal operating point.
