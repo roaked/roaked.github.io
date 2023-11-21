@@ -3,6 +3,6 @@ title: Drone Computer Vision
 weight: 3
 ---
 
-# Drone - Computer Vision for Obstacle Detection in Real-Time
+# Computer Vision for Real-Time Obstacle Detection
 
-## 1.1 Computer Vision
+## 1 Computer Vision

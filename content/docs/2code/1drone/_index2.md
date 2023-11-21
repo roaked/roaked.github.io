@@ -3,7 +3,7 @@ title: Drone Dynamics & Controller
 weight: 2
 ---
 
-# Drone - System Dynamics & Controller 
+# System Dynamics & Controller 
 
 ## 1 System Dynamics Modeling 
 
