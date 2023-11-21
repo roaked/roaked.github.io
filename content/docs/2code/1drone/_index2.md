@@ -1,6 +1,6 @@
 ---
-title: RedBull Drone Racing Pt.1
-weight: 1
+title: Drone Vision
+weight: 2
 ---
 
 # Drone - System Dynamics & Controller 
