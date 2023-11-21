@@ -108,9 +108,9 @@ L_{m1} \\
 \end{bmatrix} \tilde{V}_{mi}
 {{< /katex >}}  
 
-The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}} and {{< katex >}}\tilde{\Omega}_i{{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}}\tilde{V}_{m_i}{{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
+The state space variables are, therefore, {{< katex >}} \tilde{I}_i {{< /katex >}} and {{< katex >}} \tilde{\Omega}_{i} {{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}} \tilde{V}_{m_{i}} {{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
 
-{{< katex display >}}
+{{< katex display >}} 
 \begin{bmatrix}
 \dot{\tilde{I}}_1 \\
 \dot{\tilde{\Omega}}_1 \\
