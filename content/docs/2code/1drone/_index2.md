@@ -22,7 +22,7 @@ Breaking it down this way helps in focusing on and understanding each aspect sep
 The actuation subsystem involves individual DC motors powering propellers to generate lift forces in the drone's four independently controlled motors (i=1,2,3,4). The values of I and {{< katex >}}\Omega{{< /katex >}} change over time based on the applied motor voltage, Vm, while constants like Lm, Rm, Ke, Kt, and Jm characterize the motor. This results in a second-order system for each drone motor, expressed as:
 
 {{< katex display >}}
-\dot{\tilde{x}} = A\tilde{x} + B\tilde{u} = \begin{pmatrix} \dot{\tilde{I}}_i \\ \dot{\tilde{\Omega}} \end{pmatrix} = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} \begin{pmatrix} \tilde{I}_i \\ \Omega \end{pmatrix} + \begin{pmatrix} b_2 \\ 0 \end{pmatrix} \tilde{V}_m
+\dot{\tilde{x}} = A\tilde{x} + B\tilde{u} = \begin{bmatrix} \dot{\tilde{I}}_i \\ \dot{\tilde{\Omega}} \end{bmatrix} = \begin{bpmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \begin{bmatrix} \tilde{I}_i \\ \Omega \end{bmatrix} + \begin{bmatrix} b_2 \\ 0 \end{bmatrix} \tilde{V}_m
 {{< /katex >}}
 
 {{< katex display >}}
@@ -90,3 +90,20 @@ Using these relationships, the linearized dynamics are obtained as:
 {{< /katex >}}  
 
 The linearized state space model for each actuation subsystem, where the output is the motor angular speed, is given by:
+
+
+{{< katex display >}}
+\begin{pmatrix}
+\dot{I}_i \\
+\dot{\Omega}_i
+\end{pmatrix} = \begin{pmatrix}
+-L_m R_m & J_m K_t \\
+-L_m K_e & -J_m 2K_Q \Omega_{io} + B_m
+\end{pmatrix} \begin{pmatrix}
+I_i \\
+\Omega_i
+\end{pmatrix} + \begin{pmatrix}
+L_{m1} \\
+0
+\end{pmatrix} \tilde{V}_{mi}
+{{< /katex >}}  
