@@ -484,3 +484,111 @@ CA^{11} \\
 This matrix has also rank 12 and, therefore, the system is observable.
 
 ## 2. State Feedback Control
+
+Previously, it was derived a model for the UAV, enabling to create linear and nonlinear simulators in Simulink. The next step is to implement a state feedback control system that allows the UAV to both follow and maintain a specified reference trajectory.
+
+To effectively control the UAV, I aim to manage its lateral movement ({{< katex >}}P_N{{< /katex >}} and {{< katex >}}P_E{{< /katex >}}), vertical movement ({{< katex >}}P_D{{< /katex >}}), and yaw angle ({{< katex >}}\psi{{< /katex >}}). Thus, it is needed an adjustment of the matrix C to exclusively capture these controlled states in the output. Consequently, the updated matrix C will be tailored to reflect only these specific states, ensuring the control system targets the intended dynamics.
+
+{{< katex display >}}
+C =\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+{{< /katex >}}
+
+Upon computing the resulting observability matrix, it was verified that its rank remained at 12, indicating the system's sustained observability. Given the interest in tracking a specific reference while ensuring resilience against disturbances, a servo feedback system emerges as a promising choice. To achieve this, it necessitates employing the entire state vector in feedback, thereby requiring the ability to measure all 12 variables within the state vector. This measurement can be achieved through physical sensors or, alternatively, using observer techniques. For the current phase, it is assumed that reliable measurements of all system states are available.
+
+A servo feedback control system exhibits the structure illustrated onwards. To actualize this closed-loop configuration, the values of K and {{< katex >}}K_i{{< /katex >}} need computation. This process commences by deriving the augmented open-loop system.
+
+{{< katex display >}}
+\begin{bmatrix}
+\dot{x}(t) \\
+\dot{x}_i(t) \\
+\end{bmatrix}
+= \begin{bmatrix}
+A & 0 \\
+-C & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x(t) \\
+x_i(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+B \\
+0 \\
+\end{bmatrix}
+u(t) +
+\begin{bmatrix}
+0 \\
+1 \\
+\end{bmatrix}
+r
+{{< /katex >}}
+
+![servosystem](https://live.staticflickr.com/65535/53348383011_9d456b6a77_c.jpg)
+
+{{< katex display >}}
+y(t) = \begin{bmatrix}
+C & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x(t) \\
+x_i(t) \\
+\end{bmatrix}
+
+\bar{A} = \begin{bmatrix}
+A & 0 \\
+-C & 0 \\
+\end{bmatrix}
+, \bar{B} = \begin{bmatrix}
+B \\
+0 \\
+\end{bmatrix}
+, \bar{C} = [C  0] 
+{{< /katex >}}
+
+
+Based on the previously obtained model, {{< katex >}}\bar{A}{{< /katex >}} is a 16x16 matrix, {{< katex >}}\bar{B}{{< /katex >}} is a 16x4 matrix and {{< katex >}}\bar{C}{{< /katex >}} is a 4x16 matrix. The next step involves determining the gains K and {{< katex >}}k_i{{< /katex >}} to design a controller ensuring the asymptotic stability of the system.
+
+{{< katex display >}}
+u(t) = - \begin{bmatrix}
+K & k_i \\
+\end{bmatrix}
+\begin{bmatrix}
+x(t) \\
+x_i(t) \\
+\end{bmatrix}
+
+
+\begin{bmatrix}
+\dot{x}(t) \\
+\dot{x}_i(t) \\
+\end{bmatrix}
+=\begin{bmatrix}
+A - BK & Bk_i \\
+-C & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x(t) \\
+x_i(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+0 \\
+1 \\
+\end{bmatrix}
+r
+{{< /katex >}}
+
+To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the desired new pole locations was conducted through a trial-and-error approach. The aim was to achieve a rapid response while minimizing oscillations and conserving actuator energy. After identifying the new pole locations, the computation of K and {{< katex >}}K_i{{< /katex >}} was performed using the [MATLAB function 'place'](https://de.mathworks.com/help/control/ref/place.html), which generates a 4x16 matrix  {{< katex >}}bar{K}{{< /katex >}} enmpassing all the entries, from which a 4x12 matrix {{< katex >}}bar{K}{{< /katex >}} and a 4x4 matrix {{< katex >}}bar{K}_i{{< /katex >}} were subsequently derived.
+
+{{< katex display >}}
+\bar{K} = [K | K_i]
+{{< /katex >}}
+
+The upcoming section will involve testing the behaviour of both the linear and nonlinear models when employing the acquired controller.
+
+## 3. Simulation Results 
