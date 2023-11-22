@@ -346,7 +346,7 @@ The nodal solution values, distribution of shear stresses, value of J, and torsi
 
 To calculate GJ, the torsional stiffness, simply multiply the torsion coefficient J by the shear modulus, typically around 76 GPa.
 
-**The End**
+# **The End**
 
 The goals set for this torsion problem were achieved, acknowledging that the errors observed between the NX and Matlab outputs were not substantial, indicating acceptable results. 
 

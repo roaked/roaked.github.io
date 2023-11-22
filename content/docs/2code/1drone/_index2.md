@@ -5,7 +5,7 @@ weight: 2
 
 # **Drone System Dynamics**
 
-# 1. System Dynamics Modeling 
+# 1 System Dynamics Modeling 
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
 
@@ -483,7 +483,7 @@ CA^{11} \\
 
 This matrix has also rank 12 and, therefore, the system is observable.
 
-# 2. State Feedback Control
+# 2 State Feedback Control
 
 Previously, it was derived a model for the UAV, enabling to create linear and nonlinear simulators in Simulink. The next step is to implement a state feedback control system that allows the UAV to both follow and maintain a specified reference trajectory.
 
@@ -591,7 +591,7 @@ To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the 
 
 The upcoming section will involve testing the behaviour of both the linear and nonlinear models when employing the acquired controller.
 
-# 3. Simulation Results 
+# 3 Simulation Results 
 
 To assess system performance, two Simulink models were developed. The linear model represents the state-space model derived from a linearization that assumes a hovering condition where the drone's weight is offset by the four propulsion forces. On the other hand, the nonlinear model, implements dynamic and kinematic equations alltogether.
 
