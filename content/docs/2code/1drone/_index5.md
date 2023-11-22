@@ -81,14 +81,65 @@ To isolate the gate and eliminate unwanted noise, a shift in approach was necess
 
 - **1.** Small dilation operation: Utilizing the [MATLAB function *'imdilate'*](https://www.mathworks.com/help/images/ref/imdilate.html), this operation aimed to connect isolated pixels located at the corners of the gate with the rest of the gate. The 'cube' structure with a magnitude of 2 was employed for this purpose.
 
+{{< summary "test" >}}
+![ntetsdss3223sssss2ssdaeasate](https://live.staticflickr.com/65535/53349067404_f2a8d9eded.jpg)
+{{< /summary >}}
+
+
 - **2.** Retaining the largest area: This step involved employing the [MATLAB function *'bwareafilt'*](https://www.mathworks.com/help/images/ref/bwareafilt.html) to retain solely the gate in the black and white image. Initially, all connected components within a specified range were extracted, followed by preserving solely the largest area. This process became necessary due to potential noise accumulation and formation of objects in the image caused by the dilation process in certain cases.
+
+{{< summary "test" >}}
+![ntetsdss3223sssss2ssdaeas22ate](https://live.staticflickr.com/65535/53348976298_3cd07df4ea.jpg)
+{{< /summary >}}
 
 - **3.** Closing small holes: The [MATLAB function *'imclose'*](https://www.mathworks.com/help/images/ref/imclose.html) function was employed to close only the small holes that form part of the gate shape. This operation aimed to fill these small gaps within the gate structure. A closing operation with a magnitude of 80 was applied using the 'cube' structure to ensure closure when the gate shape wasn't entirely closed (e.g., when the rectangle wasn't fully closed). It's worth noting that the [MATLAB function *'imfill'*](https://www.mathworks.com/help/images/ref/imfill.html) function was avoided to prevent inadvertently filling the actual opening of the gate where drones navigate through.
 
+{{< summary "test" >}}
+![ntetsdss3223sssss2ssdae11as22ate](https://live.staticflickr.com/65535/53349194590_8878fdac83.jpg)
+{{< /summary >}}
+
 - **4.** Smoothing the region: To further refine the image and eliminate residual noise, an [MATLAB function *'imopen'*](https://www.mathworks.com/help/images/ref/imopen.html) operation was executed using the 'cube' structure with a magnitude of 20. This process aids in cleaning up any remaining artifacts or noise in the image. Notably, employing a higher magnitude might risk reopening the gate's rectangular structure itself, hence the careful choice of parameters for this operation.
+
+{{< summary "test" >}}
+![ntetsdss3223ssss221s2ssdae11as22ate](https://live.staticflickr.com/65535/53348744306_80780ae17a.jpg)
+{{< /summary >}}
+
 
 - **5.** Reapplying the mask derived from the obtained black and white image: This was achieved by performing a boolean logic multiplication between the black and white image (acting as a mask) and the original image. The result was a segmented image where the gate was isolated and distinctly visible.
 
-Another method explored was the superpixels technique which involves segmenting the image. It is a relatively state-of-the-art technique that often couples numerous superpixels with clustering to enhance image recognition.[There are recent papers being published, but a particularly interesting one can be seen here.](https://cran.r-project.org/web/packages/OpenImageR/vignettes/Image_segmentation_superpixels_clustering.html). The divided image contain many superpixels and each superpixel is then represented by the average color value within its region. The intention behind this approach was to implement the superpixels segmentation preceding the HSV segmentation and assess whether this sequential method could yield improved results. The goal was to evaluate if the combination of superpixels segmentation followed by HSV segmentation could enhance the accuracy of isolating the gate in the images. This method helps reducing the number of different colors in the image which could help the segmentation process in some cases.
+{{< summary "test" >}}
+![nte11tsdss3223sss2ssdaeasate](https://live.staticflickr.com/65535/53348744311_051decab50.jpg)
+{{< /summary >}}
 
 
+Another method explored was the superpixels technique which involves segmenting the image. It is a relatively state-of-the-art technique that often couples numerous superpixels with clustering to enhance image recognition.[There are recent papers being published, but a particularly interesting one can be seen here.](https://cran.r-project.org/web/packages/OpenImageR/vignettes/Image_segmentation_superpixels_clustering.html). The divided image contain many superpixels and each superpixel is then represented by the average color value within its region. The intention behind this approach was to implement the superpixels segmentation preceding the HSV segmentation and assess whether this sequential method could yield improved results. The goal was to evaluate if the combination of superpixels segmentation followed by HSV segmentation could enhance the accuracy of isolating the gate in the images.
+
+
+{{< summary "test" >}}
+![ntetsdss3223sss2ssdaeasate111](https://live.staticflickr.com/65535/53349194580_d144f5c7a4.jpg)
+{{< /summary >}}
+
+
+This method helps reducing the number of different colors in the image which could help the segmentation process in some cases.
+
+{{< summary "test" >}}
+![ntetsdss3223sss2ss52daeasate111](https://live.staticflickr.com/65535/53349067274_d76b061191.jpg)
+{{< /summary >}}
+
+
+{{< summary "test" >}}
+![ntetsdss3223sss2ss52d4121aeasate111](https://live.staticflickr.com/65535/53347872712_3deecf9434.jpg)
+{{< /summary >}}
+
+This method was found to be functional but lacked reliability for consistent segmentation. A lower count of superpixels resulted in poorer outcomes, while a higher count led to slower segmentation without notable improvement. Moreover, in some instances, an increased count made segmentation more challenging as the gate and background merged together.
+
+The segmentation algorithm underwent testing on various images. It worked well for images with similar background colors and lighting conditions, often necessitating minor adjustments to the thresholds for optimization. However, for other images, a new set of thresholds had to be determined.
+
+To facilitate threshold selection, two new parameters were introduced to group images with similar colors. One parameter, denoted as 'c', signifies the center of mass of the histogram obtained using the [MATLAB *'imhist'* function](https://de.mathworks.com/help/images/ref/imhist.html). This parameter helped isolate images with pink or red backgrounds, requiring unique thresholds due to their distinct characteristics. Additionally, two images featuring a large red and black banner in the background were also isolated as they demanded slight threshold adjustments.
+
+The second parameter was established to represent the x-coordinate with the maximum value in the histogram obtained from [MATLAB *'imhist'* function](https://de.mathworks.com/help/images/ref/imhist.html). This parameter primarily aided in segregating an image with a blue background. While this image had a 'c' parameter similar to others in the testing set, it necessitated different thresholds owing to the blending of the blue background with the gate's blue.
+
+Images with distinct thresholds also required minor modifications to the order of morphological operations.
+
+
+## 2.4 Edge Detection
