@@ -592,3 +592,15 @@ To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the 
 The upcoming section will involve testing the behaviour of both the linear and nonlinear models when employing the acquired controller.
 
 ## 3. Simulation Results 
+
+To assess system performance, two Simulink models were developed. The linear model represents the state-space model derived from a linearization that assumes a hovering condition where the drone's weight is offset by the four propulsion forces. On the other hand, the nonlinear model, implements dynamic and kinematic equations alltogether.
+
+Following an iterative process, desired poles were obtained through trial and error. These poles were crucial for computing the K and {{< katex >}}K_i{{< /katex >}} matrices, enabling the construction of a controller for both models. This controller transformed them into servo systems with state feedback control. This section focuses on analyzing the performance of the servo feedback control in both simulators, along with evaluating the controller's robustness against disturbances.
+
+{{< details "**MATLAB Simulink:** Linear Model - (click to expand)" close >}}
+![linear](https://live.staticflickr.com/65535/53348849255_e94784ca08_c.jpg)
+{{< /details >}}
+
+{{< details "**MATLAB Simulink:** Non-linear Model - (click to expand)" close >}}
+![nonlinear](https://live.staticflickr.com/65535/53348722664_0db04f6f60_z.jpg)
+{{< /details >}}
