@@ -2,10 +2,9 @@
 weight: 4
 bookHidden: false
 title: "Finite Element Model Formulation"
-
 ---
 
-# Mathematical Background
+# 1 Mathematical Background
 
 ## 1.1 Partial Differential Equations (PDEs)
 
@@ -196,9 +195,81 @@ x & y & \text{Integration} & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 
 {{< /katex >}}
 
 
+The following results were obtained for {{< katex >}}\bar{\tau_{yz}} = \frac{\tau_{yz}}{G\theta} = \tau_{yz} \times J{{< /katex >}} for 4x4 mesh:
 
+{{< katex display >}}
+\begin{bmatrix}
+x & y & \text{Analytical Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Known Analytical Solution} \\
+0.06250 & 0.0625 & 0.0618 & 0.0618 & 0.0621 & 0.0625 & 0.0618 \\
+0.1875 & 0.0625 & 0.1942 & 0.1942 & 0.1955 & 0.1970 & 0.1939 \\
+0.3125 & 0.0625 & 0.3529 & 0.3529 & 0.3553 & 0.3577 & 0.3516 \\
+0.4375 & 0.0625 & 0.5528 & 0.5528 & 0.5560 & 0.5593 & 0.5504 \\
+\end{bmatrix}
+{{< /katex >}}
 
+It's observed that stiffness matrices obtained through analytical integration or Gauss 2x2 are closely aligned with the known values. In fact, the values from analytical integration and Gauss 2x2 are identical when approximated to 4 decimal places. The fewer points used in the Gauss integration, the greater the error, with Gauss 1x1 showing the largest discrepancy between obtained and known values. The largest relative error found in analytical integration and Gauss 2x2 was 0.436%. For Gauss 1x2 integration, the largest relative error was 1.05%, while Gauss 1x1 integration showed the largest relative error of 1.73%. Overall, the values are close to the known ones, indicating that the developed program is functioning correctly.
 
+# 3 Comparison with FEM commercial software Siemens NX
+
+In addition, the problem was tackled by resorting to the commercial software NX, which unfortunately lacks a dedicated solver for torsion problems. As a workaround, the issue was addressed using the *Sol 153 solver – Steady State Nonlinear Heat Transfer*. This approach was selected due to the analogy between torsion and heat problems. Specific conditions were applied, including setting a boundary temperature at T = 0°C, introducing a uniform heat generation of 2 W/m³ throughout the section, and assigning a thermal conductivity value of K = 1 to the material. To compare results, the Prandtl function was solved using different integration methods in Matlab against the outcomes obtained through NX.
+
+## 3.1 Analytical Integration
+
+{{< details "**Results from Analytical Integration:** - (click to expand)" close >}}
+
+\begin{bmatrix}
+\text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (\%)} & \text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (\%)} \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
+3 & 0 & 0 & 0 & 51 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 \\
+4 & 0 & 0 & 0 & 52 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 \\
+5 & 0 & 0 & 0 & 53 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 & 64 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 \\
+17 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 & 65 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 \\
+18 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 & 66 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 \\
+19 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 & 67 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 \\
+20 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 & 68 & 0 & 0 & 0 \\
+21 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 & 69 & 0 & 0 & 0 \\
+22 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 & 70 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 \\
+23 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 & 71 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 \\
+24 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 & 72 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 \\
+25 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 & 73 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 \\
+26 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 & 74 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 \\
+27 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 & 75 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 \\
+28 & 0 & 0 & 0 & 76 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 \\
+29 & 0 & 0 & 0 & 77 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 \\
+30 & 0 & 0 & 0 & 78 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 \\
+31 & 0 & 0 & 0 & 79 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 \\
+32 & 0 & 0 & 0 & 80 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 \\
+33 & 0 & 0 & 0 & 81 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 & 86 & 0 & 0 & 0 \\
+39 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 & 87 & 0 & 0 & 0 \\
+40 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 & 88 & 0 & 0 & 0 \\
+41 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 & 92 & 0 & 0 & 0 \\
+45 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 & 93 & 0 & 0 & 0 \\
+46 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 & 94 & 0 & 0 & 0 \\
+47 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix}
+
+{{< /details >}}
 
 
 

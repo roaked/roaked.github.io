@@ -660,19 +660,19 @@ This instability arose from significant pitch or roll angles inducing high speed
 
 In this simulation, the given reference involves ascending while simultaneously rotating on the yaw angle. The upcoming figure illustrates the successful tracking of the reference without any issues. 
 
-{{< details "**Vertical and Yaw Movement:**  Movement of Z and yaw (click to expand)" close >}}
+{{< details "**Vertical and Yaw Movement:**  Movement of Z and yaw - (click to expand)" close >}}
 ![vertical and yaw movement](https://live.staticflickr.com/65535/53348910605_c73dcf8dbb_z.jpg)
 {{< /details >}}
 
 Similar to observations in the linear model, there was a minor impact on the lateral position, as depicted:
 
-{{< details "**Lateral Movement:**  Movement of X and Y (click to expand)" close >}}
+{{< details "**Lateral Movement:**  Movement of X and Y - (click to expand)" close >}}
 ![asdaudasmovement](https://live.staticflickr.com/65535/53348782754_47dc807d96_c.jpg)
 {{< /details >}}
 
 As anticipated, all motors were activated to elevate the altitude, with motors 2 and 4 exhibiting substantial actuation to align the yaw angle with the provided reference. 
 
-{{< details "**Vertical and Lateral Movement:** Motor Actuations" close >}}
+{{< details "**Vertical and Lateral Movement:** Motor Actuations - (click to expand)" close >}}
 ![asdaudasmosfafavement](https://live.staticflickr.com/65535/53348691623_08cba40fc3_c.jpg)
 {{< /details >}}
 
@@ -680,15 +680,15 @@ As anticipated, all motors were activated to elevate the altitude, with motors 2
 
 In this scenario, the reference entails ascending while moving forward. It is shown the drone adeptly tracking the lateral reference, albeit with slight oscillations. However, despite stabilizing approximately 7 seconds later, the oscillations around the final altitude exceed acceptable limits.
 
-{{< details "**Vertical and Lateral Movement:**  Movement of Z and X (click to expand)" close >}}
+{{< details "**Vertical and Lateral Movement:**  Movement of Z and X - (click to expand)" close >}}
 ![verticadal anddsada yaw movement](https://live.staticflickr.com/65535/53348691628_3a4014b79c_c.jpg)
 {{< /details >}}
 
-{{< details "**Lateral Movement:**  Movement of Y (click to expand)" close >}}
+{{< details "**Lateral Movement:**  Movement of Y - (click to expand)" close >}}
 ![verticadalsad anddsada yaw movement](https://live.staticflickr.com/65535/53348910585_d5dda5e464_c.jpg)
 {{< /details >}}
 
-{{< details "**Vertical and Lateral Movement:** Motor Actuations" close >}}
+{{< details "**Vertical and Lateral Movement:** Motor Actuations - (click to expand)" close >}}
 ![asdaudsfafafasmosfafavement](https://live.staticflickr.com/65535/53348910595_a20c9e4c7f_c.jpg)
 {{< /details >}}
 
