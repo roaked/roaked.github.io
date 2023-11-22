@@ -537,7 +537,7 @@ For the considered 96 nodes:
 
 {{< katex display >}}
 \begin{bmatrix}
-\text{J NX (m^4)} & \text{J Matlab (m^4)} & \text{Relative Error (%)} \\
+\text{J NX} (m^4) & \text{J Matlab} (m^4) & \text{Relative Error (%)} \\
 6.1191185 \times 10^{-5} & 6.11890982 \times 10^{-5} & 3.41041 \times 10^{-3} \\
 \end{bmatrix}
 {{< /katex >}}
