@@ -62,6 +62,8 @@ In the completion of this work, the FEM Standards (European Federation of Materi
 
 A study was conducted on various existing construction solutions available in the market for this type of equipment. For the girders, a box-type section was chosen with a constant thickness of 10mm, made of AISI 1095 steel, and measuring 10m in length. These girders consist of 4 steel plates welded together with a 5mm thick welding bead. The rails are positioned on the girders, not aligned with the vertical plane passing through the girder's centroid, as this alignment would create a high bending moment on the upper plate of the girder. The connection between the girders and the trolley frame is established using 6 bolts M36x4 CR 10.9 and welding with a 10mm thick bead.
 
+![saassa](https://live.staticflickr.com/65535/53349230049_69f514c133_w.jpg)
+
 The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and a mass of 755 kg. The following data pertains to the assembly composed of the two girders, two trolley frames, and the hoist trolley:
 
 - Weight: 1229.3 kg
@@ -72,6 +74,8 @@ The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and
 
 The steel plates are obtained through a cold rolling process. Their surface roughness with an arithmetic mean deviation is 4.8 micrometers. The geometric tolerance concerning the thickness of these components is {{< katex >}}\pm{{< /katex >}}0.1 mm.
 
+![saas2sa](https://live.staticflickr.com/65535/53349139963_c077712bdd_z.jpg)
+
 For the resistant girders:
 
 - 1. Welding of the two web plates to the bottom flange.
@@ -80,6 +84,8 @@ For the resistant girders:
 - 4. Welding of the rail.
 - 5. Welding of the lateral reinforcements.
 - 6. Welding of the base fixing.
+
+
 
 The welding for the first, third, and fourth steps will be conducted using the Submerged Arc Welding process. This method is advantageous due to the substantial length of the welding bead, allowing for automation of the equipment carrying out the operation. The welding for the remaining steps will be executed using TIG (Tungsten Inert Gas) welding. The required equipment will be operated by a skilled worker.
 
@@ -107,3 +113,39 @@ Due to the high stresses to which the box girder of the overhead crane is subjec
 \hline
 \end{tabular}
  {{< /katex >}}
+
+ ## 2.2. Dimensioning Criteria 
+
+ ### 2.2.1. Rigidity Criterion
+
+ The box girders, with a length of 10 m, must meet this criterion from EN 1993-6:2007, where the maximum allowable deflection is given by:
+
+ {{< katex display >}}
+ \delta_{z,max} = \frac{L}{600} = 16.7 \text{mm}
+
+ {{< /katex >}}
+ To meet this criterion, an initial H/L ratio of 2.2 was chosen.
+
+
+ ### 2.2.2. Mechanical Strength Criterion
+
+The mechanical strength criterion was defined using the Pugsley criterion with the specified coefficients n = 2,08.
+
+![saassa](https://live.staticflickr.com/65535/53349357450_366d636c17.jpg)
+
+## 2.3. Beam Sizing
+
+### 2.3.1. Static Verification
+
+To size the beam, an analytical model was developed considering two vertical loads corresponding to the nominal load and the weight of the trolley. The value of each of these two forces was previously defined according to the FEM standards, already multiplied by the dynamic coefficient and the amplification coefficient. The value of each force is 26.7 kN and they are spaced 1 meter apart. Additionally, the weight of the beam itself, which is not negligible, is represented as a distributed load. To verify the stiffness criterion, an H/L ratio of 2.2 was initially chosen.
+Using tables of maximum deflection, employing the superposition method and also considering the load P equivalent to 26700N and the load application point (offset) at x = 4.5 m, the following expression for the beam's maximum deflection is obtained:
+
+ {{< katex display >}}
+y_{\text{max}} = 2 \left[ \left( \frac{P \times b}{6 \times E \times I_z \times 10} \right) \times \left( \left( 5^3 - \left( 10^2 - b^2 \right) \times 5 \right) \right) - \frac{5 \times w \times 10^4}{384 \times E \times I} \right]
+ {{< /katex >}}
+
+ Next, an expression for a given moment of inertia around z, Iz, was obtained as a function of the section's height H.
+
+ {{< katex display >}}
+ I_z = \frac{2}{10^{12}} \left[\left(10 \times (2H - 20)^3\right) + \left({2L \times 10^3}\right)\right] + 10L(H - 5)^2 
+{{< /katex >}}
