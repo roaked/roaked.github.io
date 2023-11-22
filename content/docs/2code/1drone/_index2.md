@@ -650,6 +650,5 @@ The resulting actuation of the four motors can also be seen:
 ![Actuations for the vertical and yaw movement](https://live.staticflickr.com/65535/53348641828_c6483ca067_c.jpg)
 {{< /details >}}
 
-
- Additionally, Figure 11 indicates a minimal PE movement (10^-3), aligning with expectations. The resulting actuation of the four motors is depicted in Figure 12.
+## 3.2 Non-linear Model Results
 
