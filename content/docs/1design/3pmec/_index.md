@@ -190,7 +190,7 @@ The fatigue limit stress was determined to be 321.617 MPa through the calculatio
 
 n_{Goodman} = \frac{1}{\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_u}} = 8.355\\ \\
 
-n_{Yield} = \frac{1}{\frac{\sigma_a + \sigma_m}{S_y}} = 11.482\\
+\\ n_{Yield} = \frac{1}{\frac{\sigma_a + \sigma_m}{S_y}} = 11.482\\
 {{< /katex >}}
 
 For a 25% overload (1.25 times the load) occurring 10% of the time and taking a factor of f = 0.858 figure 6-18 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y)
@@ -315,7 +315,7 @@ By calculating the total stress induced by the moments and the shear force, it i
 \tau = \sqrt{\tau_{MT}^2 + \tau_V^2} = \sqrt{1.478 \times 10^6 + 4.43 \times 10^5} = 1.543 \times 10^6 \, \text{Pa}
 {{< /katex >}}
 
-To conclude the study of welded connections between the vertical and horizontal plates, it was proposed to evaluate the static safety coefficient and compare it with the initially defined value using the Pugsley method (n = 2.08). This comparison aims to verify if the obtained value surpasses the initially set one.
+To conclude the study of welded connections between the vertical and horizontal plates, it is proposed to evaluate the static safety coefficient and compare it with the initially defined value using the Pugsley method (n = 2.08). This comparison aims to verify if the obtained value surpasses the initially set one.
 
 {{< katex display >}}
 \text{Nestatica} = \frac{0.4 \times S_y}{\tau} = \frac{0.4 \times 460 \times 10^6}{1.543 \times 10^6} = 119.25
