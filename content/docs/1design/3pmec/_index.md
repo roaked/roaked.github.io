@@ -150,11 +150,36 @@ y_{\text{max}} = 2 \left[ \left( \frac{P \times b}{6 \times E \times I_z \times 
  I_z = \frac{2}{10^{12}} \left[\left(10 \times (2H - 20)^3\right) + \left({2L \times 10^3}\right)\right] + 10L(H - 5)^2 
 {{< /katex >}}
 
-The distributed loading, w, was defined using the density of the chosen material ({{< katex >}}\rho{{< /katex >}} = 78450 N/{{< katex >}}m^3{{< /katex >}}:
+The distributed loading, w, was defined using the density of the chosen material ({{< katex >}}\rho{{< /katex >}}) = 78450 N/{{< katex >}}m^3{{< /katex >}}:
 
 {{< katex display >}}
 w = \frac{Volume \times \rho}{L} = 4.564H - 31.38
 {{< /katex >}}
 
+Upon solving the equation for maximum deflection, an expression in terms of H was obtained. From the graph, a value of H = 260 mm was selected, corresponding to L = 118.2 mm, thereby fulfilling the rigidity criterion.
 
+![saass12121a](https://live.staticflickr.com/65535/53348060477_57f703bfeb_w.jpg)
 
+At present, the computation of the Von Mises equivalent stress has become feasible. This involves determining both the shear stress resulting from torsion and the shear stress attributed to it.
+
+{{< katex display >}}
+\tau_V = \frac{V \times Q}{I_z \times b} = \frac{27170 \times 2 \times (0.125 \times 0.0025 + 0.255 \times 0.0023)}{0.00052 \times 0.02} = 3.234 \times 10^6 \text{Pa}
+
+\tau_T = \frac{T}{2 \times A_m \times t} = \frac{2250 \times 2}{2 \times (0.1664 \times 0.510) \times 0.1} = 2.651 \times 10^6 \text{Pa}
+
+\sigma_M = \frac{M_c}{I_z} = \frac{131660 \times 0.26}{0.00052} = 6.637 \times 10^7 \text{Pa}
+{{< /katex >}}
+
+Subsequently:
+
+{{< katex display >}}
+\sigma_{VM} = \sqrt{\sigma_M^2 + 3\left(\frac{\tau_V^2 + \tau_T^2}{2}\right)} = 6.723 \times 10^7  \text{Pa}
+{{< /katex >}}
+
+Having the safety factor:
+
+{{< katex display >}}
+n = \frac{S_y}{\sigma_{VM}} = \frac{772 \times 10^6}{6.723 \times 10^7} = 11.482 > 2.08
+{{< /katex >}}
+
+### 2.3.2. Fatigue Verification
