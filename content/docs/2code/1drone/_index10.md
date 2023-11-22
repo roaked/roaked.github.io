@@ -1,6 +1,6 @@
 ---
 title: Drone Computer Vision
-weight: 10
+weight: 5
 ---
 
 # **Computer Vision for Real-Time Obstacle Detection**
@@ -36,5 +36,9 @@ The strategy involved an examination of different color spaces to identify poten
 In the image, it is seen the original RGB components as they are, without any changes. It's hard to spot the gate distinctly from the background in any of these components. None of them make the gate stand out separately. So, it looks like using these RGB components isn't the best for separating the gate from the rest. Next up was trying out the HSV color representation.
 
 {{< summary "test" >}}
-![ntetsdsdete](https://live.staticflickr.com/65535/53349006219_f418323e63.jpg)
+![ntetsdsdaete](https://live.staticflickr.com/65535/53349006219_f418323e63.jpg)
 {{< /summary >}}
+
+In the HSV representation, an adjustment was made to the original images specifically for the Hue component. The process involved converting the image to the HSV color space, modifying its Saturation and Value components to a saturation of 1, and then re-converting the image back to the RGB color space. This resulted in a representation highlighting the genuine colors of the image, with only the Hue component "enabled".
+
+When the image is observed, the gate is distinctly noticeable from the background in the Hue component. The dark and blue tones from the original picture are reflected as dark blue in the Hue representation, while the small white squares take on a magenta hue. The background spans a range from light blue to green and red in this representation. While the Saturation and Value components alone do not facilitate gate identification
