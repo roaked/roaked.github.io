@@ -483,7 +483,7 @@ CA^{11} \\
 
 This matrix has also rank 12 and, therefore, the system is observable.
 
-## 2. State Feedback Control
+# 2. State Feedback Control
 
 Previously, it was derived a model for the UAV, enabling to create linear and nonlinear simulators in Simulink. The next step is to implement a state feedback control system that allows the UAV to both follow and maintain a specified reference trajectory.
 
@@ -591,7 +591,7 @@ To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the 
 
 The upcoming section will involve testing the behaviour of both the linear and nonlinear models when employing the acquired controller.
 
-## 3. Simulation Results 
+# 3. Simulation Results 
 
 To assess system performance, two Simulink models were developed. The linear model represents the state-space model derived from a linearization that assumes a hovering condition where the drone's weight is offset by the four propulsion forces. On the other hand, the nonlinear model, implements dynamic and kinematic equations alltogether.
 
@@ -604,3 +604,52 @@ Following an iterative process, desired poles were obtained through trial and er
 {{< details "**MATLAB Simulink:** Non-linear Model - (click to expand)" close >}}
 ![nonlinear](https://live.staticflickr.com/65535/53348722664_0db04f6f60_z.jpg)
 {{< /details >}}
+
+## 3.1 Linear Model Results
+
+As previously stated, the linear model was linearized under the assumption of a hovering state. In the forthcoming simulations, the model will undergo two combined movements: a vertical and yaw movement, as well as a vertical and lateral movement. Each simulation will present data on position, yaw angle, and actuation for the UAV.
+
+### 3.1.1 Vertical and Yaw Movement
+
+Combining the vertical climb with a yaw movement is equivalent to introducing a negative P{{< katex >}}D_{ref}{{< /katex >}} alongside a specified final yaw angle value {{< katex >}}\Psi_{ref}{{< /katex >}}.
+
+
+{{< details "**Vertical and Yaw Movement:** Movement of Z axis and Yaw angle - (click to expand)" close >}}
+![Movement Z/YAW angle for the vertical and yaw movement](https://live.staticflickr.com/65535/53348641823_a9a1713d57_c.jpg)
+{{< /details >}}
+
+It illustrates the drone adeptly tracking the given references without encountering any noticeable issues. However, the next figure indicates a minimal, yet inconsequential impact on the lateral position ({{< katex >}}P_N{{< /katex >}} and {{< katex >}}P_E{{< /katex >}}), noted as exceedingly small ({{< katex >}}10^{-4}{{< /katex >}}).
+
+{{< details "**Vertical and Yaw Movement:** Movement of X and Y axis - (click to expand)" close >}}
+![Movement of X and Y for the vertical and yaw movement](https://live.staticflickr.com/65535/53348733609_655920023c_c.jpg)
+{{< /details >}}
+
+As anticipated, the activation of all four motors caused the UAV to ascend vertically. Notably, motors 1 and 3, as well as motors 2 and 4, exhibited varying actuations, leading to a variation in the yaw angle.
+
+{{< details "**Vertical and Yaw Movement:** Actuations - (click to expand)" close >}}
+![Actuations for the vertical and yaw movement](https://live.staticflickr.com/65535/53348860180_30a3b15b6f_c.jpg)
+{{< /details >}}
+
+### 3.1.1 Vertical and Lateral Movement
+
+For the second movement, a decision was made to combine forward and vertical positioning for the drone. The following figure illustrates the UAV's stabilization on the specified reference, although initial oscillations in the vertical position are evident. As predicted, the system eventually reaches the final position dictated by the reference, affirming the seamless functionality of the servo controller.
+
+{{< details "**Vertical and Lateral Movement:** Movement of X and Z axis - (click to expand)" close >}}
+![Movement Z/YAW angle for the vertical and lateral movement](https://live.staticflickr.com/65535/53347535807_3c277b14e9_c.jpg)
+{{< /details >}}
+
+Additionally, the next figure indicates a minimal PE movement ({{< katex >}}10^{-3}{{< /katex >}}), aligning with expectations.
+
+{{< details "**Vertical and Lateral Movement:** Movement of Y axis - (click to expand)" close >}}
+![Movement of X and Y for the vertical and lateral movement](https://live.staticflickr.com/65535/53348733604_9870b7b0de_c.jpg)
+{{< /details >}}
+
+The resulting actuation of the four motors can also be seen:
+
+{{< details "**Vertical and Lateral Movement:** Actuations - (click to expand)" close >}}
+![Actuations for the vertical and yaw movement](https://live.staticflickr.com/65535/53348641828_c6483ca067_c.jpg)
+{{< /details >}}
+
+
+ Additionally, Figure 11 indicates a minimal PE movement (10^-3), aligning with expectations. The resulting actuation of the four motors is depicted in Figure 12.
+
