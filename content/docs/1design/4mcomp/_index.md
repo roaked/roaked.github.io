@@ -284,7 +284,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 **Maximum error devation**: 3,99501E-06 %
 
-\begin{bmatrix}
+![Katex](\begin{bmatrix}
 \text{Node} & \text{Gauss 2x2 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 2x2 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
 1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
 2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
@@ -334,7 +334,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 46 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 & 94 & 0 & 0 & 0 \\
 47 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 & 95 & 0 & 0 & 0 \\
 48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
-\end{bmatrix}
+\end{bmatrix})
 
 
 {{< /details >}}
@@ -468,7 +468,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 **Maximum error devation**: 15,19098164 %
 
 \begin{bmatrix}
-\text{Node} & \text{Gauss 1x1 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 1x1 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
+[katex](\text{Node} & \text{Gauss 1x1 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 1x1 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
 1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
 2 & 0 & 0 & 0 & 50 & 1.54947421E-03 & 1.52894761E-03 & 1.34253E+00 \\
 3 & 0 & 0 & 0 & 51 & 2.36381783E-03 & 2.25918647E-03 & 4.63137E+00 \\
@@ -517,7 +517,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 46 & 2.28905316E-03 & 2.22762395E-03 & 2.75761E+00 & 94 & 0 & 0 & 0 \\
 47 & 1.52154662E-03 & 1.48307974E-03 & 2.59372E+00 & 95 & 0 & 0 & 0 \\
 48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
-\end{bmatrix}
+\end{bmatrix})
 {{< /details >}}
 
 
