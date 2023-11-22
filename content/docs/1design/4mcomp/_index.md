@@ -523,13 +523,13 @@ Calculating the value of J for various refinements yielded:
 
 {{< katex display >}}
 \begin{bmatrix}
-    \text{Number of nodes} & J \text{computed from NX} (m^4) \\
-    96 & 6.11911850 \times 10^{-5} \\
-    234 & 6.85679916 \times 10^{-5} \\
-    600 & 7.06099102 \times 10^{-5} \\
-    1765 & 7.13958341 \times 10^{-5} \\
-    4720 & 7.16633419 \times 10^{-5} \\
-    41461 & 7.18205027 \times 10^{-5} \\
+\text{Number of nodes} & J \text{computed from NX} (m^4) \\
+96 & 6.11911850 \times 10^{-5} \\
+234 & 6.85679916 \times 10^{-5} \\
+600 & 7.06099102 \times 10^{-5} \\
+1765 & 7.13958341 \times 10^{-5} \\
+4720 & 7.16633419 \times 10^{-5} \\
+41461 & 7.18205027 \times 10^{-5} \\
 \end{bmatrix}
 {{< /katex >}}
 
