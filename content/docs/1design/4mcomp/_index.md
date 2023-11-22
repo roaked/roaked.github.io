@@ -176,6 +176,10 @@ After submitting the data file, the program reads the file and automatically ope
 
 Upon program completion, a file is created containing the data obtained from the last integration performed.
 
+![sds](https://live.staticflickr.com/65535/53347766202_f8a2c9e042_q.jpg) 
+
+**REMARK:** The node numbering associated with a given element in the incidence matrix is done counterclockwise, as shown in the accompanying image. Any other numbering will yield incorrect results for solving this problem. The coordinates in the node matrix are in SI units, therefore in meters. Introducing values in different units in the data file will result in incorrect units in the final program output. The material conductivity or property should be 1; if it's not, the results won't be valid for this torsion problem. Regarding boundary conditions, only essential boundary conditions equal to zero are allowed. However, they will be set to zero if another finite value is associated. The distributed loading assumes the value 2; however, if the value differs, the program will still provide results—though they may not be reasonable for solving the initially presented problem. All other boundary conditions should be null, and if they're not, an error message will be displayed.
+
 
 ## 2.2 Validation Based on Book
 
@@ -301,7 +305,7 @@ The initial mesh comprises 96 nodes. The mesh underwent 5 refinements to analyze
 ![sddst](https://live.staticflickr.com/65535/53347732682_2ea88fae5e_n.jpg)
 {{< /details >}}
 
-Lastly, it 41468 nodes for the final mesh refinement.
+Lastly, the 41468 nodes are represented for the final mesh refinement.
 
 {{< details "**Meshing in NX Siemens:** Final Mesh - (click to expand)" close >}}
 ![sdasdaddst](https://live.staticflickr.com/65535/53349056300_d5a49424b2_z.jpg)
@@ -316,15 +320,19 @@ When the program is executed, it generates several figures such as the mesh repr
 ![sdasdsssaddst](https://live.staticflickr.com/65535/53349066455_9f29d491fa.jpg)
 
 - **Shear Stress Ditribution**
+
 ![sdasdssdadassaddst](https://live.staticflickr.com/65535/53348939254_05f55130fc.jpg)
 
 - **Shear Stress Contour Plot**
+
 ![sdasdsasdasdadassaddst](https://live.staticflickr.com/65535/53348616926_9b32186f03.jpg)
 
 - **Nodal Solution: Analytical Integration**
+
 ![sdasdsasdasdsdadassaddst](https://live.staticflickr.com/65535/53347742997_a52836da0d_w.jpg)
 
 - **Isometric View: Stress Isolines**
+
 ![sdasdsasdasdsdadassdssaddst](https://live.staticflickr.com/65535/53348939259_279f7d009e_w.jpg)
 
 
@@ -338,6 +346,8 @@ The nodal solution values, distribution of shear stresses, value of J, and torsi
 
 To calculate GJ, the torsional stiffness, simply multiply the torsion coefficient J by the shear modulus, typically around 76 GPa.
 
+**The End**
 
+The goals set for this torsion problem were achieved, acknowledging that the errors observed between the NX and Matlab outputs were not substantial, indicating acceptable results. 
 
 
