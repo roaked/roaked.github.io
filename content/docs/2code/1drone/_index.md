@@ -38,7 +38,7 @@ Given how complex this project turned out to be, I have decided to structure it 
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 
 
-![video](https://live.staticflickr.com/65535/53348436236_fc3864cfd6_w.jpg)
+![video](https://s5.gifyu.com/images/SRQm0.gif)
 
 **Follow the left sidebar for more!**
 
