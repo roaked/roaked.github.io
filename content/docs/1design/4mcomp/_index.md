@@ -183,7 +183,7 @@ The developed program has been tested for a known problem described in the book 
 
 {{< katex display >}}
 \begin{bmatrix}
-x & y & \text{Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Reddy} \\
+x & y & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Reddy} \\
 0.0000 & 0.0000 & 0.1492 & 0.1492 & 0.1501 & 0.1513 & 0.1492 \\
 0.1250 & 0.0000 & 0.1412 & 0.1412 & 0.1421 & 0.1429 & 0.1412 \\
 0.2500 & 0.0000 & 0.1161 & 0.1161 & 0.1168 & 0.1176 & 0.1161 \\
@@ -199,7 +199,7 @@ The following results were obtained for {{< katex >}}\bar{\tau_{yz}} = \frac{\ta
 
 {{< katex display >}}
 \begin{bmatrix}
-x & y & \text{Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Known Sol.} \\
+x & y & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Known Sol.} \\
 0.06250 & 0.0625 & 0.0618 & 0.0618 & 0.0621 & 0.0625 & 0.0618 \\
 0.1875 & 0.0625 & 0.1942 & 0.1942 & 0.1955 & 0.1970 & 0.1939 \\
 0.3125 & 0.0625 & 0.3529 & 0.3529 & 0.3553 & 0.3577 & 0.3516 \\
@@ -218,10 +218,10 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 ## 3.1 Analytical Integration
 
-**Maximum error devation**: 3,99501E-06 %
+**Maximum error deviation**: 3,99501E-06%
+
 {{< katex display >}}
-\begin{bmatrix}
-\text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
+\begin{bmatrix} \text{Node} & \text{Sol. Matlab (m)} & \text{Siemens NX (m)} & \text{Rel. Error (%)} & \text{Node} & \text{Sol. Matlab (m)} & \text{Siemens NX (m)} & \text{Rel. Error (%)} \\
 1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
 2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
 3 & 0 & 0 & 0 & 51 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 \\
@@ -279,7 +279,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 
 
-**Maximum error devation**: 3,99501E-06 %
+**Maximum error deviation**: 3,99501E-06 %
 {{< katex display >}}
 \begin{bmatrix}
 \text{Node} & \text{Gauss 2x2 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 2x2 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
@@ -337,7 +337,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 ## 3.3 Gauss Integration 2x1
 
 
-**Maximum error devation**: 8,605963869 %
+**Maximum error deviation**: 8,605963869 %
 
 {{< katex display >}}
 \begin{bmatrix}
@@ -399,7 +399,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 
 
-**Maximum error devation**: 4,839239833 %
+**Maximum error deviation**: 4,839239833 %
 {{< katex display >}}
 \begin{bmatrix}
 \text{Node} & \text{Gauss 1x2 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 1x2 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
@@ -459,7 +459,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 
 
-**Maximum error devation**: 15,19098164 %
+**Maximum error deviation**: 15,19098164 %
 {{< katex display >}}
 \begin{bmatrix}
 [katex](\text{Node} & \text{Gauss 1x1 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 1x1 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
