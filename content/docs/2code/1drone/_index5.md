@@ -3,7 +3,7 @@ title: Drone Computer Vision
 weight: 5
 ---
 
-# **Computer Vision for Real-Time Obstacle Detection**
+# **Computer Vision for Obstacle Detection**
 
 # 1 Description
 
