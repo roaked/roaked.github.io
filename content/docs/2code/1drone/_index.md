@@ -9,6 +9,8 @@ weight: 1
 
 The world of Red Bull drone racing stands at the intersection of high-speed competition and very advanced technology. In this exhilarating arena, unmanned aerial vehicles (UAVs) navigate intricate courses filled with obstacles, pushing the limits of flight capabilities and piloting skills. To revolutionize this dynamic sport, I developped a model that aims to integrate advanced AI, computer vision, and simulated dynamics to elevate drone performance and safety within the competitive realm.
 
+![redbulll](https://www.dronetrest.com/uploads/db5290/original/2X/f/fbcf6fcd68bc57fac9f38ce5148e43f1cb95b926.png)
+
 ## 2 Overview
 
 This interesting concept revolves around the development of a comprehensive system that seamlessly combines state-of-the-art technologies to enhance Red Bull drone racing. It is desired to fuse AI-driven algorithms, computer vision systems, and simulated dynamics modeling to optimize drone navigation through complex racecourses.
@@ -36,6 +38,9 @@ Given how complex this project turned out to be, I have decided to structure it 
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 
 **Follow the left sidebar for more!**
+
+![video](https://live.staticflickr.com/video/53348427716/d8e61cc9f6/360p.mp4?s=eyJpIjo1MzM0ODQyNzcxNiwiZSI6MTcwMDY1Mzk3MiwicyI6IjE1ZThjNzlhNzZiNjc5NDNmODRmYTBiZTNjODg3NjU0MTIxMWFiNzEiLCJ2IjoxfQ)
+
 
 
 ## 4 Drone Characteristics

@@ -3,7 +3,7 @@ title: Drone Dynamics
 weight: 2
 ---
 
-# **System Dynamics**
+# **Drone System Dynamics**
 
 # 1. System Dynamics Modeling 
 
