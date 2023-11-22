@@ -40,7 +40,7 @@ By splitting the report into these segments, it is expected to inspect each aspe
 
 ![video](https://s5.gifyu.com/images/SRQm0.gif)
 
-**Follow the left sidebar for more!**
+**Check the left sidebar for more!**
 
 ## 4 Drone Characteristics
 

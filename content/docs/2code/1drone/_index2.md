@@ -614,13 +614,13 @@ As previously stated, the linear model was linearized under the assumption of a 
 Combining the vertical climb with a yaw movement is equivalent to introducing a negative P{{< katex >}}D_{ref}{{< /katex >}} alongside a specified final yaw angle value {{< katex >}}\Psi_{ref}{{< /katex >}}.
 
 
-{{< details "**Vertical and Yaw Movement:** Movement of Z axis and Yaw angle - (click to expand)" close >}}
+{{< details "**Vertical and Yaw Movement:** Movement of Z and Yaw - (click to expand)" close >}}
 ![Movement Z/YAW angle for the vertical and yaw movement](https://live.staticflickr.com/65535/53348641823_a9a1713d57_c.jpg)
 {{< /details >}}
 
 It illustrates the drone adeptly tracking the given references without encountering any noticeable issues. However, the next figure indicates a minimal, yet inconsequential impact on the lateral position ({{< katex >}}P_N{{< /katex >}} and {{< katex >}}P_E{{< /katex >}}), noted as exceedingly small ({{< katex >}}10^{-4}{{< /katex >}}).
 
-{{< details "**Vertical and Yaw Movement:** Movement of X and Y axis - (click to expand)" close >}}
+{{< details "**Vertical and Yaw Movement:** Movement of X and Y - (click to expand)" close >}}
 ![Movement of X and Y for the vertical and yaw movement](https://live.staticflickr.com/65535/53348733609_655920023c_c.jpg)
 {{< /details >}}
 
@@ -634,13 +634,13 @@ As anticipated, the activation of all four motors caused the UAV to ascend verti
 
 For the second movement, a decision was made to combine forward and vertical positioning for the drone. The following figure illustrates the UAV's stabilization on the specified reference, although initial oscillations in the vertical position are evident. As predicted, the system eventually reaches the final position dictated by the reference, affirming the seamless functionality of the servo controller.
 
-{{< details "**Vertical and Lateral Movement:** Movement of X and Z axis - (click to expand)" close >}}
+{{< details "**Vertical and Lateral Movement:** Movement of X and Z - (click to expand)" close >}}
 ![Movement Z/YAW angle for the vertical and lateral movement](https://live.staticflickr.com/65535/53347535807_3c277b14e9_c.jpg)
 {{< /details >}}
 
 Additionally, the next figure indicates a minimal PE movement ({{< katex >}}10^{-3}{{< /katex >}}), aligning with expectations.
 
-{{< details "**Vertical and Lateral Movement:** Movement of Y axis - (click to expand)" close >}}
+{{< details "**Vertical and Lateral Movement:** Movement of Y - (click to expand)" close >}}
 ![Movement of X and Y for the vertical and lateral movement](https://live.staticflickr.com/65535/53348733604_9870b7b0de_c.jpg)
 {{< /details >}}
 
@@ -652,3 +652,44 @@ The resulting actuation of the four motors can also be seen:
 
 ## 3.2 Non-linear Model Results
 
+The nonlinear model exhibited increased instability during testing compared to the linear model. Some simulations encountered errors due to numerical overflow, caused by large pitch and roll angles attempting to track references.
+
+This instability arose from significant pitch or roll angles inducing high speeds, leading to the loss of lift forces from the propellers and the drone's descent. To focus on testing the servo controller, smaller references were used. Alternatively, employing ramp-like references or smaller steps instead of large singular steps may mitigate extreme responses in the nonlinear model.
+
+### 3.2.1 Vertical and Yaw Movement
+
+In this simulation, the given reference involves ascending while simultaneously rotating on the yaw angle. The upcoming figure illustrates the successful tracking of the reference without any issues. 
+
+{{< details "**Vertical and Yaw Movement:**  Movement of Z and yaw (click to expand)" close >}}
+![vertical and yaw movement](https://live.staticflickr.com/65535/53348910605_c73dcf8dbb_z.jpg)
+{{< /details >}}
+
+Similar to observations in the linear model, there was a minor impact on the lateral position, as depicted:
+
+{{< details "**Lateral Movement:**  Movement of X and Y (click to expand)" close >}}
+![asdaudasmovement](https://live.staticflickr.com/65535/53348782754_47dc807d96_c.jpg)
+{{< /details >}}
+
+As anticipated, all motors were activated to elevate the altitude, with motors 2 and 4 exhibiting substantial actuation to align the yaw angle with the provided reference. 
+
+{{< details "**Vertical and Lateral Movement:** Motor Actuations" close >}}
+![asdaudasmosfafavement](https://live.staticflickr.com/65535/53348691623_08cba40fc3_c.jpg)
+{{< /details >}}
+
+### 3.2.2 Vertical and Lateral Movement
+
+In this scenario, the reference entails ascending while moving forward. It is shown the drone adeptly tracking the lateral reference, albeit with slight oscillations. However, despite stabilizing approximately 7 seconds later, the oscillations around the final altitude exceed acceptable limits.
+
+{{< details "**Vertical and Lateral Movement:**  Movement of Z and X (click to expand)" close >}}
+![verticadal anddsada yaw movement](https://live.staticflickr.com/65535/53348691628_3a4014b79c_c.jpg)
+{{< /details >}}
+
+{{< details "**Lateral Movement:**  Movement of Y (click to expand)" close >}}
+![verticadalsad anddsada yaw movement](https://live.staticflickr.com/65535/53348910585_d5dda5e464_c.jpg)
+{{< /details >}}
+
+{{< details "**Vertical and Lateral Movement:** Motor Actuations" close >}}
+![asdaudsfafafasmosfafavement](https://live.staticflickr.com/65535/53348910595_a20c9e4c7f_c.jpg)
+{{< /details >}}
+
+Upon reviewing the actuation of the four motors, it's evident that the actuation exhibited chaotic behaviour. This suggests that the controller values require correction and fine-tuning to enable smoother tracking of the provided reference, eliminating substantial oscillations.
