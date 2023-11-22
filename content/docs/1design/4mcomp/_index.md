@@ -182,10 +182,18 @@ Upon program completion, a file is created containing the data obtained from the
 
 The developed program has been tested for a known problem described in the book ["Introduction to the Finite Element Method (3rd edition)" by J.N. Reddy](https://books.google.at/books/about/An_Introduction_to_the_Finite_Element_Me.html?id=8gqnRwAACAAJ&redir_esc=y) - **Example 8.5.6**. In this example, torsion of a square section bar was considered. As the problem is axisymmetric, nodal solution and shear stresses were calculated for a quarter of the square. The following results were obtained at the nodes for the nodal solution, using a 4x4 mesh:
 
--
-
--
-
+{{< katex display >}}
+\begin{bmatrix}
+x & y & \text{Integration} & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Reddy} \\
+0.0000 & 0.0000 & 0.1492 & 0.1492 & 0.1501 & 0.1513 & 0.1492 \\
+0.1250 & 0.0000 & 0.1412 & 0.1412 & 0.1421 & 0.1429 & 0.1412 \\
+0.2500 & 0.0000 & 0.1161 & 0.1161 & 0.1168 & 0.1176 & 0.1161 \\
+0.3750 & 0.0000 & 0.0707 & 0.0707 & 0.0711 & 0.0714 & 0.0707 \\
+0.1250 & 0.2500 & 0.1103 & 0.1103 & 0.1110 & 0.1116 & 0.1103 \\
+0.2500 & 0.2500 & 0.0919 & 0.0919 & 0.0926 & 0.0935 & 0.0919 \\
+0.3750 & 0.2500 & 0.0573 & 0.0573 & 0.0577 & 0.0580 & 0.0573 \\
+\end{bmatrix}
+{{< /katex >}}
 
 
 
