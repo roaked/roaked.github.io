@@ -29,7 +29,7 @@ As previously mentioned, this approach enhances drone maneuverability and agilit
 
 Given how complex this project turned out to be, I have decided to structure it into distinct sections to comprehensively cover various aspects of the system design:
 
-- **Drone System Dynamics Modeling and Controller Design**: This section will focus on developing and analyzing models for the drone's dynamics. It will delve into understanding how the drone behaves under different conditions and designing an appropriate controller to optimize its performance.
+- **Drone System Dynamics Modeling and Controller Design**: This section will focus on developing and analyzing models for the drone's dynamics. It will delve into understanding how the drone behaves under different conditions and designing an appropriate controller to optimize its performance. The foundation of this section of the work draws heavily from the theoretical knowledge acquired from an external MOOC (*Massive Open Online Course*), developed by Prof. Alexandra Moutinho and Prof. José Azinheira, accessible [by clicking here.](https://courses.elearning.tecnico.ulisboa.pt/courses/course-v1:MOOCs+droneX+2021/about#en%20translation)
 
 - **Drone Computer Vision for Obstacle Detection**: This part will concentrate on integrating computer vision techniques into the drone system. It aims to enable real-time obstacle detection and avoidance strategies, enhancing the drone's ability to navigate complex environments.
 
@@ -37,11 +37,10 @@ Given how complex this project turned out to be, I have decided to structure it 
 
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 
+
+![video](https://live.staticflickr.com/65535/53348436236_fc3864cfd6_w.jpg)
+
 **Follow the left sidebar for more!**
-
-![video](https://live.staticflickr.com/video/53348427716/d8e61cc9f6/360p.mp4?s=eyJpIjo1MzM0ODQyNzcxNiwiZSI6MTcwMDY1Mzk3MiwicyI6IjE1ZThjNzlhNzZiNjc5NDNmODRmYTBiZTNjODg3NjU0MTIxMWFiNzEiLCJ2IjoxfQ)
-
-
 
 ## 4 Drone Characteristics
 
@@ -57,3 +56,6 @@ By splitting the report into these segments, it is expected to inspect each aspe
 \text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
 \text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
 {{< /katex >}}
+
+
+
