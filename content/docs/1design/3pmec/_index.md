@@ -159,15 +159,15 @@ At present, the computation of the Von Mises equivalent stress has become feasib
 {{< katex display >}}
 \tau_V = \frac{V \times Q}{I_z \times b} = \frac{27170 \times 2 \times (0.125 \times 0.0025 + 0.255 \times 0.0023)}{0.00052 \times 0.02} = 3.234 \times 10^6 \text{Pa} \\
 
-\tau_T = \frac{T}{2 \times A_m \times t} = \frac{2250 \times 2}{2 \times (0.1664 \times 0.510) \times 0.1} = 2.651 \times 10^6 \text{Pa} \\
+\\ \tau_T = \frac{T}{2 \times A_m \times t} = \frac{2250 \times 2}{2 \times (0.1664 \times 0.510) \times 0.1} = 2.651 \times 10^6 \text{Pa} \\
 
-\sigma_M = \frac{M_c}{I_z} = \frac{131660 \times 0.26}{0.00052} = 6.637 \times 10^7 \text{Pa} \\
+\\ \sigma_M = \frac{M_c}{I_z} = \frac{131660 \times 0.26}{0.00052} = 6.637 \times 10^7 \text{Pa} \\
 {{< /katex >}}
 
 Subsequently:
 
 {{< katex display >}}
-\sigma_{VM} = \sqrt{\sigma_M^2 + 3\left(\frac{\tau_V^2 + \tau_T^2}{2}\right)} = 6.723 \times 10^7  \text{Pa}
+\sigma_{VM} = \sqrt{\sigma_M^2 + 3\left(\tau_V^2 + \tau_T^2\right)} = 6.723 \times 10^7  \text{Pa}
 {{< /katex >}}
 
 Having the safety factor:
@@ -177,3 +177,41 @@ n = \frac{S_y}{\sigma_{VM}} = \frac{772 \times 10^6}{6.723 \times 10^7} = 11.482
 {{< /katex >}}
 
 ### 2.3.2. Fatigue Verification
+
+The minimum stress is determined by the weight of the beam and the winch car itself (considering the winch car unloaded). Conversely, when the winch car is loaded (the scenario considered for calculating the static safety factor), the corresponding stress will be at its maximum. We can derive the ratio between the minimum and maximum stresses by calculating the minimum stress for the unloaded car. Repeating this process for the calculation of the Von Mises stress for the unloaded load case yields.
+
+{{< katex display >}}
+R = \frac{\sigma_{VM_0}}{\sigma_{VM}} = \frac{1.106 \times 10^7}{6.723 \times 10^7} = 0.1645
+{{< /katex >}}
+
+The fatigue limit stress was determined to be 321.617 MPa through the calculation of Marin's factors.
+
+{{< katex display >}}
+
+n_{Goodman} = \frac{1}{\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_u}} = 8.355\\ \\
+
+n_{Yield} = \frac{1}{\frac{\sigma_a + \sigma_m}{S_y}} = 11.482\\
+{{< /katex >}}
+
+For a 25% overload (1.25 times the load) occurring 10% of the time and taking a factor of f = 0.858 figure 6-18 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y)
+
+{{< katex display >}}
+\sigma = \frac{1.25 \times \sigma_a}{1 - \frac{1.25 \times \sigma_m}{S_{ut} \times 10^6}} = 3.51 \times 10^7 \, \text{Pa}
+{{< /katex >}}
+
+{{< katex display >}}
+a = \frac{(f \times S_{ut})^2}{S_e \times 10^6} = 3.35 \times 10^9
+{{< /katex >}}
+
+{{< katex display >}}
+b = -\frac{1}{3} \times \log \left( \frac{f \times S_{ut}}{S_e \times 10^6} \right) = -0.391
+{{< /katex >}}
+
+{{< katex display >}}
+\text{Cycles} = \left( \frac{\sigma}{a} \right)^\frac{1}{b} = 1.17 \times 10^5 \text{cycles}
+{{< /katex >}}
+
+## 2.4. Finite Element Analysis
+
+
+### 2.4.1. Beam Analysis
