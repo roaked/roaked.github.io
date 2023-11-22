@@ -258,3 +258,55 @@ In this section, the aim is to study the welded connection of the internal force
 ![saa231314s421000415s123112121a](https://live.staticflickr.com/65535/53348992386_ae5d238363_h.jpg)
 
 The intention is to analyze the welded connection concerning static, yield, and fatigue aspects. Both components to be welded are made of the same material (AISI 1095 HR Steel).
+
+### 2.5.1 Welding between Vertical and Horizontal Plates
+
+
+The welding performed has a height, h, of 5 mm. Therefore, the throat height, a, is such that {{< katex >}}a = \frac{h}{\sqrt{2}} = 3.54 \text{mm} {{< /katex >}}. 
+
+The procedure for calculating the weld beads in the three cases is similar, involving the computation of the unit second moment of area (Ju), the moment of inertia (Is) and the weld area (As). For the calculation of the unit second moment of area for more complex sections, it is feasible to compute it by dividing the section into several rectangles and selecting the appropriate expression from the table (Table 9-1 and 9-2 in [Shigley's book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y)) corresponding to the specific case.
+
+{{< katex display >}}
+J_u = \frac{b \times d^2}{2 \times 2} = \frac{10 \times 0.17642^2}{2 \times 2} = 0.1556 \text{m}^3
+{{< /katex >}}
+
+
+Given this information, the moment of inertia is determined by the product of the throat height, denoted as a, and the unit second moment of area:
+
+{{< katex display >}}
+J = J_u \times a = 5.501 \times 10^{-4} \text{m}^4
+{{< /katex >}}
+
+As outlined in Table 9.1 [in Shigley's book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y), the formula for the throat area is expressed as follows:
+
+{{< katex display >}}
+A_s = 0.707 \times h \times d = 0.707 \times 20 \times 0.005 = 0.0707 \text{m}^2
+{{< /katex >}}
+
+With this data, it is possible to calculate the primary shear stress:
+
+{{< katex display >}}
+\tau_V = \frac{F}{A_s} = \frac{31350}{0.0707} = 4.43 \times 10^5 \text{Pa}
+{{< /katex >}}
+
+
+{{< katex display >}}
+\tau_T = \frac{T_c}{J} = \frac{2250 \times 0.082}{5.501 \times 10^{-4}} = 3.608 \times 10^5 \text{Pa}
+
+{{< /katex >}}
+
+{{< katex display >}}
+\tau_M = \frac{M_r}{I} = \frac{131660 \times \frac{5 \times 10^3}{6} \times 0.0035}{10^3} = 1.116 \times 10^6 \text{Pa}
+{{< /katex >}}
+
+{{< katex display >}}
+\tau_{MT} = \tau_M + \tau_T = 1.116 \times 10^6 + 3.608 \times 10^5 = 1.478 \times 10^6 \, \text{Pa}
+{{< /katex >}}
+
+{{< katex display >}}
+\tau = \sqrt{\tau_{MT}^2 + \tau_V^2} = \sqrt{1.478 \times 10^6 + 4.43 \times 10^5} = 1.543 \times 10^6 \, \text{Pa}
+{{< /katex >}}
+
+{{< katex display >}}
+\text{Nestatica} = \frac{0.4 \times S_y}{\tau} = \frac{0.4 \times 460 \times 10^6}{1.543 \times 10^6} = 119.25
+{{< /katex >}}
