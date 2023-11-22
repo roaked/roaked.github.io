@@ -221,7 +221,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 **Maximum error deviation**: 3,99501E-06%
 
 {{< katex display >}}
-\begin{bmatrix} \text{Node} & \text{Sol. Matlab (m)} & \text{Siemens NX (m)} & \text{Rel. Error (%)} & \text{Node} & \text{Sol. Matlab (m)} & \text{Siemens NX (m)} & \text{Rel. Error (%)} \\
+\begin{bmatrix} \text{Node} & \text{Matlab (m)} & \text{NX (m)} & \text{Error (%)} & \text{Node} & \text{Matlab (m)} & \text{NX (m)} & \text{Error (%)} \\
 1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
 2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
 3 & 0 & 0 & 0 & 51 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 \\
