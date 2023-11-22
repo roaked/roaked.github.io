@@ -539,3 +539,14 @@ Calculating the value of J for various refinements yielded:
 \end{bmatrix}
 {{< /katex >}}
 
+For the considered 96 nodes:
+
+{{< katex display >}}
+\begin{bmatrix}
+    \text{J NX (m^4)} & \text{J Matlab (m^4)} & \text{Relative Error (%)} \\
+    6.1191185 \times 10^{-5} & 6.11890982 \times 10^{-5} & 3.41041 \times 10^{-3} \\
+\end{bmatrix}
+{{< /katex >}}
+
+The conclusion drawn from these findings is that as the mesh undergoes refinement, the constant torsion value J tends to stabilize. It's evident from these results that the approximation done by Matlab remains quite acceptable. This is highlighted by the fact that the J value derived from Matlab aligns closely with the analytical integration value and is also in close proximity to the J value computed in NX for 96 nodes, which itself approximates the converged value.
+
