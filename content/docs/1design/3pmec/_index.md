@@ -215,3 +215,46 @@ b = -\frac{1}{3} \times \log \left( \frac{f \times S_{ut}}{S_e \times 10^6} \rig
 
 
 ### 2.4.1. Beam Analysis
+
+For the analysis of the resilient beam using finite element methods, the commercial software Solidworks was employed. The numerical model comprises a simply supported beam on the two hinges of the plate to be bolted to the winch's head, with a load of 27.6 kN applied at the geometric location where the winch car wheels would be. The beam's self-weight is also considered.
+
+
+![saa234ss12121a](https://live.staticflickr.com/65535/53348105597_f2355695a3.jpg)
+
+In terms of the developed stresses, at the neutral axis (which in this case is the centroidal axis), the Von Mises equivalent stress is zero or close to zero, as expected. It is also inferred that the highest stresses exist at the outermost fibers of the section, where there is a maximum tensile stress in the lower outer fiber and a compressive stress in the upper outer fiber.
+
+Both these stresses are considerably lower than the material's yield stress, ensuring the specified safety factor.
+
+![saa234ss112323112121a](https://live.staticflickr.com/65535/53348105582_74015a2bab.jpg)
+
+The maximum deflection due to loading measures 9.584 mm and is positioned at the midpoint of the beam span. Comparing this with the analytically obtained deflection of 11.5 mm, there is a relative error of 16.7%. This error arises from the consideration of internal reinforcements within the beam and, simultaneously, from the boundary conditions not being applied at the beam ends but rather at the hinge point.
+
+### 2.4.2. Assembly Analysis
+
+For the analysis of stresses arising from a bolted connection, a finite element model was developed, considering only half of the beam due to symmetry effects. The resilient beam is connected to a rigid plate via a bolted connection. The applied load is 26.7 kN, and the beam's self-weight is also accounted for in the simulation.
+
+![saa231314ss123112121a](https://live.staticflickr.com/65535/53348105567_51a8fd8b91_c.jpg)
+
+Boundary conditions involve restricting rotation and translation at the lower base of the plate to which the beam is bolted, and considering symmetry in the beam, allowing for the modeling of only half of it.
+
+For defining the connection at each bolt, a pre-load of 50900 N was specified, corresponding to an M36 bolt of grade 10.6.
+
+![123132saa231314ss123112121a](https://live.staticflickr.com/65535/53349426705_940491ca28_z.jpg)
+
+![saa231314s421415s12315312121a](https://live.staticflickr.com/65535/53349300039_cd16875d00_z.jpg)
+
+The highest Von Mises equivalent stresses are located near the bolt head regions, measuring around 323 MPa, ensuring the mechanical strength criteria specified for the project.
+
+Additionally, this model presents maximum stresses at the hole edge of the bolted plate, which increase as the mesh around it becomes finer. In this scenario, the existence of a geometric singularity (an edge without area) leading to very high stresses was considered. However, this singularity was disregarded in the analysis.
+
+![saa231314s421000415s123112121a](https://live.staticflickr.com/65535/53348977501_3a31d6d2b0_c.jpg)
+
+The maximum deflection in the deformed configuration of the beam was 4.27 mm, approximately half of the deflection obtained in the previous finite element model (simply supported beam).
+
+## 2.5. Welded Joint
+
+In this section, the aim is to study the welded connection of the internal forces within the beam and the welded connection of the bolted fixation plates along with the welding between the plates.
+
+![saa231314s421000415s123112121a](https://live.staticflickr.com/65535/53348992386_ae5d238363_h.jpg)
+
+The intention is to analyze the welded connection concerning static, yield, and fatigue aspects. Both components to be welded are made of the same material (AISI 1095 HR Steel).
