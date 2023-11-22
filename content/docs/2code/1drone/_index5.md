@@ -136,6 +136,12 @@ The second parameter was established to represent the x-coordinate with the maxi
 
 Images with distinct thresholds also required minor modifications to the order of morphological operations.
 
+![tes24141241t](https://live.staticflickr.com/65535/53349078904_b07f388b95_c.jpg)
+
+**Segmented**
+
+![tes123142t](https://live.staticflickr.com/65535/53349206255_be9c9f9446_c.jpg)
+
 
 ## 2.4 Edge Detection
 
@@ -145,7 +151,11 @@ Three distinct methods were employed:
 
 - **Canny Method**: This technique identifies edges by seeking local maximums of the gradient of the image. The gradient is derived from a Gaussian filter. It uses two thresholds—one for strong edges and another for weak edges. Weak edges are included in the output only if they are connected to strong edges.
 
+![ntetsdss322214143sss2ss52d4121aeasate111](https://live.staticflickr.com/65535/53349009603_1155d7734b_c.jpg)
+
 - **Sobel Operator**: This method convolves the image with a small, separable, and integer-valued filter along the horizontal and vertical directions. While computationally inexpensive, its gradient approximation can be relatively coarse, especially for high-frequency variations in the image.
+
+![ntetsdss322214143sss2ss52412d4121aeasate111](https://live.staticflickr.com/65535/53348778536_65dbe9efb7_b.jpg)
 
 - **Laplacian Filters**: These filters are derivative-based and designed to detect areas of rapid change (edges) in images. As derivative filters are sensitive to noise, it's common practice to smooth the image (e.g., using a Gaussian filter) before applying the Laplacian. This combined process is known as the Laplacian of Gaussian (LoG) operation:
 
@@ -161,4 +171,74 @@ The representation of the 2D LoG (Laplacian of Gaussian) function centered on ze
 {{< /katex >}}
 
 
+![ntetsdss322214143sss142142ss52412d4121aeasate111](https://live.staticflickr.com/65535/53349228340_7bfd0cb588_c.jpg)
 
+Edge detection was carried out on two types of images: the BW mask acquired during the segmentation process and the segmented images. Conducting edge detection on the original images was dismissed due to the excessive background information it would provide.
+
+When performing edge detection on the BW mask, the expected outcome was solely the contours of the mask, encompassing both inner and outer rectangles. Conversely, edge detection on the segmented image aimed to extract additional features such as letters and squares, with the option to adjust the number of extracted features using a threshold.
+
+The results displayed two images: edge detection on the BW mask was shown on the left, while edge detection on the segmented image was depicted on the right. The superiority of the Canny method's results was attributed mainly to the adjustability of its two thresholds.
+
+## 2.5 Hough Transform
+
+The Hough Transform involves identifying lines within an image by grouping edge points into object candidates, which undergo a voting procedure. This process occurs in a parameter space where the object candidates are considered local maxima. Each point in the Hough Space is represented by two parameters, Rho ({{< katex >}}\rho{{< /katex >}}) and Theta ({{< katex >}}\theta{{< /katex >}}). Rho represents the perpendicular distance from the origin to the line, while theta denotes the angle between the x-axis and this vector.
+
+The MATLAB implementation comprises a series of functions. The [MATLAB function *'hough'*](https://de.mathworks.com/help/images/ref/hough.html) computes the Standard Hough Transform (SHT) of a binary image, producing outputs of rho, theta, and H, a matrix representing the parameter space. Subsequently, the [MATLAB function *'houghpeaks'*](https://de.mathworks.com/help/images/ref/houghpeaks.html) locates peaks in the Hough Transform Matrix, typically selecting 20 peaks. Finally, the [MATLAB function *'houghlines'*](https://de.mathworks.com/help/images/ref/houghlines.html) function identifies line segments within the image, returning a structure array that represents the merged line segments.
+
+Hough lines serve as an alternative method for line detection. In this case, the Hough lines were applied to the BW mask generated from the Canny edges, as the Canny method displayed the most promising results. This application aimed to enhance the lines extracted from the edges, particularly emphasizing the extremes of the gate. The results are depicted below.
+
+![hough](https://live.staticflickr.com/65535/53349037313_05364df81a_c.jpg)
+
+## 2.6 Extreme Points and Centroid
+
+The [function *'CornerDetec'*](https://github.com/roaked/redbull-drone-computer-vision/blob/main/CornerDetec.m) was created to calculate the extreme points of the gate image post edge detection. As the gate consistently maintains a square shape, the extreme points can be defined by a sequence of maximum and minimum x and y coordinates. For instance, the top-right corner would be the point where the sum of the x and y coordinates is maximized.
+
+Determining the centroid involved using the [MATLAB function *'regionprops'*](https://www.mathworks.com/help/images/ref/regionprops.html). Given the gate's square and axisymmetric shape, the centroid could be extracted using either the inner or outer square of the gate.
+
+Despite prior morphological operations aimed at refining the segmentation quality, residual noise persisted within the images. To reduce the error between the actual centroid and the estimated centroid, the inner square of the gate, less susceptible to edge detection errors, was utilized. In cases where the inner square wasn't entirely identified, the centroid of the outer square was plotted instead.
+
+
+![linear213312](https://live.staticflickr.com/65535/53349255010_8a1bb87556.jpg)
+
+{{< details "**Results:** Identification of centroid on a different image - (click to expand)" close >}}
+![li2434near](https://live.staticflickr.com/65535/53349255005_a19d3154d9_c.jpg)
+{{< /details >}}
+
+{{< details "**Results:** Identification of centroid on all images - (click to expand)" close >}}
+![li2434nea41421r](https://live.staticflickr.com/65535/53348804846_3f38a86795_c.jpg)
+{{< /details >}}
+
+{{< details "**Results:** Identification of hough lines on all images - (click to expand)" close >}}
+![li2434n123ea41421r](https://live.staticflickr.com/65535/53349254980_7e1375c0ff_c.jpg)
+{{< /details >}}
+
+## 2.7 Image Enhancement
+
+To accentuate the gate within the image, the region corresponding to the gate was emphasized. This was achieved by inverting the mask obtained from the segmentation process. Inverting the mask allowed for the removal of the gate from the original image and isolating it for highlighting purposes. To accomplish this, each color channel of the inverted mask was isolated and subsequently combined to create a true color RGB image. Additionally, the lines detected from the extreme points were plotted on this highlighted gate region to further outline its boundaries.
+
+
+![imageenhance](https://live.staticflickr.com/65535/53347932412_12209e04fd_z.jpg)
+
+The conversion from RGB to HSV can be applied to this image. It's important to note that the green lines visible in the figure are not inherent to the image; they are plotted lines and, consequently, do not manifest in the HSV representation.
+
+
+![imageenh42141ance](https://live.staticflickr.com/65535/53347932407_d2b4da0dd6_c.jpg)
+
+Upon observing the HSV components, it becomes apparent that the gate is distinctly highlighted in the Saturation and Value images. For all the image datasets:
+
+![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
+
+
+# 3 **Section End**
+
+It became evident that arriving at a solution wasn't straightforward, and while the obtained solution wasn't perfect, it showcased potential for optimization with an expanded dataset. Additional images would enhance the algorithm's ability to recognize the gate under various lighting conditions and backgrounds. Nonetheless, color segmentation emerged as an effective means to segment the gate.
+
+Among edge detection methods, the Canny approach stood out as the most effective, although other methods also demonstrated reasonable performance. The Hough transform offered an alternative method to identify lines, proving to be a decent performer.
+
+Despite minor imperfections resulting from imperfect segmentation, the detection of extreme points and centroids was generally successful.
+
+Ultimately, in this section the work done successfully achieved its goal by effectively isolating and enhancing the gate. Employing various solutions contributed to solving the challenge of gate identification for drone competitions.
+
+# 4 **Next Step**
+
+The next step could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.
