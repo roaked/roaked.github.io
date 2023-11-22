@@ -55,7 +55,7 @@ To execute the segmentation, the images from the test dataset were examined in t
 
 This process generated a black and white image where all the points meeting the conditions were highlighted. However, restricting the HSV values alone proved insufficient. Some parts of the background shared similar HSV values with the gate, leading to noise in the resulting images.
 
-## 2.2 Black and White Image Segmentation
+## 2.2 Black and White Segmentation
 
 Applying thresholds to the HSV values, a first approximation of the gate can be found.
 
@@ -229,7 +229,7 @@ Upon observing the HSV components, it becomes apparent that the gate is distinct
 ![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
 
 
-# 3 **Section End**
+# 3 Section End
 
 It became evident that arriving at a solution wasn't straightforward, and while the obtained solution wasn't perfect, it showcased potential for optimization with an expanded dataset. Additional images would enhance the algorithm's ability to recognize the gate under various lighting conditions and backgrounds. Nonetheless, color segmentation emerged as an effective means to segment the gate.
 
@@ -239,6 +239,6 @@ Despite minor imperfections resulting from imperfect segmentation, the detection
 
 Ultimately, in this section the work done successfully achieved its goal by effectively isolating and enhancing the gate. Employing various solutions contributed to solving the challenge of gate identification for drone competitions.
 
-# 4 **Next Step**
+# 4 Next Steps
 
 The next step could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.
