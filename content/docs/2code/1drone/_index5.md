@@ -138,3 +138,27 @@ Images with distinct thresholds also required minor modifications to the order o
 
 
 ## 2.4 Edge Detection
+
+The next phase involved edge detection to outline the gate's boundaries using various methods of the [MATLAB function *'edge'*](https://de.mathworks.com/help/images/ref/edge.html). The previously obtained segmented image was utilized due to its superior performance in noise removal and clear delineation of the gate.
+
+Three distinct methods were employed:
+
+- **Canny Method**: This technique identifies edges by seeking local maximums of the gradient of the image. The gradient is derived from a Gaussian filter. It uses two thresholds—one for strong edges and another for weak edges. Weak edges are included in the output only if they are connected to strong edges.
+
+- **Sobel Operator**: This method convolves the image with a small, separable, and integer-valued filter along the horizontal and vertical directions. While computationally inexpensive, its gradient approximation can be relatively coarse, especially for high-frequency variations in the image.
+
+- **Laplacian Filters**: These filters are derivative-based and designed to detect areas of rapid change (edges) in images. As derivative filters are sensitive to noise, it's common practice to smooth the image (e.g., using a Gaussian filter) before applying the Laplacian. This combined process is known as the Laplacian of Gaussian (LoG) operation:
+
+
+{{< katex display >}}
+L(x, y) = \nabla^2 f(x, y) = \frac{\partial^2 f(x, y)}{\partial x^2} + \frac{\partial^2 f(x, y)}{\partial y^2}
+{{< /katex >}}
+
+The representation of the 2D LoG (Laplacian of Gaussian) function centered on zero and with a Gaussian standard deviation {{< katex >}}\sigma{{< /katex >}} is given by:
+
+{{< katex display >}}
+\text{LoG}(x, y) = -\frac{1}{\pi \sigma^4} \left(1 - \frac{x^2 + y^2}{2\sigma^2}\right) e^{-\frac{x^2 + y^2}{2\sigma^2}}
+{{< /katex >}}
+
+
+
