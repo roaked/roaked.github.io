@@ -693,3 +693,12 @@ In this scenario, the reference entails ascending while moving forward. It is sh
 {{< /details >}}
 
 Upon reviewing the actuation of the four motors, it's evident that the actuation exhibited chaotic behaviour. This suggests that the controller values require correction and fine-tuning to enable smoother tracking of the provided reference, eliminating substantial oscillations.
+
+
+### 3.3 Robustness to Disturbances
+
+In this section, the focus lies on evaluating the system's response to disturbances. Specifically, the goal is to test its resilience against input disturbances. These disturbances entail unexpected alterations in the control action for select motors. This situation compels the servo control system to adapt and uphold the designated reference position and yaw angle.
+
+
+- Yaw Compensation - Motors 2 and 4
+- Altitude Compensation - All Motors
