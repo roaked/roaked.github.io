@@ -183,7 +183,7 @@ The developed program has been tested for a known problem described in the book 
 
 {{< katex display >}}
 \begin{bmatrix}
-x & y & \text{Analytical} \\ \text{Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Reddy} \\
+x & y & \text{Analytical \\ Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Reddy} \\
 0.0000 & 0.0000 & 0.1492 & 0.1492 & 0.1501 & 0.1513 & 0.1492 \\
 0.1250 & 0.0000 & 0.1412 & 0.1412 & 0.1421 & 0.1429 & 0.1412 \\
 0.2500 & 0.0000 & 0.1161 & 0.1161 & 0.1168 & 0.1176 & 0.1161 \\
@@ -199,7 +199,7 @@ The following results were obtained for {{< katex >}}\bar{\tau_{yz}} = \frac{\ta
 
 {{< katex display >}}
 \begin{bmatrix}
-x & y & \text{Analytical}\\ \text{Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Known Analytical} \\ \text{Solution} \\
+x & y & \text{Analytical \\Integration} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x1} & \text{Known Analytical \\ Solution} \\
 0.06250 & 0.0625 & 0.0618 & 0.0618 & 0.0621 & 0.0625 & 0.0618 \\
 0.1875 & 0.0625 & 0.1942 & 0.1942 & 0.1955 & 0.1970 & 0.1939 \\
 0.3125 & 0.0625 & 0.3529 & 0.3529 & 0.3553 & 0.3577 & 0.3516 \\
