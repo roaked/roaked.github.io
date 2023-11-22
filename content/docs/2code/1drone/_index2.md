@@ -583,7 +583,7 @@ x_i(t) \\
 r
 {{< /katex >}}
 
-To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the desired new pole locations was conducted through a trial-and-error approach. The aim was to achieve a rapid response while minimizing oscillations and conserving actuator energy. After identifying the new pole locations, the computation of K and {{< katex >}}K_i{{< /katex >}} was performed using the [MATLAB function 'place'](https://de.mathworks.com/help/control/ref/place.html), which generates a 4x16 matrix  {{< katex >}}bar{K}{{< /katex >}} enmpassing all the entries, from which a 4x12 matrix {{< katex >}}bar{K}{{< /katex >}} and a 4x4 matrix {{< katex >}}bar{K}_i{{< /katex >}} were subsequently derived.
+To determine the entries of K and {{< katex >}}K_i{{< /katex >}}, selecting the desired new pole locations was conducted through a trial-and-error approach. The aim was to achieve a rapid response while minimizing oscillations and conserving actuator energy. After identifying the new pole locations, the computation of K and {{< katex >}}K_i{{< /katex >}} was performed using the [MATLAB function 'place'](https://de.mathworks.com/help/control/ref/place.html), which generates a 4x16 matrix  {{< katex >}}\bar{K}{{< /katex >}} enmpassing all the entries, from which a 4x12 matrix {{< katex >}}\bar{K}{{< /katex >}} and a 4x4 matrix {{< katex >}}\bar{K}_i{{< /katex >}} were subsequently derived.
 
 {{< katex display >}}
 \bar{K} = [K | K_i]
