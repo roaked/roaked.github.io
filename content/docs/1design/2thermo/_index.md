@@ -5,7 +5,7 @@ title: "ThermoCup"
 
 ---
 
-# ThermoCup 
+# **ThermoCup**
 
 ## 1.1 What is the ThermoCup?
 
