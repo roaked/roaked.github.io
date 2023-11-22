@@ -56,7 +56,7 @@ The following requirements were considered for this project:
 
 ## 1.5. Standards, Codes, and Regulations
 
-In the completion of this work, the FEM Standards (European Federation of Materials Handling), particularly Chapter II, and Eurocode 3 were utilized. The FEM standards address specific issues related to structures and handling equipment, including cases such as bridge cranes and gantry cranes."
+In the completion of this work, the FEM Standards (European Federation of Materials Handling), particularly Chapter II, and Eurocode 3 were utilized. The FEM standards address specific issues related to structures and handling equipment, including cases such as bridge cranes and gantry cranes.
 
 ## 1.6. Approach
 
@@ -66,11 +66,11 @@ The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and
 
 - Weight: 1229.3 kg
 - Maximum width: 3.4 m
-- Maximum length: 10.14 m"
+- Maximum length: 10.14 m
 
 ## 1.7. Manufacturing and Assembly Processes
 
-The steel plates are obtained through a cold rolling process. Their surface roughness with an arithmetic mean deviation is 4.8 micrometers. The geometric tolerance concerning the thickness of these components is {{< /katex >}}\pm{{< /katex >}}0.1 mm.
+The steel plates are obtained through a cold rolling process. Their surface roughness with an arithmetic mean deviation is 4.8 micrometers. The geometric tolerance concerning the thickness of these components is {{< katex >}}\pm{{< /katex >}}0.1 mm.
 
 For the resistant girders:
 
@@ -79,7 +79,7 @@ For the resistant girders:
 - 3. Welding of the top flange.
 - 4. Welding of the rail.
 - 5. Welding of the lateral reinforcements.
-- 6. Welding of the base fixing."
+- 6. Welding of the base fixing.
 
 The welding for the first, third, and fourth steps will be conducted using the Submerged Arc Welding process. This method is advantageous due to the substantial length of the welding bead, allowing for automation of the equipment carrying out the operation. The welding for the remaining steps will be executed using TIG (Tungsten Inert Gas) welding. The required equipment will be operated by a skilled worker.
 
@@ -91,3 +91,19 @@ The price of AISI 1095 Q&T steel is approximately €1/kg. Considering the girde
 ## 1.9. General Simplifications
 
 Only the main components were designed, namely the girders. The trolley frames and the remaining support structure were not designed. The studied overhead crane was interior, simplifying the analysis, as exterior conditions would introduce wind forces. For the sizing, it was considered that the hoist trolley was positioned in the middle of the girders (longitudinally), as this situation causes the greatest deformations.
+
+# 2 Calculations
+
+## 2.1. Material
+
+Due to the high stresses to which the box girder of the overhead crane is subjected, it's necessary to select a structural steel with considerable yield strength to ensure the component meets service conditions and to minimize stress concentration and fatigue issues. With this in mind, the following steel with a tempering and tempering treatment was chosen:
+
+ {{< katex display >}}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ S_u  &  S_y  &  E  &  G  &  \nu  \\
+\hline
+1210 MPa & 772 MPa & 210 GPa & 81 GPa & 0.3 \\
+\hline
+\end{tabular}
+ {{< /katex >}}
