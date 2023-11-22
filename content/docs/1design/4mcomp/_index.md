@@ -222,6 +222,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 
 **Maximum error devation**: 3,99501E-06 %
 
+<<katex display>>
 \begin{bmatrix}
 \text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Analytical Solution Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
 1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
@@ -273,6 +274,7 @@ The data from the upcoming tables indicates that the minimum error occurs in the
 47 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 & 95 & 0 & 0 & 0 \\
 48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
 \end{bmatrix}
+<</katex>>
 
 {{< /details >}}
 
@@ -543,8 +545,8 @@ For the considered 96 nodes:
 
 {{< katex display >}}
 \begin{bmatrix}
-    \text{J NX (m^4)} & \text{J Matlab (m^4)} & \text{Relative Error (%)} \\
-    6.1191185 \times 10^{-5} & 6.11890982 \times 10^{-5} & 3.41041 \times 10^{-3} \\
+\text{J NX (m^4)} & \text{J Matlab (m^4)} & \text{Relative Error (%)} \\
+6.1191185 \times 10^{-5} & 6.11890982 \times 10^{-5} & 3.41041 \times 10^{-3} \\
 \end{bmatrix}
 {{< /katex >}}
 
