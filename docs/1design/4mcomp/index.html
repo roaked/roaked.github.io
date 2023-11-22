@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1 Mathematical Background # 1.1 Partial Differential Equations (PDEs) # In engineering and physics, problems are often described by partial differential equations (PDEs). The &ldquo;strong form&rdquo; refers to the original differential equation that must hold exactly throughout the domain, including both the governing equation and the boundary conditions.
 However, there are cases where directly solving the strong form might be challenging due to complexities in the equation, irregular geometries, or varying boundary conditions."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Finite Element Model Formulation"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://xsleaks.dev/docs/1design/4mcomp/"><title>Finite Element Model Formulation | Ricardo Chin</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.aa638b2a11d7d67cac2f500c0a10b7e4e8d81bfca32ad9d306fdb6d8d09ec132.js integrity="sha256-qmOLKhHX1nysL1AMChC35OjYG/yjKtnTBv222NCewTI=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://xsleaks.dev/docs/1design/4mcomp/index.xml title="Ricardo Chin"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.2ee02608386e1924dc089531da2430ba2b902e31ab4cceba98892b1e648af2a7.js integrity="sha256-LuAmCDhuGSTcCJUx2iQwuiuQLjGrTM66mIkrHmSK8qc=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://xsleaks.dev/docs/1design/4mcomp/index.xml title="Ricardo Chin"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Project Design</a><ul></ul></li><li><a href=/docs/1design/4mcomp/ class=active>Finite Element Model Formulation</a><ul></ul></li><li><a href=/docs/1design/5om/>Compound Cylindrical Gear Train</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>RedBull Racing Competition</a><ul><li><a href=/docs/2code/1drone/_index2/>Drone Dynamics</a></li><li><a href=/docs/2code/1drone/_index3/>Drone Controller Design Pt. 1</a></li><li><a href=/docs/2code/1drone/_index4/>Drone Controller Design Pt. 2</a></li><li><a href=/docs/2code/1drone/_index10/>Drone Computer Vision</a></li></ul></li><li><a href=/docs/2code/3sint/>Deep Learning on Fake News</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul><li><a href=/docs/2code/5od/_index2/>Genetic Algorithm</a></li><li><a href=/docs/2code/5od/_index3/>Particle Swarm Optimization</a></li></ul></li><li><a href=/docs/2code/6auto/>Industrial Automation</a><ul></ul></li><li><a href=/docs/2code/7rman/>Manipulator Robotics: JACO</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/3research/>Research</a><ul><li><a href=/docs/3research/1ebeam/>Electron Beam Welding</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Finite Element Model Formulation</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#11-partial-differential-equations-pdes>1.1 Partial Differential Equations (PDEs)</a></li><li><a href=#12-strong-form>1.2 Strong Form</a></li><li><a href=#13-weak-form>1.3 Weak Form</a></li><li><a href=#14-analytical-integration>1.4 Analytical Integration</a></li><li><a href=#15-numerical-integration>1.5 Numerical Integration</a></li><li><a href=#16-torsional-constant>1.6 Torsional Constant</a></li><li><a href=#17-shear-stresses>1.7 Shear Stresses</a></li></ul><ul><li><a href=#21-read_me>2.1 READ_ME</a></li><li><a href=#22-validation-based-on-book>2.2 Validation Based on Book</a></li></ul><ul><li><a href=#31-analytical-integration>3.1 Analytical Integration</a></li><li><a href=#32-gauss-integration-2x2>3.2 Gauss Integration 2x2</a></li><li><a href=#33-gauss-integration-2x1>3.3 Gauss Integration 2x1</a></li><li><a href=#34-gauss-integration-1x2>3.4 Gauss Integration 1x2</a></li><li><a href=#35-gauss-integration-1x1>3.5 Gauss Integration 1x1</a></li><li><a href=#36-calculation-of-torsion-coefficients-nx-vs-matlab>3.6 Calculation of Torsion Coefficients NX vs. Matlab</a></li></ul></nav></aside></header><article class=markdown><h1 id=1-mathematical-background>1 Mathematical Background
@@ -58,11 +58,263 @@ x & y & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x
 0.4375 & 0.0625 & 0.5528 & 0.5528 & 0.5560 & 0.5593 & 0.5504 \\
 \end{bmatrix}\]</span><p>It&rsquo;s observed that stiffness matrices obtained through analytical integration or Gauss 2x2 are closely aligned with the known values. In fact, the values from analytical integration and Gauss 2x2 are identical when approximated to 4 decimal places. The fewer points used in the Gauss integration, the greater the error, with Gauss 1x1 showing the largest discrepancy between obtained and known values. The largest relative error found in analytical integration and Gauss 2x2 was 0.436%. For Gauss 1x2 integration, the largest relative error was 1.05%, while Gauss 1x1 integration showed the largest relative error of 1.73%. Overall, the values are close to the known ones, indicating that the developed program is functioning correctly.</p><h1 id=3-comparison-with-fem-commercial-software-siemens-nx>3 Comparison with FEM commercial software Siemens NX
 <a class=anchor href=#3-comparison-with-fem-commercial-software-siemens-nx>#</a></h1><p>In addition, the problem was tackled by resorting to the commercial software NX, which unfortunately lacks a dedicated solver for torsion problems. As a workaround, the issue was addressed using the <em>Sol 153 solver – Steady State Nonlinear Heat Transfer</em>. This approach was selected due to the analogy between torsion and heat problems. Specific conditions were applied, including setting a boundary temperature at T = 0°C, introducing a uniform heat generation of 2 W/m³ throughout the section, and assigning a thermal conductivity value of K = 1 to the material. To compare results, the Prandtl function was solved using different integration methods in Matlab against the outcomes obtained through NX.</p><p>The data from the upcoming tables indicates that the minimum error occurs in the analytical integration type and in the numerical integration type with 2x2 Gauss points. As observed in the known problem, the error values are identical for these two integration types. It&rsquo;s worth noting that in the 1x1 Gauss points integration, there is a considerable relative error percentage (15.2%), which decreases in the case of 2x1 (8.6%) and 1x2 Gauss points (4.84%)</p><h2 id=31-analytical-integration>3.1 Analytical Integration
-<a class=anchor href=#31-analytical-integration>#</a></h2><p><strong>Maximum error deviation</strong>: 3,99501E-06%</p><h2 id=32-gauss-integration-2x2>3.2 Gauss Integration 2x2
-<a class=anchor href=#32-gauss-integration-2x2>#</a></h2><p><strong>Maximum error deviation</strong>: 3,99501E-06 %</p><h2 id=33-gauss-integration-2x1>3.3 Gauss Integration 2x1
-<a class=anchor href=#33-gauss-integration-2x1>#</a></h2><p><strong>Maximum error deviation</strong>: 8,605963869 %</p><h2 id=34-gauss-integration-1x2>3.4 Gauss Integration 1x2
-<a class=anchor href=#34-gauss-integration-1x2>#</a></h2><p><strong>Maximum error deviation</strong>: 4,839239833 %</p><h2 id=35-gauss-integration-1x1>3.5 Gauss Integration 1x1
-<a class=anchor href=#35-gauss-integration-1x1>#</a></h2><p><strong>Maximum error deviation</strong>: 15,19098164 %</p><h2 id=36-calculation-of-torsion-coefficients-nx-vs-matlab>3.6 Calculation of Torsion Coefficients NX vs. Matlab
+<a class=anchor href=#31-analytical-integration>#</a></h2><p><strong>Maximum error deviation</strong>: 3,99501E-06%</p><span>\[\begin{bmatrix} \text{Node} & \text{Matlab (m)} & \text{NX (m)} & \text{Error}(%) & \text{Node} & \text{Matlab (m)} & \text{NX (m)} & \text{Error} (%) \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
+3 & 0 & 0 & 0 & 51 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 \\
+4 & 0 & 0 & 0 & 52 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 \\
+5 & 0 & 0 & 0 & 53 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 & 64 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 \\
+17 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 & 65 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 \\
+18 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 & 66 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 \\
+19 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 & 67 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 \\
+20 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 & 68 & 0 & 0 & 0 \\
+21 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 & 69 & 0 & 0 & 0 \\
+22 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 & 70 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 \\
+23 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 & 71 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 \\
+24 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 & 72 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 \\
+25 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 & 73 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 \\
+26 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 & 74 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 \\
+27 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 & 75 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 \\
+28 & 0 & 0 & 0 & 76 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 \\
+29 & 0 & 0 & 0 & 77 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 \\
+30 & 0 & 0 & 0 & 78 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 \\
+31 & 0 & 0 & 0 & 79 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 \\
+32 & 0 & 0 & 0 & 80 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 \\
+33 & 0 & 0 & 0 & 81 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 & 86 & 0 & 0 & 0 \\
+39 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 & 87 & 0 & 0 & 0 \\
+40 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 & 88 & 0 & 0 & 0 \\
+41 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 & 92 & 0 & 0 & 0 \\
+45 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 & 93 & 0 & 0 & 0 \\
+46 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 & 94 & 0 & 0 & 0 \\
+47 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix}\]</span><h2 id=32-gauss-integration-2x2>3.2 Gauss Integration 2x2
+<a class=anchor href=#32-gauss-integration-2x2>#</a></h2><p><strong>Maximum error deviation</strong>: 3,99501E-06 %
+<span>\[\begin{bmatrix}
+\text{Node} & \text{Gauss 2x2 (m)} & \text{NX (m)} & \text{Error} (%) & \text{Node} & \text{Gauss 2x2 (m)} & \text{Siemens NX (m)} & \text{Error} (%) \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 \\
+3 & 0 & 0 & 0 & 51 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 \\
+4 & 0 & 0 & 0 & 52 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 \\
+5 & 0 & 0 & 0 & 53 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 & 64 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 \\
+17 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 & 65 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 \\
+18 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 & 66 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 \\
+19 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 & 67 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 \\
+20 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 & 68 & 0 & 0 & 0 \\
+21 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 & 69 & 0 & 0 & 0 \\
+22 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 & 70 & 7.19690280E-04 & 7.19690288E-04 & 1.08731E-06 \\
+23 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 & 71 & 8.63924007E-04 & 8.63923982E-04 & 2.91831E-06 \\
+24 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 & 72 & 8.93021588E-04 & 8.93021584E-04 & 4.38814E-07 \\
+25 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 & 73 & 8.99847643E-04 & 8.99847655E-04 & 1.34474E-06 \\
+26 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 & 74 & 9.05049620E-04 & 9.05049616E-04 & 5.18946E-07 \\
+27 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 & 75 & 9.22107228E-04 & 9.22107254E-04 & 2.87960E-06 \\
+28 & 0 & 0 & 0 & 76 & 9.91068761E-04 & 9.91068780E-04 & 1.99588E-06 \\
+29 & 0 & 0 & 0 & 77 & 1.27384391E-03 & 1.27384393E-03 & 1.55619E-06 \\
+30 & 0 & 0 & 0 & 78 & 1.44339051E-03 & 1.44339050E-03 & 8.95264E-07 \\
+31 & 0 & 0 & 0 & 79 & 1.64555815E-03 & 1.64555816E-03 & 1.13774E-06 \\
+32 & 0 & 0 & 0 & 80 & 1.55521043E-03 & 1.55521045E-03 & 8.87392E-07 \\
+33 & 0 & 0 & 0 & 81 & 1.07160366E-03 & 1.07160362E-03 & 3.99501E-06 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.60173557E-03 & 1.60173560E-03 & 1.30914E-06 & 86 & 0 & 0 & 0 \\
+39 & 2.18252517E-03 & 2.18252512E-03 & 2.49479E-06 & 87 & 0 & 0 & 0 \\
+40 & 2.11690066E-03 & 2.11690064E-03 & 1.01038E-06 & 88 & 0 & 0 & 0 \\
+41 & 1.40940987E-03 & 1.40940992E-03 & 3.31030E-06 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.52894765E-03 & 1.52894761E-03 & 2.07246E-06 & 92 & 0 & 0 & 0 \\
+45 & 2.25918639E-03 & 2.25918647E-03 & 3.61502E-06 & 93 & 0 & 0 & 0 \\
+46 & 2.22762401E-03 & 2.22762395E-03 & 2.75076E-06 & 94 & 0 & 0 & 0 \\
+47 & 1.48307979E-03 & 1.48307974E-03 & 3.20316E-06 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix}\]</span></p><h2 id=33-gauss-integration-2x1>3.3 Gauss Integration 2x1
+<a class=anchor href=#33-gauss-integration-2x1>#</a></h2><p><strong>Maximum error deviation</strong>: 8,605963869 %</p><span>\[\begin{bmatrix}
+\text{Node} & \text{Gauss 2x1 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 2x1 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.55467375E-03 & 1.52894761E-03 & 1.68260E+00 \\
+3 & 0 & 0 & 0 & 51 & 2.31711275E-03 & 2.25918647E-03 & 2.56403E+00 \\
+4 & 0 & 0 & 0 & 52 & 2.27010618E-03 & 2.22762395E-03 & 1.90706E+00 \\
+5 & 0 & 0 & 0 & 53 & 1.50677021E-03 & 1.48307974E-03 & 1.59738E+00 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 7.71981892E-04 & 7.19690288E-04 & 7.26585E+00 & 64 & 1.71631749E-03 & 1.60173560E-03 & 7.15361E+00 \\
+17 & 8.81801159E-04 & 8.63923982E-04 & 2.06930E+00 & 65 & 2.23381865E-03 & 2.18252512E-03 & 2.35019E+00 \\
+18 & 8.97488491E-04 & 8.93021584E-04 & 5.00201E-01 & 66 & 2.16444946E-03 & 2.11690064E-03 & 2.24615E+00 \\
+19 & 9.00185258E-04 & 8.99847655E-04 & 3.75178E-02 & 67 & 1.43151753E-03 & 1.40940992E-03 & 1.56857E+00 \\
+20 & 9.02974740E-04 & 9.05049616E-04 & 2.29255E-01 & 68 & 0 & 0 & 0 \\
+21 & 9.16473288E-04 & 9.22107254E-04 & 6.10988E-01 & 69 & 0 & 0 & 0 \\
+22 & 9.89275672E-04 & 9.91068780E-04 & 1.80927E-01 & 70 & 7.71981892E-04 & 7.19690288E-04 & 7.26585E+00 \\
+23 & 1.38347047E-03 & 1.27384393E-03 & 8.60596E+00 & 71 & 8.81801159E-04 & 8.63923982E-04 & 2.06930E+00 \\
+24 & 1.41159469E-03 & 1.44339050E-03 & 2.20286E+00 & 72 & 8.97488491E-04 & 8.93021584E-04 & 5.00201E-01 \\
+25 & 1.66836160E-03 & 1.64555816E-03 & 1.38576E+00 & 73 & 9.00185258E-04 & 8.99847655E-04 & 3.75178E-02 \\
+26 & 1.58512536E-03 & 1.55521045E-03 & 1.92353E+00 & 74 & 9.02974740E-04 & 9.05049616E-04 & 2.29255E-01 \\
+27 & 1.10986691E-03 & 1.07160362E-03 & 3.57066E+00 & 75 & 9.16473288E-04 & 9.22107254E-04 & 6.10988E-01 \\
+28 & 0 & 0 & 0 & 76 & 9.89275672E-04 & 9.91068780E-04 & 1.80927E-01 \\
+29 & 0 & 0 & 0 & 77 & 1.38347047E-03 & 1.27384393E-03 & 8.60596E+00 \\
+30 & 0 & 0 & 0 & 78 & 1.41159469E-03 & 1.44339050E-03 & 2.20286E+00 \\
+31 & 0 & 0 & 0 & 79 & 1.66836160E-03 & 1.64555816E-03 & 1.38576E+00 \\
+32 & 0 & 0 & 0 & 80 & 1.58512536E-03 & 1.55521045E-03 & 1.92353E+00 \\
+33 & 0 & 0 & 0 & 81 & 1.10986691E-03 & 1.07160362E-03 & 3.57066E+00 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.71631749E-03 & 1.60173560E-03 & 7.15361E+00 & 86 & 0 & 0 & 0 \\
+39 & 2.23381865E-03 & 2.18252512E-03 & 2.35019E+00 & 87 & 0 & 0 & 0 \\
+40 & 2.16444946E-03 & 2.11690064E-03 & 2.24615E+00 & 88 & 0 & 0 & 0 \\
+41 & 1.43151753E-03 & 1.40940992E-03 & 1.56857E+00 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.55467375E-03 & 1.52894761E-03 & 1.68260E+00 & 92 & 0 & 0 & 0 \\
+45 & 2.31711275E-03 & 2.25918647E-03 & 2.56403E+00 & 93 & 0 & 0 & 0 \\
+46 & 2.27010618E-03 & 2.22762395E-03 & 1.90706E+00 & 94 & 0 & 0 & 0 \\
+47 & 1.50677021E-03 & 1.48307974E-03 & 1.59738E+00 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix}\]</span><h2 id=34-gauss-integration-1x2>3.4 Gauss Integration 1x2
+<a class=anchor href=#34-gauss-integration-1x2>#</a></h2><p><strong>Maximum error deviation</strong>: 4,839239833 %
+<span>\[\begin{bmatrix}
+\text{Node} & \text{Gauss 1x2 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error} (%) & \text{Node} & \text{Gauss 1x2 (m)} & \text{Siemens NX (m)} & \text{Relative Error} (%) \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.53554270E-03 & 1.52894761E-03 & 4.31348E-01 \\
+3 & 0 & 0 & 0 & 51 & 2.28579069E-03 & 2.25918647E-03 & 1.17760E+00 \\
+4 & 0 & 0 & 0 & 52 & 2.24819251E-03 & 2.22762395E-03 & 9.23341E-01 \\
+5 & 0 & 0 & 0 & 53 & 1.49451539E-03 & 1.48307974E-03 & 7.71074E-01 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 7.54517827E-04 & 7.19690288E-04 & 4.83924E+00 & 64 & 1.65082354E-03 & 1.60173560E-03 & 3.06467E+00 \\
+17 & 8.76504467E-04 & 8.63923982E-04 & 1.45620E+00 & 65 & 2.20438567E-03 & 2.18252512E-03 & 1.00162E+00 \\
+18 & 8.96336618E-04 & 8.93021584E-04 & 3.71215E-01 & 66 & 2.13630448E-03 & 2.11690064E-03 & 9.16616E-01 \\
+19 & 9.00241019E-04 & 8.99847655E-04 & 4.37145E-02 & 67 & 1.41926507E-03 & 1.40940992E-03 & 6.99239E-01 \\
+20 & 9.03896089E-04 & 9.05049616E-04 & 1.27454E-01 & 68 & 0 & 0 & 0 \\
+21 & 9.18923528E-04 & 9.22107254E-04 & 3.45266E-01 & 69 & 0 & 0 & 0 \\
+22 & 9.89187212E-04 & 9.91068780E-04 & 1.89852E-01 & 70 & 7.54517827E-04 & 7.19690288E-04 & 4.83924E+00 \\
+23 & 1.31978114E-03 & 1.27384393E-03 & 3.60619E+00 & 71 & 8.76504467E-04 & 8.63923982E-04 & 1.45620E+00 \\
+24 & 1.43488415E-03 & 1.44339050E-03 & 5.89331E-01 & 72 & 8.96336618E-04 & 8.93021584E-04 & 3.71215E-01 \\
+25 & 1.65472031E-03 & 1.64555816E-03 & 5.56781E-01 & 73 & 9.00241019E-04 & 8.99847655E-04 & 4.37145E-02 \\
+26 & 1.56813851E-03 & 1.55521045E-03 & 8.31274E-01 & 74 & 9.03896089E-04 & 9.05049616E-04 & 1.27454E-01 \\
+27 & 1.08712814E-03 & 1.07160362E-03 & 1.44872E+00 & 75 & 9.18923528E-04 & 9.22107254E-04 & 3.45266E-01 \\
+28 & 0 & 0 & 0 & 76 & 9.89187212E-04 & 9.91068780E-04 & 1.89852E-01 \\
+29 & 0 & 0 & 0 & 77 & 1.31978114E-03 & 1.27384393E-03 & 3.60619E+00 \\
+30 & 0 & 0 & 0 & 78 & 1.43488415E-03 & 1.44339050E-03 & 5.89331E-01 \\
+31 & 0 & 0 & 0 & 79 & 1.65472031E-03 & 1.64555816E-03 & 5.56781E-01 \\
+32 & 0 & 0 & 0 & 80 & 1.56813851E-03 & 1.55521045E-03 & 8.31274E-01 \\
+33 & 0 & 0 & 0 & 81 & 1.08712814E-03 & 1.07160362E-03 & 1.44872E+00 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.65082354E-03 & 1.60173560E-03 & 3.06467E+00 & 86 & 0 & 0 & 0 \\
+39 & 2.20438567E-03 & 2.18252512E-03 & 1.00162E+00 & 87 & 0 & 0 & 0 \\
+40 & 2.13630448E-03 & 2.11690064E-03 & 9.16616E-01 & 88 & 0 & 0 & 0 \\
+41 & 1.41926507E-03 & 1.40940992E-03 & 6.99239E-01 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.53554270E-03 & 1.52894761E-03 & 4.31348E-01 & 92 & 0 & 0 & 0 \\
+45 & 2.28579069E-03 & 2.25918647E-03 & 1.17760E+00 & 93 & 0 & 0 & 0 \\
+46 & 2.24819251E-03 & 2.22762395E-03 & 9.23341E-01 & 94 & 0 & 0 & 0 \\
+47 & 1.49451539E-03 & 1.48307974E-03 & 7.71074E-01 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix}\]</span></p><h2 id=35-gauss-integration-1x1>3.5 Gauss Integration 1x1
+<a class=anchor href=#35-gauss-integration-1x1>#</a></h2><p><strong>Maximum error deviation</strong>: 15,19098164 %
+<span>\[\begin{bmatrix}
+[katex](\text{Node} & \text{Gauss 1x1 Matlab (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} & \text{Node} & \text{Gauss 1x1 (m)} & \text{Siemens NX (m)} & \text{Relative Error (%)} \\
+1 & 0 & 0 & 0 & 49 & 0 & 0 & 0 \\
+2 & 0 & 0 & 0 & 50 & 1.54947421E-03 & 1.52894761E-03 & 1.34253E+00 \\
+3 & 0 & 0 & 0 & 51 & 2.36381783E-03 & 2.25918647E-03 & 4.63137E+00 \\
+4 & 0 & 0 & 0 & 52 & 2.28905316E-03 & 2.22762395E-03 & 2.75761E+00 \\
+5 & 0 & 0 & 0 & 53 & 1.52154662E-03 & 1.48307974E-03 & 2.59372E+00 \\
+6 & 0 & 0 & 0 & 54 & 0 & 0 & 0 \\
+7 & 0 & 0 & 0 & 55 & 0 & 0 & 0 \\
+8 & 0 & 0 & 0 & 56 & 0 & 0 & 0 \\
+9 & 0 & 0 & 0 & 57 & 0 & 0 & 0 \\
+10 & 0 & 0 & 0 & 58 & 0 & 0 & 0 \\
+11 & 0 & 0 & 0 & 59 & 0 & 0 & 0 \\
+12 & 0 & 0 & 0 & 60 & 0 & 0 & 0 \\
+13 & 0 & 0 & 0 & 61 & 0 & 0 & 0 \\
+14 & 0 & 0 & 0 & 62 & 0 & 0 & 0 \\
+15 & 0 & 0 & 0 & 63 & 0 & 0 & 0 \\
+16 & 8.18181994E-04 & 7.19690288E-04 & 1.36853E+01 & 64 & 1.81961063E-03 & 1.60173560E-03 & 1.36024E+01 \\
+17 & 8.92563936E-04 & 8.63923982E-04 & 3.31510E+00 & 65 & 2.23407901E-03 & 2.18252512E-03 & 2.36212E+00 \\
+18 & 8.99345298E-04 & 8.93021584E-04 & 7.08126E-01 & 66 & 2.19713330E-03 & 2.11690064E-03 & 3.79010E+00 \\
+19 & 9.00174828E-04 & 8.99847655E-04 & 3.63587E-02 & 67 & 1.43676921E-03 & 1.40940992E-03 & 1.94119E+00 \\
+20 & 9.01645310E-04 & 9.05049616E-04 & 3.76146E-01 & 68 & 0 & 0 & 0 \\
+21 & 9.11577385E-04 & 9.22107254E-04 & 1.14194E+00 & 69 & 0 & 0 & 0 \\
+22 & 9.81050299E-04 & 9.91068780E-04 & 1.01088E+00 & 70 & 8.18181994E-04 & 7.19690288E-04 & 1.36853E+01 \\
+23 & 1.46735332E-03 & 1.27384393E-03 & 1.51910E+01 & 71 & 8.92563936E-04 & 8.63923982E-04 & 3.31510E+00 \\
+24 & 1.37127291E-03 & 1.44339050E-03 & 4.99640E+00 & 72 & 8.99345298E-04 & 8.93021584E-04 & 7.08126E-01 \\
+25 & 1.69857374E-03 & 1.64555816E-03 & 3.22174E+00 & 73 & 9.00174828E-04 & 8.99847655E-04 & 3.63587E-02 \\
+26 & 1.59362244E-03 & 1.55521045E-03 & 2.46989E+00 & 74 & 9.01645310E-04 & 9.05049616E-04 & 3.76146E-01 \\
+27 & 1.13329356E-03 & 1.07160362E-03 & 5.75679E+00 & 75 & 9.11577385E-04 & 9.22107254E-04 & 1.14194E+00 \\
+28 & 0 & 0 & 0 & 76 & 9.81050299E-04 & 9.91068780E-04 & 1.01088E+00 \\
+29 & 0 & 0 & 0 & 77 & 1.46735332E-03 & 1.27384393E-03 & 1.51910E+01 \\
+30 & 0 & 0 & 0 & 78 & 1.37127291E-03 & 1.44339050E-03 & 4.99640E+00 \\
+31 & 0 & 0 & 0 & 79 & 1.69857374E-03 & 1.64555816E-03 & 3.22174E+00 \\
+32 & 0 & 0 & 0 & 80 & 1.59362244E-03 & 1.55521045E-03 & 2.46989E+00 \\
+33 & 0 & 0 & 0 & 81 & 1.13329356E-03 & 1.07160362E-03 & 5.75679E+00 \\
+34 & 0 & 0 & 0 & 82 & 0 & 0 & 0 \\
+35 & 0 & 0 & 0 & 83 & 0 & 0 & 0 \\
+36 & 0 & 0 & 0 & 84 & 0 & 0 & 0 \\
+37 & 0 & 0 & 0 & 85 & 0 & 0 & 0 \\
+38 & 1.81961063E-03 & 1.60173560E-03 & 1.36024E+01 & 86 & 0 & 0 & 0 \\
+39 & 2.23407901E-03 & 2.18252512E-03 & 2.36212E+00 & 87 & 0 & 0 & 0 \\
+40 & 2.19713330E-03 & 2.11690064E-03 & 3.79010E+00 & 88 & 0 & 0 & 0 \\
+41 & 1.43676921E-03 & 1.40940992E-03 & 1.94119E+00 & 89 & 0 & 0 & 0 \\
+42 & 0 & 0 & 0 & 90 & 0 & 0 & 0 \\
+43 & 0 & 0 & 0 & 91 & 0 & 0 & 0 \\
+44 & 1.54947421E-03 & 1.52894761E-03 & 1.34253E+00 & 92 & 0 & 0 & 0 \\
+45 & 2.36381783E-03 & 2.25918647E-03 & 4.63137E+00 & 93 & 0 & 0 & 0 \\
+46 & 2.28905316E-03 & 2.22762395E-03 & 2.75761E+00 & 94 & 0 & 0 & 0 \\
+47 & 1.52154662E-03 & 1.48307974E-03 & 2.59372E+00 & 95 & 0 & 0 & 0 \\
+48 & 0 & 0 & 0 & 96 & 0 & 0 & 0 \\
+\end{bmatrix})\]</span></p><h2 id=36-calculation-of-torsion-coefficients-nx-vs-matlab>3.6 Calculation of Torsion Coefficients NX vs. Matlab
 <a class=anchor href=#36-calculation-of-torsion-coefficients-nx-vs-matlab>#</a></h2><p>The nodal solution values, node positions, and connectivity matrix data in NX were used to compute the torsion constant, J, akin to the calculations performed for J in the analytical or Gauss integrations in Matlab.</p><p>Calculating the value of J for various refinements yielded:</p><span>\[\begin{bmatrix}
 \text{Number of nodes} & J \text{computed from NX} (m^4) \\
 96 & 6.11911850 \times 10^{-5} \\
@@ -74,5 +326,5 @@ x & y & \text{Analytical} & \text{Gauss 2x2} & \text{Gauss 1x2} & \text{Gauss 1x
 \end{bmatrix}\]</span><p>For the considered 96 nodes:</p><span>\[\begin{bmatrix}
 \text{J NX} (m^4) & \text{J Matlab} (m^4) & \text{Relative Error} (\%) \\
 6.1191185 \times 10^{-5} & 6.11890982 \times 10^{-5} & 3.41041 \times 10^{-3} \\
-\end{bmatrix}\]</span><p>The conclusion drawn from these findings is that as the mesh undergoes refinement, the constant torsion value J tends to stabilize. It&rsquo;s evident from these results that the approximation done by Matlab remains quite acceptable. This is highlighted by the fact that the J value derived from Matlab aligns closely with the analytical integration value and is also in close proximity to the J value computed in NX for 96 nodes, which itself approximates the converged value.</p><p>To obtain the cut integrations in NX, the temperature flux results are extracted and divided by the torsion constant J.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/1design/4mcomp/_index.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+\end{bmatrix}\]</span><p>The conclusion drawn from these findings is that as the mesh undergoes refinement, the constant torsion value J tends to stabilize. It&rsquo;s evident from these results that the approximation done by Matlab remains quite acceptable. This is highlighted by the fact that the J value derived from Matlab aligns closely with the analytical integration value and is also in close proximity to the J value computed in NX for 96 nodes, which itself approximates the converged value.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/1design/4mcomp/_index.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#11-partial-differential-equations-pdes>1.1 Partial Differential Equations (PDEs)</a></li><li><a href=#12-strong-form>1.2 Strong Form</a></li><li><a href=#13-weak-form>1.3 Weak Form</a></li><li><a href=#14-analytical-integration>1.4 Analytical Integration</a></li><li><a href=#15-numerical-integration>1.5 Numerical Integration</a></li><li><a href=#16-torsional-constant>1.6 Torsional Constant</a></li><li><a href=#17-shear-stresses>1.7 Shear Stresses</a></li></ul><ul><li><a href=#21-read_me>2.1 READ_ME</a></li><li><a href=#22-validation-based-on-book>2.2 Validation Based on Book</a></li></ul><ul><li><a href=#31-analytical-integration>3.1 Analytical Integration</a></li><li><a href=#32-gauss-integration-2x2>3.2 Gauss Integration 2x2</a></li><li><a href=#33-gauss-integration-2x1>3.3 Gauss Integration 2x1</a></li><li><a href=#34-gauss-integration-1x2>3.4 Gauss Integration 1x2</a></li><li><a href=#35-gauss-integration-1x1>3.5 Gauss Integration 1x1</a></li><li><a href=#36-calculation-of-torsion-coefficients-nx-vs-matlab>3.6 Calculation of Torsion Coefficients NX vs. Matlab</a></li></ul></nav></div></aside></main></body></html>
