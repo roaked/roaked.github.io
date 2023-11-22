@@ -149,3 +149,12 @@ y_{\text{max}} = 2 \left[ \left( \frac{P \times b}{6 \times E \times I_z \times 
  {{< katex display >}}
  I_z = \frac{2}{10^{12}} \left[\left(10 \times (2H - 20)^3\right) + \left({2L \times 10^3}\right)\right] + 10L(H - 5)^2 
 {{< /katex >}}
+
+The distributed loading, w, was defined using the density of the chosen material ({{< katex >}}\rho{{< /katex >}} = 78450 N/{{< katex >}}m^3{{< /katex >}}:
+
+{{< katex display >}}
+w = \frac{Volume \times \rho}{L} = 4.564H - 31.38
+{{< /katex >}}
+
+
+
