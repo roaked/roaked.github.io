@@ -9,7 +9,7 @@ title: "Mechanical Design"
 
 ## 1.1. Description and Context
 
-I carried out within the scope of the Mechanical Design Course, part of my M.Sc journey. It aims to dimension and study fundamental structural components of a double girder suspension crane. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors.
+This project was carried out within the scope of the Mechanical Design Course, part of my M.Sc journey. It aims to dimension and study fundamental structural components of a double girder suspension crane. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors.
 A bridge crane is a piece of equipment that, despite not being highly complex, encompasses all the elements that warrant study, allowing for the application of theoretical concepts applied to a real-world scenario.
 
 ## 1.2. Goals
@@ -104,15 +104,9 @@ Only the main components were designed, namely the girders. The trolley frames a
 
 Due to the high stresses to which the box girder of the overhead crane is subjected, it's necessary to select a structural steel with considerable yield strength to ensure the component meets service conditions and to minimize stress concentration and fatigue issues. With this in mind, the following steel with a tempering and tempering treatment was chosen:
 
- {{< katex display >}}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
- S_u  &  S_y  &  E  &  G  &  \nu  \\
-\hline
-1210 MPa & 772 MPa & 210 GPa & 81 GPa & 0.3 \\
-\hline
-\end{tabular}
- {{< /katex >}}
+| S_u      | S_y     | E       | G       | \nu     |
+|----------|---------|---------|---------|---------|
+| 1210 MPa | 772 MPa | 210 GPa | 81 GPa  | 0.3     |
 
  ## 2.2. Dimensioning Criteria 
 
