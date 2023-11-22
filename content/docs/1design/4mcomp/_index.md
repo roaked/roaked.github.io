@@ -338,8 +338,8 @@ When the program is executed, it generates several figures such as the mesh repr
 
 The nodal solution values, distribution of shear stresses, value of J, and torsional stiffness were, in addition, also obtained from the analytical integration, as reported. 
 
-- Minimum stress of 1.28E03 Pa: (x,y) = (2.0{{< katex >}}\times 10^{-1}{{< /katex >}}, 1.1{{< katex >}}\times 10^{-1}{{< /katex >}}) m
-- Minimum stress of 2.58E01 Pa: (x,y) = (2.4{{< katex >}}\times 10^{-1}{{< /katex >}}, 9.0{{< katex >}}\times 10^{-2}{{< /katex >}}) m    
+- Minimum stress of 1.28{{< katex >}}\times 10^{3}{{< /katex >}} Pa: (x,y) = (2.0{{< katex >}}\times 10^{-1}{{< /katex >}}, 1.1{{< katex >}}\times 10^{-1}{{< /katex >}}) m
+- Minimum stress of 2.58{{< katex >}}\times 10^{1}{{< /katex >}} Pa: (x,y) = (2.4{{< katex >}}\times 10^{-1}{{< /katex >}}, 9.0{{< katex >}}\times 10^{-2}{{< /katex >}}) m    
 - Torsion cofficient J: 6.11{{< katex >}}\times 10^{-5} Pa \cdot m^4{{< /katex >}}
 - Torsional stiffness GJ: 4.65{{< katex >}}\times 10^{6} Pa \cdot m^4{{< /katex >}} 
 
