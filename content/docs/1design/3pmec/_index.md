@@ -267,7 +267,7 @@ The welding performed has a height, h, of 5 mm. Therefore, the throat height, a,
 The procedure for calculating the weld beads in the three cases is similar, involving the computation of the unit second moment of area (Ju), the moment of inertia (Is) and the weld area (As). For the calculation of the unit second moment of area for more complex sections, it is feasible to compute it by dividing the section into several rectangles and selecting the appropriate expression from the table (Table 9-1 and 9-2 in [Shigley's book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y)) corresponding to the specific case.
 
 {{< katex display >}}
-J_u = \frac{b \times d^2}{2 \times 2} = \frac{10 \times 0.17642^2}{2 \times 2} = 0.1556 \text{m}^3
+J_u = \frac{b \times d^2}{2} = \frac{10 \times 0.17642^2}{2 \times 2} = 0.1556 \text{m}^3
 {{< /katex >}}
 
 
@@ -289,24 +289,53 @@ With this data, it is possible to calculate the primary shear stress:
 \tau_V = \frac{F}{A_s} = \frac{31350}{0.0707} = 4.43 \times 10^5 \text{Pa}
 {{< /katex >}}
 
+In the study of secondary shear stress, the component attributed to the torsional moment and the bending moment is calculated, with the former being represented by the following expression.
 
 {{< katex display >}}
 \tau_T = \frac{T_c}{J} = \frac{2250 \times 0.082}{5.501 \times 10^{-4}} = 3.608 \times 10^5 \text{Pa}
 
 {{< /katex >}}
 
+In the case of secondary shear stress due to the bending moment, it is given that:
+
 {{< katex display >}}
-\tau_M = \frac{M_r}{I} = \frac{131660 \times \frac{5 \times 10^3}{6} \times 0.0035}{10^3} = 1.116 \times 10^6 \text{Pa}
+\tau_M = \frac{M_r}{I} = \frac{131660 \times 5}{\frac{10^3}{6} \times 0.0035} = 1.116 \times 10^6 \text{Pa}
 {{< /katex >}}
+
+
+Hence, the summation of each of these components enables the assessment of the stress value induced by the moments.
 
 {{< katex display >}}
 \tau_{MT} = \tau_M + \tau_T = 1.116 \times 10^6 + 3.608 \times 10^5 = 1.478 \times 10^6 \, \text{Pa}
 {{< /katex >}}
 
+By calculating the total stress induced by the moments and the shear force, it is concluded that:
+
 {{< katex display >}}
 \tau = \sqrt{\tau_{MT}^2 + \tau_V^2} = \sqrt{1.478 \times 10^6 + 4.43 \times 10^5} = 1.543 \times 10^6 \, \text{Pa}
 {{< /katex >}}
 
+To conclude the study of welded connections between the vertical and horizontal plates, it was proposed to evaluate the static safety coefficient and compare it with the initially defined value using the Pugsley method (n = 2.08). This comparison aims to verify if the obtained value surpasses the initially set one.
+
 {{< katex display >}}
 \text{Nestatica} = \frac{0.4 \times S_y}{\tau} = \frac{0.4 \times 460 \times 10^6}{1.543 \times 10^6} = 119.25
 {{< /katex >}}
+
+**OK!**
+
+### 2.5.2 Welding Internal Reinforcements of the Beam
+
+It was mentioned that the purpose of the internal vertical reinforcements is to prevent localized deformation of the beam when subjected to the forces resulting from the equipment's operational regime. They also serve as a means to provide additional stiffness to the box beam. The shear stresses present in the two webs of the box beam, during loading and translation of the beam, could lead to detrimental localized deformations affecting the equipment. It was recommended that vertical transverse reinforcements should also be applied to areas where the beam is supported and bolted to the "headstock".
+
+According to the CMAA (Crane Manufacturers Association of America) specification for overhead cranes, the spacing between vertical reinforcements should not exceed:
+
+
+{{< katex display >}}
+a = \frac{350}{\sqrt{v} \times t} = \frac{350}{\sqrt{0.333} \times 0.3937} \approx 6065.5 \text{mm}
+{{< /katex >}}
+
+- a: Spacing between vertical reinforcements (in)
+- v: Maximum shear stress in the section (ksi) - 2.3E6 Pa = 0.333 ksi
+- t: Thickness of the beam's web (in) - 10 mm
+
+It was determined to install 11 reinforcements along the length of the beam, with two of them acting as caps to seal the structural section.
