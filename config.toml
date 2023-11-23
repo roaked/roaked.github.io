@@ -1,7 +1,8 @@
+googleAnalytics = "G-10WQY47KS2"
 baseURL = "https://xsleaks.dev/"
 languageCode = "en-us"
 title = "Ricardo Chin"
-enableGitInfo = false
+enableGitInfo = true
 theme = "hugobook"
 
 [params]
