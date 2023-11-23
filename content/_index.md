@@ -15,13 +15,14 @@ When I take a break from immersing myself in the world of tech and science, I'm 
 
 Speaking about "me by myself", isn't it interesting how most people in our lives, despite intentions to stay, often become fleeting characters in our stories? It's something my mother used to tell me when I was young, but I'd constantly forget it. You could say it was one of my problems. But as the years went by, I learned the truth behind it — the transient nature of most people. That's why I've grown to value doing things independently — working on my own, relying solely on myself, has been a path to building resilience and self-reliance. It is as if the weight of complete responsibility becomes a catalyst for personal growth... It certainly contradicts with the perception others have of me as an ideal team player. While many appear to envision me as thriving within a team dynamic, I often feel quite the opposite internally. 
 
-It's a curious paradox, isn't it? :)
+{{< button href="https://youtu.be/0NsNfUhUm4k" >}}It's a curious paradox, isn't it? :){{< /button >}}
 
 
 ![Me](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_z.jpg)
 
 
 Naturally, traveling, particularly to different continents, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world. That's why when I travel, delving into local languages is my key to forming those deep, meaningful connections wherever I go. Unfortunately, my Mandarin skills are still a work in progress, but hey, we can hold a conversation in German, Portuguese, English, and Spanish, with a dash of Mandarin and French in the mix.
+
 
 
 
