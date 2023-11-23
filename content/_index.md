@@ -13,9 +13,9 @@ I'm really into pushing boundaries and adding my own twist to science — from c
 
 When I take a break from immersing myself in the world of tech and science, I'm out there hitting the slopes for some mountain or winter sports. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours — really, I could talk endlessly. Yet, one of the most significant lessons I've learned recently is to appreciate the tranquility I find in these activities, where it's just me by myself. 
 
-{<< hint[info] >>}
+{{< hint[info] >}}
 *Proceed at your own risk*: a bit too philosophical onwards :)
-{<< /hint >>}
+{{< /hint >}}
 
 ![Me41](https://live.staticflickr.com/65535/53352035229_f9204869a6_c.jpg)
 
