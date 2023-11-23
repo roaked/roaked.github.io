@@ -1,9 +1,11 @@
-googleAnalytics = "G-10WQY47KS2"
 baseURL = "https://xsleaks.dev/"
 languageCode = "en-us"
 title = "Ricardo Chin"
 enableGitInfo = true
 theme = "hugobook"
+
+[services.googleAnalytics]
+  ID = "G-10WQY47KS2"
 
 [params]
   BookRepo = 'https://github.com/roaked/roaked.github.io'
@@ -17,4 +19,6 @@ theme = "hugobook"
   name = "Ricardo Chin"
   email = "ricardo.chin@tecnico.ulisboa.pt"
   github = "roaked"
+
+
 
