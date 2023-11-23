@@ -11,8 +11,6 @@ theme = "hugobook"
   BookEditPath = 'edit/main/content'
   BookServiceWorker = true
   BookLogo = 'logo.png'
-  BookMenuBundle = '/menu'
-  BookSection = '*'
   BookSearch = false
   
 [author]
