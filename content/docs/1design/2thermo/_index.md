@@ -35,7 +35,7 @@ In the context of designing a steam boat for ThermoCup, the significance of defi
 - **Material Selection**: The choice of materials for constructing the steam boat significantly impacts its structural integrity, weight, buoyancy, and overall performance. For instance, selecting lightweight yet durable materials for the boat's structure can enhance its maneuverability and efficiency. Similarly, heat-resistant materials might be crucial for components exposed to high temperatures in the steam propulsion system.
 
 
-{{< hint [info] >}}
+{{< hint [info|warning|danger] >}}
  **But...**
 
 Keep in mind that the competition's rules imposed caused certain constraints or guidelines regarding the materials that can be used, limitating creativity work to develop within those boundaries.

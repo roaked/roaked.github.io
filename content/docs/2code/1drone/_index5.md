@@ -125,7 +125,7 @@ This method helps reducing the number of different colors in the image which cou
 
 ![ntetsdss3223sss2ss52d4121aeasate111](https://live.staticflickr.com/65535/53347872712_3deecf9434.jpg)
 
-{{< hint [info] >}}
+{{< hint [info|warning|danger] >}}
 This method was found to be functional but lacked reliability for consistent segmentation. A lower count of superpixels resulted in poorer outcomes, while a higher count led to slower segmentation without notable improvement. Moreover, in some instances, an increased count made segmentation more challenging as the gate and background merged together.
 {{< /hint >}}
 

@@ -35,7 +35,7 @@ Given how complex this project turned out to be, I have decided to structure it 
 
 - **Integration of AI with System Components**: This section aims to unify AI algorithms with the previously developed system dynamics model, controller, and computer vision capabilities. It seeks to leverage AI to further enhance overall performance, responsiveness, and decision-making of the drone during Red Bull racing scenarios.
 
-{{< hint [info] >}}
+{{< hint [infoinfo|warning|danger] >}}
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 {{< /hint >}}
 
