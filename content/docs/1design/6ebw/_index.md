@@ -4,4 +4,4 @@ bookHidden: false
 title: "Electron Beam Technology"
 ---
 
-# Introduction
+# **Thermally Induced Reduction of the Load**
