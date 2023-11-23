@@ -178,7 +178,10 @@ Upon program completion, a file is created containing the data obtained from the
 
 ![sds](https://live.staticflickr.com/65535/53347766202_f8a2c9e042_q.jpg) 
 
+
+{{< hint [info] >}}
 **REMARK:** The node numbering associated with a given element in the incidence matrix is done counterclockwise, as shown in the accompanying image. Any other numbering will yield incorrect results for solving this problem. The coordinates in the node matrix are in SI units, therefore in meters. Introducing values in different units in the data file will result in incorrect units in the final program output. The material conductivity or property should be 1; if it's not, the results won't be valid for this torsion problem. Regarding boundary conditions, only essential boundary conditions equal to zero are allowed. However, they will be set to zero if another finite value is associated. The distributed loading assumes the value 2; however, if the value differs, the program will still provide results—though they may not be reasonable for solving the initially presented problem. All other boundary conditions should be null, and if they're not, an error message will be displayed.
+{{< /hint >}}
 
 
 ## 2.2 Validation Based on Book

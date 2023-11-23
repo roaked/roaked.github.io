@@ -125,8 +125,9 @@ This method helps reducing the number of different colors in the image which cou
 
 ![ntetsdss3223sss2ss52d4121aeasate111](https://live.staticflickr.com/65535/53347872712_3deecf9434.jpg)
 
-
+{{< hint [info] >}}
 This method was found to be functional but lacked reliability for consistent segmentation. A lower count of superpixels resulted in poorer outcomes, while a higher count led to slower segmentation without notable improvement. Moreover, in some instances, an increased count made segmentation more challenging as the gate and background merged together.
+{{< /hint >}}
 
 The segmentation algorithm underwent testing on various images. It worked well for images with similar background colors and lighting conditions, often necessitating minor adjustments to the thresholds for optimization. However, for other images, a new set of thresholds had to be determined.
 

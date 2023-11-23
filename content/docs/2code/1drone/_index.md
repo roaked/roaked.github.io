@@ -35,8 +35,9 @@ Given how complex this project turned out to be, I have decided to structure it 
 
 - **Integration of AI with System Components**: This section aims to unify AI algorithms with the previously developed system dynamics model, controller, and computer vision capabilities. It seeks to leverage AI to further enhance overall performance, responsiveness, and decision-making of the drone during Red Bull racing scenarios.
 
+{{< hint [info] >}}
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
-
+{{< /hint >}}
 
 ![video](https://s5.gifyu.com/images/SRQm0.gif)
 
@@ -44,6 +45,7 @@ By splitting the report into these segments, it is expected to inspect each aspe
 
 ## 4 Drone Characteristics
 
+{{< expand >}}
 {{< katex display >}}
 \text{Mass } M : 0.475 \, \text{kg} \\
 \text{Moment of inertia } J_{xx} : 2.2 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
@@ -56,6 +58,6 @@ By splitting the report into these segments, it is expected to inspect each aspe
 \text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
 \text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
 {{< /katex >}}
-
+{{< /expand >}}
 
 
