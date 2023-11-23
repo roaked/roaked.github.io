@@ -12,7 +12,6 @@ theme = "hugobook"
   BookDateFormat = 'January 2, 2006'
   BookEditPath = 'edit/main/content'
   BookServiceWorker = true
-  BookLogo = 'logo.png'
   BookSearch = false
   
 [author]
