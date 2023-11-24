@@ -119,7 +119,7 @@ The deconvolution method is being employed to derive the impulse response by dec
 
 Notably, while similarities are evident, discrepancies exist in the responses due to several reasons. The deconvolution method proves highly sensitive to measurement noise, encountering challenges with an ill-conditioned, [unsymmetrical Toeplitz matrix](https://en.wikipedia.org/wiki/Toeplitz_matrix) 'u.' Moreover, the impulse response, derived as the derivative of the step response, tends to amplify noise.
 
-Following this comparison, the 'ir2dtf' and 'd2c' functions are employed to derive the step response of the system identified through deconvolution. This process involves resampling the deconvolution data and carefully selecting the most representative points from the transient response. The choice of a 4th-order system proves optimal for achieving favourable outcomes. The resulting step response is subsequently obtained for further analysis.
+Following this comparison, the ['ir2dtf' function](https://github.com/roaked/agv-system-identification/blob/main/ir2dtf.m) and ['d2c' MATLAB function](https://de.mathworks.com/help/ident/ref/dynamicsystem.d2c.html) are employed to derive [the step response of the system identified through deconvolution - code available](https://github.com/roaked/agv-system-identification/blob/main/Deconv.m). This process involves resampling the deconvolution data and carefully selecting the most representative points from the transient response. The choice of a 4th-order system proves optimal for achieving favourable outcomes. The resulting step response is subsequently obtained for further analysis.
 
 ![2212113](https://live.staticflickr.com/65535/53352842998_f87cea2d5a_c.jpg)
 
@@ -139,11 +139,11 @@ Despite the discrepancies evident in the graphs, a notable convergence emerges. 
 
 ### 2.3. Levy Method
 
-The Levy Method, designed to minimize error between data and estimated model frequency responses, employs curve fitting in amplitude and phase within the numerical frequency domain. This method's utilization of Bode plots enables a comprehensive comparison of results as follows:
+[The Levy Method, designed to minimize error between data and estimated model frequency responses, employs curve fitting in amplitude and phase within the numerical frequency domain - code available](https://github.com/roaked/agv-system-identification/blob/main/levy.m). This method's utilization of Bode plots enables a comprehensive comparison of results as follows:
 
 ![2212112212113](https://live.staticflickr.com/65535/53352621011_d693246b00_c.jpg)
 
-Prior to applying the Levy function, a crucial step involved computing the Fourier transform of the deconvolution. This was achieved using a bespoke function that employs the discrete Fourier transform algorithm. This function determined the gain, phase, and associated frequencies from the acquired points, serving as inputs for the subsequent Levy function.
+Prior to applying the [Levy function](https://github.com/roaked/agv-system-identification/blob/main/levy.m), a crucial step involved computing the Fourier transform of the deconvolution. This was achieved using a bespoke function that employs the discrete Fourier transform algorithm. This function determined the gain, phase, and associated frequencies from the acquired points, serving as inputs for the subsequent Levy function.
 
 Upon examination, it became apparent that higher frequency values within the Fourier Transform failed to accurately represent the system dynamics. Despite attempts to represent the initial 10 points, not all points aligned on the phase diagram due to disparities. In the magnitude plot, discrepancies were also notable for higher frequencies. These discrepancies stem from the Rasteirinho's slower system response, where noise interference significantly impacts higher frequencies. Consequently, the initial few points of the Fourier Transform were selectively used to generate the Bode plot via the Levy method.
 
