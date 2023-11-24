@@ -328,7 +328,7 @@ All methods exhibited accuracies exceeding 94% when using all features, indicati
 Using solely linguistic features yielded satisfactory results, with all methods achieving accuracy equal to or greater than 87%. This indicates that, among 7200 news items, more than 6264 were correctly categorized based on their features. However, the highest accuracy of 89.1% suggested misidentification of 784 news articles.
 
 {{< hint warning >}}
-It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.{{< hint warning >}}
+It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.{{< /hint >}}
 
 ![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
 
