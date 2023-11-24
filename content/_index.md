@@ -7,17 +7,11 @@ type: docs
 
 ### Ricardo. 26. Portugal / China.
 
-{{< columns >}}
-
 With a [master's degree in mechanical engineering](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) (earned honors, too!) specialized in simulation and those technical aspects, along with an immersive experience as an university assistant delving into materials science research, I've rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
 
 
 I'm really into pushing boundaries and adding my own twist to science — from conceptualization to realization, I'm driven by the thought of using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation. That said, my sweet spot? Merging design and simulation expertise with software curiosity to open up doors that integrate unique elements, such as incorporating deep learning or optimization techniques, to shake up engineering solutions. 
 
-<--->
-
-![mdssde](https://live.staticflickr.com/65535/53352975408_fcb2ff85a1.jpg)
-{{< /columns >}}
 
 It's become a hobby of mine to sort through my recent and older projects with the intention of showcasing them online. Recalling the difficulties I faced before, I often wished for more accessible information. I hope that by sharing my experiences, I might assist others tackling similar challenges in their research — plus, it's a great way for me to understand and refine some technical knowledge I wasn't quite as proficient before!
 
