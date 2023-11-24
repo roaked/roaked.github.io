@@ -16,7 +16,7 @@ I'm really into pushing boundaries and adding my own twist to science — from c
 
 <--->
 
-![mdssde](https://live.staticflickr.com/65535/53351871377_2959e28fee_n.jpg)
+![mdssde](https://live.staticflickr.com/65535/53352975408_fcb2ff85a1.jpg)
 {{< /columns >}}
 
 It's become a hobby of mine to sort through my recent and older projects with the intention of showcasing them online. Recalling the difficulties I faced before, I often wished for more accessible information. I hope that by sharing my experiences, I might assist others tackling similar challenges in their research — plus, it's a great way for me to understand and refine some technical knowledge I wasn't quite as proficient before!
