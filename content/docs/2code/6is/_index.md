@@ -169,7 +169,10 @@ These initial results, derived from the initial experiment, will now undergo com
 
 {{< katex display >}}
 G_{\text{data2Deconv}}(s) = \frac{368.5s^3 + 412.6s^2 + 1.288 \times 10^5s + 4.188 \times 10^5}{s^4 + 23.09s^3 + 512.3s^2 + 6501s + 2.957 \times 10^4}
+{{< /katex>}}
 
+
+{{< katex display >}}
 G_{\text{data3Deconv}}(s) = \frac{161.6s^3 + 2236 + 1.804 \times 10^5s + 1.508 \times 10^5}{s^4 + 14.59s^3 + 723s^2 + 5760s + 6.186 \times 10^4}
 
 {{< /katex>}}
