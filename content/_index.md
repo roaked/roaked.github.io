@@ -37,8 +37,10 @@ Naturally, traveling, particularly to different continents, is also a big part o
 
 In my childhood, my parents were adventurers at heart. They would just have these burning desire of travelling, especially into the wilderness whenever they could, armed with their trusty analog cameras. Those camping trips weren't just about nature; they were about freezing time. Years have passed, but the memories remain vivid, carefully stored in a closet filled with albums documenting our camping escapades. Each photo holds a story — a snapshot of a moment suspended in time.
 
-I've picked up their knack for recording life, now using modern tech. My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.
+I've picked up their knack for recording life, now using modern tech. [My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.](https://youtu.be/0NsNfUhUm4k)
 
-{{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes**{{< /button >}}
+
+
+{{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes.**{{< /button >}}
 
 
