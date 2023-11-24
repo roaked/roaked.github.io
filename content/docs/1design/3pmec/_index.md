@@ -19,6 +19,8 @@ A bridge crane is a piece of equipment that, despite not being highly complex, e
 This project aims to conduct the dimensioning and study of fundamental structural components. The sizing will be executed in accordance with applicable standards and demonstrated through analytical calculations and finite element models. In addition to the structural elements of the equipment, fundamental mechanical components of the system, including welded and bolted connections, will also be sized. Coupled with the dimensioning aspect is the economic factor, aiming to minimize costs while ensuring the safety of the entire structure
 
 ### 1.3. Functionalities
+
+
 Bridge cranes are used for lifting and moving heavy loads. The structural and mechanical components to be sized are:
 - Resistant girders, consisting of a reinforced box profile;
 - Trolley frame;
