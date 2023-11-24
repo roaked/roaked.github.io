@@ -302,8 +302,6 @@ def confusionmatStats(group, grouphat=None):
     return stats
 ```
 
-{{< /details >}}
-
 ### 5.1. Results Interpretation
 
 After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
