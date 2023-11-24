@@ -270,13 +270,13 @@ Although this system is extremely non-linear, an estimation that had a high orde
 
 ### 5.2. ARX - Autoregressive Model with Exogenous Input
 
-{{< details "**Diagram*:** ARX Block Diagram - (click to expand)" close >}}
+{{< details "**Diagram:** ARX Block Diagram - (click to expand)" close >}}
 ![32481](https://live.staticflickr.com/65535/53352690061_816277f2fa_b.jpg)
 {{< /details >}}
 
 This model clearly indicates that both the system and noise dynamics are not entirely independent, sharing common poles represented by A(z^-1). Despite being the simplest among the models, it features an unrealistic connection between the system and noise dynamics. This coupling can be lessened in cases where the signal-to-noise ratio is sufficiently high, offering a potential way to mitigate this issue. Validation with a different experiment but also white noise and multiple powers for a square response:
 
-{{< details "**Validation*:** ARX Model for Data 1 - (click to expand)" close >}}
+{{< details "**Validation:** ARX Model for Data 1 - (click to expand)" close >}}
 ![21381](https://live.staticflickr.com/65535/53353016619_19ed717880_b.jpg)
 
 
@@ -297,7 +297,7 @@ Additional statistics criterions for this dataset:
 | ARX351       | 1194.3 | 1147.7 | 54.52    |
 {{< /details >}}
 
-{{< details "**Validation*:** ARX Model for Data 2 - (click to expand)" close >}}
+{{< details "**Validation:** ARX Model for Data 2 - (click to expand)" close >}}
 ![213841411](https://live.staticflickr.com/65535/53353016574_83bc58bc95_b.jpg)
 
 Additional statistics criterions for this dataset:
@@ -318,7 +318,7 @@ Additional statistics criterions for this dataset:
 
 {{< /details >}}
 
-{{< details "**Validation*:** ARX Model for Data 3 - (click to expand)" close >}}
+{{< details "**Validation:** ARX Model for Data 3 - (click to expand)" close >}}
 ![21381](https://live.staticflickr.com/65535/53353140130_aec5fe8c37_b.jpg)
 
 Additional statistics criterions for this dataset:
@@ -346,13 +346,13 @@ Additional statistics criterions for this dataset:
 
  ### 5.3. ARMAX - Autoregressive Model with Exogenous Input
 
-{{< details "**Diagram*:** ARMAX Block Diagram - (click to expand)" close >}}
+{{< details "**Diagram:** ARMAX Block Diagram - (click to expand)" close >}}
 ![32422281](https://live.staticflickr.com/65535/53351811487_bdf9437926_b.jpg)
 {{< /details >}}
 
 Unlike the ARX model, this particular model accounts for the presence of a moving average component within the noise dynamics, in addition to its connection with the system's dynamics. This model proves valuable in scenarios where dominant disturbances enter the system early in the process. Its consideration of both the system's dynamics and the moving average component in noise dynamics allows for a more accurate representation, especially when early disturbances significantly impact the overall system behaviour. Using the same technology as before...
 
-{{< details "**Validation*:** ARMAX Model for Data 1 - (click to expand)" close >}}
+{{< details "**Validation:** ARMAX Model for Data 1 - (click to expand)" close >}}
 ![21381](https://live.staticflickr.com/65535/53353140120_49d7c979c6_b.jpg)
 
 
@@ -374,7 +374,7 @@ Additional statistics criterions for this dataset:
 
 {{< /details >}}
 
-{{< details "**Validation*:** ARMAX Model for Data 2 - (click to expand)" close >}}
+{{< details "**Validation:** ARMAX Model for Data 2 - (click to expand)" close >}}
 ![213841411](https://live.staticflickr.com/65535/53353016589_db46b9eb19_b.jpg)
 
 Additional statistics criterions for this dataset:
@@ -395,7 +395,7 @@ Additional statistics criterions for this dataset:
 
 {{< /details >}}
 
-{{< details "**Validation*:** ARMAX Model for Data 3 - (click to expand)" close >}}
+{{< details "**Validation:** ARMAX Model for Data 3 - (click to expand)" close >}}
 ![21381](https://live.staticflickr.com/65535/53353016584_778432c864_b.jpg)
 
 Additional statistics criterions for this dataset:
@@ -422,22 +422,22 @@ Compared to the ARX model, there is a slight increase in the best fit which corr
 
 ### 5.4. BJ - Box-Jenkins Model
 
-{{< details "**Diagram*:** Box-Jenkins Block Diagram - (click to expand)" close >}}
+{{< details "**Diagram:** Box-Jenkins Block Diagram - (click to expand)" close >}}
 ![324222222281](https://live.staticflickr.com/65535/53353016539_e01e572524_b.jpg)
 {{< /details >}}
 
 The Box-Jenkins model is useful when you have disturbances that enter later in the process, e.g. measurement noise on the output. 
 
-{{< details "**Validation*:** Box-Jenkins Model for Data 1 - (click to expand)" close >}}
+{{< details "**Validation:** Box-Jenkins Model for Data 1 - (click to expand)" close >}}
 ![2138241411](https://live.staticflickr.com/65535/53353016554_c7e2f07de4_b.jpg)
 
 {{< /details >}}
 
-{{< details "**Validation*:** Box-Jenkins Model for Data 2 - (click to expand)" close >}}
+{{< details "**Validation:** Box-Jenkins Model for Data 2 - (click to expand)" close >}}
 ![2134214124181](https://live.staticflickr.com/65535/53352910743_878538f46f_b.jpg)
 {{< /details >}}
 
-{{< details "**Validation*:** Box-Jenkins Model for Data 3 - (click to expand)" close >}}
+{{< details "**Validation:** Box-Jenkins Model for Data 3 - (click to expand)" close >}}
 ![2134214124181](https://live.staticflickr.com/65535/53352689986_8895050637_b.jpg)
 {{< /details >}}
 
@@ -465,22 +465,22 @@ Step response:
 
 ### 5.5. Output-Error Model
 
-{{< details "**Diagram*:** Output-Error Block Diagram - (click to expand)" close >}}
+{{< details "**Diagram:** Output-Error Block Diagram - (click to expand)" close >}}
 ![3242222wa22281](https://live.staticflickr.com/65535/53352910738_e0a55196ef_b.jpg)
 {{< /details >}}
 
 System and noise dynamics are modelled separately, using zero parameters to model the disturbance. This disturbance can often be assumed to be white noise.
 
-{{< details "**Validation*:** Output-Error Model for Data 1 - (click to expand)" close >}}
+{{< details "**Validation:** Output-Error Model for Data 1 - (click to expand)" close >}}
 ![2138241411](https://live.staticflickr.com/65535/53353140070_9a3caeffd4_b.jpg)
 
 {{< /details >}}
 
-{{< details "**Validation*:** Output-Error Model for Data 2 - (click to expand)" close >}}
+{{< details "**Validation:** Output-Error Model for Data 2 - (click to expand)" close >}}
 ![2134214124181](https://live.staticflickr.com/65535/53352689931_c8be807652_b.jpg)
 {{< /details >}}
 
-{{< details "**Validation*:** Output-Error Model for Data 3 - (click to expand)" close >}}
+{{< details "**Validation:** Output-Error Model for Data 3 - (click to expand)" close >}}
 ![2134214124181](https://live.staticflickr.com/65535/53353140050_14eebb16aa_b.jpg)
 {{< /details >}}
 
@@ -517,8 +517,9 @@ The simpler ARX and ARMAX models showed fitting slightly above 60%, whereas the 
 
 This notion was reinforced by examining the step response plots of the best fitting models. The ARX and ARMAX models exhibited overshoot and steady-state error, as expected due to their simplicity. On the other hand, the OE/BJ models showed some overshoot but minimal steady-state error, indicating their greater complexity allows for a more refined representation with improved performance characteristics. The stable continuous transfer function given by the best fitting model goes as follows:
 
+{{< katex display >}}
 G_{\text{Output-Error}}(s) = \frac{0.6447s^4 + 75.98s^3 + 4005s^2 + 8.577 \times 10^4 s + 8.386 \times 10^4}{s^5 + 21.95s^4 + 1039s^3 + 7891s^2 + 6.995 \times 10^4 s + 7.87 \times 10^4}
-
+{{< /katex >}}
 
 
 ## 6 Outcomes
@@ -550,15 +551,15 @@ G_{\text{deterministicStep}}(s) = \frac{309.8 s^3 +7682s^2 + 4.842 \times 10^5 s
 As for the step response for the best fitting of the estimated models for each dataset:
 
 
-{{< details "**Models Validation*:** Step response for Data1 - (click to expand)" close >}}
+{{< details "**Models Validation:** Step response for Data1 - (click to expand)" close >}}
 ![213424214114124181](https://live.staticflickr.com/65535/53352910678_3168b974b6_c.jpg)
 {{< /details >}}
 
-{{< details "**Models Validation*:** Step response for Data2 - (click to expand)" close >}}
+{{< details "**Models Validation:** Step response for Data2 - (click to expand)" close >}}
 ![2134214125154181](https://live.staticflickr.com/65535/53351811397_d69c479b29_c.jpg)
 {{< /details >}}
 
-{{< details "**Models Validation*:** Step response for Data3 - (click to expand)" close >}}
+{{< details "**Models Validation:** Step response for Data3 - (click to expand)" close >}}
 ![21342141aa24181](https://live.staticflickr.com/65535/53353016489_27c6f842df_c.jpg)
 {{< /details >}}
 
