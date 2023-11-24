@@ -1,6 +1,5 @@
 ---
 weight: 6
-bookFlatSection: true
 title: "AGV: System Identification"
 ---
 
