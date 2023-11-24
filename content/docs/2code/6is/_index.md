@@ -83,7 +83,7 @@ In the lab trials, data on input, output, and time were recorded. Various amplit
 {{< /details >}}
 
 {{< details "**Sample 2:** Square Input with Amplitude = 10, Frequency 0.5 vs System Output - (click to expand)" close >}}
-![m1312e1241so](https://live.staticflickr.com/65535/53353058145_567da00851_b.jpgg)
+![m1312e1241so](https://live.staticflickr.com/65535/53353058145_567da00851_b.jpg)
 {{< /details >}}
 
 {{< details "**Sample 2:** Square Input with Amplitude = 7.5, Frequency 0.3 vs System Output - (click to expand)" close >}}
@@ -139,3 +139,43 @@ Despite the discrepancies evident in the graphs, a notable convergence emerges. 
 
 #### 2.1.2. Levy Method
 
+The Levy Method, designed to minimize error between data and estimated model frequency responses, employs curve fitting in amplitude and phase within the numerical frequency domain. This method's utilization of Bode plots enables a comprehensive comparison of results as follows:
+
+![2212112212113](https://live.staticflickr.com/65535/53352621011_d693246b00_c.jpg)
+
+Prior to applying the Levy function, a crucial step involved computing the Fourier transform of the deconvolution. This was achieved using a bespoke function that employs the discrete Fourier transform algorithm. This function determined the gain, phase, and associated frequencies from the acquired points, serving as inputs for the subsequent Levy function.
+
+Upon examination, it became apparent that higher frequency values within the Fourier Transform failed to accurately represent the system dynamics. Despite attempts to represent the initial 10 points, not all points aligned on the phase diagram due to disparities. In the magnitude plot, discrepancies were also notable for higher frequencies. These discrepancies stem from the Rasteirinho's slower system response, where noise interference significantly impacts higher frequencies. Consequently, the initial few points of the Fourier Transform were selectively used to generate the Bode plot via the Levy method.
+
+Following the execution of the Levy function, the presence of unstable poles within the transfer function needed rectification. This requirement arose from occasional instability in the estimated function, a common occurrence within the numerical nature of the Levy method — an aspect encountered during analysis.
+
+![2212421112212113](https://live.staticflickr.com/65535/53353070520_4f3d396b09_c.jpg)
+
+The comparative plot above offers a glimpse into step responses acquired via distinct methodologies (Levy, Matlab Sim toolbox and decovolution), unveiling a remarkable resemblance in their behaviour. However, notable distinctions arise, particularly in the deconvolution method, which exhibits a pronounced overshoot peak. This discrepancy suggests a heightened susceptibility to noise interference within the deconvolution process. Consequently, the resulting transfer function obtained from these analyses is as follows:
+
+{{< katex display >}}
+G_{\text{LevyData1}}(s) = \frac{3085s^2 + 3.098 \times 10^5s + 5.176 \times 10^6}{s^3 + 123s^2 + 2864s + 6.932 \times 10^4}
+{{< /katex>}}
+
+
+![221242111221241113](https://live.staticflickr.com/65535/53352948109_a2f9d5ab54_c.jpg)
+
+### 2.2. Data Analysis and Assessment
+
+The prior findings stemmed from the analysis of a singular transient response, selected from the numerous step inputs showcased previously. Considering multiple available plots and simulated square functions, it becomes imperative to validate the conclusions drawn from the chosen transient response against the entirety of the responses.
+
+These initial results, derived from the initial experiment, will now undergo comparison with the other two initially collected data samples. This comparative analysis aims to ascertain the continued validity of our conclusions across the spectrum of responses gathered, ensuring the robustness and generalizability of our findings.
+
+
+{{< katex display >}}
+G_{\text{data2Deconv}}(s) = \frac{368.5s^3 + 412.6s^2 + 1.288 \times 10^5s + 4.188 \times 10^5}{s^4 + 23.09s^3 + 512.3s^2 + 6501s + 2.957 \times 10^4}
+
+G_{\text{data3Deconv}}(s) = \frac{161.6s^3 + 2236 + 1.804 \times 10^5s + 1.508 \times 10^5}{s^4 + 14.59s^3 + 723s^2 + 5760s + 6.186 \times 10^4}
+
+{{< /katex>}}
+
+![221242111221215141113](https://live.staticflickr.com/65535/53352948114_c8450a4b36_z.jpg)
+
+The comparison conducted via the Step Method using deconvolution and estimation via the [System Identification Toolbox](https://de.mathworks.com/help/ident/) appears valid, despite a slight frequency offset observed in the step responses across different data samples. These discrepancies can be attributed to disturbances impacting the system dynamics, altering an array of variables in real-time. Consequently, achieving identical step responses from diverse data samples becomes entirely unattainable.
+
+## 3 Stochastic Identification
