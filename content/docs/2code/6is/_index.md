@@ -570,6 +570,8 @@ From the depicted graphs, it's evident that the superior models tend to achieve 
 
 The methods applied successfully identified the Rasteirinho system, albeit encountering some challenges. For example,  ncreasing model complexity often improves results but sacrifices simplicity.
 
+![jewjwj](https://i.makeagif.com/media/3-26-2018/1tOBXJ.gif)
+
 Various factors affected data quality, including system noise, uncertainty, and nonlinearities. Errors in data were attributed to lab lighting, low camera frame rates, and Rasteirinho's compliance, causing significant vibrations in the camera mounted with duct tape.
 
 Deterministic identification, especially in the time domain, yielded promising outcomes. However, the stochastic identification using continuous models, both in time and frequency domains, didn't meet expectations during validation with diverse data. This discrepancy could be attributed to potential errors in function implementation. The anticipation that stochastic identification via correlation would be more accurate due to its noise-filtering nature wasn't entirely realized, as the differences between impulse responses obtained from deconvolution and correlation were relatively minor.
