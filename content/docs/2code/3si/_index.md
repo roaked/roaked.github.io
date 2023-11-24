@@ -5,7 +5,7 @@ weight: 3
 
 # **Language Features for Detection of Fake News**
 
-## 1.1 A Growing Case
+## 1 A Growing Case
 
 Fake news, a term emblematic of fabricated information intentionally disseminated across traditional news outlets or online social platforms, embodies deliberate disinformation strategies. These falsehoods aim to tarnish individuals, entities, or gain financial or political advantages, often employing misleading, attention-grabbing headlines. Some counterfeit news pieces disguise themselves as satirical content, sounding incredulous to the point of absurdity, yet managing to deceive unsuspecting audiences.
 
@@ -23,7 +23,7 @@ In this project, drawing upon a meticulously curated corpus comprising 3600 true
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
 
-## 1.2 Approach Brainstorming
+## 2 Approach Brainstorming
 
 Following the problem description, there are 21 features to be analyzed:
 
@@ -64,7 +64,7 @@ Consideration for computational resources remained pivotal. The project emphasiz
 
 Finally, acknowledging the variance in model results across simulations and the potential for parameter customization, efforts focused on identifying optimal parameter values for maximizing accuracy within each model. This iterative approach aimed to fine-tune model parameters for improved performance, considering the inherent variability in results across different simulations.
 
-## 1.3 Data Preprocessing
+## 3 Data Preprocessing
 
 The dataset utilized in this project originated from the ["Fake.Br Corpus" directly available at *Roney Santos'* github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.
 
@@ -102,11 +102,11 @@ Analyzing the pivotal features responsible for differentiating between authentic
 
 The only meaningful contribution came from the [Boxplot.py Python function]((https://github.com/roaked/fake-news-machine-learning/blob/main/Boxplot.py)) given its concise visualization using key statistics like the minimum, quartiles, median, and maximum values, providing insights into data distribution. It efficiently identifies outliers, assesses symmetry, measures data clustering, and detects potential skewness in the dataset.
 
-## 1.4 Methodology
+## 4 Methodology
 
 Previously, all methods were initially applied to the entire set of features, followed by a re-execution using only the linguistic features for comparison. This approach aimed to gauge the potential trade-off between accuracy and computational efficiency, as eliminating numerous features could expedite processing time. Moreover, the objective shifted from merely identifying blatantly obvious fake news (e.g., those with poor punctuation or grammar) to developing a model adept at detecting less instances of misinformation, as indicated by the selected linguistic features.
 
-### 1.4.1 Clustering
+### 4.1. Clustering
 
 The clustering classification method involves creating distinct clusters based on the available features and assigning each cluster a class label, distinguishing between true and fake news.
 
@@ -168,7 +168,7 @@ Applying clustering to linguistic features followed a similar process. The analy
 
 {{< /details >}}
 
-### 1.4.2 Fuzzy Modelling
+### 4.2. Fuzzy Modelling
 
 Fuzzy modeling uses rules that are like "if-then" statements in everyday language. These rules connect input to output in systems that work with vague or uncertain information. There are two main types of rules: one that's easier for people to understand and gives fuzzy (not exact) outputs, and another that's more mathematical, precise, and better for complex systems.
 
@@ -209,7 +209,7 @@ For in-depth study, extracting the membership functions for each features could 
 
 {{< /details >}}
 
-### 1.4.3 Artifficial Neural Networks
+### 4.3. Artifficial Neural Networks
 
 {{< details "**Background:** What are Artifficial Neural Networks and how do they work? - (click to expand)" close >}}
 
@@ -245,7 +245,7 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 | [2 2 2 2]       | 96.8%        | 88.8%               |
 | [4 4 4 4]       | 96.8%        | 88.7%               |
 
-## 1.5 Outcomes
+## 5 Outcomes
 
 {{< details "**Study:** Confusion matrices results - (click to expand)" close >}}
 
@@ -255,7 +255,7 @@ Using the available function in MATLAB and Python to retrieve the confusion matr
 
 {{< /details >}}
 
-### 1.5.1 Results Interpretation
+### 5.1. Results Interpretation
 
 After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
 
@@ -283,7 +283,7 @@ It's noteworthy that employing a vast number of clusters significantly escalates
 
 ![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
 
-### 1.5.2 My Thoughts on Applying Machine Learning for Fake News Detections
+### 5.2. My Thoughts on Applying Machine Learning for Fake News Detections
 
 Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
 
