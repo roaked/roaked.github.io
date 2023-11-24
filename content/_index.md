@@ -5,10 +5,9 @@ type: docs
 
 # **Griaß Di. Servus!**
 
-### Ricardo. 26. Portugal / China.
+### Ricardo. 26. Portugal ~ China
 
 With a [master's degree in mechanical engineering](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) (earned honors, too!) specialized in simulation and those technical aspects, along with an immersive experience as an university assistant delving into materials science research, I've rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
-
 
 I'm really into pushing boundaries and adding my own twist to science — from conceptualization to realization, I'm driven by the thought of using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation. That said, my sweet spot? Merging design and simulation expertise with software curiosity to open up doors that integrate unique elements, such as incorporating deep learning or optimization techniques, to shake up engineering solutions. 
 
@@ -38,6 +37,8 @@ Naturally, traveling, particularly to different continents, is also a big part o
 In my childhood, my parents were true wanderers. My mom, especially. Whenever a free moment appeared, we'd pack up the car with tents and off we'd go! They were armed with those classic analog cameras, capturing moments that felt eternally frozen in time. Those days might be long gone, but the memories? Oh, they're crystal clear. I've got this closet packed with albums, each one a time capsule of our camping expeditions. 
 
 As I grew older, I found myself inheriting their passion for preserving moments, albeit with newer tech. [My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.](https://youtu.be/0NsNfUhUm4k)
+
+
 
 
 {{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes.**{{< /button >}}
