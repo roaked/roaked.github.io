@@ -15,11 +15,14 @@ Addressing this contemporary issue involves the automatic identification and pre
 
 ![fakee](https://media3.giphy.com/media/VDTOChMWX1BmFflzyr/giphy.gif)
 
+{{< hint example >}}
 Studies such as those by Mahyoob in his paper titled [*"Linguistic-Based Detection of Fake News in Social Media"*](https://www.researchgate.net/publication/345997025_Linguistic-Based_Detection_of_Fake_News_in_Social_Media) and by Preston [*"Detecting fake news on Facebook: The role of emotional intelligence"*](https://pubmed.ncbi.nlm.nih.gov/33705405/) shed light on the analysis of language characteristics in detecting fake news, providing insights, particularly for this application within the context of Portuguese news.
 
 Additionally, reports by [Facebook and FactCheck.org](https://www.factcheck.org/fake-news/) detail the challenges and strategies in combatting misinformation, emphasizing the significance of linguistic analysis in verifying news authenticity.
+{{< /hint >}}
 
-In this project, drawing upon a meticulously curated corpus comprising 3600 true and 3600 fake Portuguese news samples, collected from January 2016 to January 2018, I aimed to automatically identify fake news using aforementioned language characteristics. This endeavour relied on analyzing 21 specific language traits meticulously classified by the corpus' authors to transform news articles into metadata, aligning with methodologies outlined by academic works and industry efforts in the field.
+
+In this project, drawing upon a meticulously curated corpus comprising **3600 true and 3600 fake Portuguese news samples**, collected from January 2016 to January 2018, I aimed to automatically identify fake news using aforementioned language characteristics. This endeavour relied on analyzing 21 specific language traits meticulously classified by the corpus' authors to transform news articles into metadata, aligning with methodologies outlined by academic works and industry efforts in the field.
 
 The goal of this project is to utilize established machine learning techniques, as previously outlined in research by Mahyoob and Preston, employing each language characteristic as a metadata feature, to effectively identify and mitigate the spread of fake news within Portuguese-language news sources.
 
@@ -54,11 +57,12 @@ Following the problem description, there are 21 features to be analyzed:
 {{< /details >}}
 
 
-The initial step towards obtaining meaningful results involves preprocessing the available data. Determining which features to utilize for further division into training and testing sets was a crucial decision point, expounded upon in the following section. **How were these features selected?**
+The initial step towards obtaining meaningful results involves preprocessing the available data. Determining which features to utilize for further division into training and testing sets was a crucial decision point, expanded upon in the following section. **How were these features selected?**
 
 A thorough study was conducted employing statistical methods to assess the variability within each feature's dataset. Features demonstrating minimal variation, essentially stagnant in their values, were deemed non-contributory and subsequently excluded. Once these less informative features were removed, attention shifted to observing how these features varied between fake and true news samples. **Four specific linguistic features** were ultimately chosen, drawing from both statistical analysis and intuitive considerations.
 
-Two distinct datasets were created: one encompassing all *21 features* and another featuring *only the selected linguistic features*. Throughout the project, these sets were compared, and the resultant differences were discussed. It was anticipated that utilizing a mere four features, compared to the full 21, might yield inferior outcomes due to the reduced dataset facilitating the differentiation between fake and genuine news.
+{{< hint important >}}
+Two distinct datasets were created: one encompassing all *21 features* and another featuring *only the selected linguistic features*. Throughout the project, these sets were compared, and the resultant differences were discussed. It was anticipated that utilizing a mere four features, compared to the full 21, might yield inferior outcomes due to the reduced dataset facilitating the differentiation between fake and genuine news. {{< /hint >}}
 
 Consideration for computational resources remained pivotal. The project emphasized optimizing computational efficiency, recognizing that certain models, such as clustering or neural networks, could demand substantial computation power. Maintaining a balance between model complexity and computational demand was crucial. Efficiency was prioritized without compromising noticeable accuracy outcomes.
 
@@ -66,37 +70,50 @@ Finally, acknowledging the variance in model results across simulations and the 
 
 ## 3 Data Preprocessing
 
-The dataset utilized in this project originated from the ["Fake.Br Corpus" directly available at *Roney Santos'* github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.
+{{< hint warning >}}
+The dataset utilized in this project originated from the ["Fake.Br Corpus" directly available at *Roney Santos'* github page](https://github.com/roneysco/Fake.br-Corpus) specifically curated to encompass both true and false news in Brazilian Portuguese.{{< /hint >}}
 
-This corpus originally contained complete news articles. However, the focus narrowed down to extract the essential features embedded within each news piece. All data was initially formatted in .txt files, necessitating the development of a [MATLAB script](https://github.com/roaked/fake-news-machine-learning/blob/main/Preprocessing.m) to convert it into a more manageable .mat format.
+This corpus originally contained complete news articles. However, the focus narrowed down to extract the essential features embedded within each news piece. All data was initially formatted in .txt files, necessitating the development of a [MATLAB script](https://github.com/roaked/fake-news-machine-learning/blob/main/Preprocessing.m) to convert it into a more manageable .mat format. Alternatively, the following python can be used:
 
-```
-# Preprocessing data
+```python
+# Number of news
+N = list(range(1, 3603))
 
-# N = number of news
-N = 1:3602
+# Remove news that don't exist for some reason
+N.remove(697)
+N.remove(1467)
 
-# Remove news that for some reason don't exist
-N(697) = []
-N(1467) = []
+metaInputsTrue = []
+metaInputsFake = []
+metaTargetsTrue = []
+metaTargetsFake = []
 
 for i in N:
-    # metaInputs will be the input for the models
-    # importfile opens the txt files and saves them as mat variables
-    # metaInputsTrue[:,i] = importfile(sprintf('%d-meta.txt',i))
-    metaInputsFake[:,i] = importfile(sprintf('%d-meta.txt',i))
+    # Assuming importfile function reads the data from a text file and returns a list or array
+    # metaInputsTrue.append(importfile(f'{i}-meta.txt'))
+    metaInputsFake.append(importfile(f'{i}-meta.txt'))
 
-    # metaTargets will be the targets of the neural network
-    # metaTargetsTrue[:,i] = [1, 0]
-    metaTargetsFake[:,i] = [0, 1]
+    # metaTargetsTrue.append([1, 0])
+    metaTargetsFake.append([0, 1])
 
-metaInputs = [metaInputsTrue metaInputsFake]
-metaTargets = [metaTargetsTrue metaTargetsFake]
+# Load metaInputs and metaTargets from the .mat files
+metaInputs_data = scipy.io.loadmat('metaInputs.mat')
+metaTargets_data = scipy.io.loadmat('metaTargets.mat')
+# Access the loaded data
+metaInputs = metaInputs_data['metaInputs']
+metaTargets = metaTargets_data['metaTargets']
+# Combining the data
+metaInputs = np.column_stack((metaInputsTrue, metaInputsFake))
+metaTargets = np.column_stack((metaTargetsTrue, metaTargetsFake))
+# Convert lists to numpy arrays or Pandas DataFrames for further processing if needed
+metaInputs = np.array(metaInputs)
+metaTargets = np.array(metaTargets)
 ```
 
 As it is seen, this transformation yielded two primary files: 'metaInputs.mat,' housing parameters for all news articles, and 'metaTargets.mat,' distinguishing true news (indicated by a '1' in the first row) from false news (marked with a '0' in the second row). To simplify navigation, a structural layout was adopted: the first half of the parameter files consistently represented true news, while the subsequent half constituted false news. This deliberate arrangement facilitated easier comprehension through the interpretation of variables and generated plots.
 
-The dataset underwent a division into training and validation subsets. Employing a random selection method, **75% of the dataset was allocated for model training, while the remaining 25% served as a validation set**.
+{{< hint important >}}
+The dataset underwent a division into training and validation subsets. Employing a random selection method, **75% of the dataset was allocated for model training, while the remaining 25% served as a validation set**.{{< /hint >}}
 
 Analyzing the pivotal features responsible for differentiating between authentic and deceptive news involved employing various statistical methods such as 'corrplot,' 'matrixplot,' and 'boxplot'. However, the outcomes indicated that many features exhibited high non-linearity, posing a challenge in extracting meaningful correlations and insights.
 
@@ -112,7 +129,8 @@ The clustering classification method involves creating distinct clusters based o
 
 Two types of clustering techniques, fuzzy c-means and k-means clustering, were employed. Crisp clustering algorithms allocate each data point to a single cluster based on quantified similarity, while fuzzy clustering allows varying degrees of membership to multiple clusters, reflecting diverse similarities.
 
-Determining the optimal number of clusters was an initial consideration. Initially, there was a belief that higher cluster counts might yield better results, supported by a [MATLAB function 'evalclusters'](https://www.mathworks.com/help/stats/evalclusters.html). However, a comprehensive study later revealed this wasn't always the case.
+{{< hint tip >}}
+Determining the optimal number of clusters was an initial consideration. Initially, there was a belief that higher cluster counts might yield better results, supported by a [MATLAB function 'evalclusters'](https://www.mathworks.com/help/stats/evalclusters.html). However, a comprehensive study later revealed this wasn't always the case.{{< /hint >}}
 
 Commencing with K-Means clustering, an algorithm using centroids and distance metrics, data points are associated with the nearest centroid, often calculated using squared Euclidean distances.
 
@@ -247,11 +265,42 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 
 ## 5 Outcomes
 
-{{< details "**Study:** Confusion matrices results - (click to expand)" close >}}
+Using the available function in MATLAB and [the developed Python script](https://github.com/roaked/fake-news-machine-learning/blob/main/confusionmatStats.py) (see below.) to retrieve the confusion matrices and the remaining metrics, it was possible to study certain parameters such as accuracy. For simplicity sake; I will just list down the results.
 
-Using the available function in MATLAB and Python to retrieve the confusion matrices, it was possible to study certain parameters such as accuracy.
+```python
+def confusionmatStats(group, grouphat=None):
+    if grouphat is None:
+        value1 = group
+    else:
+        value1 = np.array([[np.sum((group == i) & (grouphat == j)) for j in np.unique(grouphat)] for i in np.unique(group)])
 
-*(I will expand a bit more when I have time!)*
+    numOfClasses = value1.shape[0]
+    totalSamples = np.sum(value1)
+    accuracy = (2 * np.trace(value1) + np.sum(2 * value1)) / (numOfClasses * totalSamples) - 1
+
+    TP = np.diag(value1)
+    FP = np.sum(value1, axis=1) - TP
+    FN = np.sum(value1, axis=0) - TP
+
+    # Calculate TN without deletions
+    TN = np.sum(value1) - (FP + FN + TP)
+
+    sensitivity = TP / (TP + FN)
+    specificity = TN / (FP + TN)
+    precision = TP / (TP + FP)
+    f_score = 2 * TP / (2 * TP + FP + FN)
+
+    stats = {
+        'confusionMat': value1,
+        'accuracy': accuracy,
+        'sensitivity': sensitivity,
+        'specificity': specificity,
+        'precision': precision,
+        'recall': sensitivity,
+        'Fscore': f_score
+    }
+    return stats
+```
 
 {{< /details >}}
 
@@ -271,7 +320,8 @@ After generating the confusion matrix plots, a comprehensive table was compiled 
 
 Upon reviewing the results from the testing set, the anticipated hierarchy of performance among models held true: neural networks outperformed fuzzy models, which, in turn, surpassed clustering methods. The accuracies obtained for all features were as follows: Artificial Neural Network (ANN) at 97.3%, Takagi-Sugeno Fuzzy Inference System (T-S FIS) at 95.9%, Fuzzy Clustering Means (FCM) at 94.1%, and K-Means (KM) also at 94.1%. As expected, the use of only linguistic features resulted in lower accuracies due to fewer comparison terms.
 
-Observing the performance on training versus testing sets revealed slight overfitting in the NN and T-S FIS models, showcasing approximately 1% higher accuracy in the training set. To address this issue, augmenting the dataset and employing regularization techniques could enhance model generalization, ensuring better learning of patterns from the training data.
+{{< hint tip >}}
+Observing the performance on training versus testing sets revealed slight overfitting in the NN and T-S FIS models, showcasing approximately 1% higher accuracy in the training set. To address this issue, augmenting the dataset and employing regularization techniques could enhance model generalization, ensuring better learning of patterns from the training data.{{< /hint >}}
 
 Interestingly, FCM and KM showed closely aligned results, especially with linguistic features where they were identical. Altering the exponent for the fuzzy partition matrix could prompt FCM to converge towards KM values.
 
@@ -279,7 +329,8 @@ All methods exhibited accuracies exceeding 94% when using all features, indicati
 
 Using solely linguistic features yielded satisfactory results, with all methods achieving accuracy equal to or greater than 87%. This indicates that, among 7200 news items, more than 6264 were correctly categorized based on their features. However, the highest accuracy of 89.1% suggested misidentification of 784 news articles.
 
-It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.
+{{< hint warning >}}
+It's noteworthy that employing a vast number of clusters significantly escalates computational demands. Balancing computational efficiency against marginal performance improvements is crucial, as extended computation time might not necessarily yield substantial enhancements in results.{{< hint warning >}}
 
 ![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
 

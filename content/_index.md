@@ -36,7 +36,7 @@ Naturally, traveling, particularly to different continents, is also a big part o
 
 In my childhood, my parents were true wanderers. My mom, especially. Whenever a free moment appeared, we'd pack up the car with tents and off we'd go! They were armed with those classic analog cameras, capturing moments that felt eternally frozen in time. Those days might be long gone, but the memories? Oh, they're crystal clear. I've got this closet packed with albums, each one a time capsule of our camping expeditions. 
 
-As I grew older, I found myself inheriting their passion for preserving moments, albeit with newer tech. My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing [moments](https://youtu.be/0NsNfUhUm4k), just like my parents did.]
+As I grew older, I found myself inheriting their passion for preserving moments, albeit with newer tech. My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing [moments](https://youtu.be/0NsNfUhUm4k), just like my parents did.
 
 
 

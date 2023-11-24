@@ -12,18 +12,19 @@ title: "AGV: System Identification"
 
 I wanted to understand how a cool robot called "Rasteirinho" works when told to perform certain tasks, and how it reacted to certain commands. To achieve this, real-time simulations were executed using Matlab and relevant toolboxes such as the [System Identification Toolbox](https://de.mathworks.com/help/ident/) and its reactions were studied. This helped understanding how the robot behaved when asked to do different things.
 
-Subsequently, I would classify this study in the following sections:
 
-- Deterministic Systems Analysis: The preliminary focus was on deterministic systems, where a consistent input produced a predictable output. This phase provided foundational insights into the system's response under controlled and repeatable conditions.
+{{< hint info >}}
+- 1. Deterministic Systems Analysis: The preliminary focus was on deterministic systems, where a consistent input produced a predictable output. This phase provided foundational insights into the system's response under controlled and repeatable conditions.
 
-- Transition to Stochastic Systems: The investigation then progressed to stochastic systems, encompassing both continuous and discrete models. Contrary to deterministic systems, stochastic processes introduced unpredictability. Notably, experiments employing filtered white noise as input demonstrated varying reactions across iterations, emphasizing the inherent stochastic nature of the system.
+- 2. Transition to Stochastic Systems: The investigation then progressed to stochastic systems, encompassing both continuous and discrete models. Contrary to deterministic systems, stochastic processes introduced unpredictability. Notably, experiments employing filtered white noise as input demonstrated varying reactions across iterations, emphasizing the inherent stochastic nature of the system.
 
-- Data Collection and Analysis: Data collected from these experiments formed the basis for analysis, leveraging a spectrum of methodologies and tools available in Matlab. The diverse approaches facilitated a comprehensive examination of the system's behavior under stochastic conditions.
+- 3. Data Collection and Analysis: Data collected from these experiments formed the basis for analysis, leveraging a spectrum of methodologies and tools available in Matlab. The diverse approaches facilitated a comprehensive examination of the system's behavior under stochastic conditions.{{< /hint >}}
 
 The discussions and conclusions drawn stem from the outcomes obtained through multiple analytical methods. The variability observed in stochastic systems prompted insightful considerations regarding the "Rasteirinho" system's behaviour and characteristics. How this variability impacts the overall understanding and analysis of the system becomes a pivotal point for consideration and further exploration.
 
+{{< hint info >}}
 **Recommendations for Future Study:**
-Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.
+Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.{{< /hint >}}
 
 ## 1 System Model
 
