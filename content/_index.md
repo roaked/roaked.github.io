@@ -18,7 +18,7 @@ It's become a hobby of mine to sort through my recent and older projects with th
 <--->
 
 ![mdssde](https://live.staticflickr.com/65535/53353065374_152096a158_w.jpg)
-{{< columns >}}
+{{< /columns >}}
 
 
 
