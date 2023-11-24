@@ -1,5 +1,5 @@
 ---
-weight: 6
+weight: 2
 title: "AGV: System Identification"
 ---
 
@@ -9,9 +9,10 @@ title: "AGV: System Identification"
 
 ![raster](https://live.staticflickr.com/65535/53353039340_0f9b1f0747_w.jpg)
 
-It was aimed to comprehensively analyze the behaviour of the dynamic system "Rasteirinho," initially proposed for studying its "control system". The primary objective was to discern the impact of specific inputs on the system's behaviour. To achieve this, real-time simulations were executed using Matlab and relevant toolboxes such as the [System Identification Toolbox](https://de.mathworks.com/help/ident/). These simulations allowed the acquisition of transfer functions employing diverse time and frequency-based methodologies.
 
-Subsequently, I would classify it in the following sections:
+I wanted to understand how a cool robot called "Rasteirinho" works when told to perform certain tasks, and how it reacted to certain commands. To achieve this, real-time simulations were executed using Matlab and relevant toolboxes such as the [System Identification Toolbox](https://de.mathworks.com/help/ident/) and its reactions were studied. This helped understanding how the robot behaved when asked to do different things.
+
+Subsequently, I would classify this study in the following sections:
 
 - Deterministic Systems Analysis: The preliminary focus was on deterministic systems, where a consistent input produced a predictable output. This phase provided foundational insights into the system's response under controlled and repeatable conditions.
 
