@@ -5,18 +5,20 @@ title: "Mechanical Design"
 
 ---
 
-# **1 Double Girder Crane for Industrial Application**
+# **How Much Can You Lift?**
 
-## 1.1. Description and Context
+## 1 Double Girder Crane for Industrial Application
+
+### 1.1. Description and Context
 
 This project was carried out within the scope of the Mechanical Design Course, part of my M.Sc journey. It aims to dimension and study fundamental structural components of a double girder suspension crane. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors.
 A bridge crane is a piece of equipment that, despite not being highly complex, encompasses all the elements that warrant study, allowing for the application of theoretical concepts applied to a real-world scenario.
 
-## 1.2. Goals
+### 1.2. Goals
 
 This project aims to conduct the dimensioning and study of fundamental structural components. The sizing will be executed in accordance with applicable standards and demonstrated through analytical calculations and finite element models. In addition to the structural elements of the equipment, fundamental mechanical components of the system, including welded and bolted connections, will also be sized. Coupled with the dimensioning aspect is the economic factor, aiming to minimize costs while ensuring the safety of the entire structure
 
-## 1.3. Function, Description, and Operation of the Mechanism
+### 1.3. Functionalities
 Bridge cranes are used for lifting and moving heavy loads. The structural and mechanical components to be sized are:
 - Resistant girders, consisting of a reinforced box profile;
 - Trolley frame;
@@ -40,8 +42,8 @@ Main components:
 {{< /details >}}
 
 
-## 1.4. Design Specifications
-### 1.4.1. Design Requirements
+### 1.4. Design Specifications
+#### 1.4.1. Design Requirements
 The following requirements were considered for this project:
 - Nominal load of 8 tons;
 - Span between wheels of 10 meters;
@@ -50,15 +52,15 @@ The following requirements were considered for this project:
 - 8 hours of operation per day;
 - Maximum translation speed of 25 m/min.
 
-### 1.4.2. Project Constraints
+#### 1.4.2. Project Constraints
 
 - The decision was made to design a bridge crane for an enclosed environment.
 
-## 1.5. Standards, Codes, and Regulations
+### 1.5. Standards, Codes, and Regulations
 
 In the completion of this work, the FEM Standards (European Federation of Materials Handling), particularly Chapter II, and Eurocode 3 were utilized. The FEM standards address specific issues related to structures and handling equipment, including cases such as bridge cranes and gantry cranes.
 
-## 1.6. Approach
+### 1.6. Approach
 
 A study was conducted on various existing construction solutions available in the market for this type of equipment. For the girders, a box-type section was chosen with a constant thickness of 10mm, made of AISI 1095 steel, and measuring 10m in length. These girders consist of 4 steel plates welded together with a 5mm thick welding bead. The rails are positioned on the girders, not aligned with the vertical plane passing through the girder's centroid, as this alignment would create a high bending moment on the upper plate of the girder. The connection between the girders and the trolley frame is established using 6 bolts M36x4 CR 10.9 and welding with a 10mm thick bead.
 
@@ -70,7 +72,7 @@ The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and
 - Maximum width: 3.4 m
 - Maximum length: 10.14 m
 
-## 1.7. Manufacturing and Assembly Processes
+### 1.7. Manufacturing and Assembly Processes
 
 The steel plates are obtained through a cold rolling process. Their surface roughness with an arithmetic mean deviation is 4.8 micrometers. The geometric tolerance concerning the thickness of these components is {{< katex >}}\pm{{< /katex >}}0.1 mm.
 
@@ -89,18 +91,18 @@ For the resistant girders:
 
 The welding for the first, third, and fourth steps will be conducted using the Submerged Arc Welding process. This method is advantageous due to the substantial length of the welding bead, allowing for automation of the equipment carrying out the operation. The welding for the remaining steps will be executed using TIG (Tungsten Inert Gas) welding. The required equipment will be operated by a skilled worker.
 
-## 1.8. Costs
+### 1.8. Costs
 
 
 The price of AISI 1095 Q&T steel is approximately €1/kg. Considering the girders weigh around 346.6 kg, their cost will be approximately €346.6. The labor cost is around €9/m, and the analyzed structure totals 53.2m, amounting to approximately €478.8.
 
-## 1.9. General Simplifications
+### 1.9. General Simplifications
 
 Only the main components were designed, namely the girders. The trolley frames and the remaining support structure were not designed. The studied overhead crane was interior, simplifying the analysis, as exterior conditions would introduce wind forces. For the sizing, it was considered that the hoist trolley was positioned in the middle of the girders (longitudinally), as this situation causes the greatest deformations.
 
-# 2 Calculations
+## 2 Calculations
 
-## 2.1. Material
+### 2.1. Material
 
 Due to the high stresses to which the box girder of the overhead crane is subjected, it's necessary to select a structural steel with considerable yield strength to ensure the component meets service conditions and to minimize stress concentration and fatigue issues. With this in mind, the following steel with a tempering and tempering treatment was chosen:
 
@@ -108,9 +110,9 @@ Due to the high stresses to which the box girder of the overhead crane is subjec
 |----------|---------|---------|---------|---------|
 | 1210 MPa | 772 MPa | 210 GPa | 81 GPa  | 0.3     |
 
- ## 2.2. Dimensioning Criteria 
+ ### 2.2. Dimensioning Criteria 
 
- ### 2.2.1. Rigidity Criterion
+ #### 2.2.1. Rigidity Criterion
 
  The box girders, with a length of 10 m, must meet this criterion from EN 1993-6:2007, where the maximum allowable deflection is given by:
 
@@ -121,15 +123,15 @@ Due to the high stresses to which the box girder of the overhead crane is subjec
  To meet this criterion, an initial H/L ratio of 2.2 was chosen.
 
 
- ### 2.2.2. Mechanical Strength Criterion
+ #### 2.2.2. Mechanical Strength Criterion
 
 The mechanical strength criterion was defined using the Pugsley criterion with the specified coefficients n = 2,08.
 
 ![saassa](https://live.staticflickr.com/65535/53349357450_366d636c17.jpg)
 
-## 2.3. Beam Sizing
+### 2.3. Beam Sizing
 
-### 2.3.1. Static Verification
+#### 2.3.1. Static Verification
 
 To size the beam, an analytical model was developed considering two vertical loads corresponding to the nominal load and the weight of the trolley. The value of each of these two forces was previously defined according to the FEM standards, already multiplied by the dynamic coefficient and the amplification coefficient. The value of each force is 26.7 kN and they are spaced 1 meter apart. Additionally, the weight of the beam itself, which is not negligible, is represented as a distributed load. To verify the stiffness criterion, an H/L ratio of 2.2 was initially chosen.
 Using tables of maximum deflection, employing the superposition method and also considering the load P equivalent to 26700N and the load application point (offset) at x = 4.5 m, the following expression for the beam's maximum deflection is obtained:
@@ -176,7 +178,7 @@ Having the safety factor:
 n = \frac{S_y}{\sigma_{VM}} = \frac{772 \times 10^6}{6.723 \times 10^7} = 11.482 > 2.08
 {{< /katex >}}
 
-### 2.3.2. Fatigue Verification
+#### 2.3.2. Fatigue Verification
 
 The minimum stress is determined by the weight of the beam and the winch car itself (considering the winch car unloaded). Conversely, when the winch car is loaded (the scenario considered for calculating the static safety factor), the corresponding stress will be at its maximum. We can derive the ratio between the minimum and maximum stresses by calculating the minimum stress for the unloaded car. Repeating this process for the calculation of the Von Mises stress for the unloaded load case yields.
 
@@ -211,10 +213,10 @@ b = -\frac{1}{3} \times \log \left( \frac{f \times S_{ut}}{S_e \times 10^6} \rig
 \text{Cycles} = \left( \frac{\sigma}{a} \right)^\frac{1}{b} = 1.17 \times 10^5 \text{cycles}
 {{< /katex >}}
 
-## 2.4. Finite Element Analysis
+### 2.4. Finite Element Analysis
 
 
-### 2.4.1. Beam Analysis
+#### 2.4.1. Beam Analysis
 
 For the analysis of the resilient beam using finite element methods, the commercial software Solidworks was employed. The numerical model comprises a simply supported beam on the two hinges of the plate to be bolted to the winch's head, with a load of 27.6 kN applied at the geometric location where the winch car wheels would be. The beam's self-weight is also considered.
 
@@ -229,7 +231,7 @@ Both these stresses are considerably lower than the material's yield stress, ens
 
 The maximum deflection due to loading measures 9.584 mm and is positioned at the midpoint of the beam span. Comparing this with the analytically obtained deflection of 11.5 mm, there is a relative error of 16.7%. This error arises from the consideration of internal reinforcements within the beam and, simultaneously, from the boundary conditions not being applied at the beam ends but rather at the hinge point.
 
-### 2.4.2. Assembly Analysis
+#### 2.4.2. Assembly Analysis
 
 For the analysis of stresses arising from a bolted connection, a finite element model was developed, considering only half of the beam due to symmetry effects. The resilient beam is connected to a rigid plate via a bolted connection. The applied load is 26.7 kN, and the beam's self-weight is also accounted for in the simulation.
 
@@ -251,7 +253,7 @@ Additionally, this model presents maximum stresses at the hole edge of the bolte
 
 The maximum deflection in the deformed configuration of the beam was 4.27 mm, approximately half of the deflection obtained in the previous finite element model (simply supported beam).
 
-## 2.5. Welded Joint
+### 2.5. Welded Joint
 
 In this section, the aim is to study the welded connection of the internal forces within the beam and the welded connection of the bolted fixation plates along with the welding between the plates.
 
@@ -259,8 +261,7 @@ In this section, the aim is to study the welded connection of the internal force
 
 The intention is to analyze the welded connection concerning static, yield, and fatigue aspects. Both components to be welded are made of the same material (AISI 1095 HR Steel).
 
-### 2.5.1 Welding between Vertical and Horizontal Plates
-
+#### 2.5.1 External Welding
 
 The welding performed has a height, h, of 5 mm. Therefore, the throat height, a, is such that {{< katex >}}a = \frac{h}{\sqrt{2}} = 3.54 \text{mm} {{< /katex >}}. 
 
@@ -323,7 +324,7 @@ To conclude the study of welded connections between the vertical and horizontal 
 
 **OK!**
 
-### 2.5.2 Welding Internal Reinforcements of the Beam
+#### 2.5.2 Internal Welding
 
 It was mentioned that the purpose of the internal vertical reinforcements is to prevent localized deformation of the beam when subjected to the forces resulting from the equipment's operational regime. They also serve as a means to provide additional stiffness to the box beam. The shear stresses present in the two webs of the box beam, during loading and translation of the beam, could lead to detrimental localized deformations affecting the equipment. It was recommended that vertical transverse reinforcements should also be applied to areas where the beam is supported and bolted to the "headstock".
 

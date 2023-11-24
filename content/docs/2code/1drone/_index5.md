@@ -3,20 +3,20 @@ title: Drone Computer Vision
 weight: 5
 ---
 
-# **Computer Vision for Obstacle Detection**
+# **Pixel Pilots: Drone Computer Vision**
 
-# 1 Description
+## 1 Computer Vision for Obstacle Detection
 
 In preparation for the Red Bull drone race, a comprehensive dataset was compiled, consisting of images capturing gates from diverse angles, distances, and lighting conditions. These images showcase the gates amidst various backgrounds, providing a range of scenarios that drones might encounter during the race. The intention behind gathering such a varied dataset is to enable the development of an algorithm capable of accurately identifying these gates despite changes in perspective, distance, lighting, and background colors, facilitating precise navigation for the drones during the high-paced race.
 
-# 2 Gate Characterization
+## 2 Gate Characterization
 
 The analysis of the images reveals that the gates used for detection exhibit a shallow square shape, predominantly appearing in shades of blue along their sides and darker tones overall. Each gate features white letters and small squares within them, affixed to a metal structure supported by two ground-based supports. While the gates primarily share a base color, variations in lighting conditions result in perceptible differences. For instance, exposure to red light causes the white small squares to take on a red hue, as follows:
 
 ![nodafafnlfasr](https://live.staticflickr.com/65535/53348683291_d2191e7265.jpg)
 
 
-## 2.1 Colorspace Region Segmentation
+### 2.1. Colorspace Region Segmentation
 
 
 
@@ -55,7 +55,7 @@ To execute the segmentation, the images from the test dataset were examined in t
 
 This process generated a black and white image where all the points meeting the conditions were highlighted. However, restricting the HSV values alone proved insufficient. Some parts of the background shared similar HSV values with the gate, leading to noise in the resulting images.
 
-## 2.2 Black and White Segmentation
+### 2.2. Black and White Segmentation
 
 Applying thresholds to the HSV values, a first approximation of the gate can be found.
 
@@ -72,7 +72,7 @@ To refine the image, several morphological operations need to be applied. In exp
 While the outcomes appeared acceptable for the selected images in the testing set where the gate was in proximity to the camera, this method was ultimately dismissed. Its limitation became apparent with images where the gate was situated farther away, rendering the approach less effective. Moreover, in real-life scenarios involving drones that sway considerably from side to side, cropping the image and narrowing the field of vision was deemed risky. This approach could potentially result in the drone losing track of the gate entirely, which is an undesirable outcome.
 
 
-## 2.3 Morphological Operations
+### 2.3. Morphological Operations
 
 To isolate the gate and eliminate unwanted noise, a shift in approach was necessary, focusing on morphological operations. For the test image set, various scenarios were taken into account based on the image conditions. In the general case, the following morphological operations were applied:
 
@@ -144,7 +144,7 @@ Images with distinct thresholds also required minor modifications to the order o
 ![tes123142t](https://live.staticflickr.com/65535/53349206255_be9c9f9446_c.jpg)
 
 
-## 2.4 Edge Detection
+### 2.4. Edge Detection
 
 The next phase involved edge detection to outline the gate's boundaries using various methods of the [MATLAB function *'edge'*](https://de.mathworks.com/help/images/ref/edge.html). The previously obtained segmented image was utilized due to its superior performance in noise removal and clear delineation of the gate.
 
@@ -180,7 +180,7 @@ When performing edge detection on the BW mask, the expected outcome was solely t
 
 The results displayed two images: edge detection on the BW mask was shown on the left, while edge detection on the segmented image was depicted on the right. The superiority of the Canny method's results was attributed mainly to the adjustability of its two thresholds.
 
-## 2.5 Hough Transform
+### 2.5. Hough Transform
 
 The Hough Transform involves identifying lines within an image by grouping edge points into object candidates, which undergo a voting procedure. This process occurs in a parameter space where the object candidates are considered local maxima. Each point in the Hough Space is represented by two parameters, Rho ({{< katex >}}\rho{{< /katex >}}) and Theta ({{< katex >}}\theta{{< /katex >}}). Rho represents the perpendicular distance from the origin to the line, while theta denotes the angle between the x-axis and this vector.
 
@@ -190,7 +190,7 @@ Hough lines serve as an alternative method for line detection. In this case, the
 
 ![hough](https://live.staticflickr.com/65535/53349037313_05364df81a_c.jpg)
 
-## 2.6 Extreme Points and Centroid
+### 2.6. Extreme Points and Centroid
 
 The [function *'CornerDetec'*](https://github.com/roaked/redbull-drone-computer-vision/blob/main/CornerDetec.m) was created to calculate the extreme points of the gate image post edge detection. As the gate consistently maintains a square shape, the extreme points can be defined by a sequence of maximum and minimum x and y coordinates. For instance, the top-right corner would be the point where the sum of the x and y coordinates is maximized.
 
@@ -213,7 +213,7 @@ Despite prior morphological operations aimed at refining the segmentation qualit
 ![li2434n123ea41421r](https://live.staticflickr.com/65535/53349254980_7e1375c0ff_c.jpg)
 {{< /details >}}
 
-## 2.7 Image Enhancement
+### 2.7. Image Enhancement
 
 To accentuate the gate within the image, the region corresponding to the gate was emphasized. This was achieved by inverting the mask obtained from the segmentation process. Inverting the mask allowed for the removal of the gate from the original image and isolating it for highlighting purposes. To accomplish this, each color channel of the inverted mask was isolated and subsequently combined to create a true color RGB image. Additionally, the lines detected from the extreme points were plotted on this highlighted gate region to further outline its boundaries.
 
@@ -230,7 +230,7 @@ Upon observing the HSV components, it becomes apparent that the gate is distinct
 ![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
 
 
-# 3 Section End
+## 3 Section End
 
 It became evident that arriving at a solution wasn't straightforward, and while the obtained solution wasn't perfect, it showcased potential for optimization with an expanded dataset. Additional images would enhance the algorithm's ability to recognize the gate under various lighting conditions and backgrounds. Nonetheless, color segmentation emerged as an effective means to segment the gate.
 
@@ -240,6 +240,6 @@ Despite minor imperfections resulting from imperfect segmentation, the detection
 
 Ultimately, in this section the work done successfully achieved its goal by effectively isolating and enhancing the gate. Employing various solutions contributed to solving the challenge of gate identification for drone competitions.
 
-# 4 Next Steps
+## 4 Next Steps
 
 The next step could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.
