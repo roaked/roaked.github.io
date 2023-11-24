@@ -31,13 +31,14 @@ Speaking about "me by myself", isn't it interesting how most people in our lives
 ![Me](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
 
-Naturally, traveling, particularly to different continents, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world. That's why when I travel, delving into local languages is my key to forming those deep, meaningful connections wherever I go. Unfortunately, my Mandarin skills are still a work in progress, but hey, we can hold a conversation in German, Portuguese, English, and Spanish, with a dash of Mandarin and French in the mix.
-
-{{< button href="https://youtu.be/0NsNfUhUm4k" >}}*Don't click here*{{< /button >}}
+Naturally, traveling, particularly to different continents, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world. That's why when I travel, delving into local languages is my key to forming those deep, meaningful connections wherever I go. Unfortunately, my Mandarin skills are still a work in progress, but hey, we can hold a conversation in German, Portuguese, English, and Spanish.
 
 ![Me](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_c.jpg)
 
+In my childhood, my parents were adventurers at heart. They would just have these burning desire of travelling, especially into the wilderness whenever they could, armed with their trusty analog cameras. Those camping trips weren't just about nature; they were about freezing time. Years have passed, but the memories remain vivid, carefully stored in a closet filled with albums documenting our camping escapades. Each photo holds a story — a snapshot of a moment suspended in time.
 
+I've picked up their knack for recording life, now using modern tech. My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.
 
+{{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes**{{< /button >}}
 
 
