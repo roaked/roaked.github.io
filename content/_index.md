@@ -35,12 +35,12 @@ Naturally, traveling, particularly to different continents, is also a big part o
 
 ![Me](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_c.jpg)
 
-In my childhood, my parents were adventurers at heart. They would just have these burning desire of travelling, especially into the wilderness whenever they could, armed with their trusty analog cameras. Those camping trips weren't just about nature; they were about freezing time. Years have passed, but the memories remain vivid, carefully stored in a closet filled with albums documenting our camping escapades. Each photo holds a story — a snapshot of a moment suspended in time.
+In my childhood, my parents were true wanderers. My mom, especially. Whenever a free moment appeared, we'd pack up the car with tents and off we'd go! They were armed with those classic analog cameras, capturing moments that felt eternally frozen in time. Those days might be long gone, but the memories? Oh, they're crystal clear. I've got this closet packed with albums, each one a time capsule of our camping expeditions. 
 
-I've picked up their knack for recording life, now using modern tech. [My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.](https://youtu.be/0NsNfUhUm4k)
-
+As I grew older, I found myself inheriting their passion for preserving moments, albeit with newer tech. [My phone's become my camera, preserving my adventures. It's funny how we upgrade tools but hold onto the timeless joy of freezing moments, just like my parents did.](https://youtu.be/0NsNfUhUm4k)
 
 
 {{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes.**{{< /button >}}
 
+![mewiqmj](https://live.staticflickr.com/65535/53352350917_d15539f5ba_z.jpg)
 
