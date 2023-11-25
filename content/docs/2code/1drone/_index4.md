@@ -692,7 +692,8 @@ Broadly, the LQR consistently delivered faster times across all trajectories. Co
 
 
 | Nonlinear     |      LQR            |       LQR          |  LQR     |  MPC                 |     MPC        |   MPC    |
-|               | Position Error (m)  | Yaw Error (rad^2)  | Time (s) || Position Error (m)| Yaw Error (rad^2)| Time (s) |
+|---------------|---------------------|--------------------|----------|---------------------|-----------------|----------|
+|   Trajectory  | Position Error (m)  | Yaw Error (rad^2)  | Time (s) || Position Error (m)| Yaw Error (rad^2)| Time (s) |
 |---------------|---------------------|--------------------|----------|---------------------|-----------------|----------|
 | Simple Square | 0.2110              | 0.001614           | 12       |         0.1908      |    0.0002915    |    25    |
 | Crazy 8       | 0.3241              | 0.00794            | 16       |         0.2866      |    0.001438     |    35    |
