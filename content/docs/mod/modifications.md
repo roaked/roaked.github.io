@@ -157,13 +157,17 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 
 ## Modification
 
-- Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
+{{< hint info >}}
+- dark-theme modified
+- color gradient for hint shortcodes changed
+- google analytics connection
+{{ /hint }}
 
-*Log*: `dark-theme modified, color gradient for hint shortcodes changed`
+- Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
 
 ## Developer
 
-- Page created by [Ricardo Chin](https://github.com/roaked) 
+- Created by [Ricardo Chin](https://github.com/roaked) 
 
 ## Contributors
 
