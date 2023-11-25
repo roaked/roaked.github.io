@@ -286,11 +286,7 @@ K = R^{-1}B^T P
 {{< /katex >}}
 
 {{< hint tip >}}
-Matrix P is the solution of the algebraic Riccati equation:
-
-{{< katex display >}}
-0 = A^T P + P A - PBR^{-1}B^T P + Q
-{{< /katex >}}
+Matrix P is the solution of the [algebraic Riccati equation](https://en.wikipedia.org/wiki/Algebraic_Riccati_equation).
 {{< /hint >}}
 
 
@@ -343,3 +339,117 @@ Q_{\text{longitudinal}} = \begin{bmatrix}
 \end{bmatrix}
 ; \quad R_{\text{longitudinal}} = 1
 {{< /katex >}}
+
+
+## 6 Kalman-Bucy Observer
+
+It was highlighted earlier that the system's onboard sensors aren't ideal and will inevitably introduce noise into the measurements. This noise can significantly impact the system's performance, potentially leading to errors when following a reference and even instability in the drone's motion, particularly in the more sensitive nonlinear system, susceptible to actuation oscillations.
+
+There are two distinct noise types—process noise (v(t)) and sensor noise (w(t)), both assumed to be zero-mean white noise with known variance.
+
+Due to the presence of noise in the measured values, the accuracy of the implemented Luenberger observer in estimating the state space variables diminishes. To counteract this, the Kalman-Bucy observer will be utilized.
+
+The process of tuning the Kalman filter gains in matrix Lk involves adjusting Q0 and R0 values. The known variance values from the sensor noise were allocated to R0.
+
+Q0 values were determined via a trial-and-error approach until the noise impact was minimized. The resulting values for the yaw, vertical, longitudinal, and lateral subsystems are articulated in equations:
+
+{{< katex display >}}
+Q_0^\text{yaw} = 10^{-6}
+{{< /katex >}}
+{{< katex display >}}
+Q_0^\text{vertical} = 10^{-6}
+{{< /katex >}}
+{{< katex display >}}
+Q_0^\text{longitudinal} = 10^{-10}
+{{< /katex >}}
+{{< katex display >}}
+Q_0^\text{lateral} = 10^{-10}
+{{< /katex >}}
+
+Combining the developed LQR with the Kalman-Bucy observer we get the Linear Quadratic Gaussian.
+
+![124f](https://live.staticflickr.com/65535/53354783288_ddc4e8a856_c.jpg)
+
+
+It's crucial to note that, similar to the LQR, the relative values assigned to Q0 and R0 significantly impact the observer's performance. Consequently, the small values in Q0 correspond to the small values of sensor noise variances present in R0.
+
+Additionally, it's important to acknowledge that despite my best effort, successfully eliminating the noise proved challenging. This difficulty persisted even after attempting various values for the Kalman filter parameters. The impact of these results, particularly evident in the nonlinear simulation, is thoroughly discussed in the simulation results.
+
+
+## 7 Simulation Results
+
+I conducted comprehensive testing of the implemented controllers (via pole placement and LQR) and observers (Luenberger and Kalman-Bucy) using both the linear simulator developed in the initial phase and the full nonlinear simulator provided in the subsequent phase.
+
+{{< /hint warning >}}
+Two primary tests were conducted to evaluate performance:
+
+- 1. Step Reference Test: This involved applying step changes to the four references (Px, Py, Pz, and ψ). The objective was to assess performance in a complex scenario where the controller needed to combine four actuations to track a four-degree-of-freedom motion.
+
+- 2. Ramp Reference Test: A series of ramps was utilized to create a simpler yet realistic trajectory for the drone to follow.{{< /hint >}}
+
+Both tests were executed in both simulators, comparing results with and without noise injected into the sensors. The Simulink block "Band-Limited White Noise" was employed by the group to implement the noise. The aim was to comprehensively evaluate the controllers' and observers' performance under various scenarios and noise conditions using different trajectory types. This allowed for a robust assessment of their effectiveness and robustness in real-world scenarios.
+
+
+
+### 7.1. Linear Model
+
+The used steps provide the following references to the system:
+
+| Variable | Value    |
+|----------|----------
+| px       | 1m       |
+| py       | 1m       |
+| pz       | -1m      |
+| ψ        | π/8 rad  |    
+
+Using the pole placement controller and the Luenberger observer without noise in the measurements, we
+get the results:
+
+![sdaji](https://live.staticflickr.com/65535/53353685957_eb75ae80b6_z.jpg)
+
+Ensuring that the roll and pitch angles remain within acceptable ranges is crucial, as discussed in the initial phase. Large values of these angles could potentially lead the drone to lose all vertical propulsion forces. In the nonlinear simulator, this scenario might cause the drone to descend rapidly and crash the simulation.
+
+Observing the following figure allowed verification that the roll and pitch angles were maintained at acceptable levels, preventing potential issues that could result in the loss of vertical propulsion forces and subsequent simulation crashes. This detail is particularly critical in maintaining stable flight conditions and avoiding adverse consequences due to extreme pitch and roll angles.
+
+
+{{< details "Pitch and Roll via using Pole placement Controller and Luenberger observer - (click to expand)" close >}}
+![148](https://live.staticflickr.com/65535/53354783263_4ea82c73d8_c.jpg)
+{{< /details >}}
+
+
+We can also verify that the actuation did not saturate:
+
+{{< details "Actuation of each motor using the Pole placement Controller and Luenberger observer - (click to expand)" close >}}
+![148](https://live.staticflickr.com/65535/53355010410_b1e5e8371b.jpg)
+{{< /details >}}
+
+In the subsequent test, similar to the previous one, the LQR controller was employed instead of the pole placement controller. However, the observer used remained the Luenberger observer, as no noise was introduced to the measurements. 
+
+{{< details "Response of the states following the step values with LQR and a Luenberger observer - (click to expand)" close >}}
+![148222](https://live.staticflickr.com/65535/53355010400_8694f26456_w.jpg)
+{{< /details >}}
+
+We verify again that the pitch and roll angles stay within reasonable values:
+
+{{< details "Pitch and Roll using the LQR formula and Luenberger observer - (click to expand)" close >}}
+![14118222](https://live.staticflickr.com/65535/53355010395_98a2c89a8a_z.jpg)
+{{< /details >}}
+
+{{< details "Actuation for the LQR and Luenberger observer - (click to expand)" close >}}
+![141182222222](https://live.staticflickr.com/65535/53353685947_3bc65c694b_w.jpg)
+{{< /details >}}
+
+{{< hint info >}}
+Observing the actuation, it's apparent that not only does the actuation avoid reaching saturation values, but it also remains lower compared to the values attained using the pole placement controller. This outcome was anticipated since the LQR operates as an optimal controller, balancing system performance with energy consumption.{{< /hint >}}
+
+Moving forward, the analysis focuses on the system's behaviour when noise affects the measurements provided by the sensors. As previously discussed, the Luenberger estimator generates estimations with errors and becomes impractical when noise corrupts the measurements. To address this challenge, the developed Kalman-Bucy observer is utilized. T
+
+{{< hint info >}}
+Kalman filter effectively reduces most of the noise from all measured signals, while the Luenberger estimator follows the corrupted signal. This emphasizes the superiority of the Kalman-Bucy observer in mitigating noise-induced errors compared to the Luenberger estimator.{{< /hint >}}
+
+The sensors and noise estimations can be evaluated:
+
+![141182211122222](https://live.staticflickr.com/65535/53355010365_a751883e22_z.jpg)
+
+
+
