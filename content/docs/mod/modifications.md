@@ -162,7 +162,7 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 - dark-theme modified
 - color gradient for hint shortcodes changed
 - google analytics connection
-{{ /hint }}
+{{< /hint >}}
 
 - Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
 
