@@ -22,7 +22,7 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 ## READ_ME - Changing Shortcodes
 
-{{< button href="https://github.com/alex-shpak/hugo-book" >}}**Book theme dev page.**{{< /button >}}
+{{< button href="https://github.com/alex-shpak/hugo-book" >}}**Book theme dev page**{{< /button >}}
 
 - This can be customize in this section of the `hugo-book/layout/shortcodes/hint-html`.
 
