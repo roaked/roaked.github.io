@@ -14,10 +14,8 @@ In the final phase of the project, a more practical approach was adopted to tack
 
 ## 2 Discrete Time Linearized Model
 
-
-{{< hint note >}}
 As previously indicated, the drone model can be segmented into four subsystems. Among these, the yaw and vertical axis subsystems are second-order.
-{{< /hint >}}
+
 
 {{< katex display >}}
 \dot{X}(t) =
@@ -33,9 +31,7 @@ b \\
 u(t)
 {{< /katex >}}
 
-{{< hint note >}}
 The longitudinal and lateral axis subsystems are fourth order.
-{{< /hint >}}   
 
 {{< katex display >}}
 \dot{X}(t) =
@@ -131,9 +127,8 @@ bg\frac{T^4}{24} & 175b\frac{T^4}{24} & 65b\frac{T^4}{24} & 5b\frac{T^4}{8} \\
 \end{bmatrix} = 4 \quad \forall T > 0
 {{< /katex >}}
 
-{{< hint info >}}
-Reachibility ✔️
-{{< /hint >}}
+**Reachibility** ✔️
+
 
 To determine the observability of the system, it's crucial to compute the rank of the observability matrix:
 
@@ -165,9 +160,7 @@ gT^3/6 & gT^2/2 & T & 1 \\
 \end{bmatrix} = 4 \quad \forall T > 0
 {{< /katex >}}
 
-{{< hint info >}}
-Observability ✔️
-{{< /hint >}}
+**Observability** ✔️
 
 ## 3 Controller Design
 
@@ -680,11 +673,8 @@ Controllers based on optimization methods (LQR and MPC) were prioritized, while 
 
 ![21312](https://live.staticflickr.com/65535/53356074149_4948cf477d_c.jpg)
 
-Trajectories emerged as critical design parameters, impacting performance significantly. Results showed a consistent trade-off: achieving faster travel times increased velocities, leading to larger errors — a finding consistent across both controllers.
+Trajectories emerged as critical design parameters, impacting performance significantly. Results showed a consistent trade-off: achieving faster travel times increased velocities, leading to larger errors — a finding consistent across both controllers. Broadly, the LQR consistently delivered faster times across all trajectories. Conversely, the MPC facilitated a more stable drone behaviour by incorporating constraints on roll and pitch values. Detailed results are outlined in the table below.
 
-{{< hint info>}}
-Broadly, the LQR consistently delivered faster times across all trajectories. Conversely, the MPC facilitated a more stable drone behaviour by incorporating constraints on roll and pitch values. Detailed results are outlined in the table below.
-{{< /hint >}}
 
 ![21ss](https://live.staticflickr.com/65535/53356198045_4db1cceaf9_c.jpg)
 
@@ -697,9 +687,8 @@ Broadly, the LQR consistently delivered faster times across all trajectories. Co
 | Crazy 8              | 0.3241                 | 0.00794               | 16           | 0.2866                 | 0.001438              | 35           |
 | Amazing Race         | 0.1613                 | 0.005131              | 60           | 0.2520                 | 0.003468              | 90           |
 
-{{< hint note >}}
+
 Using the [MATLAB graphical interface for MPC design](https://www.mathworks.com/products/model-predictive-control.html) led to a potential loss of sensitivity when fine-tuning it. Consequently, the MPC might hold untapped potential not fully explored in this project, presenting an area for further improvement and exploration.
-{{< /hint >}}
 
 {{< hint tip >}}
 [Advance to UAV Computer Vision Here ✌️](https://ricardochin.com/docs/2code/1drone/_index5/){{< /hint >}}
