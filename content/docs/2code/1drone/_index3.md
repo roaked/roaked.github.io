@@ -451,5 +451,84 @@ The sensors and noise estimations can be evaluated:
 
 ![141182211122222](https://live.staticflickr.com/65535/53355010365_a751883e22_z.jpg)
 
+Now, performing the identical test where the four steps serve as references, yet employing the LQR with the Kalman-Bucy observer (Linear Quadratic Gaussian), the results depicted as follows confirm our expectations. The LQG successfully tracks the references even in the presence of noise in the measurements. This reaffirms the robustness and effectiveness of the LQG controller coupled with the Kalman-Bucy observer in handling noisy measurements while accurately following the given references.
+
+{{< details "Step for LQG - (click to expand)" close >}}
+![14118222222222](https://live.staticflickr.com/65535/53354560101_d37d9bdba3_w.jpg)
+{{< /details >}}
+
+{{< details "Pitch and Roll for LQG - (click to expand)" close >}}
+![141182221112222](https://live.staticflickr.com/65535/53354560096_71c25fd1c2.jpg)
+{{< /details >}}
+
+{{< details "Actuation for LQG - (click to expand)" close >}}
+![141182aa221112222](https://live.staticflickr.com/65535/53355010355_478e46a2d6.jpg)
+{{< /details >}}
+
+### 7.2. Nonlinear Model
+
+Using the same steps of the previous section and using the pole placement controller with the Luenberger
+observer:
+
+{{< details " Actuation of each motor using the pole placemente controller and a Luenberger observer - (click to expand)" close >}}
+![14118zzz222222222](https://live.staticflickr.com/65535/53354560091_b9b014848e.jpg)
+{{< /details >}}
+
+{{< details "Pitch and Roll using the pole placement controller and Luenberger observer - (click to expand)" close >}}
+**Roll and pitch angles are acceptable.**
+![14118222111zzz2222](https://live.staticflickr.com/65535/53354886429_a819b44650_z.jpg)
+{{< /details >}}
+
+{{< details "Actuation of each motor using the pole placement controller and the Luenberger observer - (click to expand)" close >}}
+**Actuation did not saturate.**
+![17](https://live.staticflickr.com/65535/53354783198_552bc665a9_w.jpg)
+{{< /details >}}
+
+
+Using now the LQR with the Luenberger estimator, the reference tracking results:
+
+{{< details "Position tracking with LQR and Luenberger observer - (click to expand)" close >}}
+![18](https://live.staticflickr.com/65535/53354560061_17d450e244_w.jpg)
+{{< /details >}}
+
+{{< details "Pitch and Roll using the LQR and Luenberger observer - (click to expand)" close >}}
+**Roll and pitch angles are acceptable.**
+![19](https://live.staticflickr.com/65535/53354783178_ffe9496151_z.jpg)
+{{< /details >}}
+
+{{< details "Actuation of LQR and Luenberger observer - (click to expand)" close >}}
+**Actuation did not saturate.**
+![20](https://live.staticflickr.com/65535/53355010280_3f2ba98efb_w.jpg)
+{{< /details >}}
+
+Having shown in the previous section that when noise is present, the Kalman-Bucy observer is used, the same test using the Linear Quadratic Gaussian will be assessed.
+
+{{< details "Step with LQG - (click to expand)" close >}}
+![21](https://live.staticflickr.com/65535/53354560061_17d450e244_w.jpg)
+{{< /details >}}
+
+{{< details "Pitch and Roll with LQG - (click to expand)" close >}}
+**Again, the roll and pitch angles are reasonable. Notice that the absolute maximum value for both pitch and roll is around 0.03 rad (1.71 degrees)**.
+![22](https://live.staticflickr.com/65535/53354886379_2da349c458.jpg)
+{{< /details >}}
+
+{{< details "Actuation with LQR and Kalman-Bucy - (click to expand)" close >}}
+**Actuation did not saturate.**
+![23](https://live.staticflickr.com/65535/53354886364_a4384d9baf.jpg)
+{{< /details >}}
+
+### 7.3. Remarks
+
+From the comprehensive results obtained from both linear and nonlinear models, it can be concluded that all controllers and observers were correctly implemented and exhibited their intended functionality.
+
+An essential finding across both models was the significance of using the Kalman-Bucy observer when noise significantly impacts sensor readings. This observer proved crucial in handling noisy measurements effectively.
+
+Careful consideration of roll and pitch angles was emphasized due to their potential impact on causing rapid altitude loss in the nonlinear simulation. Numerous instability issues were encountered, especially when step values were too large, resulting in aggressive actuation and subsequent system instability. To mitigate these issues, alternative reference signals were introduced to reduce initial error and consequent motor actuation.
+
+{{< hint note >}}
+Addressing actuation saturation and avoiding extreme pitch and roll angles can be achieved through various methods. One such solution involves implementing a saturation block on motors to ensure voltages stay within permissible limits. However, a straightforward saturation approach on individual motors may hinder the drone from following the desired trajectory. To resolve this, a strategy of limiting all actuations whenever one motor saturates allows the drone to continually attempt trajectory following without losing control or erratic behavior. This approach ensures a more controlled response in scenarios where actuation saturation or extreme angles could destabilize the system.
+{{< /hint >}}
+
+## 8 Trajectory Following
 
 
