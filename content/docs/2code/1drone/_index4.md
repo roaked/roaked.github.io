@@ -339,7 +339,7 @@ For waypoints situated along a rectilinear section of the trajectory, constant v
 {{< /details >}}
 
 {{< hint example >}}
-For better understand, the trajectories were exemplified. Beginning marked with green and end marked with a red.
+For better understanding, the trajectories were exemplified. Beginning marked with green and end marked with a red.
 {{< /hint  >}}
 
 Simple Square Trajectory ✔️
@@ -691,7 +691,7 @@ Broadly, the LQR consistently delivered faster times across all trajectories. Co
 ![1240ss](https://live.staticflickr.com/65535/53354870612_b95ccfae7d_c.jpg)
 
 
-| Nonlinear Trajectory | LQR Position Error (m) | LQR Yaw Error (rad^2) | LQR Time (s) | MPC Position Error (m) | MPC Yaw Error (rad^2) | MPC Time (s) |
+| Nonlinear | LQR Position Error (m) | LQR Yaw Error (rad^2) | LQR Time (s) | MPC Position Error (m) | MPC Yaw Error (rad^2) | MPC Time (s) |
 |----------------------|------------------------|-----------------------|--------------|------------------------|-----------------------|--------------|
 | Simple Square        | 0.2110                 | 0.001614              | 12           | 0.1908                 | 0.0002915             | 25           |
 | Crazy 8              | 0.3241                 | 0.00794               | 16           | 0.2866                 | 0.001438              | 35           |
