@@ -5,7 +5,11 @@ weight: 3
 
 # **Controller Design Pt. 1**
 
-## 1 Continuing...
+{{< hint tip >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 9 - Piloting in a Loop](https://ricardochin.com/docs/2code/1drone/_index3/#9-piloting-in-a-loop). I have cool images! ✌️{{< /hint >}}
+
+
+## 1 Continuing from Section 1...
 
 Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.
 
@@ -644,12 +648,17 @@ This work section aimed to design and test controllers and observers crucial for
 
 Initially, by designing a controller using the pole placement method, employing Ackermann’s Formula. Simultaneously, a Luenberger observer was tailored to estimate variables unmeasurable by physical means, aligning its dynamics to be faster than the controller.
 
+![aa](https://live.staticflickr.com/65535/53355021829_e45c28a340_c.jpg)
+
 Subsequently, an optimal controller and observer were developed, specifically the Linear Quadratic Regulator (LQR) and the Kalman-Bucy observer. The LQR demonstrated efficient reference tracking with reduced actuation, minimizing energy consumption. However, with the Kalman filter, despite attempts to tune it, complete noise removal wasn't achieved, especially in the sensitive nonlinear simulator, affecting responses to step references.
 
+![bb](https://live.staticflickr.com/65535/53355145110_1647537978_c.jpg)
 
 Nonetheless, the Kalman filter proved beneficial in noise-affected sensor scenarios, although further tuning is intended to improve its performance.
 
 In addition, it was also introduced a solution using refined reference signals, enhancing trajectory tracking and stability compared to step references. 
+
+![cc](https://live.staticflickr.com/65535/53355021834_2f6c597ac8_c.jpg)
 
 
 # Annexes (to be added...)

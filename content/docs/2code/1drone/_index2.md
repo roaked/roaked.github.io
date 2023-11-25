@@ -6,7 +6,7 @@ weight: 2
 # **Drone System Dynamics**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav). I have cool images! ✌️{{< /hint >}}
 
 ## 1 System Dynamics Modeling 
 
@@ -709,8 +709,25 @@ In this section, the focus lies on evaluating the system's response to disturban
 ## 4 The Moving UAV
 
 
+This section aimed to derive and analyze a realistic quadcopter model. Initially, it involved establishing the dynamics of two subsystems: actuation (comprising four motors and propellers) and movement (relating actuation forces to drone dynamics and kinematics).
+
 ![aa](https://live.staticflickr.com/65535/53355156265_947fd93796_c.jpg)
 
+Once the complete model was obtained, it was initially simplified with a static gain assumption in the actuation subsystem. Subsequent analysis involved studying stability, observability, and controllability. The model, despite lacking stability, proved to be both observable and controllable, indicating feasibility for implementing a feedback control system.
+
 ![bb](https://live.staticflickr.com/65535/53355032634_4dae3c12da_c.jpg)
+
+The model's characteristics indicated the need to control three coordinates and the yaw angle for movement regulation. Consequently, a servo feedback control system was developed and tested using both linear and nonlinear models. While the controller allowed the model to track given references, outcomes varied—excessive oscillations and slower response times were evident, notably in the nonlinear model.
+
+The nonlinear simulation revealed challenges where large references risked crashing the simulator, emphasizing the criticality of refining reference signal design. Solutions might involve providing smaller sequential references or constraining maximum pitch and roll angles.
+
+![cc](https://live.staticflickr.com/65535/53353830367_96ca0f1119_c.jpg)
+
+These observations underscored the need for controller fine-tuning to enhance reference tracking performance. Designing a controller capable of concurrently tracking all four references without excessive oscillations and with rapid response times emerged as a significant challenge.
+
+In conclusion, the developed models exhibited accuracy and reliability in predicting real drone behavior. Furthermore, they serve as a foundation for designing more effective controllers to optimize drone performance.
+
+![aa](https://live.staticflickr.com/65535/53355156265_947fd93796_c.jpg)
+
 
 ![cc](https://live.staticflickr.com/65535/53353830367_96ca0f1119_c.jpg)
