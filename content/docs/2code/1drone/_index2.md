@@ -5,6 +5,9 @@ weight: 2
 
 # **Drone System Dynamics**
 
+{{< hint tip >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav). I have cool images! ✌️{{< /hint >}}
+
 ## 1 System Dynamics Modeling 
 
 Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
@@ -702,3 +705,5 @@ In this section, the focus lies on evaluating the system's response to disturban
 
 - Yaw Compensation - Motors 2 and 4
 - Altitude Compensation - All Motors
+
+## 4 The Moving UAV

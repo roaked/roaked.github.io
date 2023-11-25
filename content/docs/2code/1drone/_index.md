@@ -42,22 +42,31 @@ Given how complex this project turned out to be, I have decided to structure it 
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
 
 
+## 4 Reading Guide
+
+{{< hint tip >}}
+The sections are pretty extensive, containing descriptive explaination of the work done, but I have inserted an hyperlink at the beginning of each section redirecting to the last chapter containing summarized findings. 
+{{< /hint >}}
+
 ![video](https://s5.gifyu.com/images/SRQm0.gif)
 
-## 4 Drone Characteristics
+## 5 Drone Characteristics
 
 
-{{< katex display >}}
-\text{Mass } M : 0.475 \, \text{kg} \\
-\text{Moment of inertia } J_{xx} : 2.2 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
-\text{Moment of inertia } J_{yy} : 2.5 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
-\text{Moment of inertia } J_{zz} : 4.5 \times 10^{-3} \, \text{kg} \cdot \text{m}^2 \\
-\text{Arm length } b : 0.177 \, \text{m} \\
-\text{Gravity } g : 9.81 \, \text{m/s}^2 \\
-\text{Force (thrust) constant } K_T : 9.2 \times 10^{-6} \, \text{N} \cdot \text{(rad/s)}^{-2} \\
-\text{Momentum constant } K_Q : 0.32 \times 10^{-6} \, \text{Nm} \cdot \text{(rad/s)}^{-2} \\
-\text{Voltage constant } K_{\Omega} : 0.002 \, \text{(rad/s)}^{-1} \\
-\text{Motor dynamics approximated by static gain} : \delta_i \approx K_{\Omega} \Omega_i \\
-{{< /katex >}}
+{{< hint info >}}
+| Parameter                           | Value               | Unit         |
+|-------------------------------------|---------------------|--------------|
+| Mass M                          | 0.475               | kg           |
+| Moment of inertia J_{xx}        | 2.2 x 10^{-3} | kg.m^2   |
+| Moment of inertia J_{yy}        | 2.5 x 10^{-3} | kg.m^2   |
+| Moment of inertia J_{zz}        | 4.5 x 10^{-3} | kg.m^2   |
+| Arm length b                    | 0.177               | m            |
+| Gravity g                       | 9.81                | m/s^2    |
+| Force (thrust) constant K_t     | 9.2 x 10^{-6} | N(rad/s)^{-2} |
+| Momentum constant K_q          | 0.32 x 10^{-6}| Nm(rad/s)^{-2} |
+| Voltage constant K_Ω     | 0.002               | (rad/s)^{-1} |
+
+Motor dynamics approximated by static gain : δi ~  KΩ x Ωi
+{{< /hint >}}
 
 
