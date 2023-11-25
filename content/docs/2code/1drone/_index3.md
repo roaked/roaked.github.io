@@ -40,10 +40,11 @@ In the non-linear model, maintaining the hovering condition necessitates applyin
 
 ![147](https://live.staticflickr.com/65535/53354560156_b9fd30fa8b_z.jpg)
 
-For the drone in question, only the position (Px, Py, and Pz) and orientation ({{< katex >}}\phi, \theta, \text{and} \psi{{< /katex >}}) are directly measurable. Consequently, the estimation of linear velocity ({{< katex >}}\dot{P}_x, \dot{P}_y \text{and} \dot{P}_z {{< /katex >}}) and angular velocity ({{< katex >}}\dot{\phi}, \dot{\theta} \text{and} \dot{\psi} \dot {{< /katex >}}) becomes necessary.
+For the drone in question, only the position (Px, Py, and Pz) and orientation ({{< katex >}}\phi, \theta, \text{and} \psi{{< /katex >}}) are directly measurable. Consequently, the estimation of linear velocity ({{< katex >}}\dot{P}_x, \dot{P}_y \text{and} \dot{P}_z {{< /katex >}}) and angular velocity ( {{< katex >}}\dot{\phi}, \dot{\theta} \text{and} \dot{\psi} {{< /katex >}} ) becomes necessary.
 
 Additionally, it was indicated that sensor noise would impact the measured signals, with the noise variance specified for each sensor.
 
+{{< details "Parameters - (click to expand)" close >}}
 | Parameter               | Value               |
 |-------------------------|---------------------|
 | Inertial position x, px | 7.3221 × 10^-4      |
@@ -52,6 +53,7 @@ Additionally, it was indicated that sensor noise would impact the measured signa
 | Roll, φ                 | 3.4817 × 10^-4      |
 | Pitch, θ                | 2.6060 × 10^-4      |
 | Yaw, ψ                  | 3.8313 × 10^-5      |
+{{< /details >}}
 
 It was suggested that the noise issue could potentially be addressed by employing the Kalman-Bucy estimator in place of the Luenberger observer.
 
@@ -395,12 +397,15 @@ Both tests were executed in both simulators, comparing results with and without 
 
 The used steps provide the following references to the system:
 
+
+{{< details "References - (click to expand)" close >}}
 | Variable | Value    |
 |----------|----------
 | px       | 1m       |
 | py       | 1m       |
 | pz       | -1m      |
 | ψ        | π/8 rad  |    
+{{< /details >}}
 
 Using the pole placement controller and the Luenberger observer without noise in the measurements, we
 get the results:
@@ -564,11 +569,8 @@ I also created a 3D plot of the trajectory flown by the drone for the linear sys
 
 
 {{< hint warning >}}
-It was previously established that when sensor noise is present, employing the Kalman-Bucy observer becomes essential. The next figure demonstrates that without the Kalman filter, the drone's motion becomes erratic, showcasing evident actuation saturation issues.
+It was previously established that when sensor noise is present, employing the Kalman-Bucy observer becomes essential. The next figure demonstrates that without the Kalman filter, the drone's motion becomes erratic, showcasing evident actuation saturation issues.{{< /hint >}}
 ![28](https://live.staticflickr.com/65535/53354560001_a8133de54e.jpg)
-{{< /hint >}}
-
-
 
 Logically, adding the **Kalman filter to tackle the noise**, the results improve.
 
@@ -593,3 +595,61 @@ Aside from the 3D plot of the trajectory, I showcase a zoomed section showcasing
 ![33](https://live.staticflickr.com/65535/53353685792_24fe13afc8.jpg)
 
 ### 8.2. Nonlinear Model
+
+Following a similar strategy as in ch. 8.1. Linear Model:
+
+{{< details "Reference and response along the trajectory - (click to expand)" close >}}
+![34](https://live.staticflickr.com/65535/53353685802_75ba574739.jpg)
+{{< /details >}}
+
+{{< details "Actuation of each motor along the trajectory - (click to expand)" close >}}
+**Actuation did not saturate.**
+![35](https://live.staticflickr.com/65535/53354886279_ff1b645f25.jpg)
+{{< /details >}}
+
+{{< details "Response of the angles along the trajectory - (click to expand)" close >}}
+**The roll and pitch angles are reasonable.**
+![36](https://live.staticflickr.com/65535/53353685737_79f9b9e039_b.jpg)
+{{< /details >}}
+
+{{< hint example >}}
+I also created a 3D plot of the trajectory flown by the drone for the nonlinear system. Plot is seen in the following figure:
+{{< /hint  >}}
+![37](https://live.staticflickr.com/65535/53354886229_44640d6c05.jpg)
+
+Adding noise to the sensor measurements and using the Kalman-Bucy observer, the following results are obtained:
+
+{{< details "Reference and response along the trajectory - (click to expand)" close >}}
+![38](https://live.staticflickr.com/65535/53354559896_a219466c40.jpg)
+{{< /details >}}
+
+{{< details "Actuation of each motor along the trajectory - (click to expand)" close >}}
+![39](https://live.staticflickr.com/65535/53353685722_5e81cf1258.jpg)
+{{< /details >}}
+
+{{< details "Pitch and roll along the trajectory - (click to expand)" close >}}
+![40](https://live.staticflickr.com/65535/53354783053_7c1cf5445c_z.jpg)
+{{< /details >}}
+
+
+{{< hint example >}}
+Aside from the 3D plot of the trajectory, I showcase a zoomed section showcasing the bits of oscillation due to noise.
+{{< /hint  >}}
+![41](https://live.staticflickr.com/65535/53354559871_14bcea007f_w.jpg)
+![42](https://live.staticflickr.com/65535/53355010105_5f9abfb1ed_w.jpg)
+
+## 9 Piloting in a Loop
+
+This work section aimed to design and test controllers and observers crucial for drone control.
+
+Initially, by designing a controller using the pole placement method, employing Ackermann’s Formula. Simultaneously, a Luenberger observer was tailored to estimate variables unmeasurable by physical means, aligning its dynamics to be faster than the controller.
+
+Subsequently, an optimal controller and observer were developed, specifically the Linear Quadratic Regulator (LQR) and the Kalman-Bucy observer. The LQR demonstrated efficient reference tracking with reduced actuation, minimizing energy consumption. However, with the Kalman filter, despite attempts to tune it, complete noise removal wasn't achieved, especially in the sensitive nonlinear simulator, affecting responses to step references.
+
+
+Nonetheless, the Kalman filter proved beneficial in noise-affected sensor scenarios, although further tuning is intended to improve its performance.
+
+In addition, it was also introduced a solution using refined reference signals, enhancing trajectory tracking and stability compared to step references. 
+
+
+# Annexes (to be added...)
