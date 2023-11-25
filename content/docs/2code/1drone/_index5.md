@@ -6,7 +6,7 @@ weight: 5
 # **Pixel Pilots: Drone Computer Vision**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/2code/1drone/_index5/#3-pixe-pilots-certification-acquired). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/2code/1drone/_index5/#3-pixel-pilots-certification-acquired). I have cool images! ✌️{{< /hint >}}
 
 ## 1 Computer Vision for Obstacle Detection
 

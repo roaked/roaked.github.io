@@ -727,11 +727,5 @@ These observations underscored the need for controller fine-tuning to enhance re
 
 In conclusion, the developed models exhibited accuracy and reliability in predicting real drone behavior. Furthermore, they serve as a foundation for designing more effective controllers to optimize drone performance.
 
-![aa](https://live.staticflickr.com/65535/53355156265_947fd93796_c.jpg)
-
-
-![cc](https://live.staticflickr.com/65535/53353830367_96ca0f1119_c.jpg)
-
-
 {{< hint tip >}}
 [**Advance to Controller Design Pt. 1 Here ✌️**](https://ricardochin.com/docs/2code/1drone/_index3/){{< /hint >}}
