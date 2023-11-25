@@ -24,7 +24,7 @@ Although work is a significant part of my life, it's not my whole world. I love 
 
 Speaking about "me by myself", isn't it interesting how most people in our lives, despite intentions to stay, often become fleeting characters in our stories? It's something my mother used to tell me when I was young, but I'd constantly forget it. You could say it was one of my problems. But as the years went by, I learned the truth behind it — the transient nature of most people. That's why I've grown to value doing things independently — working on my own, relying solely on myself, has been a path to building resilience and self-reliance. It is as if the weight of complete responsibility becomes a catalyst for personal growth... It certainly contradicts with the perception others have of me as an ideal team player. While many appear to envision me as thriving within a team dynamic, I often feel quite the opposite internally. 
 
-**It's a curious paradox, isn't it? :)**
+**A curious paradox, isn't it?**
 
 ![Me](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
