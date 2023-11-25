@@ -285,10 +285,61 @@ In an optimal controller, the controller gains aren't constant over time. Howeve
 K = R^{-1}B^T P
 {{< /katex >}}
 
-{{< info tip >}}
-Matrix P is the solution of the algebraic Riccati equation, given by equation 18.
+{{< hint tip >}}
+Matrix P is the solution of the algebraic Riccati equation:
 
 {{< katex display >}}
 0 = A^T P + P A - PBR^{-1}B^T P + Q
 {{< /katex >}}
-{{< /info >}}
+{{< /hint >}}
+
+
+It was mentioned that, in pursuit of tracking a reference rather than merely maintaining states at zero, [the MATLAB function "lqi" (linear quadratic integrator)](https://de.mathworks.com/help/control/ref/ss.lqi.html) becomes crucial as it computes both K and ki values.
+
+The success in achieving desired performance largely hinges on the choice of relative values within Q and R matrices. Specifically, emphasis was placed on the need to tune diagonal values, allowing for certain values to be set to zero if controlling a particular state isn't deemed necessary.
+
+Regarding the yaw angle and vertical axis subsystems, considering their augmented third-order nature, the prescribed values for Q and R were specified through equations:
+
+{{< katex display >}}
+Q_{\text{yaw}} = \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 10 & 0 \\
+0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{yaw}} = 1
+{{< /katex >}}
+
+
+{{< katex display >}}
+Q_{\text{vertical}} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 50 & 0 \\
+0 & 0 & 100 \\
+\end{bmatrix}
+; \quad R_{\text{vertical}} = 1
+{{< /katex >}}
+
+In regard to the longitudinal axis and lateral axis subsystems, the augmented systems are identified as fifth-order. The designated values for Q and R are specifically detailed:
+
+{{< katex display >}}
+Q_{\text{longitudinal}} = \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 10 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 10 & 0 \\
+0 & 0 & 0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{longitudinal}} = 1
+{{< /katex >}}
+
+
+{{< katex display >}}
+Q_{\text{longitudinal}} = \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 10 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 10 & 0 \\
+0 & 0 & 0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{longitudinal}} = 1
+{{< /katex >}}
