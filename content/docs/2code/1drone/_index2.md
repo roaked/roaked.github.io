@@ -725,7 +725,7 @@ The nonlinear simulation revealed challenges where large references risked crash
 
 These observations underscored the need for controller fine-tuning to enhance reference tracking performance. Designing a controller capable of concurrently tracking all four references without excessive oscillations and with rapid response times emerged as a significant challenge.
 
-In conclusion, the developed models exhibited accuracy and reliability in predicting real drone behavior. Furthermore, they serve as a foundation for designing more effective controllers to optimize drone performance.
+In conclusion, the developed models exhibited accuracy and reliability in predicting real drone behaviour. Furthermore, they serve as a foundation for designing more effective controllers to optimize drone performance.
 
 {{< hint tip >}}
 [Advance to Controller Design Pt. 1 Here ✌️](https://ricardochin.com/docs/2code/1drone/_index3/){{< /hint >}}

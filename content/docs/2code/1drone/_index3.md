@@ -662,6 +662,3 @@ In addition, it was also introduced a solution using refined reference signals, 
 
 {{< hint tip >}}
 [Advance to Discre Controller Design Here ✌️](https://ricardochin.com/docs/2code/1drone/_index4/){{< /hint >}}
-
-
-# Annexes (to be added...)
