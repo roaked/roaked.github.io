@@ -28,7 +28,7 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 {{< hint tip >}}
 - Modifications in the `_shortcodes.scss` file
-{{< hint tip >}}
+{{< /hint >}}
 
 ```scss
 .book-hint {
@@ -71,7 +71,7 @@ vertical-align: middle;
 
 {{< hint tip >}}
 - Modifications `_defaults.css` 
-{{< /tip>}}
+{{< /hint >}}
 
 
 ```scss
