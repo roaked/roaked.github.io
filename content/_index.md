@@ -5,7 +5,7 @@ type: docs
 
 # **Griaß Di. Servus!**
 
-### Ricardo. 26. Born in Portugal but partially Chinese.
+### Ricardo. 26. Portugal ~ China
 
 With a [master's degree in mechanical engineering](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) (earned honors, too!) specialized in design engineering and simulation along with an immersive experience as an university assistant delving into materials science research — coupled with supervising additive manufacturing bachelor thesis — in microelectronics fabrication for automotive / tech applications, I've rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
 
