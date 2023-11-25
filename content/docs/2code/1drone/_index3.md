@@ -372,7 +372,7 @@ Q_0^\text{longitudinal} = 10^{-10}
 Q_0^\text{lateral} = 10^{-10}
 {{< /katex >}}
 
-Combining the developed LQR with the Kalman-Bucy observer we get the Linear Quadratic Gaussian.
+Combining the developed LQR with the Kalman-Bucy observer results the Linear Quadratic Gaussian.
 
 ![124f](https://live.staticflickr.com/65535/53354783288_ddc4e8a856_c.jpg)
 
@@ -411,8 +411,7 @@ The used steps provide the following references to the system:
 | ψ        | π/8 rad  |    
 {{< /details >}}
 
-Using the pole placement controller and the Luenberger observer without noise in the measurements, we
-get the results:
+Using the pole placement controller and the Luenberger observer without noise in the measurements results:
 
 ![sdaji](https://live.staticflickr.com/65535/53353685957_eb75ae80b6_z.jpg)
 
@@ -426,7 +425,7 @@ Observing the following figure allowed verification that the roll and pitch angl
 {{< /details >}}
 
 
-We can also verify that the actuation did not saturate:
+Verifying that the actuation did not saturate:
 
 {{< details "Actuation of each motor using the Pole placement Controller and Luenberger observer - (click to expand)" close >}}
 ![148](https://live.staticflickr.com/65535/53355010410_b1e5e8371b.jpg)
@@ -438,7 +437,7 @@ In the subsequent test, similar to the previous one, the LQR controller was empl
 ![148222](https://live.staticflickr.com/65535/53355010400_8694f26456_w.jpg)
 {{< /details >}}
 
-We verify again that the pitch and roll angles stay within reasonable values:
+Verifying again that the pitch and roll angles stay within reasonable values:
 
 {{< details "Pitch and Roll using the LQR formula and Luenberger observer - (click to expand)" close >}}
 ![14118222](https://live.staticflickr.com/65535/53355010395_98a2c89a8a_z.jpg)

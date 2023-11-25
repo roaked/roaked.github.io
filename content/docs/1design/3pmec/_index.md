@@ -182,7 +182,7 @@ n = \frac{S_y}{\sigma_{VM}} = \frac{772 \times 10^6}{6.723 \times 10^7} = 11.482
 
 #### 2.3.2. Fatigue Verification
 
-The minimum stress is determined by the weight of the beam and the winch car itself (considering the winch car unloaded). Conversely, when the winch car is loaded (the scenario considered for calculating the static safety factor), the corresponding stress will be at its maximum. We can derive the ratio between the minimum and maximum stresses by calculating the minimum stress for the unloaded car. Repeating this process for the calculation of the Von Mises stress for the unloaded load case yields.
+The minimum stress is determined by the weight of the beam and the winch car itself (considering the winch car unloaded). Conversely, when the winch car is loaded (the scenario considered for calculating the static safety factor), the corresponding stress will be at its maximum. It can be derived the ratio between the minimum and maximum stresses by calculating the minimum stress for the unloaded car. Repeating this process for the calculation of the Von Mises stress for the unloaded load case yields.
 
 {{< katex display >}}
 R = \frac{\sigma_{VM_0}}{\sigma_{VM}} = \frac{1.106 \times 10^7}{6.723 \times 10^7} = 0.1645

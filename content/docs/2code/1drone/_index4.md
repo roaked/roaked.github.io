@@ -436,7 +436,7 @@ For the Linear model, a travel time of 17 seconds was assumed, yielding the foll
 ![13](https://live.staticflickr.com/65535/53355542331_1c8e703797_b.jpg)
 {{< /details >}}
 
-Both figures illustrate the substantial influence of noise on actuation, resulting in pronounced instability. However, the Kalman Filter demonstrates remarkable effectiveness in managing this noise, as evidenced by only slight oscillations in pitch. While minor deviations from the reference trajectory might be observable upon close inspection, we're generally content with the results for the "Crazy 8" trajectory using the Linear model. The maximum errors for the linear model consistently hover around similar values, with the z-axis recording the highest error at approximately 0.3 meters.
+Both figures illustrate the substantial influence of noise on actuation, resulting in pronounced instability. However, the Kalman Filter demonstrates remarkable effectiveness in managing this noise, as evidenced by only slight oscillations in pitch. While minor deviations from the reference trajectory might be observable upon close inspection, one is generally content with the results for the "Crazy 8" trajectory using the Linear model. The maximum errors for the linear model consistently hover around similar values, with the z-axis recording the highest error at approximately 0.3 meters.
 
 
 #### 6.2.2. Nonlinear Model
@@ -501,7 +501,7 @@ Once more, the LQR demonstrates precise tracking along the Amazing Race trajecto
 ![20](https://live.staticflickr.com/65535/53355764943_80af387537_h.jpg)
 {{< /details >}}
 
-In the Nonlinear model, deviations start surfacing during reference tracking, causing occasional slight drifts from the reference, although the drone ultimately reconverges to it. Despite this, the overall tracking throughout the trajectory remains relatively accurate. However, mitigating these deviations would entail increasing the drone's travel time, yet in a race, every second counts. Additionally, the maximum values for roll and pitch noticeably escalate. A reduction of just one second along the path could surpass the 0.8 rad (45º) constraint, leading to the drone's descent—something we aimed to avoid.
+In the Nonlinear model, deviations start surfacing during reference tracking, causing occasional slight drifts from the reference, although the drone ultimately reconverges to it. Despite this, the overall tracking throughout the trajectory remains relatively accurate. However, mitigating these deviations would entail increasing the drone's travel time, yet in a race, every second counts. Additionally, the maximum values for roll and pitch noticeably escalate. A reduction of just one second along the path could surpass the 0.8 rad (45º) constraint, leading to the drone's descent—something bound to avoid.
 
 Regarding actuation, the expected pattern persists, with a spike reaching around 10 Volts. The errors between the Linear and Nonlinear models showcase similar trends, with lateral and vertical movements being the primary offenders, reaching a maximum error of approximately 0.4 meters.
 
@@ -552,7 +552,7 @@ The Nonlinear model exhibited reference tracking akin to the Linear model, maint
 ![25](https://live.staticflickr.com/65535/53355994875_7e049c49c3_c.jpg)
 {{< /details >}}
 
-From the actuation plot, it is observed the admissible limits and the maximum position error almost the same as in the linear model near 0.6 meters, however in the nonlinear model we can see local maximus that we could not see in the linear model
+From the actuation plot, it is observed the admissible limits and the maximum position error almost the same as in the linear model near 0.6 meters, however in the nonlinear model it can be seen a local maximus that wasn't not detected in the linear model.
 
 {{< details "Actuation (left) and errors (right) for the nonlinear model - (click to expand)" close >}}
 ![26](https://live.staticflickr.com/65535/53355542181_895e382c00_h.jpg)
