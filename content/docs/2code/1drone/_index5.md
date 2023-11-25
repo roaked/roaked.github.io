@@ -3,7 +3,7 @@ title: Drone Computer Vision
 weight: 5
 ---
 
-# **Pixel Pilots: Drone Computer Vision**
+# **Phase 4. UAV Computer Vision**
 
 {{< hint tip >}}
 If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/2code/1drone/_index5/#3-pixel-pilots-certification-acquired). I have cool images! ✌️{{< /hint >}}
@@ -245,4 +245,4 @@ Ultimately, in this section the work done successfully achieved its goal by effe
 
 
 {{< hint example >}}
-As for next steps... it could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.{{< /hint >}}
+As for next steps...Possibly in a phase 5. It could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.{{< /hint >}}

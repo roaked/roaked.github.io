@@ -3,7 +3,7 @@ title: Drone Controller Design Pt. 1
 weight: 3
 ---
 
-# **Controller Design Pt. 1**
+# **Phase 2. Controller Design Pt. 1**
 
 {{< hint tip >}}
 If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 9 - Piloting in a Loop](https://ricardochin.com/docs/2code/1drone/_index3/#9-piloting-in-a-loop). I have cool images! ✌️{{< /hint >}}
@@ -661,7 +661,7 @@ In addition, it was also introduced a solution using refined reference signals, 
 ![cc](https://live.staticflickr.com/65535/53355021834_2f6c597ac8_c.jpg)
 
 {{< hint tip >}}
-[Advance to Controller Design Pt. 2 Here ✌️](https://ricardochin.com/docs/2code/1drone/_index4/){{< /hint >}}
+[Advance to Discre Controller Design Here ✌️](https://ricardochin.com/docs/2code/1drone/_index4/){{< /hint >}}
 
 
 # Annexes (to be added...)

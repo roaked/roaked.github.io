@@ -3,7 +3,7 @@ title: Drone Dynamics
 weight: 2
 ---
 
-# **Drone System Dynamics**
+# **Phase 1. Drone System Dynamics**
 
 {{< hint tip >}}
 If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav). I have cool images! ✌️{{< /hint >}}
