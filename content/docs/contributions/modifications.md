@@ -60,42 +60,41 @@ Replacing your HTML code with:
 - Followed by modifications in your SCSS file:
 
 ```scss
- // {{< hint >}}
-    .book-hint {
-      @each $name, $color in $hint-colors {
-        &.#{$name} {
-          border-color: $color;
-          background-color: rgba($color, 0.1);
-        }
-      }
-    }
-
-  .hint-title {
+.book-hint {
     @each $name, $color in $hint-colors {
-      &.#{$name} {
-        color: white;
+    &.#{$name} {
         border-color: $color;
-        background-color: $color;
-        border-radius: $border-radius $border-radius 0 0;
-        font-weight: 700;
-        text-transform: capitalize;
-        padding: $padding-4 $padding-16;
-        margin: (-$padding-8) (-$padding-16) $padding-8 (-$padding-16 + $padding-4);
-      }
+        background-color: rgba($color, 0.1);
     }
-  }
+    }
+}
 
-  .hint-title svg {
-    height: 1em;
-    width: 1em;
-    vertical-align: middle;
-    margin-inline-end: $padding-8;
-    fill: currentColor;
-  }
+.hint-title {
+@each $name, $color in $hint-colors {
+    &.#{$name} {
+    color: white;
+    border-color: $color;
+    background-color: $color;
+    border-radius: $border-radius $border-radius 0 0;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: $padding-4 $padding-16;
+    margin: (-$padding-8) (-$padding-16) $padding-8 (-$padding-16 + $padding-4);
+    }
+}
+}
 
-  .hint-title span {
-    vertical-align: middle;
-  }
+.hint-title svg {
+height: 1em;
+width: 1em;
+vertical-align: middle;
+margin-inline-end: $padding-8;
+fill: currentColor;
+}
+
+.hint-title span {
+vertical-align: middle;
+}
 ```
 
 - Lastly, adapt your manifest.json file accordingly, and can also switch your source icon in .svg format. This way you can also add your personalized icon to your shortcode hint:
