@@ -1,7 +1,7 @@
 ---
-title: "Website Modifications"
+title: "**Website Modifications**"
 bookHidden: false
-bookFlatSection: false
+bookFlatSection: true
 ---
 
 # **Based on UX/UI / bookHidden: true**
@@ -18,18 +18,7 @@ The wiki is built locally using the [Hugo framework](https://gohugo.io/getting-s
 
 # Hugo Book Theme Modifications
 
-I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) by modifying default settings to offer users more detailed information. I expanded the default three hint options to include three additional key options, alongside color correction. You can still utilize `{{< hint "command" >}} and {{< /hint >}}`.
-
-{{< hint example >}}
-*Options added*
-
-- `{{< hint tip >}} and {{< /hint >}}`
-- `{{< hint note >}} and {{< /hint >}}`
-- `{{< hint info >}} and {{< /hint >}}`
-- `{{< hint danger >}} and {{< /hint >}}`
-- `{{< hint example >}} and {{< /hint >}}`
-- `{{< hint warning >}} and {{< /hint >}}`
-{{< /hint >}}
+I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) by modifying default settings to offer users more detailed information. I expanded the default three hint options to include three additional key options, alongside color correction. You can still utilize {{< hint "command" >}} and {{< /hint >}}.
 
 ## READ_ME - Changing Shortcodes
 
