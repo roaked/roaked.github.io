@@ -23,7 +23,7 @@ I wanted to understand how a cool robot called "Rasteirinho" works when told to 
 The discussions and conclusions drawn stem from the outcomes obtained through multiple analytical methods. The variability observed in stochastic systems prompted insightful considerations regarding the "Rasteirinho" system's behaviour and characteristics. How this variability impacts the overall understanding and analysis of the system becomes a pivotal point for consideration and further exploration.
 
 {{< hint tip >}}
-**Recommendations for Future Study:** Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.{{< /hint >}}
+Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.{{< /hint >}}
 
 ## 1 System Model
 
@@ -570,7 +570,7 @@ As for the step response for the best fitting of the estimated models for each d
 From the depicted graphs, it's evident that the superior models tend to achieve a best fit of approximately 70%. This lower performance in stochastic models might be attributed to the relatively reduced complexity of the attained transfer functions.
 
 
-## 7 Recap & Future Work
+## 7 Recap 
 
 The methods applied successfully identified the Rasteirinho system, albeit encountering some challenges. For example,  ncreasing model complexity often improves results but sacrifices simplicity.
 
@@ -582,10 +582,13 @@ Deterministic identification, especially in the time domain, yielded promising o
 
 On the other hand, stochastic identification using discrete models of varying complexity showed promising results.
 
-**FUTURE WORK**
+## 8 Future Work...
+
+{{< hint example >}}
 
 - Refinement of Stochastic Identification: Addressing errors in function implementation and exploring alternative stochastic identification methods could enhance accuracy.
 - Noise Mitigation Techniques: Exploring advanced filtering or noise reduction approaches could improve signal quality in stochastic identification.
 - Enhanced Data Collection: Improving data acquisition methods, such as stabilizing the camera or optimizing lighting conditions, can minimize data errors.
 - Model Optimization: Continuing to balance model complexity and accuracy to find the optimal trade-off between a model's intricacy and its performance.
 
+{{< /hint >}}
