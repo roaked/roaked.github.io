@@ -22,9 +22,8 @@ I wanted to understand how a cool robot called "Rasteirinho" works when told to 
 
 The discussions and conclusions drawn stem from the outcomes obtained through multiple analytical methods. The variability observed in stochastic systems prompted insightful considerations regarding the "Rasteirinho" system's behaviour and characteristics. How this variability impacts the overall understanding and analysis of the system becomes a pivotal point for consideration and further exploration.
 
-{{< hint info >}}
-**Recommendations for Future Study:**
-Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.{{< /hint >}}
+{{< hint tip >}}
+**Recommendations for Future Study:** Further investigation into the implications of stochastic behaviour on control mechanisms within the "Rasteirinho" system could deepen our understanding. Exploring advanced analytical techniques and expanding the scope of experiments might offer more nuanced insights into the system's behaviour.{{< /hint >}}
 
 ## 1 System Model
 

@@ -1,5 +1,5 @@
 ---
-title: RedBull Racing Competition
+title: UAV Red Bull Air Racing
 weight: 1
 ---
 
