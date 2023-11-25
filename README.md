@@ -3,14 +3,14 @@
 
 ## Hugo Framework
 
-{{< hint info >}}
+
 The wiki is built locally using the [Hugo framework](https://gohugo.io/getting-started/installing/). You can run a local environment by following these steps:
 
 - Install the [Hugo Framework](https://gohugo.io/getting-started/installing/)
 - Clone this repo
 - Run `hugo server --minify` in the root directory
 - Open your browser and go to http://localhost:1313 (or as indicated by the Hugo output)
-{{< /hint >}}
+
 
 ## Hugo Book Theme Modifications
 
