@@ -38,9 +38,7 @@ Given how complex this project turned out to be, I have decided to structure it 
 
 - **Integration of AI with System Components**: This section aims to unify AI algorithms with the previously developed system dynamics model, controller, and computer vision capabilities. It seeks to leverage AI to further enhance overall performance, responsiveness, and decision-making of the drone during Red Bull racing scenarios.{{< /hint >}}
 
-
 By splitting the report into these segments, it is expected to inspect each aspect thoroughly while maintaining a clear focus on how these components can synergize to enhance the capabilities of Red Bull racing drones.
-
 
 ## 4 Reading Guide
 
@@ -51,11 +49,11 @@ The sections are pretty extensive, containing descriptive explaination of the wo
 ![video](https://s5.gifyu.com/images/SRQm0.gif)
 
 {{< hint tip >}}
-[**That said: Advance to UAV System Dynamics Design Here ✌️**](https://ricardochin.com/docs/2code/1drone/_index2/){{< /hint >}}
+[That said: Advance to UAV System Dynamics Design Here ✌️](https://ricardochin.com/docs/2code/1drone/_index2/){{< /hint >}}
 
 ## 5 Drone Characteristics 
 
-{{< hint info >}}
+{{< details "**Drone Physical Properties:** - (click to expand)" close >}}
 | Parameter                           | Value               | Unit         |
 |-------------------------------------|---------------------|--------------|
 | Mass M                          | 0.475               | kg           |
@@ -69,7 +67,7 @@ The sections are pretty extensive, containing descriptive explaination of the wo
 | Voltage constant K_Ω     | 0.002               | (rad/s)^{-1} |
 
 Motor dynamics approximated by static gain : δi ~  KΩ x Ωi
-{{< /hint >}}
+{{< /details >}}
 
 ## 6 State Space Models (Later..)
 

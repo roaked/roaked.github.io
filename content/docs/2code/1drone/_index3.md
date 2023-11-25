@@ -661,7 +661,7 @@ In addition, it was also introduced a solution using refined reference signals, 
 ![cc](https://live.staticflickr.com/65535/53355021834_2f6c597ac8_c.jpg)
 
 {{< hint tip >}}
-[**Advance to Controller Design Pt. 2 Here ✌️**](https://ricardochin.com/docs/2code/1drone/_index4/){{< /hint >}}
+[Advance to Controller Design Pt. 2 Here ✌️](https://ricardochin.com/docs/2code/1drone/_index4/){{< /hint >}}
 
 
 # Annexes (to be added...)
