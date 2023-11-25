@@ -1,9 +1,169 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Controller Design Pt. 1 # 1 # "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Drone Controller Design Pt. 1"><meta property="og:description" content=" Controller Design Pt. 1 # 1 # "><meta property="og:type" content="article"><meta property="og:url" content="https://xsleaks.dev/docs/2code/1drone/_index3/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-11-21T22:57:44+01:00"><title>Drone Controller Design Pt. 1 | Ricardo Chin</title>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Controller Design Pt. 1 # 1 Continuing&mldr; # Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.
+info
+Following the delivery of Phase I, issues were identified in the drone controller."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Drone Controller Design Pt. 1"><meta property="og:description" content="Controller Design Pt. 1 # 1 Continuing&mldr; # Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.
+info
+Following the delivery of Phase I, issues were identified in the drone controller."><meta property="og:type" content="article"><meta property="og:url" content="https://xsleaks.dev/docs/2code/1drone/_index3/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-11-25T11:57:27+01:00"><title>Drone Controller Design Pt. 1 | Ricardo Chin</title>
 <link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.b74e85bd7803de00c09a320dcf09ae0d7e37702a9918995f5fe9d1c71c55a223.css integrity="sha256-t06FvXgD3gDAmjINzwmuDX43cCqZGJlfX+nRxxxVoiM=" crossorigin=anonymous><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-10WQY47KS2"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-10WQY47KS2",{anonymize_ip:!1})}</script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Design</a><ul></ul></li><li><a href=/docs/1design/4mcomp/>FEM Formulation</a><ul></ul></li><li><a href=/docs/1design/5om/>Cylindrical Gear Train</a><ul></ul></li><li><a href=/docs/1design/6ebw/>Electron Beam Technology</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>RedBull Racing Competition</a><ul><li><a href=/docs/2code/1drone/_index2/>Drone Dynamics</a></li><li><a href=/docs/2code/1drone/_index3/ class=active>Drone Controller Design Pt. 1</a></li><li><a href=/docs/2code/1drone/_index4/>Drone Controller Design Pt. 2</a></li><li><a href=/docs/2code/1drone/_index5/>Drone Computer Vision</a></li></ul></li><li><a href=/docs/2code/2is/>AGV: System Identification</a><ul></ul></li><li><a href=/docs/2code/3si/>Deep Learning on Fake News</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul><li><a href=/docs/2code/5od/_index2/>Genetic Algorithm</a></li><li><a href=/docs/2code/5od/_index3/>Particle Swarm Optimization</a></li></ul></li><li><a href=/docs/2code/7rm/>Manipulator Robotics: JACO</a><ul></ul></li><li><a href=/docs/2code/8au/>Industrial Automation</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Ricardo Chin</span></a></h2><ul><li class=book-section-flat><a href=/docs/1design/>Design Portfolio</a><ul><li><a href=/docs/1design/1mest/>Structural Mechanics</a><ul></ul></li><li><a href=/docs/1design/2thermo/>ThermoCup</a><ul></ul></li><li><a href=/docs/1design/3pmec/>Mechanical Design</a><ul></ul></li><li><a href=/docs/1design/4mcomp/>FEM Formulation</a><ul></ul></li><li><a href=/docs/1design/5om/>Cylindrical Gear Train</a><ul></ul></li><li><a href=/docs/1design/6ebw/>Electron Beam Technology</a><ul></ul></li></ul></li><li class=book-section-flat><a href=/docs/2code/>Coding Portfolio</a><ul><li><a href=/docs/2code/1drone/>UAV Red Bull Air Racing</a><ul><li><a href=/docs/2code/1drone/_index2/>Drone Dynamics</a></li><li><a href=/docs/2code/1drone/_index3/ class=active>Drone Controller Design Pt. 1</a></li><li><a href=/docs/2code/1drone/_index4/>Drone Controller Design Pt. 2</a></li><li><a href=/docs/2code/1drone/_index5/>Drone Computer Vision</a></li></ul></li><li><a href=/docs/2code/2is/>AGV: System Identification</a><ul></ul></li><li><a href=/docs/2code/3si/>Deep Learning on Fake News</a><ul></ul></li><li><a href=/docs/2code/5od/>Evolutionary Computation</a><ul><li><a href=/docs/2code/5od/_index2/>Genetic Algorithm</a></li><li><a href=/docs/2code/5od/_index3/>Particle Swarm Optimization</a></li></ul></li><li><a href=/docs/2code/7rm/>Manipulator Robotics: JACO</a><ul></ul></li><li><a href=/docs/2code/8au/>Industrial Automation</a><ul></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Drone Controller Design Pt. 1</strong>
-<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=markdown><h1 id=controller-design-pt-1><strong>Controller Design Pt. 1</strong>
-<a class=anchor href=#controller-design-pt-1>#</a></h1><h1 id=1>1
-<a class=anchor href=#1>#</a></h1></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/commit/9eddd35a93894d95009d44fe7fb3db6b7ed19c3b title='Last modified by roaked | November 21, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 21, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/1drone/_index3.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
-<span>Ricardo Chin</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#1-continuing>1 Continuing&mldr;</a></li><li><a href=#2-actuation-and-sensors>2 Actuation and Sensors</a></li><li><a href=#3-servo-feedback-control-via-pole-placement>3 Servo Feedback Control Via Pole Placement</a></li><li><a href=#4-luanberger-observer>4 Luanberger Observer</a></li><li><a href=#5-linear-quadratic-regulator>5 Linear Quadratic Regulator</a></li></ul></nav></aside></header><article class=markdown><h1 id=controller-design-pt-1><strong>Controller Design Pt. 1</strong>
+<a class=anchor href=#controller-design-pt-1>#</a></h1><h2 id=1-continuing>1 Continuing&mldr;
+<a class=anchor href=#1-continuing>#</a></h2><p>Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.</p><blockquote class="book-hint2 info"><p class="hint-title info"><svg class="book-icon"><use href="/svg/hint-icons.svg#info-notice"/></svg><span>info</span></p>Following the delivery of Phase I, issues were identified in the drone controller. Although functional, some minor problems remained unresolved. The movement subsystem had initially been modeled as a 12th order system, established as linearizable, controllable, and observable. In the upcoming work, the decision was made to break down the movement system into four subsystems: vertical, lateral, longitudinal axis movement, and yaw subsystem.</blockquote><p>The primary objective is to formulate and address optimal control and estimation problems. It is intended to compare outcomes from the pole placement controller and the Luenberger observer with those achieved using the optimal controller (Linear Quadratic Regulator) and optimal observer (Kalman-Bucy observer).</p><h2 id=2-actuation-and-sensors>2 Actuation and Sensors
+<a class=anchor href=#2-actuation-and-sensors>#</a></h2><p>Before commencing the formulation and implementation of the required controllers and estimators, there are preliminary details that necessitate consideration.</p><p>One of the initial considerations revolves around the actuation, specifically the voltages applied to each motor. It was established during the project&rsquo;s initial phase that the model was linearized under a hovering condition. From this state, the computation of the required equilibrium motor actuation was derived.</p><link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script><script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>\[V_0 = 7.9V\]</span><p>In the context of the linear model, a null actuation maintains the system in a hovering state, implying no resultant motion. This characteristic arises from the actuation being a deviation from the nominal value rather than the actual voltage applied to the motors. To prevent motor saturation, it&rsquo;s crucial to adhere to the following voltage deviation constraints:</p><p><span>\[\Delta V_{\text{max}} = V_{\text{bat}} - V_0 = 11.1 - 7.9 = 3.2 \, \text{V}\]
+</span><span>\[\Delta V_{\text{min}} = V_0 = 7.9 \, \text{V}\]</span></p><p>In the non-linear model, maintaining the hovering condition necessitates applying V0 to all motors. However, the controllers are formulated based on the linear model. Therefore, the voltage offset should only be added after the controllers compute the necessary actuation. As a result, the maximum and minimum voltage deviations align with those of the linear model. Another crucial aspect involves the design of observers. Understanding which state variables lack direct physical measurement is essential, as these variables demand estimation using an observer.</p><p><img src=https://live.staticflickr.com/65535/53354560156_b9fd30fa8b_z.jpg alt=147></p><p>For the drone in question, only the position (Px, Py, and Pz) and orientation (<span>
+\(\phi, \theta, \text{and} \psi\)
+</span>) are directly measurable. Consequently, the estimation of linear velocity (<span>
+\(\dot{P}_x, \dot{P}_y \text{and} \dot{P}_z \)
+</span>) and angular velocity (<span>
+\(\dot{\phi}, \dot{\theta} \text{and} \dot{\psi} \dot \)
+</span>) becomes necessary.</p><p>Additionally, it was indicated that sensor noise would impact the measured signals, with the noise variance specified for each sensor.</p><table><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Inertial position x, px</td><td>7.3221 × 10^-4</td></tr><tr><td>Inertial position y, py</td><td>4.2829 × 10^-4</td></tr><tr><td>Inertial position z, pz</td><td>1.8000 × 10^-4</td></tr><tr><td>Roll, φ</td><td>3.4817 × 10^-4</td></tr><tr><td>Pitch, θ</td><td>2.6060 × 10^-4</td></tr><tr><td>Yaw, ψ</td><td>3.8313 × 10^-5</td></tr></tbody></table><p>It was suggested that the noise issue could potentially be addressed by employing the Kalman-Bucy estimator in place of the Luenberger observer.</p><h2 id=3-servo-feedback-control-via-pole-placement>3 Servo Feedback Control Via Pole Placement
+<a class=anchor href=#3-servo-feedback-control-via-pole-placement>#</a></h2><p>The objective of stabilizing the system while enabling reference tracking necessitates the implementation of a servo feedback control system. This entails designing the matrices K and ki, as depicted:</p><p><img src=https://live.staticflickr.com/65535/53355010435_d9cfc7a3d2_b.jpg alt=2138></p><p>Before computing the controller parameters, the selection of desired poles becomes crucial for modifying the system dynamics. As outlined previously, the model can be separated into four distinct subsystems, each with poles located at the origin. Furthermore, it was demonstrated that all these subsystems are controllable.</p><p>Specifically, the vertical axis and yaw subsystems are both represented as second-order systems and follow the structure defined in equation 4.</p><span>\[\begin{bmatrix}
+\dot{x}_1(t) \\
+\dot{x}_2(t) \\
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 \\
+1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+b \\
+0 \\
+\end{bmatrix}
+u(t) \\\]
+</span><span>\[y(t) = x_2(t) = [0 \, 1] \begin{vmatrix}
+x_1(t) \\
+x_2(t) \\
+\end{bmatrix}\]</span><p>The augmented system is, therefore, given by:</p><span>\[\begin{bmatrix}
+\dot{x}_1(t) \\
+\dot{x}_2(t) \\
+\dot{x}_i(t) \\
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 & 0 \\
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_i(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+b \\
+0 \\
+0 \\
+\end{bmatrix}
+u(t) \\\]
+</span><span>\[y(t) = x_2(t) = [0 \, 1 \, 0] \begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_i(t) \\
+\end{bmatrix}\]</span><p>By employing Ackermann’s Formula through the <a href=https://de.mathworks.com/help/control/ref/place.html>MATLAB function &ldquo;acker&rdquo;</a> and selecting all poles at -5, the controller gains for the vertical axis and yaw subsystems are provided by:</p><span>\[\bar{K}_{\text{vertical}} = [-24.16, -120.79, 201.32]\]
+</span><span>\[\bar{K}_{\text{yaw}} = [6.58, 32.90, 54.83]\]</span><p>The remaining two subsystems, the lateral and longitudinal subsystems, are composed of two second-order systems each (roll and pitch, respectively). Consequently, these subsystems are both fourth-order systems and follow the structure defined:</p><span>\[\begin{bmatrix}
+\dot{x}_1(t) \\
+\dot{x}_2(t) \\
+\dot{x}_3(t) \\
+\dot{x}_4(t)\\
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & Q_{32} & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_3(t) \\
+x_4(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+b \\
+0 \\
+0 \\
+0 \\
+\end{bmatrix}
+u(t)\]
+</span><span>\[y(t) = x_4(t) = [0 \, 0 \, 0 \, 1] \begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_3(t) \\
+x_4(t)\\
+\end{bmatrix}\]</span><p>The resultant augmented system is:
+<span>\[\begin{bmatrix}
+\dot{x}_1(t) \\
+\dot{x}_2(t) \\
+\dot{x}_3(t) \\
+\dot{x}_4(t) \\
+\dot{x}_i(t) \\
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & Q_{32} & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & -1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_3(t) \\
+x_4(t) \\
+x_i(t) \\
+\end{bmatrix}
++
+\begin{bmatrix}
+b \\
+0 \\
+0 \\
+0 \\
+0 \\
+\end{bmatrix}
+u(t)\]</span></p><span>\[y(t) = x_4(t) = [0 \, 0 \, 0 \, 1 \, 0] \begin{bmatrix}
+x_1(t) \\
+x_2(t) \\
+x_3(t) \\
+x_4(t) \\
+x_i(t) \\
+\end{bmatrix}\]</span><p>Through Ackermann’s Formula and after a trial-and-error process, selecting all poles at -5, the controller gains for the lateral axis and longitudinal axis subsystems are represented:
+<span>\[\bar{K}_{\text{lateral}} = [1.49, 14.90, 7.59, 18.99, -18.99]\]</span></p><span>\[\bar{K}_{\text{longitudinal}} = [1.69, 16.93, -8.63, -21.57, 21.57]\]</span><h2 id=4-luanberger-observer>4 Luanberger Observer
+<a class=anchor href=#4-luanberger-observer>#</a></h2><p>As previously mentioned, the onboard sensors can only physically measure position and orientation. Consequently, the estimation of linear and angular velocities within the subsystems&rsquo; state vectors becomes necessary.</p><p>The fundamental concept behind an estimator involves creating a numerical simulator of the physical system, receiving actuation as input, and producing the state space vector estimation as output. However, this approach alone isn&rsquo;t sufficient. The estimation error can asymptotically vanish if the state is unstable, and the convergence velocity of the error is limited by the system&rsquo;s velocity.</p><p>To address this, the implementation of a Luenberger observer is essential. As depicted in the following figure, the adjustment of observer performance can be achieved by tuning the parameters within matrix L.</p><p><img src=https://live.staticflickr.com/65535/53355010430_806fed4271_z.jpg alt=124918></p><p>To derive the Luenberger observer, it&rsquo;s crucial to select the desired poles ensuring that the observer operates faster than the system dynamics without excessively amplifying modeling errors. In this scenario, for this system, a choice was made to position the poles 10 times faster than those of the controller, thus setting all poles at -50. Additionally, it&rsquo;s pertinent to note that, as previously explained in the initial phase, the system is observable.</p><p>Utilizing Ackermann’s formula, specifically via the <a href=https://de.mathworks.com/help/control/ref/place.html>MATLAB function &ldquo;acker&rdquo;</a>, the matrix L for the designed Luenberger observer for the vertical, yaw, lateral, and longitudinal subsystems can be described in the following equations:</p><span>\[L_{\text{vertical}} = \begin{bmatrix} 2500 \\ 100 \end{bmatrix}\]
+</span><span>\[L_{\text{yaw}} = \begin{bmatrix} 2500 \\ 100 \end{bmatrix}\]
+</span><span>\[L_{\text{lateral}} = \begin{bmatrix} 6.371 \\ 0.510 \\ 0.150 \\ 0.002 \end{bmatrix}\]
+</span><span>\[L_{\text{longitudinal}} = \begin{bmatrix} -6.371 \\ -0.510 \\ 0.150 \\ 0.002 \end{bmatrix}\]</span><h2 id=5-linear-quadratic-regulator>5 Linear Quadratic Regulator
+<a class=anchor href=#5-linear-quadratic-regulator>#</a></h2><p>The pole placement method demonstrated in the previous sections yielded satisfactory outcomes. However, it poses challenges in tuning the controller, becoming increasingly complex as the system&rsquo;s order increases. Additionally, it complicates the task of finding a compromise between conflicting objectives when designing a controller.</p><p>In light of this, the focus now shifts to considering an optimal controller that takes into account conflicting goals and strategically places poles in an optimal manner. Specifically, the design will involve a linear quadratic regulator (LQR). In designing an optimal controller, the usual objective is to minimize energy consumption (represented by the control action) while maximizing the distance traveled—objectives that clearly conflict.</p><p>The initial step involves selecting a performance index J that reflects these conflicting objectives. In this case, the performance index specified by the following equation is utilized, aiming to be minimized.</p><span>\[J = \int_{0}^{\infty} (x^T(t) Q x(t) + u^T(t) R u(t)) \, dt\]</span><p>Certainly, in a manner akin to PID controller parameters, the matrices Q (where Q ≥ 0) and R (where R > 0) play a pivotal role. They contribute to the behaviour of the system and need to be tuned to achieve the desired system response. Augmenting Q results in faster convergence of states toward the reference, while increasing R penalizes larger control inputs. The balance between performance and energy expended is thus represented by the relative values assigned to both matrices.</p><p>In an optimal controller, the controller gains aren&rsquo;t constant over time. However, it&rsquo;s more common to design a sub-optimal controller where K is a constant value. Adhering to this approach, the computation of matrix K is outlined:</p><span>\[K = R^{-1}B^T P\]</span><blockquote class="book-hint2 tip"><p class="hint-title tip"><svg class="book-icon"><use href="/svg/hint-icons.svg#tip-notice"/></svg><span>tip</span></p>Matrix P is the solution of the algebraic Riccati equation:</p></blockquote><p>It was mentioned that, in pursuit of tracking a reference rather than merely maintaining states at zero, <a href=https://de.mathworks.com/help/control/ref/ss.lqi.html>the MATLAB function &ldquo;lqi&rdquo; (linear quadratic integrator)</a> becomes crucial as it computes both K and ki values.</p><p>The success in achieving desired performance largely hinges on the choice of relative values within Q and R matrices. Specifically, emphasis was placed on the need to tune diagonal values, allowing for certain values to be set to zero if controlling a particular state isn&rsquo;t deemed necessary.</p><p>Regarding the yaw angle and vertical axis subsystems, considering their augmented third-order nature, the prescribed values for Q and R were specified through equations:</p><span>\[Q_{\text{yaw}} = \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 10 & 0 \\
+0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{yaw}} = 1\]
+</span><span>\[Q_{\text{vertical}} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 50 & 0 \\
+0 & 0 & 100 \\
+\end{bmatrix}
+; \quad R_{\text{vertical}} = 1\]</span><p>In regard to the longitudinal axis and lateral axis subsystems, the augmented systems are identified as fifth-order. The designated values for Q and R are specifically detailed:</p><span>\[Q_{\text{longitudinal}} = \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 10 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 10 & 0 \\
+0 & 0 & 0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{longitudinal}} = 1\]
+</span><span>\[Q_{\text{longitudinal}} = \begin{bmatrix}
+0 & 0 & 0 & 0 & 0 \\
+0 & 10 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 10 & 0 \\
+0 & 0 & 0 & 0 & 50 \\
+\end{bmatrix}
+; \quad R_{\text{longitudinal}} = 1\]</span></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/commit/b54da1b7d3a41b4be4223f28d4d12bdea42668fb title='Last modified by roaked | November 25, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 25, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/roaked/roaked.github.io/edit/main/content/content/docs/2code/1drone/_index3.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Ricardo Chin</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#1-continuing>1 Continuing&mldr;</a></li><li><a href=#2-actuation-and-sensors>2 Actuation and Sensors</a></li><li><a href=#3-servo-feedback-control-via-pole-placement>3 Servo Feedback Control Via Pole Placement</a></li><li><a href=#4-luanberger-observer>4 Luanberger Observer</a></li><li><a href=#5-linear-quadratic-regulator>5 Linear Quadratic Regulator</a></li></ul></nav></div></aside></main></body></html>
