@@ -124,7 +124,7 @@ $hint-colors: (
 
 {{< hint warning >}}
 
-Adjust your relative path to the hint-icons.svg
+- Adjust your relative path to the hint-icons.svg
 
 ```html
 {{- $noticeType := .Get 0 -}}
@@ -145,7 +145,9 @@ Adjust your relative path to the hint-icons.svg
   </blockquote>
 {{ end }}
 ```
-{{< hint info >}}
+
+
+{{< /hint >}}
 
 # Developer
 
