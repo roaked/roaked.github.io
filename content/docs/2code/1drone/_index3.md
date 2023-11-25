@@ -532,3 +532,64 @@ Addressing actuation saturation and avoiding extreme pitch and roll angles can b
 ## 8 Trajectory Following
 
 
+After successfully testing the system with step references, I implemented a trajectory using a series of ramps to guide the drone's trajectory, aiming to minimize initial error. This trajectory, designed to trace a "8" shape with the drone landing at its initial take-off position, underwent testing in both the linear and nonlinear models.
+
+To determine the maximum slope of the reference ramps, a trial-and-error process was conducted using the nonlinear model. By gradually increasing the slopes of the ramps (for the four references) until the drone became uncontrollable. Moreover, it was noted that the maximum pitch and roll angles remained below 0.6 radians (approximately 35 degrees).
+
+Similar to the steps test, I was interested in evaluating trajectory tracking accuracy, assessing steep roll and pitch angles, and identifying any actuation saturation during the ramp trajectory test. Considering previous conclusions, I opted to use the Linear Quadratic Regulator without noise and the Linear Quadratic Gaussian when noise was introduced to the sensors. This choice allows for a comprehensive evaluation of trajectory tracking performance and system stability under different conditions, ensuring the suitability of the controllers and observers for both noise-free and noisy sensor scenarios.
+
+### 8.1. Linear Model
+
+As it can be seen for the reference tracking of the drone, the results are satisfactory and the control system was able to follow the entire trajectory with no issues.
+
+{{< details "Reference and response along the trajectory - (click to expand)" close >}}
+![24](https://live.staticflickr.com/65535/53354783173_1ff98e2030.jpg)
+{{< /details >}}
+
+{{< details "Actuation of each motor along the trajectory of the linear system - (click to expand)" close >}}
+**Actuation did not saturate.**
+![25](https://live.staticflickr.com/65535/53355010245_9c43b76a48.jpg)
+{{< /details >}}
+
+{{< details "Response of the angles along the trajectory of the Linear system - (click to expand)" close >}}
+**The roll and pitch angles are reasonable.**
+![26](https://live.staticflickr.com/65535/53354560006_f275d2014e_b.jpg)
+{{< /details >}}
+
+{{< hint example >}}
+I also created a 3D plot of the trajectory flown by the drone for the linear system. Plot is seen in the following figure:
+{{< /hint  >}}
+![27](https://live.staticflickr.com/65535/53354783148_4bacc67c53.jpg)
+
+
+
+{{< hint warning >}}
+It was previously established that when sensor noise is present, employing the Kalman-Bucy observer becomes essential. The next figure demonstrates that without the Kalman filter, the drone's motion becomes erratic, showcasing evident actuation saturation issues.
+![28](https://live.staticflickr.com/65535/53354560001_a8133de54e.jpg)
+{{< /hint >}}
+
+
+
+Logically, adding the **Kalman filter to tackle the noise**, the results improve.
+
+{{< details "Reference and response along the trajectory - (click to expand)" close >}}
+![29](https://live.staticflickr.com/65535/53355010200_e435b25f4c.jpg)
+{{< /details >}}
+
+{{< details "Actuation of each motor along the trajectory - (click to expand)" close >}}
+**Actuation did not saturate.**
+![30](https://live.staticflickr.com/65535/53355010205_5774ce6dcb.jpg)
+{{< /details >}}
+
+{{< details "Pitch and roll along the trajectory - (click to expand)" close >}}
+**The roll and pitch angles are reasonable.**
+![31](https://live.staticflickr.com/65535/53354559936_a12198f8db_b.jpg)
+{{< /details >}}
+
+{{< hint example >}}
+Aside from the 3D plot of the trajectory, I showcase a zoomed section showcasing the bits of oscillation due to noise.
+{{< /hint  >}}
+![32](https://live.staticflickr.com/65535/53355010185_6f80089731.jpg)
+![33](https://live.staticflickr.com/65535/53353685792_24fe13afc8.jpg)
+
+### 8.2. Nonlinear Model
