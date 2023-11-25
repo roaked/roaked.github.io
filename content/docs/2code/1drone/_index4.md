@@ -684,7 +684,7 @@ Trajectories emerged as critical design parameters, impacting performance signif
 
 {{< hint info>}}
 Broadly, the LQR consistently delivered faster times across all trajectories. Conversely, the MPC facilitated a more stable drone behaviour by incorporating constraints on roll and pitch values. Detailed results are outlined in the table below.
-{{ /hint }}
+{{< /hint >}}
 
 ![21ss](https://live.staticflickr.com/65535/53356198045_4db1cceaf9_c.jpg)
 
