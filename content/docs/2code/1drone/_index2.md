@@ -731,3 +731,7 @@ In conclusion, the developed models exhibited accuracy and reliability in predic
 
 
 ![cc](https://live.staticflickr.com/65535/53353830367_96ca0f1119_c.jpg)
+
+
+{{< hint tip >}}
+[**Advance to Controller Design Pt. 1 Here ✌️**](https://ricardochin.com/docs/2code/1drone/_index3/){{< /hint >}}

@@ -5,6 +5,9 @@ weight: 5
 
 # **Pixel Pilots: Drone Computer Vision**
 
+{{< hint tip >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/2code/1drone/_index5/#3-pixe-pilots-certification-acquired). I have cool images! ✌️{{< /hint >}}
+
 ## 1 Computer Vision for Obstacle Detection
 
 In preparation for the Red Bull drone race, a comprehensive dataset was compiled, consisting of images capturing gates from diverse angles, distances, and lighting conditions. These images showcase the gates amidst various backgrounds, providing a range of scenarios that drones might encounter during the race. The intention behind gathering such a varied dataset is to enable the development of an algorithm capable of accurately identifying these gates despite changes in perspective, distance, lighting, and background colors, facilitating precise navigation for the drones during the high-paced race.
@@ -230,7 +233,7 @@ Upon observing the HSV components, it becomes apparent that the gate is distinct
 ![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
 
 
-## 3 Section End
+## 3 Pixol Pilots Certification Acquired
 
 It became evident that arriving at a solution wasn't straightforward, and while the obtained solution wasn't perfect, it showcased potential for optimization with an expanded dataset. Additional images would enhance the algorithm's ability to recognize the gate under various lighting conditions and backgrounds. Nonetheless, color segmentation emerged as an effective means to segment the gate.
 
@@ -240,6 +243,6 @@ Despite minor imperfections resulting from imperfect segmentation, the detection
 
 Ultimately, in this section the work done successfully achieved its goal by effectively isolating and enhancing the gate. Employing various solutions contributed to solving the challenge of gate identification for drone competitions.
 
-## 4 Next Steps
 
-The next step could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.
+{{< hint example >}}
+As for next steps... it could involve exploring the integration of machine learning techniques to further enhance the gate identification process, potentially leading to real-time detection capabilities. Machine learning models, such as convolutional neural networks (CNNs) or other deep learning architectures, could be trained on an expanded dataset to improve gate recognition across diverse conditions. This adaptation could pave the way for more robust and efficient gate identification systems, especially in real-time scenarios during drone competitions.{{< /hint >}}
