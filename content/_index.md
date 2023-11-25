@@ -1,5 +1,5 @@
 ---
-title: Maltesers & Coffee
+title: Maltesers & Coffee                   
 type: docs
 ---
 
@@ -40,7 +40,7 @@ As I grew older, I found myself inheriting their passion for preserving moments,
 
 
 
-{{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes.**{{< /button >}}
+{{< button href="https://youtu.be/0NsNfUhUm4k" >}}**World through my eyes**{{< /button >}}
 
 ![mewiqmj](https://live.staticflickr.com/65535/53353230796_84eda25aa1_c.jpg)
 
