@@ -59,22 +59,11 @@ Replacing your HTML code with:
 
 - Followed by modifications in your SCSS file:
 
-```css
+```scss
  // {{< hint >}}
     .book-hint {
       @each $name, $color in $hint-colors {
         &.#{$name} {
-          border-color: $color;
-          background-color: rgba($color, 0.1);
-        }
-      }
-    }
-
-    // {{< hint2 >}}
-    .book-hint2 {
-      @each $name, $color in $hint-colors {
-        &.#{$name} {
-          border-inline-start: none;
           border-color: $color;
           background-color: rgba($color, 0.1);
         }
@@ -107,7 +96,6 @@ Replacing your HTML code with:
   .hint-title span {
     vertical-align: middle;
   }
-} 
 ```
 
 - Lastly, adapt your manifest.json file accordingly, and can also switch your source icon in .svg format. This way you can also add your personalized icon to your shortcode hint:
