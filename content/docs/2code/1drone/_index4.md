@@ -701,7 +701,7 @@ Broadly, the LQR consistently delivered faster times across all trajectories. Co
 
 {{< hint note >}}
 Using the [MATLAB graphical interface for MPC design](https://www.mathworks.com/products/model-predictive-control.html) led to a potential loss of sensitivity when fine-tuning it. Consequently, the MPC might hold untapped potential not fully explored in this project, presenting an area for further improvement and exploration.
-{{ /hint }}
+{{< /hint >}}
 
 {{< hint tip >}}
 [Advance to UAV Computer Vision Here ✌️](https://ricardochin.com/docs/2code/1drone/_index5/){{< /hint >}}
