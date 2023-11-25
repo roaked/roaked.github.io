@@ -108,7 +108,6 @@ Replacing your HTML code with:
     vertical-align: middle;
   }
 } 
-
 ```
 
 - Lastly, adapt your manifest.json file accordingly, and can also switch your source icon in .svg format. This way you can also add your personalized icon to your shortcode hint:
