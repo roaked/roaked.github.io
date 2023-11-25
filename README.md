@@ -18,13 +18,13 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 ## READ_ME - Shortcodes
 
-{{< button href="https://github.com/alex-shpak/hugo-book" >}}**Book theme dev page**{{< /button >}}
+[https://github.com/alex-shpak/hugo-book]Book theme dev page
 
 - This can be customize in this section of the `hugo-book/layout/shortcodes/hint-html`.
 
-{{< hint tip >}}
+
 - Modifications in the `_shortcodes.scss` file
-{{< /hint >}}
+
 
 ```scss
 .book-hint {
@@ -65,9 +65,8 @@ vertical-align: middle;
 ```
 
 
-{{< hint tip >}}
 - Modifications `_defaults.css` 
-{{< /hint >}}
+
 
 
 ```scss
@@ -103,9 +102,9 @@ $hint-colors: (
 }
 ```
 
-{{< hint tip >}}
+
 - Lastly, adaption of the manifest.json file accordingly, as well as addition of new icons in `.svg` format. This way personalized icons can be added to the shortcodes.
-{{< /hint >}}
+
 
 ```json
 {
@@ -125,11 +124,11 @@ $hint-colors: (
 }
 ```
 
-{{< hint danger >}}
+
 
 Modifications in the relative path to the `hint-icons.svg` must be changed - in case addition of new icons. Otherwise failed to deploy & build new pages.
 
-{{< /hint >}}
+
 
 ```html
 {{- $noticeType := .Get 0 -}}
@@ -153,11 +152,12 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 
 ## Modification
 
-{{< hint info >}}
+### Last change log
+
 - dark-theme modified
 - color gradient for hint shortcodes changed
 - google analytics connection
-{{< /hint >}}
+
 
 - Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
 
