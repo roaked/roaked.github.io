@@ -59,8 +59,7 @@ Replacing your HTML code with:
 
 - Followed by modifications in your SCSS file:
 
-```scss
-
+```css
  // {{< hint >}}
     .book-hint {
       @each $name, $color in $hint-colors {
