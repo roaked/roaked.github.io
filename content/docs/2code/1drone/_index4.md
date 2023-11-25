@@ -691,14 +691,11 @@ Broadly, the LQR consistently delivered faster times across all trajectories. Co
 ![1240ss](https://live.staticflickr.com/65535/53354870612_b95ccfae7d_c.jpg)
 
 
-| Nonlinear     |      LQR            |       LQR          |  LQR     |  MPC                 |     MPC        |   MPC    |
-|---------------|---------------------|--------------------|----------|---------------------|-----------------|----------|
-|   Trajectory  | Position Error (m)  | Yaw Error (rad^2)  | Time (s) || Position Error (m)| Yaw Error (rad^2)| Time (s) |
-|---------------|---------------------|--------------------|----------|---------------------|-----------------|----------|
-| Simple Square | 0.2110              | 0.001614           | 12       |         0.1908      |    0.0002915    |    25    |
-| Crazy 8       | 0.3241              | 0.00794            | 16       |         0.2866      |    0.001438     |    35    |
-| Amazing Race  | 0.1613              | 0.005131           | 60       |         0.2520      |    0.003468     |    90    |
-
+| Nonlinear Trajectory | LQR Position Error (m) | LQR Yaw Error (rad^2) | LQR Time (s) | MPC Position Error (m) | MPC Yaw Error (rad^2) | MPC Time (s) |
+|----------------------|------------------------|-----------------------|--------------|------------------------|-----------------------|--------------|
+| Simple Square        | 0.2110                 | 0.001614              | 12           | 0.1908                 | 0.0002915             | 25           |
+| Crazy 8              | 0.3241                 | 0.00794               | 16           | 0.2866                 | 0.001438              | 35           |
+| Amazing Race         | 0.1613                 | 0.005131              | 60           | 0.2520                 | 0.003468              | 90           |
 
 {{< hint note >}}
 Using the [MATLAB graphical interface for MPC design](https://www.mathworks.com/products/model-predictive-control.html) led to a potential loss of sensitivity when fine-tuning it. Consequently, the MPC might hold untapped potential not fully explored in this project, presenting an area for further improvement and exploration.
