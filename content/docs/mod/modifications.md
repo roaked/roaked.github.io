@@ -6,7 +6,7 @@ bookFlatSection: true
 
 # **Based on UX/UI / bookHidden: true**
 
-# Hugo Framework
+## Hugo Framework
 
 {{< hint info >}}
 The wiki is built locally using the [Hugo framework](https://gohugo.io/getting-started/installing/). You can run a local environment by following these steps:
@@ -16,11 +16,11 @@ The wiki is built locally using the [Hugo framework](https://gohugo.io/getting-s
 - Run `hugo server --minify` in the root directory
 - Open your browser and go to http://localhost:1313 (or as indicated by the Hugo output){{< /hint >}}
 
-# Hugo Book Theme Modifications
+## Hugo Book Theme Modifications
 
 I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) by modifying default settings to offer users more detailed information. I expanded the default three hint options to include three additional key options, alongside color correction. You can still utilize hint shortcode normally.
 
-## READ_ME - Changing Shortcodes
+## READ_ME - Shortcodes
 
 {{< button href="https://github.com/alex-shpak/hugo-book" >}}**Book theme dev page**{{< /button >}}
 
@@ -155,11 +155,17 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 {{ end }}
 ```
 
-# Developer
+## Modification
 
-- Page created by [Ricardo Chin](https://github.com/roaked) - Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
+- Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
 
-# Contributors
+*Log*: `dark-theme modified, color gradient for hint shortcodes changed`
+
+## Developer
+
+- Page created by [Ricardo Chin](https://github.com/roaked) 
+
+## Contributors
 
 - [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
 
