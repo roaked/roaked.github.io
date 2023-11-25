@@ -26,7 +26,7 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 Replacing your HTML code with:
 
-- Followed by modifications in your SCSS file:
+- Followed by modifications in your `_shortcodes.scss` file:
 
 ```scss
 .book-hint {
@@ -64,8 +64,10 @@ fill: currentColor;
 .hint-title span {
 vertical-align: middle;
 }
+```
 
-- In addition to:
+
+- In addition to your `_defaults.css` :
 
 ```scss
 $hint-colors: (
@@ -98,8 +100,6 @@ $hint-colors: (
   --hint-color-note: #608ADC;
   --hint-color-example: #A887DE;
 }
-```
-
 ```
 
 - Lastly, adapt your manifest.json file accordingly, and can also switch your source icon in .svg format. This way you can also add your personalized icon to your shortcode hint:
