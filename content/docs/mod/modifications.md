@@ -157,5 +157,9 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 
 # Developer
 
-- Page created and modified by [Ricardo Chin](https://github.com/roaked)
+- Page created by [Ricardo Chin](https://github.com/roaked) - Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
+
+# Contributors
+
+- [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
 
