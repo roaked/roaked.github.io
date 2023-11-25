@@ -22,11 +22,13 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 ## READ_ME - Changing Shortcodes
 
-- [This can be customize in this section of the `hugo-book/layout/shortcodes/hint-html`]([https://github.com/alex-shpak/hugo-book])
+{{< button href="https://github.com/alex-shpak/hugo-book" >}}**Book theme dev page.**{{< /button >}}
 
-Replacing your HTML code with:
+- This can be customize in this section of the `hugo-book/layout/shortcodes/hint-html`.
 
-- Followed by modifications in your `_shortcodes.scss` file:
+{{< hint tip >}}
+- Modifications in the `_shortcodes.scss` file
+{{< hint tip >}}
 
 ```scss
 .book-hint {
@@ -67,7 +69,10 @@ vertical-align: middle;
 ```
 
 
-- In addition to your `_defaults.css` :
+{{< hint tip >}}
+- Modifications `_defaults.css` 
+{{< /tip>}}
+
 
 ```scss
 $hint-colors: (
@@ -102,7 +107,9 @@ $hint-colors: (
 }
 ```
 
-- Lastly, adapt your manifest.json file accordingly, and can also switch your source icon in .svg format. This way you can also add your personalized icon to your shortcode hint:
+{{< hint tip >}}
+- Lastly, adaption of the manifest.json file accordingly, as well as addition of new icons in `.svg` format. This way personalized icons can be added to the shortcodes.
+{{< /hint >}}
 
 ```json
 {
@@ -122,9 +129,11 @@ $hint-colors: (
 }
 ```
 
-{{< hint warning >}}
+{{< hint danger >}}
 
-- Adjust your relative path to the hint-icons.svg
+Modifications in the relative path to the `hint-icons.svg` must be changed - in case addition of new icons. Otherwise failed to deploy & build new pages.
+
+{{< /hint >}}
 
 ```html
 {{- $noticeType := .Get 0 -}}
@@ -145,9 +154,6 @@ $hint-colors: (
   </blockquote>
 {{ end }}
 ```
-
-
-{{< /hint >}}
 
 # Developer
 
