@@ -380,7 +380,7 @@ Additionally, it's important to acknowledge that despite my best effort, success
 
 I conducted comprehensive testing of the implemented controllers (via pole placement and LQR) and observers (Luenberger and Kalman-Bucy) using both the linear simulator developed in the initial phase and the full nonlinear simulator provided in the subsequent phase.
 
-{{< /hint warning >}}
+{{< hint warning >}}
 Two primary tests were conducted to evaluate performance:
 
 - 1. Step Reference Test: This involved applying step changes to the four references (Px, Py, Pz, and ψ). The objective was to assess performance in a complex scenario where the controller needed to combine four actuations to track a four-degree-of-freedom motion.
