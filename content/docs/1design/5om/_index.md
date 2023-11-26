@@ -1,10 +1,10 @@
 ---
 weight: 5
 bookHidden: false
-title: "Manual Car Transmission Design"
+title: "Car Transmission Design"
 ---
 
-# **Spinning Wonders: The Gear Train Blueprint**
+# **The Manual Gear Train Blueprint**
 
 
 ![trans](https://i.makeagif.com/media/4-30-2016/iSEE9u.gif)
