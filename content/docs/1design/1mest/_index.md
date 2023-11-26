@@ -91,7 +91,7 @@ Once the solution type, constraints, and applied loads are defined, the solution
 
 Executing the Solve command in NX yielded the following results for the first 10 instability modes.
 
-| Mode |    Instibality Load   (kN) |
+| Mode |    Instability Load   (kN) |
 |------|----------------------------|
 | 1    | 1631.13                    |
 | 2    | 4385.45                    |
