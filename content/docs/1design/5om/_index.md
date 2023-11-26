@@ -12,6 +12,9 @@ title: "Car Transmission Design"
 
 ## 1 Normal Gear Train Composed of Cylindrical Gears
 
+{{< hint tip >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - You Spin Me Right Round](https://ricardochin.com/docs/1design/5om/#4-you-spin-me-right-round).{{< /hint >}}
+
 ### 1.1. Functionality
 
 A gearbox is used when different values of torque and rotational speed are desired from one shaft (input shaft) to another (output shaft). This is achieved through the combination of gears of different sizes. A gearbox can also reverse the direction of rotation, causing the output shaft to rotate in the opposite direction to the input shaft.
@@ -428,7 +431,8 @@ For calculating efficiency, it's necessary to evaluate the coefficient of static
 Given that the friction factor is determined by f = tan({{< katex >}}\mu{{< /katex >}}), it is found that f = tan(0.23) = 0.234.
 
 {{< katex display >}}
-\eta = 1 - \frac{f}{\cos(\alpha)} \left(\frac{1}{D_1} + \frac{1}{D_2}\right) \frac{l_a^2 + l_f^2}{l_a + l_f} = 1 - \frac{0.1614}{\cos(20^\circ)} \left(\frac{1}{60} + \frac{1}{80}\right) \frac{5.0586^2 + 4.8814^2}{5.0586 + 4.8814} = 91.69\%
+\eta = 1 - \frac{f}{\cos(\alpha)} \left(\frac{1}{D_1} + \frac{1}{D_2}\right) \frac{l_a^2 + l_f^2}{l_a + l_f} = 1 - \frac{0.1614}{\cos(20^\circ)} \left(\frac{1}{60} + \frac{1}{80}\right) \frac{5.0586^2 + 4.8814^2}{5.0586 + 4.8814} \, \\
+\eta = 91.69\%
 {{< /katex >}}
 
 {{< hint warning >}}
@@ -441,7 +445,7 @@ To prevent the existence of primary external interferences, the minimum number o
 Z_{1 \text{min}} \geq -Z_2 + \sqrt{Z_2^2 + \frac{4 \cdot (1 + Z_2)}{\sin^2(\alpha)}} = -40 + \sqrt{40^2 + \frac{4 \cdot (1+40)}{sin^2(20^\circ)}} = 14.789 \approx 15 \text{ teeth}
 {{< /katex >}}
 
-Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A [MATLAB code](https://ricardochin.com/docs/1design/5om/#-sneak-peak-of-matlab) was developed to systematize these calculations.
+Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A [MATLAB code](https://ricardochin.com/docs/1design/5om/#sneak-peak-of-matlab) was developed to systematize these calculations.
 
 
 |      | E1-E2 | E3-E8 | E4-E9 | E5-E6 | E7-E10 |
@@ -469,7 +473,7 @@ All {{< katex >}}\mu{{< /katex >}} values satisfy the condition of being {{< kat
 
 To comply with safety standards, a safety factor was defined using the Pugsley method.
 
-![21](https://live.staticflickr.com/65535/53357326554_92d57763c6_w.jpg)
+![21](https://live.staticflickr.com/65535/53349357450_366d636c17.jpg)
 
 It was considered that material quality, repair, and inspection were not prioritized in this case. However, controlling the applied load and information regarding tests with similar parts was deemed important. The economic impact is also crucial, as one of the objectives is to minimize costs.
 
