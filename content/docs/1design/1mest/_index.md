@@ -1,7 +1,7 @@
 ---
 weight: 1
 bookHidden: false
-title: "FEA Beam Instability"
+title: "FEA Beam Instability Modes"
 ---
 
 # **Beam Me Up, Scotty!**
