@@ -7,7 +7,7 @@ title: "Manual Car Transmission Design"
 # **Spinning Wonders: The Gear Train Blueprint**
 
 
-![trans](https://i.makeagif.com/media/5-07-2015/Wllip-.gif)
+![trans](https://i.makeagif.com/media/4-30-2016/iSEE9u.gif)
 
 
 ## 1 Normal Gear Train Composed of Cylindrical Gears
