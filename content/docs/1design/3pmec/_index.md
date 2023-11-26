@@ -554,7 +554,7 @@ F_i = \max{F_{\text{b}}, F_{\text{comB}}} = 399768 \, \text{N} \\
 A_{t_{min}}} = \frac{F_i}{\chi \times S_p} = 642 \, \text{mm}^2 \\
 {{< /katex >}}
 
-Since these bolts will be structural components, class 10.9 was chosen, corresponding to a proof load Sp = 830 MPa. With the obtained value of {{< katex >}}A_{t_{min}}{{< /katex >}}, table 8-1 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y) can be consulted - allowing to determine the nominal diameter that meets the minimum area requirement. In this case, at least an M36 bolt will be required.
+Since these bolts will be structural components, class 10.9 was chosen, corresponding to a proof load Sp = 830 MPa. With the obtained value of {{< katex >}}A_{t_{min}}{{< /katex >}}, resulting from table 8-1 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y), it is feasible to determine the nominal diameter that meets the minimum area requirement. In this case, at least an M36 bolt will be required.
 
 | Bolt      | d (mm) | At (mm²) | Ar (mm²) | P (mm) | Sp (MPa) | Su (MPa) |
 |----------|--------|------------|------------|--------|------------|------------|
