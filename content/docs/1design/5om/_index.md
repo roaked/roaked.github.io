@@ -1,7 +1,7 @@
 ---
 weight: 5
 bookHidden: false
-title: "Vehicle Transmission Design"
+title: "Car Transmission Design"
 ---
 
 # **The Manual Gear Train Blueprint**
@@ -428,7 +428,7 @@ For calculating efficiency, it's necessary to evaluate the coefficient of static
 Given that the friction factor is determined by f = tan({{< katex >}}\mu{{< /katex >}}), it is found that f = tan(0.23) = 0.234.
 
 {{< katex display >}}
-\eta = 1 - \frac{f}{\cos(\alpha)} \cdot \left(\frac{1}{D_1} + \frac{1}{D_2}\right) \frac{l_a^2 + l_f^2}{l_a + l_f} = 1 - \frac{0.1614}{\cos(20^\circ)} \cdot \left(\frac{1}{60} + \frac{1}{80}\right) \frac{5.0586^2 + 4.8814^2}{5.0586 + 4.8814} = 0.9169 = 91.69\%
+\eta = 1 - \frac{f}{\cos(\alpha)} \left(\frac{1}{D_1} + \frac{1}{D_2}\right) \frac{l_a^2 + l_f^2}{l_a + l_f} = 1 - \frac{0.1614}{\cos(20^\circ)} \left(\frac{1}{60} + \frac{1}{80}\right) \frac{5.0586^2 + 4.8814^2}{5.0586 + 4.8814} = 91.69\%
 {{< /katex >}}
 
 {{< hint warning >}}
@@ -441,9 +441,7 @@ To prevent the existence of primary external interferences, the minimum number o
 Z_{1 \text{min}} \geq -Z_2 + \sqrt{Z_2^2 + \frac{4 \cdot (1 + Z_2)}{\sin^2(\alpha)}} = -40 + \sqrt{40^2 + \frac{4 \cdot (1+40)}{sin^2(20^\circ)}} = 14.789 \approx 15 \text{ teeth}
 {{< /katex >}}
 
-Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A MATLAB code was developed to systematize these calculations.
-
-![assm](https://live.staticflickr.com/65535/53356992391_03f6534a0f_w.jpg)
+Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A [MATLAB code](https://ricardochin.com/docs/1design/5om/#-sneak-peak-of-matlab) was developed to systematize these calculations.
 
 
 |      | E1-E2 | E3-E8 | E4-E9 | E5-E6 | E7-E10 |
@@ -503,3 +501,9 @@ Future work or potential improvements could include exploring:
 - **Material Selection and Enhancement**: Exploring other material options or enhancements that could improve the gearbox's performance, such as materials with higher heat resistance or increased durability.
 
 - **Efficiency Optimization**: Conducting studies to optimize the gearbox's efficiency without compromising its functionality, potentially through design modifications or lubrication improvements.
+
+
+## Sneak Peak of MATLAB
+
+
+![assm](https://live.staticflickr.com/65535/53356992391_03f6534a0f_w.jpg)
