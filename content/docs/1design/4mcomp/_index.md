@@ -4,9 +4,9 @@ bookHidden: false
 title: "FEM Software Development"
 ---
 
-# **FEM: A Virtual Tetris**
+# **Finite Element Method: A Virtual Tetris**
 
-## 1 Mathematical Background
+## 1 DIY: A FEA Playground
 
 {{< hint tip >}}
 If you wish to skip the theoretical and implementation details, and would like to know my thoughts on attempting to code a finite element method software or alternatively develop a SDK for existing SW, [please click here to jump to the summarized findings Ch. 4 - My Considerations](https://ricardochin.com/docs/1design/4mcomp/#4-my-considerations).{{< /hint >}}
@@ -171,9 +171,9 @@ J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + 
 \tau_{xy} = \sqrt{\tau_{yz}^2 +\tau_{xz}^2}
 {{< /katex >}} 
 
-## 2 Time for some coding!
+## 2 MATLAB: Time for some coding!
 
-### 2.1. READ_ME
+### 2.1. READ_ME.md
 
 The program starts by executing the script ["MainG10.m"](https://github.com/roaked/fem-math-formulation/tree/main/code) **directly available on my github page** and should contain all the subfunctions and their respective 'txt' files in the respective folder. Once the program is initiated, the user inputs the data file name in the form of "nome.txt." The data file should contain the node coordinates, connectivity matrix, and boundary conditions. The data file created for this problem is named ["dadosg10.txt"](https://github.com/roaked/fem-math-formulation/tree/main/code).
 
