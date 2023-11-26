@@ -1,7 +1,7 @@
 ---
 weight: 5
 bookHidden: false
-title: "Car Transmission Design"
+title: "Vehicle Transmission Design"
 ---
 
 # **The Manual Gear Train Blueprint**
