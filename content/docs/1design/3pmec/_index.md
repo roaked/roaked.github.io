@@ -342,3 +342,293 @@ a = \frac{350}{\sqrt{v} \times t} = \frac{350}{\sqrt{0.333} \times 0.3937} \appr
 - t: Thickness of the beam's web (in) - 10 mm
 
 It was determined to install 11 reinforcements along the length of the beam, with two of them acting as caps to seal the structural section.
+
+The welding of internal reinforcements is similar to that of welding between vertical and horizontal plates, with a height, h, of 5mm. Therefore, the throat height, a, is such that ar = {{< katex >}}\frac{h}{sqrt{2}}{{< /katex >}} = 3.54 mm.
+
+The radius:
+
+{{< katex display >}}
+𝑟 = \sqrt{\left(\frac{0.5}{2}\right)^2 + \left(\frac{0.1564}{2}\right)^2} = 0.261 \, \text{m}
+{{< /katex >}}
+
+Replacing in the stress calculation:
+
+{{< katex display >}}
+\tau_{\text{T}} = \frac{2250 \times r}{J_{\text{u}} \times ar} = \frac{2250 \times 0.261}{0.00354 \times \frac{0.5 \times \left(3 \times 0.1564^2 + 0.5^2\right)}{6}} = 6.186 \times 10^6 \, \text{Pa}
+{{< /katex >}}
+
+In the case of stresses due to transverse force:
+
+{{< katex display >}}
+\tau_{\text{V}} = \frac{F}{A} = \frac{31350}{0.00354 \times (2 \times 0.5)} = 8.867 \times 10^6 \, \text{Pa}
+{{< /katex >}}
+
+The calculation of the angle between the stresses caused by the torsional moment and the transverse force involved using the following expression:
+
+{{< katex display >}}
+\cos \theta = \frac{0.25}{r} = 0.954 \Rightarrow \theta = \cos^{-1}(0.954) = 0.303 \, \text{rad} = 17.378^\circ
+{{< /katex >}}
+
+The expression used to calculate the angle between the stresses caused by the torsional moment and the transverse force was applied for substitution into the equation used to determine the resultant.
+
+{{< katex display >}}
+\tau_{\text{C}} = \tau_{\text{R}} = \sqrt{\tau_{\text{T}}^2 + \tau_{\text{V}}^2 + 2\tau_{\text{T}}\tau_{\text{V}}\cos(2\theta)} = 1.439 \times 10^7 \, \text{Pa}
+{{< /katex >}}
+
+For the safety factor calculation:
+
+{{< katex display >}}
+n_e = \frac{0.4 \times S_y}{\tau_{\text{C}}} = \frac{0.4 \times 460 \times 10^6}{1.439 \times 10^7} = 12.788
+{{< /katex >}}
+
+Based on this value, it is concluded that it exceeds the previously established value, prompting to conduct a further study of this welded joint.
+
+
+#### 2.5.3. Bolted Joint Welding
+
+For the study of the welded joint in the bolted fixing plate, I was considering a weld bead height of h = 10mm — higher than previously assigned in the previous welded joint to ensure a higher safety margin. As mentioned before, with more complex sections, it is necessary to divide them into more uniform and simpler sections. To do this, using tables 9-1 and 9-2 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y) were consulted to extract the values of Ju and Iu, respectively.
+
+{{< columns >}}
+
+
+[sdam](https://live.staticflickr.com/65535/53357465853_6747db4d94_c.jpg)
+<--->
+[dakoo](https://live.staticflickr.com/65535/53357465848_05f9de1f41_n.jpg)
+
+{{< /columns >}}
+
+{{< katex display >}}
+I_u = \frac{0.244^3}{6} + 2 \times \frac{0.08^3}{6} + \frac{0.5964 \times 0.26^2}{2} + 2 \times \frac{0.180 \times 0.244^2}{2} = 0.0335 \, \text{m}^3
+
+{{< /katex >}}
+
+{{< katex display >}}
+J_u = \frac{0.5964^3}{6} + 2 \times \frac{0.180^3}{6} + \frac{0.244 \times 0.180^2}{2} + 2 \times \frac{0.008 \times 0.26^2}{2} = 0.0418 \, \text{m}^3
+
+{{< /katex >}}
+
+
+Similarly to the calculations for previous welded joints:
+
+{{< katex display >}}
+\tau_{\text{MT}} = \tau_{\text{T}} + \tau_{\text{M}} = \frac{131775 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{2250 \times \fra{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
+{{< /katex >}}
+
+For the primary shear stress, it is critical to compute the applied shear force as well as the throat area of the weld:
+
+{{< katex display >}}
+F = 1150 \times 5 + 26700 = 32475 N \, \\
+P_s = 2 \times 0.5964 + 2 \times 0.244 + 4 \times 0.18 + 4 \times 0.008 = 2.4328 m \, \\
+A_s = 0.707 \times h \times P_s = 0.707 \times 0.101 \times 2.4328 = 0.0172 m^2 \, \\
+\tau_V = \frac{F}{A_s} = \frac{32475}{0.0172} = 1.89 \times 10^6 \, \text{Pa} \, \\
+{{< /katex >}}
+
+
+Calculating the total stress due to moments and shear force:
+
+{{< katex display >}}
+\tau = \sqrt{\tau_{MT}^2 + \tau_V^2}
+{{< /katex >}}
+
+To conclude, let's evaluate the safety factor in this static corner weld and compare it with the value initially defined via the Pugsley method (n = 2.08) to verify if indeed the obtained value is higher.
+
+{{< katex display >}}
+n_{\text{static}} = \frac{0.4 \times S_y}{\tau} = \frac{0.4 \times 460 \times 10^6}{7.468 \times 10^7} = 2.464
+{{< /katex >}}
+
+It is OK! ✔️
+
+This value isn't far from the initially assigned one, also being the lowest among all the welded joints. Therefore, moving on to the fatigue design, assessing the safety factor, which is expected to decrease. This conditions will be verified whether it still holds true — where the fatigue design of the weld bead on the plate to be bolted to the head is the determining factor. In the fatigue analysis, both mean and alternating load components are considered.
+
+{{< katex display >}}
+M_{alt} = \frac{131775 - 27970}{2} = 51902.5 \, \text{Nmm} \, \\
+M_{med} = \frac{131775 + 27970}{2} = 79872.5 \, \text{Nmm} \, \\
+T_{alt} = \frac{2250 - (2300 \times 0.0842)}{2} = 1028.2 \, \text{Nmm} \, \\
+T_{med} = \frac{2250 + (2300 \times 0.0842)}{2} = 1221.8 \, \text{Nmm} \, \\
+F_{alt} = \frac{32475 - (1155 \times 5 + 2300)}{2} = 12200 \, \text{N} \\
+F_{med} = \frac{32475 + (1155 \times 5 + 2300)}{2} = 20275 \, \text{N}
+{{< /katex >}}
+
+Using a similar methodology as employed in the static design calculation but incorporating alternating and mean components, it results:
+
+{{< katex display >}}
+\tau_{M_{\text{alt}}} = \frac{M_{\text{alt}} \times 0.13}{I} + \frac{T_{\text{alt}} \times \frac{0.5964}{2}}{J} = \frac{51902.5 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{1028.2 \times \frac{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
+{{< /katex >}}
+
+{{< katex display >}}
+\tau_{M_{\text{med}}} = \frac{M_{\text{med}} \times 0.13}{I} + \frac{T_{\text{med}} \times \frac{0.5964}{2}}{J} = \frac{79872.5 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{1221.8 \times \frac{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
+{{< /katex >}}
+
+For the calculation of direct shear stress:
+
+{{< katex display >}}
+\tau_{V_{alt}} = \frac{F_{\text{alt}}}{A_s} = \frac{12200}{0.0172} = 7.092 \times 10^5 \, \text{Pa}
+{{< /katex >}}
+{{< katex display >}}
+\tau_{V_{med}} = \frac{F_{\text{med}}}{A_s} = \frac{20275}{0.0172} = 1.179 \times 10^6 \, \text{Pa}
+{{< /katex >}}
+
+For calculating the total stress due to moments and shear force:
+
+{{< katex display >}}
+\tau_{\text{alt}} = 1.5 \sqrt{\tau_{M_{alt}}^2 + \tau_{V_{alt}}^2} = 4.43 \times 10^7 \, \text{Pa}
+{{< /katex >}}
+{{< katex display >}}
+\tau_{\text{med}} = 1.5 \sqrt{\tau_{M_{med}}^2 + \tau_{V_{med}}^2} = 6.77 \times 10^7 \, \text{Pa}
+{{< /katex >}}
+
+The minimum-to-maximum stress ratio was obtained using the following equation:
+
+{{< katex display >}}
+R = \frac{\tau_{\text{Mmed}} - \tau_{\text{Malt}}}{\tau_{\text{Mmed}} + \tau_{\text{Malt}}} = 0.208
+{{< /katex >}}
+
+
+The minimum stress is never zero because there will always be a certain associated weight, either from the weight of the beam itself or from the load imposed by the winch car. To conclude, let's calculate the safety factor values according to the Goodman criterion and the yield criterion. For this, it is important to define the fatigue limit stress using the **Marin factors**.
+
+Hence:
+
+- Se' = 0.5 {{< katex >}}\times{{< /katex >}} 830 = 415 MPa
+- {{< katex >}}Ka = a \times S_{ut}^{-b} = 0.702{{< /katex >}} (hot rolled)
+- Kb = 1 
+- Kc = 0.59 (considering shear)
+- Kd = 1 (operating at room temperature)
+- Ke = 1 (reliability at 50%)
+- Kf = 1 (corrosion and other factors neglected)
+
+
+Therefore, obtaining a fatigue limit stress of Se = 172 MPa.
+{{< katex display >}}
+n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111 \, \\ \\
+{{< /katex >}}
+
+{{< katex display >}}
+n_{\text{Yield}} = \frac{\frac{1}{\sqrt{3}} \times S_y}{\tau_{\text{alt}} + \tau_{\text{med}}} = 2.37
+
+{{< /katex >}}
+
+
+### 2.6. Bolted Joint
+
+![12aaa](https://live.staticflickr.com/65535/53357767665_b445ddd2ec_c.jpg)
+
+The study will proceed with the bolted joint in terms of static and yielding analysis. The components to be bolted are two AISI 1095 HR steel plates, each with a thickness of 10mm. A total of 6 bolts are accounted for.
+
+#### 2.6.1 Bolt Load
+
+
+To calculate the tensile force in the bolts furthest away, P can be determined as follows:
+
+{{< katex display >}}
+P = \frac{M \times s}{\sum s_i} = \frac{131775 \times 191 \times 10^{-3}}{0.117366} = 214449 N
+{{< /katex >}}
+
+
+{{< hint note >}}
+s is the distance from the farthest bolt to the hinge line. 
+{{< /hint >}}
+
+In this case, there won't be any shear force on the bolts since there's no torsion in the plane perpendicular to the bolts.
+
+#### 2.6.2 Bolt Selection
+
+To select the bolts, an iterative process with rapid convergence was used. It began with an initial estimate of C (joint stiffness constant) equal to 0.35. Following this, the maximum preload force 𝐹𝑖 was calculated to determine the minimum stress area value.
+
+{{< katex display >}}
+F_b = \frac{C \times n_b \times P}{\frac{1}{\chi} - 1} = 399768 \, \text{N} \\
+{{< /katex >}}
+
+Given {{< katex >}}\chi{{< /katex >}} = 0.75 for non-permanent connections and {{< katex >}}n_b{{< /katex >}} = 2.
+
+{{< katex display >}}
+F_{\text{comb}} = n_{\text{comb}} \left( \frac{P_s}{f_m} + (1 - C)P \right) = 247475 \, \text{N} \\
+{{< /katex >}}
+
+In this case, there are no shear forces on the bolts, so Ps = 0.
+
+{{< katex display >}}
+F_i = \max{F_{\text{b}}, F_{\text{comB}}} = 399768 \, \text{N} \\
+{{< /katex >}}
+
+{{< katex display >}}
+A_{t_{min}}} = \frac{F_i}{\chi \times S_p} = 642 \, \text{mm}^2 \\
+{{< /katex >}}
+
+Since these bolts will be structural components, class 10.9 was chosen, corresponding to a proof load Sp = 830 MPa. With the obtained value of {{< katex >}}A_{t_{min}}{{< /katex >}}, table 8-1 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y) can be consulted - allowing to determine the nominal diameter that meets the minimum area requirement. In this case, at least an M36 bolt will be required.
+
+| Bolt      | d (mm) | At (mm²) | Ar (mm²) | P (mm) | Sp (MPa) | Su (MPa) |
+|----------|--------|------------|------------|--------|------------|------------|
+| M36x4    | 36     | 817        | 759        | 4      | 830        | 1040       |
+
+
+
+Next, C is recalculated, and the compliance with the safety factor is verified. The threaded length of the bolt can be calculated as follows:
+
+{{< katex display >}}
+LT = 2 \times d + 6 = 78 mm (L < 125mm) \\
+{{< /katex >}}
+
+
+Having the concern of having threads in only one of the two plates to avoid stress concentrations, the bolt length should be 90mm, resulting in lt = 90-78 = 12mm of unthreaded portion within the 20mm of engagement (two 10mm plates). Consequently, the threaded engagement length will be ld = 20-12 = 8 mm. The unthreaded area corresponds to:
+
+{{< katex display >}}
+A_d = \frac{\pi \times d^2}{4} = 1017.36 \, \text{mm}^2 \\
+{{< /katex >}}
+
+
+Thus, obtaining the following stiffness values:
+
+{{< katex display >}}
+k_b = \frac{A_d \times A_t \times E}{A_d \times l_t + A_t \times l_d} = 9.728 \times 10^9 \\
+{{< /katex >}}
+{{< katex display >}}
+k_m = \frac{0.5744 \times p_i \times E \times d}{2 \times \left( \frac{5 \times (0.5774 \times l + 0.5 \times d)}{0.5774 \times l + 2.5 \times d}\right)} = 18.3 \times 10^9 \\
+{{< /katex >}}
+
+It is now possible to calculate the joint stiffness:
+
+{{< katex display >}}
+C = \frac{k_b}{k_b+k_m} = 0.347 \\
+{{< /katex >}}
+
+The proof force is given by {{< katex >}}F_p = S_p \times A_t{{< /katex >}} = 678110 N, and the preload force can now be obtained as {{< katex >}}F_i = F_p \times \chi{{< /katex >}} = 508582.5 N. The static and combined safety factors are determined through the following calculation:
+
+{{< katex display >}}
+n_{\text{est}} = \frac{F_p - F_i}{C \times P} = 2.54 \\
+{{< /katex >}}
+{{< katex display >}}
+n_{\text{comb}} = \frac{F_i}{\frac{P_s}{f_m} + (1 - C) \times P} = 4.11 \\
+{{< /katex >}}
+
+The combined safety factor, in this case, is equivalent to the separation safety factor of the joint since  {{< katex >}}P_s{{< /katex >}} = 0. The slip safety factor is also not applicable for the same reason, as there is no slipping.
+
+{{< hint info >}}
+All safety factors are higher than the design safety factor. Thus, the bolts used in the joint are verified accordingly. ✔️
+{{< /hint >}}
+
+## 3 Considerations & Future Tasks
+
+Undertaking a project like this can raise awareness of the complexities involved in designing and analyzing structural or mechanical equipment. Such an experience often encourages seeking information from standards and technical documentation, fostering an investigative approach to problem-solving throughout the project.
+
+I consider it was a great opportunity to develop problem-solving skills and an analytical -- investigative mindset.
+
+For future work, I would say there are several potential avenues to explore:
+
+- **Refinement and Optimization**: Consider refining the design further for enhanced efficiency or cost-effectiveness. 
+
+- **Failure Analysis**: Explore potential failure modes and conduct a failure analysis to anticipate weaknesses or stress points that might arise during operation. This could involve simulations or in-depth theoretical studies.
+
+- **Material and Manufacturing Improvements**: Investigate alternative materials or manufacturing techniques that might enhance the performance, durability, or ease of production of the designed equipment.
+
+- **Real-World Implementation**: If possible, observe or participate in the implementation or assembly of the designed structure or equipment to gain practical insights and refine future designs based on real-world constraints. In this case, it was considered for industry used, but a generalization could also be implemented for other use cases.
+
+- **Environmental and Sustainability Considerations**: Consider incorporating sustainability features into the design or assessing the environmental impact of the equipment. This could involve materials sourcing, energy efficiency, or end-of-life considerations.
+
+..and that is all I could think of!
+
+
+
+
+
+
+
