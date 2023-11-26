@@ -233,7 +233,7 @@ Upon observing the HSV components, it becomes apparent that the gate is distinct
 ![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
 
 
-## 3 Pixol Pilots Certification Acquired
+## 3 Pixel Pilots Certification Acquired
 
 It became evident that arriving at a solution wasn't straightforward, and while the obtained solution wasn't perfect, it showcased potential for optimization with an expanded dataset. Additional images would enhance the algorithm's ability to recognize the gate under various lighting conditions and backgrounds. Nonetheless, color segmentation emerged as an effective means to segment the gate.
 
