@@ -1,7 +1,7 @@
 ---
 weight: 3
 bookHidden: false
-title: "Mechanical Design"
+title: "Industrial Crane Design"
 
 ---
 

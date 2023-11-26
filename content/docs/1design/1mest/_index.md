@@ -1,8 +1,7 @@
 ---
 weight: 1
 bookHidden: false
-title: "Structural Mechanics"
-
+title: "FEA Beam Instability"
 ---
 
 # **Beam Me Up, Scotty!**
