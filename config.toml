@@ -12,7 +12,7 @@ theme = "hugobook"
   BookDateFormat = 'January 2, 2006'
   BookEditPath = 'edit/main/content'
   BookServiceWorker = true
-  BookSearch = true
+  BookSearch = false
   
 [author]
   name = "Ricardo Chin"
