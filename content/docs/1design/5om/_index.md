@@ -498,6 +498,8 @@ The designed system met the initially set requirements. It's worth noting that a
 
 Future work or potential improvements could include exploring:
 
+
+{{< hint example >}}
 - **Additive Manufacturing**: Investigating the feasibility of using additive manufacturing techniques to build components with enhanced precision or novel designs, potentially reducing manufacturing complexities.
 
 - **Synchronizer Integration**: Developing and integrating synchronizers into the gearbox system to enable gear shifting without stopping the machine, enhancing its operational efficiency and convenience.
@@ -505,7 +507,7 @@ Future work or potential improvements could include exploring:
 - **Material Selection and Enhancement**: Exploring other material options or enhancements that could improve the gearbox's performance, such as materials with higher heat resistance or increased durability.
 
 - **Efficiency Optimization**: Conducting studies to optimize the gearbox's efficiency without compromising its functionality, potentially through design modifications or lubrication improvements.
-
+{{< /hint>}}
 
 ## Sneak Peak of MATLAB
 

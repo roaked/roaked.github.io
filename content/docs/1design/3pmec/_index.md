@@ -614,6 +614,7 @@ I consider it was a great opportunity to develop problem-solving skills and an a
 
 For future work, I would say there are several potential avenues to explore:
 
+{{< hint example>}}
 - **Refinement and Optimization**: Consider refining the design further for enhanced efficiency or cost-effectiveness. 
 
 - **Failure Analysis**: Explore potential failure modes and conduct a failure analysis to anticipate weaknesses or stress points that might arise during operation. This could involve simulations or in-depth theoretical studies.
@@ -623,6 +624,7 @@ For future work, I would say there are several potential avenues to explore:
 - **Real-World Implementation**: If possible, observe or participate in the implementation or assembly of the designed structure or equipment to gain practical insights and refine future designs based on real-world constraints. In this case, it was considered for industry used, but a generalization could also be implemented for other use cases.
 
 - **Environmental and Sustainability Considerations**: Consider incorporating sustainability features into the design or assessing the environmental impact of the equipment. This could involve materials sourcing, energy efficiency, or end-of-life considerations.
+{{< /hint>}}
 
 ..and that is all I could think of!
 

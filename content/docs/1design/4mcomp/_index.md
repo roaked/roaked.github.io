@@ -8,6 +8,9 @@ title: "FEM Formulation"
 
 ## 1 Mathematical Background
 
+{{< hint tip >}}
+If you wish to skip the theoretical and implementation details, and would like to know my thoughts on attempting to code a finite element method software or alternatively develop a SDK for existing SW, [please click here to jump to the summarized findings Ch. 4 - My Considerations](https://ricardochin.com/docs/1design/4mcomp/#4-my-considerations).{{< /hint >}}
+
 ### 1.1. Partial Differential Equations (PDEs)
 
 In engineering and physics, problems are often described by partial differential equations (PDEs). The "strong form" refers to the original differential equation that must hold exactly throughout the domain, including both the governing equation and the boundary conditions.
@@ -351,8 +354,42 @@ The nodal solution values, distribution of shear stresses, value of J, and torsi
 
 To calculate GJ, the torsional stiffness, simply multiply the torsion coefficient J by the shear modulus, typically around 76 GPa.
 
-# **The End**
+## 4 My Considerations
 
-The goals set for this torsion problem were achieved, acknowledging that the errors observed between the NX and Matlab outputs were not substantial, indicating acceptable results. 
+While the current analysis has demonstrated promising alignment between the NX and Matlab outputs, future endeavours could focus on enhancing the model's precision and expanding its applicability. 
+
+The reason for chosing MATLAB over other programming languages was mainly due to the fact that at this time I was most proficient with using MATLAB -- not being so confident in my skills in regards to other languages. Nonetheless, while developing the Finite Element Method (FEM) software in MATLAB, I encountered several limitations that made me reconsider the choice of programming language. MATLAB, with its user-friendly environment and extensive libraries, initially seemed suitable for rapid prototyping and algorithm testing. However, as the project progressed, certain factors became evident that might have been better addressed using alternatives such as: C++.
+
+MATLAB's interpreted nature, though convenient for quick code iterations, posed performance concerns as the simulations scaled. The compiled nature of C++ would have offered better performance optimization, crucial for handling large datasets and computationally intensive FEM calculations. Control over memory management and low-level operations in C++ would have allowed for fine-tuning algorithms and achieving higher efficiency in handling complex simulations. 
+
+Moreover, MATLAB's portability requirements often necessitated the distribution of MATLAB Runtime or Compiler for deployment on other systems (let alone requirements). In contrast, C++ offers inherent portability, allowing for easier cross-platform compatibility without additional runtime dependencies.
+
+While MATLAB's user-friendliness is remarkable (honestly, most people should implement it and surely would rise up to the same outcome), after a brief web searching, I found that dedicated FEM libraries in C++, such as deal.II, DUNE, and libMesh, provide specialized tools for FEM simulations, offering robust solvers, mesh generation capabilities, and a community-driven framework specifically tailored for such applications. Are they really capable? I am not sure.
+
+In retrospect, considering the computational demands, performance optimizations, and scalability required for the FEM software, implementing it in C++ might have offered a more efficient and scalable solution, despite MATLAB's initial ease of use, adequacy to simple cases and rapid development capabilities.  
+
+However...
+
+Instead of embarking on independent software development, I also explored alternative avenues. For instance, my experience with electron beam technology highlighted the crucial need for simulating phenomena within a vacuum chamber -- extremely low pressures. I discovered existing Software Development Kits tailored precisely for this purpose. Prominent software packages like ANSYS and COMSOL Multiphysics offer simulations that encompass this specific phenomenon.
+
+This approach would have potentially offered a balanced solution, combining the advantages of a robust, commercially supported framework with the customization required for such project. However, it's essential to consider licensing costs and the level of customization achievable within the confines of these SDKs compared to developing from scratch in MATLAB or C++. As obviously, you are somehow restricted..
+
+
+## 5 Future Work
+
+As for attempting to improve my MATLAB model, I would probably steer in the following direction:
+
+{{< hint example >}}
+
+**Validation with Experimental Data**: Conducting experiments or obtaining real-world data to validate the computational findings could strengthen the model's reliability.
+
+**Complex Geometries and Material Variations**: Expanding the study to encompass more complex geometries and diverse material properties can broaden the application scope of the torsion problem solution.
+
+**Parametric Studies**: Conducting parametric studies to evaluate the impact of various parameters (such as material properties, dimensions, or loading conditions) on the torsional behavior can provide deeper insights.
+
+**Integration of Advanced Techniques**: Exploring the integration of advanced numerical methods or simulation techniques could improve the computational efficiency and accuracy of the analysis.
+
+{{< /hint >}}
+
 
 
