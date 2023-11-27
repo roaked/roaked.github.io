@@ -3,7 +3,7 @@ title: "Evolutionary Computation"
 weight: 5
 ---
 
-#  **Time Tetris: Genetic Algorithms vs. Particle Swarming**
+#  **Time Tetris: Genetic Algorithms vs. Particle Swarming - P1**
 
 ![124](https://i.pinimg.com/originals/88/66/b2/8866b25a23afb5185612095ffc57eca3.gif)
 
@@ -94,7 +94,7 @@ In contrast to Genetic Algorithms, Particle Swarm Optimization mimics the social
 
 Comparing GA and PSO for time management reveals distinct approaches to optimizing schedules. GA's population-based evolution allows for diverse exploration of scheduling possibilities, potentially finding globally optimal solutions. On the other hand, PSO's focus on particle interactions promotes local search capabilities, emphasizing quick convergence to feasible schedules. The trade-off between exploration and exploitation in these methods affects their efficacy in different time management contexts.
 
-## 4 Alternative Applications
+## 5 Alternative Applications
 
 Evolutionary computation techniques like GA and PSO find applications beyond time management, extending into diverse problem domains such as game design. Notably, games like Tetris harness these methods for optimization and decision-making.
 
@@ -107,4 +107,6 @@ By representing game moves as genetic sequences and applying selection, crossove
 Similarly, PSO simulates particle movements (representing game strategies) to find configurations that lead to successful block placements and high-scoring patterns. The approach emphasizes the collaborative movement of particles (strategies) towards favorable game states.
 
 These applications in gaming demonstrate the versatility of evolutionary computation techniques beyond time management. The adaptability of GA and PSO in optimizing strategies and decision-making extends to various problem-solving domains, showcasing their effectiveness in addressing complex optimization challenges beyond traditional scheduling or packing problems.
+
+
 

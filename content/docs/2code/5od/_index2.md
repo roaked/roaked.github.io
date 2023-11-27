@@ -68,6 +68,33 @@ The termination criteria is based upon:
 
 ## 2 Code Implementation
 
+Initially, implementing the Best Fit Decreasing (BFD) method was way too simple. Hence, I decided to ommit implementation and results -- since it's a basic heuristic and doesn't need a complex cost function. It was coded from scratch in Matlab.
+
+However, the GA is a bit more intricate. Instead of creating these algorithms from scratch, existing Matlab codes from online sources were adapted and optimized to suit the problem's requirements and parameters.
+
+For GA to work, a cost function is needed. This function must consider the main goal (minimizing the number of bins) and the constraints (all weights should fit within the bin capacity). If a bin's capacity is exceeded, it's termed a "bin violation." Initially, the attempt was made to prevent any bin violations from occurring during the simulation. However, this led to the algorithms getting stuck at a suboptimal solution of 16 bins for a problem where the optimal solution was 15 bins. It was challenging for the algorithms to redistribute weights across bins without exceeding their capacities in a single step.
+
+A different approach, found in literature, allowed bin capacities to be exceeded temporarily during iterations. In this approach, bin violations were included in the cost function, aiming to minimize them to zero. So, the algorithms started with several bin violations, but reducing these led to improvements in the cost function, unveiling better solutions.
+
+The cost function used became: {{< katex >}} J = nBin + \alpha \times MeanViol + LBPenalty   {{< /katex >}}
+
+{{< hint tip >}}
+The variables are described as:
+
+- nBin: Number of bins used
+- MeanViol: Average of violations across the bins
+- α: Tuning parameter - if low converges to solutions with fewer bins than optimal. if too high, the solutions are feasible, but not optimal
+- LBPenalty: Prevents algorithms from converging to a number of bins below a certain lower bound.
+{{< /hint >}}
+
+To solve the bin packing problem with these algorithms, the program received a set of items with weights that needed to be assigned. A position vector was created and shuffled to obtain a solution. For example, if weights were [20, 15, 10, 5], shuffling them to [2, 3, 1, 4] meant arranging them as [15, 10, 20, 5]. Each item needed at least one decision variable in the position vector.
+
+Items had to be assigned to different bins. More variables were added inside the position vector to handle this. For instance, [2, 3, 5, 1, 4] could mean two bins: [15, 10] and [20, 5]. Integers higher than the number of items represented bin divisions. Stopping criteria included a maximum number of iterations, adjusted according to the number of items to be assigned due to the inherent randomness in these heuristics.
+
+Another criterion introduced is a "stuck counter." Often, it's ambiguous whether the algorithm is stuck in a local minimum or encountering difficulties in finding an improved solution. To address this, if the program identifies that the best cost remains unchanged from the previous iteration, it initiates a count of iterations. Upon surpassing a predetermined limit, the program halts. Additionally, if the best cost is an integer value, it suggests that the program might have discovered a feasible solution and is trapped within it. This "stuck counter" proves to be a valuable stopping criterion.
+
+(to add code segments later)
+
 {{< hint tip >}}
 [If you would like to return to the section explaining the abstract and analogies of evolutionary computation and metaheuristics click here ✌️](https://ricardochin.com/docs/2code/5od/){{< /hint >}}
 
