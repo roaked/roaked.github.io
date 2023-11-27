@@ -52,14 +52,14 @@ Where
 {{< katex display >}}
    y_{i} = 
    \begin{cases}
-        1, & \text{if bin i is used}
+        1, & \text{if bin i is used} \\
         0, & \text{otherwise}
    \end{cases}
 {{< /katex >}}
 {{< katex display >}}
    x_{ij} = 
    \begin{cases}
-        1, & \text{if item $j$ is assigned to bin $i$}\\
+        1, & \text{if item $j$ is assigned to bin i}\\
         0, & \text{otherwise}
    \end{cases}
 {{< /katex >}}
@@ -67,6 +67,13 @@ Where
 {{< katex display >}}
    w_{j} \leq c \hspace{1cm} j \in N
 {{< /katex >}}
+
+
+The initial constraint specifies that for any utilized bin 'i', the collective sum of weights '{{< katex >}}w_j{{< /katex >}}' of the assigned items must not exceed the bin's capacity 'c'. The subsequent constraint ensures that all items are allocated to a singular bin, leaving none unassigned.
+
+A lower limit for the count of bins can be established as the summation, from 1 to 'n', of the weights '{{< katex >}}w_j{{< /katex >}}' divided by the bin capacity 'c' (expressed as {{< katex >}}\sum_{j=1}^n  \frac{w_j}{c}{{< /katex >}}). 
+
+Consequently, this signifies that the minimum requisite number of bins corresponds to the resultant value derived from the sum of weights divided by the bin capacity. As the number of bins must be an integer, this derived value is rounded up to the nearest whole number.
 
 ### 4.1. Genetic Algorithm in Time Management
 
