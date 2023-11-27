@@ -3,7 +3,7 @@ title: "Genetic Algorithm"
 weight: 2
 ---
 
-# # **Time Tetris: Genetic Algorithms**
+# **Time Tetris: Genetic Algorithms**
 
 {{< columns>}}
 ![sa](https://user-images.githubusercontent.com/36581610/78828900-6d6a2080-79b3-11ea-81a3-bd284849c3f2.gif)
