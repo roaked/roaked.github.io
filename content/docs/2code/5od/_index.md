@@ -3,7 +3,7 @@ title: "Evolutionary Computation"
 weight: 5
 ---
 
-#  **Time Tetris: Genetic Algorithms vs. Particle Swarming - P1**
+# **EC: Where Algorithms Find Their Inner Darwin**
 
 ![124](https://i.pinimg.com/originals/88/66/b2/8866b25a23afb5185612095ffc57eca3.gif)
 
