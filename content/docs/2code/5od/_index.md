@@ -39,7 +39,8 @@ As previously highlighted, the primary objective of this problem is to minimize 
     \text{minimize } \hspace{0.2cm} z = \sum_{i=1}^{n} y_i
 {{< /katex >}}
 
-\par Subject to:
+`Subject to:`
+
 {{< katex display >}}
    \sum_{j=1}^{n} w_j x_{ij} \leq c y_i  \hspace{1cm} i \in N = {1,...,n}
 {{< /katex >}}
@@ -47,7 +48,7 @@ As previously highlighted, the primary objective of this problem is to minimize 
    \sum_{i=1}^{n} x_{ij} = 1  \hspace{1cm} j \in N
 {{< /katex >}}
 
-Where
+`Where`
 
 {{< katex display >}}
    y_{i} = 
