@@ -1,7 +1,7 @@
 ---
 title: "Fortran: Hamiltonian Graphs"
-weight: 1
+weight: 6
 bookFlatSection: true
 ---
 
-# Introduction
+# **Hamiltonian Graphs: Connectivity Revolution**
