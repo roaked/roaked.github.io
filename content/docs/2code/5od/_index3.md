@@ -42,6 +42,8 @@ A similar approach for the code implementation was used for the [Genetic Algorit
 
 ## 3 Results
 
+### 3.1. First Benchmark
+
 For the initial benchmark, PSO underwent 10 simulations, each employing the following set of parameters:
 
 ![1](https://live.staticflickr.com/65535/53360419499_f1b24207df.jpg)
@@ -97,8 +99,59 @@ Moreover, these parameters wield a direct influence on average simulation time. 
 
 Further evaluations explored the impact of maximum velocity on the algorithm. Tests were conducted at different velocities while maintaining other parameters constant. 
 
+![213](https://live.staticflickr.com/65535/53360310213_90bfabcdbc_c.jpg)
 
 
+The examination reveals that higher velocities introduce instability to the algorithm, manifesting as noise in the Average Cost plot. Notably, a MaxVel of 0.01 resulted in an Average Cost oscillating around 18, while reducing MaxVel to 0.001 led to oscillations closer to 16. This velocity variation also impacted the Best Cost of the particles; higher velocities correlated with higher Best Cost. This sensitivity of the algorithm to velocity proves crucial when tackling the bin packing problem.
+
+In addition to velocity, the parameters related to inertia (w and wdamp) and learning factors (c1 and c2) underwent testing. To comprehend their impacts better, mutations were maintained at lower values. If set too low, the algorithm would require more iterations to find the optimal solution due to excessively low velocities, thereby affecting simulation time. Conversely, excessively high values would cause velocities to saturate quickly to the maximum allowed value, which is also suboptimal. However, unlike mutations, these parameters didn't exhibit the same influential impact. Ultimately, values were selected based on recommendations found in literature, settling on c1 = c2 = 2, w = 0.9, and wdamp = 0.99.
 
 
+Afterwards, the PSO algorithm underwent testing utilizing the following parameters: nPop = 10, w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 20:
+
+![123](https://live.staticflickr.com/65535/53359214432_4fd4ff5172.jpg)
+
+Next, convergence for best cost (left) and average cost (right) over the iterations was depicted:
+
+![1241f](https://live.staticflickr.com/65535/53360310203_29792b6c15_b.jpg)
+
+
+In this simulation, the PSO algorithm completed 206 iterations within 2.52 seconds before reaching its stopping criteria. Remarkably, it displayed rapid convergence for this specific benchmark. The average cost of the particles notably decreased to 15.8 before the simulation concluded. Typically, this value fluctuates between 15 and 16 with a higher number of iterations.
+
+### 3.2. Second Benchmark
+
+
+In the second benchmark, the PSO underwent testing using identical parameters to those employed in the first benchmark: nPop = 10, w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 20.
+
+While the algorithm doesn't yield identical results in each simulation, it managed to attain the optimal solution in certain instances. Here is the outcome of one such simulation depicted:
+
+![asfvcc2](https://live.staticflickr.com/65535/53359214352_f9a2bceea8.jpg)
+
+![asdad](https://live.staticflickr.com/65535/53360419374_79b7e25865_c.jpg)
+
+
+In this particular simulation, the PSO algorithm required 8895 iterations, spanning 444.18 seconds, before meeting the stopping criteria. The algorithm showcased rapid convergence initially, achieving a cost of less than 101 within 1000 iterations. However, it encountered challenges reaching the optimal solution, nearly getting stuck at certain points, evident in the best cost plot. Throughout the process, the average cost of the particles fluctuated between 105 and 107.
+
+## 4 Remarks GA vs. PSO
+
+{{< hint tip >}}
+[If you would like to return to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+
+To further test and compare the GA and PSO algorithms, they were ran 10 times each with the second benchmark. 
+
+![sadsad](https://live.staticflickr.com/65535/53359214342_fb24701070_c.jpg)
+
+![das](https://live.staticflickr.com/65535/53360549430_e11ea23c48_c.jpg)
+
+
+In one set of trials, the algorithm achieved 102 bins once and 4 times in total. However, it successfully obtained feasible solutions in 7 out of 10 attempts. The average time across these 10 simulations stood at 284.40 seconds (averaging 6402 iterations). The most efficient solution, involving 101 bins, was attained in 237.06 seconds (5583 iterations).
+
+Conversely, the PSO algorithm hit the optimal solution only 3 times in 10 simulations, which is less than ideal. Nonetheless, it managed to secure feasible solutions in 9 out of these 10 instances. Notably, the algorithm failed to obtain a feasible solution only when attempting to accommodate all items within 99 bins—an impossible feat. The average time for these 10 simulations totaled 149.37 seconds (averaging 3160 iterations). The best time among the 3 optimal solutions was 107.84 seconds (2303 iterations). Interestingly, three out of the first five simulations resulted in optimal solutions.
+
+Comparatively, both algorithms encountered a higher percentage of non-feasible solutions in the second benchmark compared to the first. This discrepancy aligns with expectations, given the increased complexity of the second benchmark.
+
+
+## 5 Ending Thoughts
+
+[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#-5-ending-thoughts)
 

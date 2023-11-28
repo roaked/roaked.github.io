@@ -95,7 +95,25 @@ In contrast to Genetic Algorithms, Particle Swarm Optimization mimics the social
 
 Comparing GA and PSO for time management reveals distinct approaches to optimizing schedules. GA's population-based evolution allows for diverse exploration of scheduling possibilities, potentially finding globally optimal solutions. On the other hand, PSO's focus on particle interactions promotes local search capabilities, emphasizing quick convergence to feasible schedules. The trade-off between exploration and exploitation in these methods affects their efficacy in different time management contexts.
 
-## 5 Alternative Applications
+## 5 Ending Thoughts
+
+After exhaustive testing across both benchmarks, several key conclusions emerge. Thought ommited from the writting literature, Best Fit Decreasing stands out for its simplicity, swiftly achieving optimal solutions and being highly suitable for bin packing problems. It operates without randomness, ensuring consistent outcomes, and is relatively easy to implement. However, its limitations surface in real-life scenarios where pre-sorting items by size may not be feasible from the outset.
+
+When sorting by size isn't possible, Best Fit takes precedence. While still a straightforward heuristic, it yields notably inferior results compared to Best Fit Decreasing. Despite its speed in generating solutions, these heuristics serve best when urgency is paramount.
+
+Contrastingly, meta-heuristics like GA and PSO offer adaptability and flexibility, ideally suited for intricate and extensive problems. Nevertheless, they demand parameter tuning—a non-trivial process, as optimal settings vary across different problem sets. Both GA and PSO involve intrinsic randomness.
+
+GA operates relatively well with higher mutation probabilities but can occasionally get ensnared in non-feasible solutions, irrespective of problem size. Its randomness prevents absolute reliability, yet it still tends to converge towards optimal or near-optimal solutions, especially for smaller problems.
+
+PSO encounters challenges without mutations but significantly improves with their inclusion, showcasing impressive performance and reliability. Notably, it steers clear of non-feasible solutions better than GA. However, PSO's sensitivity to velocities poses a risk of entrapment when velocities are high.
+
+One of PSO's notable advantages over GA lies in its ability to perform multiple mutations on the global best in each iteration. This feature aids PSO in evading local minima, a hurdle that GA struggles to overcome.
+
+In summary, the algorithm ranking based on performance would be: Best Fit Decreasing, followed by PSO, GA, and lastly, Best Fit. The fact that PSO and GA outperformed Best Fit was anticipated, given that the algorithms were well-optimized.
+
+Enhancing these algorithms further presents challenges. While the 1D bin packing problem seems straightforward, situations where only one bin exceeds capacity can trap the algorithms. Incorporating a "best fit" mechanism within meta-heuristics seemed plausible initially, but the unreliability of the Best Fit results cast doubt on this approach.
+
+## 6 Alternative Applications
 
 Evolutionary computation techniques like GA and PSO find applications beyond time management, extending into diverse problem domains such as game design. Notably, games like Tetris harness these methods for optimization and decision-making.
 

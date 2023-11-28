@@ -95,8 +95,9 @@ Another criterion introduced is a "stuck counter." Often, it's ambiguous whether
 
 (to add code segments later)
 
-{{< hint tip >}}
-[If you would like to return to the section explaining the abstract and analogies of evolutionary computation and metaheuristics click here ✌️](https://ricardochin.com/docs/2code/5od/){{< /hint >}}
 
 {{< hint tip >}}
 [If you would like to return to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+
+{{< hint tip >}}
+[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#-5-ending-thoughts){{< /hint >}}
