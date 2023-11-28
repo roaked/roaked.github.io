@@ -11,7 +11,7 @@ weight: 3
 
 Particle Swarm Optimization (PSO) draws its inspiration from the social dynamics seen in various species, like birds and insects, as they navigate their environments to fulfill their needs. In this method, each potential solution is likened to a particle, and these particles come together to form a dynamic swarm. Each particle possesses two key characteristics: its position and its velocity. Utilizing this velocity, each particle embarks on a journey to a new position within the search space. Upon arriving at these new positions, individual particle bests and the overall swarm bests are updated accordingly. The velocity of each particle is then fine-tuned based on its experiences, repeating this cycle until certain conditions are met.
 
-Similar to [genetic algorithm (GA)](https://ricardochin.com/docs/2code/5od/_index2/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity. Evaluation for fitness value follows suit, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (pbest) and global bests (gbest) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
+Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/2code/5od/_index2/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity. Evaluation for fitness value follows suit, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (pbest) and global bests (gbest) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
 
 {{< katex display >}}
  v_{ij} = w v_{ij} + c_1 q \frac{(x_{ij}^{pb} - x_{ij})} {\Delta t} + c_2r \frac{( x_{ij}^{gb} - x_{ij})}{ \Delta t}    
@@ -57,7 +57,7 @@ In response to these challenges, an innovative approach was adopted by introduci
 
 Multiple experiments were conducted in an effort to fine-tune the diverse parameters. The initial focus was on understanding the influence of population size. Interestingly, it was noted that augmenting the population had only a restrained impact on the number of optimal solutions, particularly when the number of iterations remained unchanged. The experiments were executed using the following parameters: w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 10.
 
-| Population Size | Optimal Sols | Non-Optimal Sols | Non-feasible | Average Simulation Time [\s] |
+| Population Size | Optimal Sols | Non-Optimal Sols | Non-feasible | Average Simulation Time (s) |
 |-----------------|--------------|------------------|--------------|-----------------------------|
 | 10              | 18           | 2                | 0            | 7.6248                      |
 | 20              | 19           | 1                | 0            | 12.5746                     |
@@ -69,7 +69,7 @@ Multiple experiments were conducted in an effort to fine-tune the diverse parame
 
 The subsequent step aimed to discern the impact of particle mutation and global best mutation on our model's performance. To ensure more conclusive outcomes, a total of 100 simulations were executed for each scenario:
 
-| Particle Mutation | GB Mutation | Optimal Sols | Non-Optimal Sols | AVG Time [\s] | Best Time [\s] |
+| Particle Mutation | GB Mutation | Optimal Sols | Non-Optimal Sols | AVG Time  (s) | Best Time (s) |
 |-------------------|-------------|--------------|------------------|--------------|---------------|
 | 3                 | 20          | 100          | 0                | 5.7910       | 2.4609        |
 | 5                 | 20          | 100          | 0                | 7.7046       | 3.7946        |
@@ -84,7 +84,7 @@ The subsequent step aimed to discern the impact of particle mutation and global 
 The initial tests were conducted with a population size of 20, revealing notably extended average simulation times in certain experiments. Consequently, to expedite the process, the population size was adjusted to 10:
 
 
-| Particle Mutation | GB Mutation | Optimal Sols | Non-Optimal Sols | AVG Time [\s] | Best Time [\s] |
+| Particle Mutation | GB Mutation | Optimal Sols | Non-Optimal Sols | AVG Time  (s) | Best Time  (s) |
 |-------------------|-------------|--------------|------------------|--------------|---------------|
 | 3                 | 20          | 100          | 0                | 3.7797       | 1.5666        |
 | 5                 | 20          | 100          | 0                | 4.1108       | 2.1950        |
