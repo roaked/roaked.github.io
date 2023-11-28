@@ -100,4 +100,4 @@ Another criterion introduced is a "stuck counter." Often, it's ambiguous whether
 [If you would like to return to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
 
 {{< hint tip >}}
-[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#-5-ending-thoughts){{< /hint >}}
+[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}

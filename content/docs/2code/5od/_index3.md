@@ -153,5 +153,5 @@ Comparatively, both algorithms encountered a higher percentage of non-feasible s
 
 ## 5 Ending Thoughts
 
-[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#-5-ending-thoughts)
+[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts)
 
