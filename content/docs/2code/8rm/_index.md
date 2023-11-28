@@ -1,6 +1,6 @@
 ---
 title: "Manipulator Robotics: JACO"
-weight: 7
+weight: 8
 ---
 
 # Introduction
