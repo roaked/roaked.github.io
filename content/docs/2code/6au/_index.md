@@ -20,9 +20,25 @@ It is, in addition, a very typical dish for portuguese food! 😊
 
 Well, because the problem addressed is about the production of canned sardines. Naturally, the process varies from company to company. In this problem, I will consider that the process begins with washing the sardines, followed by cutting, adding a sauce, canning, and cooking. At the end, the cans will be ready for storage and shipping. I also consider that the washing and cutting processes, which are usually done by employees, will be carried out by machines specifically designed for that purpose.
 
-## 2 Problem Guide
+## 2 Automation in Our World
+
+- Encapsulation
+
+- Macro Steps
+
+- Master/Slave
+
+- Ladder Diagram, Instruction List, PLC
 
 ### 2.1. Production Cycle (Slave)
+
+### 2.2. Supervisor Cycle (Master)
+
+The supervisor cycle is a simple but effective way to control the overall operation of the production process. It ensures that the process is started in the correct configuration and that it is properly terminated when it is no longer needed.
+
+## 3 Problem Description
+
+### 3.1. Production Cycle (Slave)
 
 The initial configuration of the cycle is with the cylinders retracted, elevator on floor 0, conveyor belt stopped, and traffic lights turned off.
 
@@ -48,5 +64,18 @@ Once canning is finished, the product goes to the next station, rising to the 3r
 
 After cooking, the total product counter is incremented. The product should be unloaded from the elevator. After unloading, the "PVerde" button is pressed and the elevator returns to floor 0. When reaching floor 0, the cycle goes back to waiting for a new production order.
 
+{{< hint example >}}
+There are margin for improvements, such as: the usage of a single button to control the elevator could be improved by using separate buttons for each floor. This would make it easier to control the elevator and would reduce the risk of errors. Additionally, the use of a single counter to track the total number of products could be improved by using separate counters for each type of product. This would provide more information about the production process and would make it easier to identify any problems
+{{< /hint >}}
+
+### 2.2. Supervisor Cycle (Master)
+
+The supervisor cycle allows the normal activation and deactivation of the production cycle. It is responsible for initializing the four existing counters. The counters for each type of sauce accumulate values between several normal activations and deactivations of the production cycle. The total product counter is reset at each normal activation/deactivation.
+
+{{< hint warning >}}
+The initialization of the counters is a critical step in the supervisor cycle. It ensures that the counters are properly set to zero before the production process begins. This helps to ensure that the counts are accurate and reliable. Thus, the reset of the total product counter at each activation/deactivation is a useful feature. It allows the user to track the number of products produced in each individual cycle. This information can be used to monitor the efficiency of the production process and to identify any potential problems.
+{{< /hint >}}
+
+Activation is done through the "Start" switch, after ensuring that the production cycle is in its initial configuration. Normal deactivation is done by turning off the "Start" switch, when the cycle is in the waiting state for a new production order. In this problem, a new production order means the activation of the conveyor belt to start the transportation of raw material. While the cycle is in normal operation, the green light ("LVerde") is on.
 
 (Grafcet to add later)
