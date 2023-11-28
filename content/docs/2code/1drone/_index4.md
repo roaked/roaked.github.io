@@ -10,7 +10,7 @@ If you wish to skip the theoretical and implementation details, [please click he
 
 ## 1 Continuing from Phase 2...
 
-In the final phase of the project, a more practical approach was adopted to tackle the problem. Discrete controllers and observers were designed for the drone, with simulations implemented to test it in a highly realistic environment. This involved using provided tracks and fine-tuning controllers to minimize following errors while maintaining optimal speed without causing critical destabilization.
+In this phase 3, a more practical approach was adopted to tackle the problem. Discrete controllers and observers were designed for the drone, with simulations implemented to test it in a highly realistic environment. This involved using provided tracks and fine-tuning controllers to minimize following errors while maintaining optimal speed without causing critical destabilization.
 
 ## 2 Discrete Time Linearized Model
 
