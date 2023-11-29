@@ -1,5 +1,5 @@
 ---
-title: Maltesers & Coffee ☕              
+title: Coffee? ☕              
 type: docs
 ---
 
