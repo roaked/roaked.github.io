@@ -16,7 +16,7 @@ It's become a hobby of mine to sort through my [recent and past projects](https:
 
 ![Me41](https://live.staticflickr.com/65535/53352035229_f9204869a6_c.jpg)
 
-Although work is a significant part of my life, it's not my whole world. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours — really, I could talk endlessly. Since most of these activities are kind of solitary, a valuable lesson I've learned over time is to cherish the peace I find in these moments, enjoying the tranquility they bring to me.
+Although work is a significant part of my life, it's not my whole world. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours — really, I could talk endlessly. However, since most of these activities are kind of solitary, a valuable lesson I've learned over time is to cherish the peace I find in these moments, enjoying the tranquility that comes with them.
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
