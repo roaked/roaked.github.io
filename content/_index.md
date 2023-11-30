@@ -7,7 +7,7 @@ type: docs
 
 ### Ricardo. 26. Portugal ~ China
 
-Having obtained a [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) specialized in design engineering and simulation, I was delved into a materials science research group as an university assistant. In addition, I supervised bachelors thesis on additive manufacturing for microelectronics fabrication, particularly in automotive and tech applications, closely aligned with my current work. In addition, over the recent years, I've slowly rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
+Having obtained a [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) specialized in design engineering and simulation, I delved into materials science research as an university assistant. In addition, I supervised bachelors thesis on additive manufacturing for microelectronics fabrication, particularly in automotive and tech applications, closely aligned with my current work. As an added bonus, I've rekindled my enthusiasm for all sorts of computer science topics gradually circling back to the roots of my bachelor's journey.
 
 I'm really into pushing boundaries and adding my own twist to science — from conceptualization to realization, I'm driven by the thought of using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation. That said, I'm interested in merging design and simulation expertise with software curiosity to open up doors that integrate unique elements, such as incorporating deep learning or optimization techniques, to shake up engineering solutions. 
 
