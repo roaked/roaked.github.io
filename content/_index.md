@@ -3,13 +3,13 @@ title: Coffee? ☕
 type: docs
 ---
 
-# **Griaß Di. Servus!**
+# **Griaß Di. Servus**
 
 ### Ricardo. 26. Portugal ~ China
 
-With a [master's degree in mechanical engineering](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) (earned honors, too!) specialized in design engineering and simulation along with an immersive experience as an university assistant delving into materials science research — coupled with supervising additive manufacturing bachelor thesis — in microelectronics fabrication for automotive / tech applications that closely resonate with my current work, I've rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
+Having obtained [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) specialized in design engineering and simulation, I was part of the research group of materials science. In addition, I supervised bachelors thesis on additive manufacturing for microelectronics fabrication, particularly in automotive and tech applications, closely aligned with my current work. In addition, over the recent years, I've slowly rekindled my passion for all sorts of computer science stuff circling back to the roots of my bachelor's journey.
 
-I'm really into pushing boundaries and adding my own twist to science — from conceptualization to realization, I'm driven by the thought of using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation. That said, my sweet spot? Merging design and simulation expertise with software curiosity to open up doors that integrate unique elements, such as incorporating deep learning or optimization techniques, to shake up engineering solutions. 
+I'm really into pushing boundaries and adding my own twist to science — from conceptualization to realization, I'm driven by the thought of using fancy tech to create workflows that ramp up efficiency, sustainability, and innovation. That said, I'm interested in merging design and simulation expertise with software curiosity to open up doors that integrate unique elements, such as incorporating deep learning or optimization techniques, to shake up engineering solutions. 
 
 It's become a hobby of mine to sort through my [recent and past projects](https://github.com/roaked?tab=repositories) with the intention of showcasing them online. For this, I've utilized the [Hugo framework](https://gohugo.io/getting-started/installing/) and made slight [CSS/HTML code modifications which can be found documented here](https://ricardochin.com/docs/mod/modifications/). Recalling the difficulties I faced before, I often wished for more accessible information. I hope that by sharing my experiences, I might assist others tackling similar challenges in their research — plus, it's a great way for me to understand and refine some technical knowledge I wasn't quite as proficient before!
 
