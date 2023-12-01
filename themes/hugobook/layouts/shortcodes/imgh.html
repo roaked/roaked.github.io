@@ -2,14 +2,20 @@
 {{- $imgBase := "images/" -}}
 {{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
 {{- $src := resources.Get $srcPath -}}
+{{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
+{{- $src := resources.Get $srcPath -}}
 {{- if $src -}}
     {{- $actualImg := $src.Resize "640x" -}}
     <picture>
-        <!-- Rest of your code handling responsive images -->
+        <source type="image/webp" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
+        <source type="image/jpg" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
+        <img src="{{ $actualImg.RelPermalink }}" alt="{{ .Get "alt" }}" loading="lazy">
     </picture>
 {{- else -}}
     <!-- Handle case where $src is nil or empty -->
-    <img src="/path/to/default/image.jpg" alt="Default Image" />
+    <img src="/path/to/default/image.jpg" alt="Default Image">
+{{- end -}}
 {{- end -}}
 {{- $alt := .Get "alt" -}}
 {{- $divClass := "" -}}{{/* Init'g */}}
