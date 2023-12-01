@@ -509,7 +509,7 @@ Hence:
 
 Therefore, obtaining a fatigue limit stress of Se = 172 MPa.
 {{< katex display >}}
-n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111
+n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830}} = 2.111
 {{< /katex >}}
 
 {{< katex display >}}
@@ -561,7 +561,8 @@ F_i = \max{F_{\text{b}}, F_{\text{comB}}} = 399768 \, \text{N} \\
 {{< /katex >}}
 
 {{< katex display >}}
-A_{t_{min}}} = \frac{F_i}{\chi \times S_p} = 642 mm^2
+
+A_{t_{min}} = \frac{F_i}{\chi \times S_p} = 642 \, \text{mm}^2 \\
 {{< /katex >}}
 
 Since these bolts will be structural components, class 10.9 was chosen, corresponding to a proof load Sp = 830 MPa. With the obtained value of {{< katex >}}A_{t_{min}}{{< /katex >}}, resulting from table 8-1 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y), it is feasible to determine the nominal diameter that meets the minimum area requirement. In this case, at least an M36 bolt will be required.
