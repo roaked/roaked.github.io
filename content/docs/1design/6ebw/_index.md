@@ -4,9 +4,9 @@ bookHidden: false
 title: "Electron Beam Technology"
 ---
 
-# **Thermally Induced Reduction of Hot Cracking Susceptibility**
+# **Thermally Induced Reduction of HC Susceptibility**
 
 
-# **AM: Electron Beam Melting for Shape-Memory NiTi-Alloys**
+# **AM: EB Melting for Shape-Memory NiTi-Alloys**
 
 (to check NDA)
