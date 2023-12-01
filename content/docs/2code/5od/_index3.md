@@ -135,7 +135,7 @@ In this particular simulation, the PSO algorithm required 8895 iterations, spann
 ## 4 Remarks GA vs. PSO
 
 {{< hint tip >}}
-[If you would like to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+[If you would like to advance to the implementation using Genetic Algorithm (GA) click here ✌️](https://ricardochin.com/docs/2code/5od/_index2/){{< /hint >}}
 
 To further test and compare the GA and PSO algorithms, they were ran 10 times each with the second benchmark. 
 

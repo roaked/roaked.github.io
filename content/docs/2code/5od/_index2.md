@@ -95,6 +95,8 @@ Another criterion introduced is a "stuck counter." Often, it's ambiguous whether
 
 ## 3 Results
 
+### 3.1. First Benchmark
+
 In the GA algorithm, the primary parameters for adjustment include population size (nPop), crossover probability (pc), and mutation probability (pm). Initial trials utilized high crossover and low mutation probabilities, aligning with common recommendations. Each parameter set underwent 100 tests to offer a comprehensive understanding of their impact. Results for a population size of 100 are detailed below.
 
 
@@ -132,11 +134,26 @@ In the initial benchmark, the GA underwent testing with the parameters: populati
 
 ![wqdj](https://live.staticflickr.com/65535/53359214487_89cbbc4d1d.jpg)
 
+![3i](https://live.staticflickr.com/65535/53359214442_857c059317_b.jpg)
+
+In this simulation, the GA algorithm reached a stopping criterion after 390 iterations, concluding within 7.55 seconds. The algorithm demonstrated swift convergence. The average cost across the population closely mirrored the best cost, albeit with a slight delay, eventually settling at 15.
 
 
+### 3.2. Second Benchmark
+
+In the second benchmark, the GA was tested with identical parameters to the first benchmark: population size (nPop) = 50, crossover probability (pc) = 0.2, and mutation probability (pm) = 0.8. While the algorithm may not produce the same result in every simulation, after several runs, it managed to approach a near-optimal solution, achieving 101 bins. Results are visualized below.
+
+![3i2kd](https://live.staticflickr.com/65535/53360419414_5ec7249cc5.jpg)
+
+![sad0](https://live.staticflickr.com/65535/53360310158_6129aa5ea6_b.jpg)
+
+
+In this simulation, the GA algorithm required 5583 iterations over 237 seconds before meeting the stopping criteria. Interestingly, the average cost of the particles matched the global best cost. The algorithm exhibited swift convergence initially but encountered challenges in converging to a feasible solution.
+
+Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consistently faced difficulties. It often became stuck with just a few bin violations unresolved, persisting even after nearly 20000 iterations, resulting in non-feasible solutions slightly above a cost of 100. The randomness inherent in the GA can contribute to such outcomes, making luck a potential factor in its performance.
 
 {{< hint tip >}}
-[If you would like to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+[If you would like to advance to the implementation using Particle Swarm Optimization (PSO) click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/)
 
-{{< hint tip >}}
-[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}
+[Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}{{< /hint >}}
+
