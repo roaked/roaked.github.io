@@ -20,7 +20,7 @@ Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/2code/5od/_inde
  x_{ij} = x_{ij} + v_{ij} \Delta t    
 {{< /katex >}}
 
-{{< hint tip >}}
+{{< hint note >}}
 The variables are:
 
 - w: Inertia weight
@@ -34,9 +34,9 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 ## 2 Code Implementation
 
-{{< hint example >}}
+{{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm. If you want to read more about it as an example, click here.](https://ricardochin.com/docs/2code/5od/_index2/). Hence, I will ommit duplicate writing.
+A similar approach for the code implementation was used for the [Genetic Algorithm. If you want to read more about it as an example, click here.](https://ricardochin.com/docs/2code/5od/_index2/). Hence, I will skip duplicate writing.
 
 {{< /hint >}}
 
@@ -135,7 +135,7 @@ In this particular simulation, the PSO algorithm required 8895 iterations, spann
 ## 4 Remarks GA vs. PSO
 
 {{< hint tip >}}
-[If you would like to return to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+[If you would like to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
 
 To further test and compare the GA and PSO algorithms, they were ran 10 times each with the second benchmark. 
 

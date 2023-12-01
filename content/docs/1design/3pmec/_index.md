@@ -421,7 +421,7 @@ J_u = \frac{0.5964^3}{6} + 2 \times \frac{0.180^3}{6} + \frac{0.244 \times 0.180
 Similarly to the calculations for previous welded joints:
 
 {{< katex display >}}
-\tau_{\text{MT}} = \tau_{\text{T}} + \tau_{\text{M}} = \frac{131775 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{2250 \times \fra{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
+\tau_{MT} = \tau_{T} + \tau_{M} = \frac{131775 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{2250 \times \fra{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
 {{< /katex >}}
 
 For the primary shear stress, it is critical to compute the applied shear force as well as the throat area of the weld:
@@ -509,7 +509,7 @@ Hence:
 
 Therefore, obtaining a fatigue limit stress of Se = 172 MPa.
 {{< katex display >}}
-n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111 \\
+n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111
 {{< /katex >}}
 
 {{< katex display >}}
@@ -635,12 +635,4 @@ For future work, I would say there are several potential avenues to explore:
 
 - **Environmental and Sustainability Considerations**: Consider incorporating sustainability features into the design or assessing the environmental impact of the equipment. This could involve materials sourcing, energy efficiency, or end-of-life considerations.
 {{< /hint>}}
-
-..and that is all I could think of!
-
-
-
-
-
-
 

@@ -57,7 +57,7 @@ This iterative process, involving selection of diverse parent pairs, crossover, 
 
 The elitist operator in GA's serves to maintain or improve the algorithm's performance throughout its progression. It accomplishes this by replicating the best chromosome into the succeeding generation, bypassing both crossover and mutation operators. This strategy ensures that the best-performing chromosome, in terms of fitness, remains constant or improves, preventing a decrease in its fitness value.
 
-{{< hint tip >}}
+{{< hint important >}}
 The termination criteria is based upon:
 
 - Number of generations
@@ -78,7 +78,7 @@ A different approach, found in literature, allowed bin capacities to be exceeded
 
 The cost function used became: {{< katex >}} J = nBin + \alpha \times MeanViol + LBPenalty   {{< /katex >}}
 
-{{< hint tip >}}
+{{< hint note >}}
 The variables are described as:
 
 - nBin: Number of bins used
@@ -93,11 +93,50 @@ Items had to be assigned to different bins. More variables were added inside the
 
 Another criterion introduced is a "stuck counter." Often, it's ambiguous whether the algorithm is stuck in a local minimum or encountering difficulties in finding an improved solution. To address this, if the program identifies that the best cost remains unchanged from the previous iteration, it initiates a count of iterations. Upon surpassing a predetermined limit, the program halts. Additionally, if the best cost is an integer value, it suggests that the program might have discovered a feasible solution and is trapped within it. This "stuck counter" proves to be a valuable stopping criterion.
 
-(to add code segments later)
+## 3 Results
+
+In the GA algorithm, the primary parameters for adjustment include population size (nPop), crossover probability (pc), and mutation probability (pm). Initial trials utilized high crossover and low mutation probabilities, aligning with common recommendations. Each parameter set underwent 100 tests to offer a comprehensive understanding of their impact. Results for a population size of 100 are detailed below.
+
+
+| Crossover | Mutation | # Optimal | # Non-Opt | # Non Feasible | AVG Time (s) | Best Time (s) |
+|----------|----------|-----------|------------|----------------|--------------|---------------|
+| 0.8      | 0.1      | 57        | 25         | 18             | 16.7065      | 2.9367        |
+| 0.4      | 0.1      | 60        | 23         | 17             | 10.2069      | 2.2047        |
+| 0.4      | 0.5      | 79        | 12         | 9              | 8.4275       | 2.6534        |
+| 0.1      | 0.9      | 80        | 12         | 8              | 7.5532       | 3.0711        |
+| 0.1      | 0.5      | **81**    | 6     | 13             | **7.1172**     | **2.1431**        |
+| 0.2      | 0.8      | 75        | 10         | 15             | 9.0226       | 3.1714        |
+
+
+The bold highlights denote the best outcomes. Surprisingly, a higher mutation probability proves advantageous for this specific problem, whereas the crossover probability appears less influential. The most favorable result achieved 81 optimal solutions out of 100 simulations, a decent outcome but with room for improvement. Reducing the population size to 50 and retesting yielded the results detailed as follows:
+
+| Crossover | Mutation | # Optimal | # Non-Opt | # Non Feasible | AVG Time (s) | Best Time (s) |
+|-----------|----------|-----------|------------|----------------|--------------|---------------|
+| 0.8       | 0.1      | 43        | 27         | 30             | 13.1624      | 2.2969        |
+| 0.4       | 0.1      | 34        | 26         | 40             | 8.3888       | 1.5564        |
+| 0.4       | 0.5      | 66        | 19         | 15             | 6.2721       | 1.4918        |
+| 0.1       | 0.9      | 78        | 14         | 8              | 4.7672       | 1.7086        |
+| 0.1       | 0.5      | 75        | 13         | 12             | **4.6430**   | **1.334**     |
+| 0.2       | 0.8      | **83**    | 8          | 9              | 5.3174       | 1.6009        |
+
+When the population size reduced to 50, the results remained close to those with 100. Notably, simulations ran faster with the smaller population, requiring a higher mutation probability for good outcomes (50% mutation wasn’t sufficient for 50 individuals, while it performed well with 100). Optimal results — 83 in total — were achieved with a 0.2 crossover, 0.8 mutation, and a population of 50. Although some parameter sets were faster, their lower accuracy led to their exclusion.
+
+Further tests with varying population sizes indicated that a higher population slowed simulations without improving optimal solutions. Conversely, lower populations sped up the process but resulted in fewer optimal solutions due to the algorithm getting stuck in local minimums. Hence, a population size of 50 proved optimal.
+
+{{< hint info>}}
+Attempts to modify and test the selection probabilities function yielded inconclusive results.
+{{< /hint>}}
+
+
+In the initial benchmark, the GA underwent testing with the parameters: population size (nPop) = 50, crossover probability (pc) = 0.2, and mutation probability (pm) = 0.8. A single simulation's outcome is depicted as follows:
+
+![wqdj](https://live.staticflickr.com/65535/53359214487_89cbbc4d1d.jpg)
+
+
 
 
 {{< hint tip >}}
-[If you would like to return to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
+[If you would like to advance to the implementation using particle swarm optimization click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/){{< /hint >}}
 
 {{< hint tip >}}
 [I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}
