@@ -11,6 +11,7 @@
 {{- $LQIP_b64 := $LQIP_img.Content | base64Encode -}}
 {{- $CFPstyle := printf "%s%s%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat;" -}}
 {{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}
+{{- $actualImg := $src.Resize "640x jpg" -}}
 
 <picture>
   <source
