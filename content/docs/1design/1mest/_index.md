@@ -273,7 +273,7 @@ Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{max}} = 9.64 {{< /katex
 
 {{< hint tip>}}
 An analytic calculation for the Von-Mises stress can be performed using the formula:
-{{< hint /tip>}}
+{{< /hint >}}
 
 {{< katex display>}}
 \sigma_{VM}=\sqrt{ (\sigma_M + \sigma_N)^2 + 3(\tau_T + \tau_V)^2 }
