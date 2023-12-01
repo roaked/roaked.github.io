@@ -254,6 +254,54 @@ For this analysis, aligning the compressive force to achieve {{< katex >}}P_G{{<
 
 Following the meticulous definition of solution parameters, constraints, and applied loads, the problem underwent resolution. Execution of the Solve command enabled the observation of Von-Mises stresses within NX.
 
-#### 3.4.1
-
 In the context of the 1D element beam, the resulting Von-Mises stresses were as follows:
+
+![dadcd3](https://live.staticflickr.com/65535/53357624833_26901e053d_z.jpg)
+
+The maximum value identified is {{< katex >}}\sigma_{max}{{< /katex >}} = 69.521 MPa, significantly below the yield stress {< katex >}}\sigma_y{{< /katex >}} = 700 MPa
+
+Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{max}} = 10.07 {{< /katex>}}
+
+In the context of the 2D element beam, the resulting Von-Mises stresses were as follows:
+
+![l122112](https://live.staticflickr.com/65535/53357859035_b9b991d8ce_z.jpg)
+
+The maximum value identified is {{< katex >}}\sigma_{max}{{< /katex >}} = 72.58 MPa, still significantly below the yield stress {{< katex >}}\sigma_y{{< /katex >}} = 700 MPa
+
+Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{max}} = 9.64 {{< /katex>}}
+
+
+{{< hint tip>}}
+An analytic calculation for the Von-Mises stress can be performed using the formula:
+{{< hint /tip>}}
+
+{{< katex display>}}
+\sigma_{VM}=\sqrt{ (\sigma_M + \sigma_N)^2 + 3(\tau_T + \tau_V)^2 }
+{{< /katex>}}
+
+In this scenario, there's only a compressive force applied at the centroid, meaning there's no applied bending moment ({{< katex >}}\sigma_M{{< /katex >}}=0) and no shear stresses present (zero bending moment and transverse shear). Thus:
+
+{{< katex display>}}
+\sigma_{VM}= \sigma_M = \frac{P}{A} = \frac{60.10 \times 10^3}{865.125 \times 10^{-6}}
+{{< /katex>}}
+
+Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{VM}} = 10.08 {{< /katex>}}
+
+Therefore, the Von-Mises stress analysis suggests a uniform stress distribution along the beam, although the NX software exhibits some fluctuations. Additionally, the stress does not seem to depend on the length L of the beam. In the case of 2D elements, larger oscillations occur at the ends, while outside these areas (highlighted in yellow in the previous image), the stress approaches the analytical value. For the 1D elements, oscillations are minimal, and stress values closely match the analytical values. The relative error between the maximum stress in the beams and the analytical stress is:
+
+{{< katex display>}}
+- 1D: \epsilon = \frac{\left| 69.521 - 69.47 \right|}{69.47 } \times 100\% = 0.073 \%
+{{< /katex>}}
+
+{{< katex display>}}
+- 2D: \epsilon = \frac{\left| 72.58 - 69.47 \right|}{69.47 } \times 100\% = 4.48 \%
+{{< /katex>}}
+
+Evidently, the yield stress is far from being exceeded, with safety factors close to 10.
+
+## 5 Nonlinear Analysis
+
+To generate load-displacement plots in a nonlinear regime, it was necessary to create an initial geometric imperfection shaped according to the local instability mode for a beam length of 0.7{{< katex>}}L_{GL}{{< /katex>}} = 0.7 {{< katex>}}\times{{< /katex>}} 5.342L = 5.44 m. This involved modifying the part file and updating the .fem and .sim files for a beam length of 5.44 m. The displacement corresponding to the first local mode was determined. Using these values, a local geometric imperfection was introduced into a new fem file, utilized to create a new sim file for conducting a nonlinear analysis. Through this analysis, variations in applied force concerning the load and displacement changes across different increments were obtained:
+
+![13ok33](https://live.staticflickr.com/65535/53356527837_26e7f9950b_c.jpg)
+
