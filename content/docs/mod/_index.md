@@ -1,7 +1,7 @@
 ---
 weight: 10
-title: "Website Modifications"
 bookFlatSection: true
+title: "Website Modifications"
 ---
 
 # **Based on UX/UI / bookHidden: true**
