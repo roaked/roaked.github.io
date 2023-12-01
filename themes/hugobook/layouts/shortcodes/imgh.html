@@ -5,10 +5,12 @@
 {{- if $src -}}
     {{- $actualImg := $src.Resize "640x" -}}
     <picture>
-      <!-- Rest of your code handling responsive images -->
+        <!-- Rest of your code handling responsive images -->
     </picture>
 {{- else -}}
     <!-- Handle case where $src is nil or empty -->
+    <img src="/path/to/default/image.jpg" alt="Default Image" />
+{{- end -}}
 {{- end -}}
 {{- $alt := .Get "alt" -}}
 {{- $divClass := "" -}}{{/* Init'g */}}
