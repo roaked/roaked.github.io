@@ -58,14 +58,14 @@ G and As are given by:
 G = \frac{E}{2(1+\upsilon)} \quad \, \quad A_s = A \times K_s
 {{< /katex >}}
 
-The value of Ks can be obtained in NX, within the properties of the section created in the fem file for 1D elements, and it is equal to 0.32592771.
+The value of Ks can be obtained in NX, within the properties of the section created in the `.fem` file for 1D elements, and it is equal to 0.32592771.
 
 
 ## 2 1D Elements
 
 ### 2.1. Modeling & Meshing
 
-In the NX software, the modeling begins with the creation of a part. To model the beam with 1D elements, simply draw a sketch composed of a line with a length of L = 1445 mm oriented along the X-axis direction. Afterwards, the FEM file is created. In this file, the finite element mesh is generated. 
+In the NX software, the modeling begins with the creation of a part. To model the beam with 1D elements, simply draw a sketch composed of a line with a length of L = 1445 mm oriented along the X-axis direction. Afterwards, the `.fem` file is created. In this file, the finite element mesh is generated. 
 
 ![4](https://live.staticflickr.com/65535/53357402451_33d5094c17_b.jpg)
 
@@ -75,9 +75,9 @@ The mesh elements are defined as CBeam elements (beam elements). Within the mesh
 
 ![5](https://live.staticflickr.com/65535/53357735684_2f9acd1133_z.jpg)
 
-Finally, the sim file is created. In this file, start by defining the solution type. To perform the linear stability analysis in order to obtain the instability modes, the [SOL 105 Linear Buckling solution](https://docs.plm.automation.siemens.com/data_services/resources/nxnastran/10/help/en_US/tdocExt/pdf/User.pdf) is used.
+Finally, the `.sim` file is created. In this file, start by defining the solution type. To perform the linear stability analysis in order to obtain the instability modes, the [SOL 105 Linear Buckling solution](https://docs.plm.automation.siemens.com/data_services/resources/nxnastran/10/help/en_US/tdocExt/pdf/User.pdf) is used.
 
-Within the sim file, the boundary conditions and the loads of the problem are applied. In this specific problem, the beam is fixed at the left end and has a sliding support, along with an applied load, at the right end.
+Within the `.sim` file, the boundary conditions and the loads of the problem are applied. In this specific problem, the beam is fixed at the left end and has a sliding support, along with an applied load, at the right end.
 
 These conditions are applied at the nodes. Hence, the node at the left end is fixed, preventing both rotations and translations, while the node at the right end is constrained to allow translation only along the X-axis (degree of freedom 1 in NX) and to permit rotation along the Y and Z axes (degrees of freedom 5 and 6 in NX). At the node on the right end, a reference load (1 kN) is applied, directed along the negative X-axis (compressive load).
 
@@ -137,13 +137,13 @@ In the part file, a sketch is created in the YZ plane depicting the mid-section 
 
 ![30s](https://live.staticflickr.com/65535/53357402386_a345b61c96_b.jpg)
 
-In the fem file, the mesh is generated using a PSHELL-type mesh collector. Within the properties of the PSHELL, the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t=2.25mm) is inserted. The 2D mesh elements are defined as CQUAD4 (quadrilateral elements).
+In the `.fem` file, the mesh is generated using a PSHELL-type mesh collector. Within the properties of the PSHELL, the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t=2.25mm) is inserted. The 2D mesh elements are defined as CQUAD4 (quadrilateral elements).
 
 After obtaining the mesh, rigid elements need to be introduced at the ends. To do this, two nodes are created, one at each end of the beam, with Y and Z coordinates corresponding to the centroid of the section. Using the 1D connection command, a rigid element is created at each end, connecting the nodes present at each end.
 
 ![kdks](https://live.staticflickr.com/65535/53357624948_8d4f5b68a4.jpg)
 
-In the sim file, the process is similar to what was described for 1D elements. Boundary conditions and constraints are applied to the nodes previously created at the ends passing through the centroid of the section.
+In the `.sim` file, the process is similar to what was described for 1D elements. Boundary conditions and constraints are applied to the nodes previously created at the ends passing through the centroid of the section.
 
 ![mm](https://live.staticflickr.com/65535/53357859145_fa236caffd_z.jpg)
 
@@ -199,7 +199,7 @@ As the length increases, the wrinkling of the plate decreases.
 
 ### 3.3. Determination of {{< katex >}}L_{GL} {{< /katex >}}
 
-Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the part file and updating the .fem and .sim files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
+Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the part file and updating the `.fem` and `.sim` files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
 
 | Iteration | Length | {{< katex >}}P_{Global}{{< /katex >}} (kN) | {{< katex >}}P_{Local}{{< /katex >}} (kN)        |
 |-----------|--------|--------------|--------------------|
@@ -248,7 +248,7 @@ P_{cr}^{EB} = 2.05 \times \frac{\pi^2 \times E \times I}{5.432 \times L^2} = 60.
 
 ## 4 Linear Static Analysis
 
-To perform the linear static analysis, a new solution is set up within the previously created sim files for both 1D and 2D beam elements, utilizing Solver 101 Linear Statics - Global Constraints.
+To perform the linear static analysis, a new solution is set up within the previously created `.sim` files for both 1D and 2D beam elements, utilizing Solver 101 Linear Statics - Global Constraints.
 
 For this analysis, aligning the compressive force to achieve {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}} was imperative. Given the marginal difference between {{< katex >}}P_G{{< /katex >}} and {{< katex >}}P_L{{< /katex >}}, an averaged force value of P = 60.10 kN was adopted.
 
@@ -258,7 +258,7 @@ In the context of the 1D element beam, the resulting Von-Mises stresses were as 
 
 ![dadcd3](https://live.staticflickr.com/65535/53357624833_26901e053d_z.jpg)
 
-The maximum value identified is {{< katex >}}\sigma_{max}{{< /katex >}} = 69.521 MPa, significantly below the yield stress {< katex >}}\sigma_y{{< /katex >}} = 700 MPa
+The maximum value identified is {{< katex >}}\sigma_{max}{{< /katex >}} = 69.521 MPa, significantly below the yield stress {{< katex >}}\sigma_y{{< /katex >}} = 700 MPa
 
 Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{max}} = 10.07 {{< /katex>}}
 
@@ -301,7 +301,16 @@ Evidently, the yield stress is far from being exceeded, with safety factors clos
 
 ## 5 Nonlinear Analysis
 
-To generate load-displacement plots in a nonlinear regime, it was necessary to create an initial geometric imperfection shaped according to the local instability mode for a beam length of 0.7{{< katex>}}L_{GL}{{< /katex>}} = 0.7 {{< katex>}}\times{{< /katex>}} 5.342L = 5.44 m. This involved modifying the part file and updating the .fem and .sim files for a beam length of 5.44 m. The displacement corresponding to the first local mode was determined. Using these values, a local geometric imperfection was introduced into a new fem file, utilized to create a new sim file for conducting a nonlinear analysis. Through this analysis, variations in applied force concerning the load and displacement changes across different increments were obtained:
+To generate load-displacement plots in a nonlinear regime, it was necessary to create an initial geometric imperfection shaped according to the local instability mode for a beam length of 0.7{{< katex>}}L_{GL}{{< /katex>}} = 0.7 {{< katex>}}\times{{< /katex>}} 5.342L = 5.44 m. This involved modifying the part file and updating the `.fem` and `.sim` files for a beam length of 5.44 m. The displacement corresponding to the first local mode was determined. Using these values, a local geometric imperfection was introduced into a new `.fem` file, utilized to create a new `.sim` file for conducting a nonlinear analysis. Through this analysis, variations in applied force concerning the load and displacement changes across different increments were obtained:
 
 ![13ok33](https://live.staticflickr.com/65535/53356527837_26e7f9950b_c.jpg)
+
+For the case of 1.3{{< katex>}}L_{GL}{{< /katex>}} = 1.3 {{< katex>}}\times{{< /katex>}} 5.342L = 10.10 m, the objective is to capture the global deformation, hence determining the displacement related to the first mode of global instability. This displacement is then incorporated as a geometric imperfection into a new `.fem` file, following a similar procedure as with the local deformation.
+
+The nonlinear analysis is conducted using the SOL 106 Nonlinear Statics - Global Constraints solution. This involved 200 iterations and 250 maximum increments. The axial displacements and forces' values can be exported to a `.csv` file, from which the corresponding graphs can be generated.
+
+
+{{< hint note>}}
+The analysis was not performed on the beam with 1D elements for the 0.7L_GL case since there is no local instability mode in the beam with 1D elements.
+{{< /hint>}}
 
