@@ -425,7 +425,7 @@ g_{\text{total}} = \left(\frac{1}{R_1} + \frac{1}{R_2}\right) \frac{l_a^2 + l_f^
 {{< /katex >}}
 
 
-For calculating efficiency, it's necessary to evaluate the coefficient of static friction {{< katex >}}\mu{{< /katex >}}. To do this, [I consulted the table in the engineering toolbox website](https://www.engineeringtoolbox.com/friction-coefficients-d_778.html). Considering the surface condition between the gears in a light mineral oil, we extracted the value of {{< katex >}}\mu{{< /katex >}} as 0.23 from the table.
+For calculating efficiency, it's necessary to evaluate the coefficient of static friction {{< katex >}}\mu{{< /katex >}}. To do this, [I consulted the table in the engineering toolbox website](https://www.engineeringtoolbox.com/friction-coefficients-d_778.html). Considering the surface condition between the gears in a light mineral oil, the value extracted is of {{< katex >}}\mu = 0.23{{< /katex >}} from the table.
 
 
 Given that the friction factor is determined by f = tan({{< katex >}}\mu{{< /katex >}}), it is found that f = tan(0.23) = 0.234.
