@@ -1,6 +1,6 @@
 ---
 title: "Snake Game: Genetic RL-DQN"
-weight: 9
+weight: 8
 ---
 
 # Genetic Tuning for Smarter Deep Q-Learning
