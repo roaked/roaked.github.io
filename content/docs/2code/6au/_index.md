@@ -1,5 +1,5 @@
 ---
-title: "FMCG Production: E2E Automation"
+title: "FMCG: Sardine FAB E2E Automation"
 weight: 6
 ---
 
