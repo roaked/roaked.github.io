@@ -197,7 +197,7 @@ Now, for a 5L (mode 24):
 
 As the length increases, the wrinkling of the beam decreases.
 
-### 3.3. Determination of {{< katex >}}L_{GL} {{< /katex >}}
+### 3.3. Determination of L_GL {{< /katex >}}
 
 Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the part file and updating the `.fem` and `.sim` files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
 
