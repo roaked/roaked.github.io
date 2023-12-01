@@ -167,11 +167,7 @@ The command "Solve" in NX yielded the following results for the first 10 modes o
 | 9    | 81.44                 |
 | 10   | 82.4                  |
 
-In NX, it's observed that all these modes are local modes. The first mode corresponds to the lowest instability load associated with a local mode, hence {{< katex >}}P_L{{< /katex>}} = 61.43 kN.
-
-![asd](https://live.staticflickr.com/65535/53356528047_bd6e4b4ec3_q.jpg)
-
-To find the first global instability mode, it's necessary to increase the number of modes identified by NX. Using the critical load value for Timoshenko beam elements (1682.3 kN) as a reference, the search is directed towards a global mode close to this load value. The following mode was found:
+In NX, it's observed that all these modes are local modes. The first mode corresponds to the lowest instability load associated with a local mode, hence {{< katex >}}P_L{{< /katex>}} = 61.43 kN. To find the first global instability mode, it's necessary to increase the number of modes identified by NX. Using the critical load value for Timoshenko beam elements (1682.3 kN) as a reference, the search is directed towards a global mode close to this load value. The following mode was found:
 
 ![asdmsa3](https://live.staticflickr.com/65535/53356527972_71c73818f0_z.jpg)
 
@@ -290,11 +286,11 @@ Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{VM}} = 10.08 {{< /katex
 Therefore, the Von-Mises stress analysis suggests a uniform stress distribution along the beam, although the NX software exhibits some fluctuations. Additionally, the stress does not seem to depend on the length L of the beam. In the case of 2D elements, larger oscillations occur at the ends, while outside these areas (highlighted in yellow in the previous image), the stress approaches the analytical value. For the 1D elements, oscillations are minimal, and stress values closely match the analytical values. The relative error between the maximum stress in the beams and the analytical stress is:
 
 {{< katex display>}}
-- 1D: \epsilon = \frac{\left| 69.521 - 69.47 \right|}{69.47 } \times 100\% = 0.073 \%
+1D: \epsilon = \frac{\left| 69.521 - 69.47 \right|}{69.47 } \times 100\% = 0.073 \%
 {{< /katex>}}
 
 {{< katex display>}}
-- 2D: \epsilon = \frac{\left| 72.58 - 69.47 \right|}{69.47 } \times 100\% = 4.48 \%
+2D: \epsilon = \frac{\left| 72.58 - 69.47 \right|}{69.47 } \times 100\% = 4.48 \%
 {{< /katex>}}
 
 Evidently, the yield stress is far from being exceeded, with safety factors close to 10.
