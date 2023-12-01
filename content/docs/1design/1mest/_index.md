@@ -185,6 +185,7 @@ Relative error: It is observed that the lowest load associated with a global ins
 
 {{< katex display>}}
 \epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1660.79}{1682.3} = 1.28\%
+{{< /katex>}}
 
 In order to find a purely global (non-mixed) mode, it's necessary to increase the length, L, of the beam. As the length, L, increases, the plate buckling present in the mixed mode decreases until the mode transitions to purely global. For instance, considering a 3L (mode 134):
 
@@ -212,5 +213,26 @@ Through sensitivity analysis, the length (L) of the 2D beam was varied to make {
 | 8         | 5.343L | 60.04 - mode 1 | 60.09 - mode 2 |
 | 9         | 5.342L | 60.113 - mode 3 | 60.09 - mode 2 |
 
+Hence: {{< katex >}}L_{GL}{{< /katex >}} = 5,342L {{< katex >}}\times{{< /katex >}} 1445 = 7719,9 mm
 
+For this length, the following modes are obtained:
 
+- Mode 1, P = 60.0936 kN: Mixed mode
+
+![sadjiajd3](https://live.staticflickr.com/65535/53357859075_43a70e7ba6_w.jpg)
+
+- Mode 2, P = 60.0937 kN: Local mode
+
+![dsaji22](https://live.staticflickr.com/65535/53357402276_a8ee6d96f8_z.jpg)
+
+- Mode 3, P = 60.113 kN: Global mode
+
+![l03](https://live.staticflickr.com/65535/53357735484_72555565cd_c.jpg)
+
+![032o](https://live.staticflickr.com/65535/53357402281_c115d25939_c.jpg)
+
+The local and global modes are separated by 0.0193 kN = 19.3 N, which corresponds to a relative difference of 0.032% between the two. Therefore, they can be considered equal ({{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}). Comparing with the analytical values:
+
+{{< katex display>}}
+\text{Timoshenko}: P_{cr}^T = \frac{P_{cr}^{EB}}{1+\frac{P_{cr}^{EB}}{G \times A_s}} = \frac{P_{cr}^{EB}}{1+\frac{P_{cr}^{EB}}{ \frac{E \times A \times K_s}{2 (1+\upsilon)} }} = 60.445 kN 
+{{< /katex >}}
