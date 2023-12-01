@@ -1,6 +1,5 @@
 ---
-title: Snake Game: Genetic RL-DQN
-
+title: "Snake Game: Genetic RL-DQN"
 weight: 9
 ---
 
