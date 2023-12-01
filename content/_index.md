@@ -1,5 +1,5 @@
 ---
-title: Coffee? ☕              
+title: The Solution is Coffee            
 type: docs
 ---
 

@@ -25,7 +25,7 @@ The aim is to conduct the dimensioning and study of fundamental structural compo
 
 ### 1.3. Functionalities
 
-{{< details "Structural and mechanical components - (click to expand)>}}
+{{< details "Structural and mechanical components - (click to expand)" close >}}
 Bridge cranes are used for lifting and moving heavy loads. The structural and mechanical components to be sized are:
 - Resistant girders, consisting of a reinforced box profile;
 - Trolley frame;
