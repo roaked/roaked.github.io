@@ -124,7 +124,7 @@ P_{cr}^T = \frac{P_{cr}^{EB}}{1+\frac{P_{cr}^{EB}}{ \frac{E \times A \times K_s}
 The relative error is given by:
 
 {{< katex display>}}
-e = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1631.13}{1682.3} = 3\%
+\epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1631.13}{1682.3} = 3\%
 {{< /katex >}}
 
 The critical instability load obtained in NX has an error of 3% compared to the analytical value.
@@ -150,3 +150,56 @@ In the sim file, the process is similar to what was described for 1D elements. B
 Once the solution type, constraints, and applied loads are defined, the solution to the problem is obtained.
 
 ### 3.2. Linear Stability Analysis in 2D Beam
+
+The command "Solve" in NX yielded the following results for the first 10 modes of instability:
+
+
+| Mode | Instability Load (kN) |
+|------|-----------------------|
+| 1    | 61.43                 |
+| 2    | 61.7                  |
+| 3    | 65.95                 |
+| 4    | 66.14                 |
+| 5    | 72.56                 |
+| 6    | 75.12                 |
+| 7    | 77.3                  |
+| 8    | 77.43                 |
+| 9    | 81.44                 |
+| 10   | 82.4                  |
+
+In NX, it's observed that all these modes are local modes. The first mode corresponds to the lowest instability load associated with a local mode, hence {{< katex >}}P_L{{< /katex>}} = 61.43 kN.
+
+![asd](https://live.staticflickr.com/65535/53356528047_bd6e4b4ec3_q.jpg)
+
+To find the first global instability mode, it's necessary to increase the number of modes identified by NX. Using the critical load value for Timoshenko beam elements (1682.3 kN) as a reference, the search is directed towards a global mode close to this load value. The following mode was found:
+
+![asdmsa3](https://live.staticflickr.com/65535/53356527972_71c73818f0_z.jpg)
+
+![dsaao2](https://live.staticflickr.com/65535/53356527967_96ed3aa7c0_c.jpg)
+
+The identified mode is a mixed mode, displaying both axis and plates buckling. However, it was the sole mode exhibiting significant axis buckling. Thus, considering the lowest load associated with a global mode, the load corresponding to this mode, {{< katex >}}P_G{{< /katex >}} = 1660.79 kN, is regarded as the minimum instability load associated with a global mode. Since {{< katex >}}P_L{{< /katex >}} < {{< katex >}}P_G{{< /katex >}}, {{< katex >}}P_L{{< /katex >}} represents the critical instability load.
+
+{{< hint example >}}
+Relative error: It is observed that the lowest load associated with a global instability mode in NX exhibits an error of 1.28% compared to the analytical value.
+{{< /hint>}}
+
+{{< katex display>}}
+\epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1660.79}{1682.3} = 1.28\%
+
+In order to find a purely global (non-mixed) mode, it's necessary to increase the length, L, of the beam. As the length, L, increases, the plate buckling present in the mixed mode decreases until the mode transitions to purely global. For instance, considering a 3L (mode 134):
+
+![sdamkm222](https://live.staticflickr.com/65535/53356527962_14cb04324b_h.jpg)
+
+Now, for a 5L (mode 24):
+
+![123dd](https://live.staticflickr.com/65535/53357624893_d081aed907_b.jpg)
+
+As the length increases, the wrinkling of the plate decreases.
+
+### 3.3. Determination of {{< katex >}}L_{GL} {{/katex}}
+
+
+
+
+
+
