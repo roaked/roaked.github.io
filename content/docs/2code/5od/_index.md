@@ -1,5 +1,5 @@
 ---
-title: "Optimizing Time \& Other Things"
+title: "BPP/TSP Optimization: Time & Space"
 weight: 5
 ---
 
