@@ -1,5 +1,5 @@
 ---
-title: "Deep Learning on Fake News"
+title: "NLP: Deep Learning on Fake News"
 weight: 3
 ---
 
