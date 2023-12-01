@@ -377,7 +377,7 @@ The coefficients for the matrix {{< katex >}}B_V{{< /katex >}} and {{< katex >}}
 \tilde{\theta} \\
 \tilde{\psi} \\
 \end{bmatrix}
-+
++\\
 \begin{bmatrix}
 0 & 0 & 0 & 0 \\
 g & 0 & 0 & 0 \\
