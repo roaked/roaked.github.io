@@ -37,11 +37,7 @@ Overall, the weak form is favoured in many situations because it relaxes the str
 
 ### 1.2. Problem Formulation
 
-The problem involves analyzing the torsional behavior of a prismatic bar with the cross-section depicted in the figure using the Prandtl stress function. The objective is to determine the torsional stiffness constant J and the distribution of shear stresses across the section, shear stress contour lines, identification of maximum and minimum shear stresses due to a unit torsional moment applied to the bar. Consider the following aspects in your report:
-
-- Present the differential equation governing the physical phenomenon under study, clearly indicating the employed boundary conditions and all the approximations made.
-- Validate the problem by testing it against a similar problem with a simple geometry for which an analytical solution exists. Verify the results using different stiffness matrix types.
-- Establish a finite element mesh and solve it using both a custom-developed program and commercial software.
+Let's assume that the problem involves analyzing the torsional behaviour of a prismatic bar with the cross-section depicted using the Prandtl stress function. The objective is to determine the torsional stiffness constant J and the distribution of shear stresses across the section, shear stress contour lines, identification of maximum and minimum shear stresses due to a unit torsional moment applied to the bar. 
 
 #### 1.2.2. Strong Form
 
@@ -110,7 +106,7 @@ F_i = \iint_S 2 \phi_i dx dy
 
 In the considered problem, the only essential boundary condition will be the null solution across the entire perimeter of the figure, accompanied by a distributed load of magnitude 2 applied across the entire mesh.
 
-### 1.4. Analytical Integration
+### 1.3. Analytical Integration
 
 Simplifying the problem's resolution, only regular 4-node elements with 1 degree of freedom will be considered. Information from the book ["Introduction to the Finite Element Method (3rd edition)" by J.N. Reddy](https://books.google.at/books/about/An_Introduction_to_the_Finite_Element_Me.html?id=8gqnRwAACAAJ&redir_esc=y) provides the following details:
 
@@ -130,7 +126,7 @@ a^2-2b^2 & 2(a^2+b^2) & -2a^2+b^2 & -(a^2+b^2)\\
 
 Where 'a' corresponds to the length of the base of the element, and 'b' corresponds to the height of the element.
 
-### 1.5. Numerical Integration
+### 1.4. Numerical Integration
 
 These functions aim to calculate the elemental stiffness matrix using the Gauss-Jordan approximation, which simplifies integration to a summation. To achieve this, a coordinate transformation from {{< katex >}}(x,y){{< /katex >}} to {{< katex >}} (\xi, \eta) {{< /katex >}} is applied, while also computing the Jacobian of this transformation. Subsequently, the rules of Gauss points are employed.
 
@@ -161,7 +157,7 @@ Consequently:
 {{< katex display >}} \text{2x2 Rule} : \overline{x_{1,2}}=\frac{a}{2}(1 \pm \sqrt{\frac{1}{3}}) \quad \text{and} \quad \overline{y_{1,2}}=\frac{b}{2}(1 \pm \sqrt{\frac{1}{3}})
 {{< /katex >}}  
 
-### 1.6. Torsional Constant 
+### 1.5. Torsional Constant 
 
 After calculating the nodal solution, the torsion constant J can be determined by:
 
@@ -169,7 +165,7 @@ After calculating the nodal solution, the torsion constant J can be determined b
 J^e = \int_0^b \int_0^a 2 \psi^e dxdy = \frac{ab}{2}(\psi_1 + \psi_2 + \psi_3 + \psi_4) \qquad J = \sum_i J_i^e
 {{< /katex >}}  
 
-### 1.7. Shear Stresses
+### 1.6. Shear Stresses
 
 {{< katex display >}}
 \tau_{yz} =  -G \theta \frac{\partial \psi}{\partial x} = -G \theta (\frac{\partial \phi_1}{\partial \overline{x}}\psi_1 + \frac{\partial \phi_2}{\partial \overline{x}}\psi_2 + \frac{\partial \phi_3}{\partial \overline{x}}\psi_3 + \frac{\partial \phi_4}{\partial \overline{x}}\psi_4)
