@@ -187,7 +187,7 @@ Relative error: It is observed that the lowest load associated with a global ins
 \epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1660.79}{1682.3} \times 100 \% = 1.28\%
 {{< /katex>}}
 
-In order to find a purely global (non-mixed) mode, it's necessary to increase the length, L, of the beam. As the length, L, increases, the plate buckling present in the mixed mode decreases until the mode transitions to purely global. For instance, considering a 3L (mode 134):
+In order to find a purely global (non-mixed) mode, it's necessary to increase the length, L, of the beam. As the length, L, increases, the beam buckling present in the mixed mode decreases until the mode transitions to purely global. For instance, considering a 3L (mode 134):
 
 ![sdamkm222](https://live.staticflickr.com/65535/53356527962_14cb04324b_h.jpg)
 
@@ -195,7 +195,7 @@ Now, for a 5L (mode 24):
 
 ![123dd](https://live.staticflickr.com/65535/53357624893_d081aed907_b.jpg)
 
-As the length increases, the wrinkling of the plate decreases.
+As the length increases, the wrinkling of the beam decreases.
 
 ### 3.3. Determination of {{< katex >}}L_{GL} {{< /katex >}}
 
@@ -314,3 +314,36 @@ The nonlinear analysis is conducted using the SOL 106 Nonlinear Statics - Global
 The analysis was not performed on the beam with 1D elements for the 0.7L_GL case since there is no local instability mode in the beam with 1D elements.
 {{< /hint>}}
 
+![123ed](https://live.staticflickr.com/65535/53357402221_0483df171d_z.jpg)
+
+![123eko3](https://live.staticflickr.com/65535/53357402206_a0f555cd4e_c.jpg)
+
+![2045o](https://live.staticflickr.com/65535/53357624703_9609ea01db_z.jpg)
+
+For the 1D model, the deformation is approximately linear until reaching the critical load, which is around 35 kN, after which buckling occurs.
+
+In the 2D model with 1.3{{< katex>}}L_{GL}{{< /katex>}}L, the graph's appearance is similar, with the same critical global load value. The critical load obtained through this nonlinear analysis is lower than the one derived from linear analysis, which was 60.1 kN.
+
+In the 2D model with 0.7{{< katex>}}L_{GL}{{< /katex>}}, a similar behaviour is observed, except that the local critical load is slightly higher than in previous analyses, with {{< katex>}}P_{cr}{{< /katex>}} = 40kN.
+
+The fact that the critical load values in this nonlinear analysis are lower than those in the linear analysis indicates that when buckling occurs, nonlinearities are significant. There exists a second-order relationship between force and displacement. This is due to imperfections; in cases without imperfections, there's no deformation before reaching the critical load.
+
+The slope of the graphs represents the bending stiffness, which can be calculated using the formula {{< katex>}}\frac{EA}{L}{{< /katex>}}. For the case of the graphs with 1.3{{< katex>}}L_{GL}{{< /katex>}}, the bending stiffness is calculated as {{< katex>}}\frac{200 \times 10^9 \times 865.10^{-6}}{10.1} = 1.7 \times 10^7{{< /katex>}} corresponding to the slope of the graphs m = {{< katex>}}\frac{dy}{dx} = \frac{350000}{0.002} = 1.7 \times 10^7{{< /katex>}}.
+
+In the graphs corresponding to the 1.3{{< katex>}}L_{GL}{{< /katex>}} length, after reaching the critical load (35 kN), the bending stiffness approaches zero. This implies structural stability since maintaining the applied force is necessary to continue deforming the beam. Conversely, in the local case with a length of 0.7{{< katex>}}L_{GL}{{< /katex>}}, after reaching the critical load, the bending stiffness begins to decrease, albeit slightly, indicating potential instability.
+
+![10i](https://live.staticflickr.com/65535/53357858955_3bac9f4d47_c.jpg)
+
+![1ek02](https://live.staticflickr.com/65535/53357624698_065d7c22b4_c.jpg)
+
+![0o2](https://live.staticflickr.com/65535/53356527812_90bed1a333_c.jpg)
+
+## 6 Conclusions & Future Tasks
+
+A general conclusion can be drawn that stresses in 1D are approximately constant due to the problem's simplified nature/solution. In the case of global deformation in 2D, there's a change in the beam's axis, resulting in no significant stress concentration. However, in the case of local deformation in 2D, where wrinkling occurs in the beam, stresses along the beam will vary considerably. This leads to areas with high stress concentrations, hence higher Von-Mises stresses, and other areas with reduced stresses. 
+
+The relative error in the analytically obtained values is acceptable in both cases, considering that the finite element method is an approximation of real behaviour. The conclusion suggests a better approximation in the 2D modeling, given that in the 1D case, the mesh isn't as complex. Additionally, it's noted that the yield stress is never reached at any point along the beam, either in linear or nonlinear analysis.
+
+Although acceptable, the analysis could be enhanced through several avenues. Firstly, mesh refinement stands as a primary area for improvement. Both the 1D and 2D models could benefit from a finer mesh, especially in critical zones where stress concentrations occur. Additionally, introducing nonlinear material properties, such as plasticity models or other complex material behaviours, could render a more realistic depiction of material response.
+
+Exploration of more advanced element types, possibly incorporating mixed-element approaches, might notably improve accuracy, particularly when addressing local deformations within the 2D model. Validating the results against additional analytical solutions or experimental data would also be beneficial to ensure the accuracy of the finite element analysis.
