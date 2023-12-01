@@ -2,6 +2,14 @@
 {{- $imgBase := "images/" -}}
 {{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
 {{- $src := resources.Get $srcPath -}}
+{{- if $src -}}
+    {{- $actualImg := $src.Resize "640x" -}}
+    <picture>
+      <!-- Rest of your code handling responsive images -->
+    </picture>
+{{- else -}}
+    <!-- Handle case where $src is nil or empty -->
+{{- end -}}
 {{- $alt := .Get "alt" -}}
 {{- $divClass := "" -}}{{/* Init'g */}}
 {{- $imgClass := "w-full h-auto animate-fade" -}}
