@@ -1,5 +1,5 @@
 ---
-title: "PyBaMM-ML Battery Status"
+title: "PyBaMM-ML EV Battery Status"
 
 weight: 9
 ---

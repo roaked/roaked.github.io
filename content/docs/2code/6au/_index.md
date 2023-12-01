@@ -1,5 +1,5 @@
 ---
-title: "Sardine Factory Automation"
+title: "Sardine FAB E2E Automation"
 weight: 6
 ---
 
