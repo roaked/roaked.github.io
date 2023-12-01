@@ -1,5 +1,5 @@
 ---
-title: "Evolutionary Computation"
+title: "Optimizing Time \& Other Things"
 weight: 5
 ---
 

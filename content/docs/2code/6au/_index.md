@@ -1,5 +1,5 @@
 ---
-title: "Industrial Automation"
+title: "Sardine Factory Automation"
 weight: 6
 ---
 
