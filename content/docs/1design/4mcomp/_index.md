@@ -17,7 +17,9 @@ In engineering and physics, problems are often described by partial differential
 
 However, there are cases where directly solving the strong form might be challenging due to complexities in the equation, irregular geometries, or varying boundary conditions. This is where the "weak formulation" or ("weak form") becomes advantageous.
 
-The weak form introduces a relaxation of the constraints imposed by the strong form by multiplying the governing equation with a weight function (typically a test function) and integrating it over the domain. This relaxation allows for more flexibility in solution techniques and offers several advantages:
+The weak form introduces a relaxation of the constraints imposed by the strong form by multiplying the governing equation with a weight function (typically a test function) and integrating it over the domain. 
+
+{{< details "This relaxation allows for more flexibility in solution techniques and offers several advantages: (click to expand)" close>}}
 
 - Handling Boundary Conditions: The weak form often simplifies the imposition of different types of boundary conditions.
 
@@ -27,11 +29,21 @@ The weak form introduces a relaxation of the constraints imposed by the strong f
 
 - Handling Discontinuities: In problems involving discontinuities or singularities, the weak form can handle these cases more effectively.
 
-- Minimization of Requirements: In some cases, the requirement for differentiability or the number of times an equation needs to be differentiated is reduced, easing computational complexity.
+- Minimization of Requirements: In some cases, the requirement for differentiability or the number of times an equation needs to be differentiated is reduced, easing computational complexity. 
+
+{{< /details >}}
 
 Overall, the weak form is favoured in many situations because it relaxes the strictness of the original problem while maintaining the essential properties required for solutions, making it more adaptable for various solution techniques, especially in numerical analysis.
 
-### 1.2. Strong Form
+### 1.2. Problem Formulation
+
+The problem involves analyzing the torsional behavior of a prismatic bar with the cross-section depicted in the figure using the Prandtl stress function. The objective is to determine the torsional stiffness constant J and the distribution of shear stresses across the section, shear stress contour lines, identification of maximum and minimum shear stresses due to a unit torsional moment applied to the bar. Consider the following aspects in your report:
+
+- Present the differential equation governing the physical phenomenon under study, clearly indicating the employed boundary conditions and all the approximations made.
+- Validate the problem by testing it against a similar problem with a simple geometry for which an analytical solution exists. Verify the results using different stiffness matrix types.
+- Establish a finite element mesh and solve it using both a custom-developed program and commercial software.
+
+#### 1.2.2. Strong Form
 
 Let's begin by establishing the strong formulation of the problem, which serves as the foundation of our problem. In this formulation, we encapsulate the fundamental differential equation governing the system's behaviour. This equation, along with the precise boundary conditions and initial values, constitutes the direct representation of the underlying physical laws guiding the system's dynamics.
 
@@ -76,7 +88,7 @@ G \theta = \frac{Mt}{J}
 
 In the previous formula, the M (torsional moment) and t (thickness) take the value of 1.
 
-### 1.3. Weak Form
+#### 1.2.1. Weak Form
 
 The weak form enables transforming the differential equation into an integral equation, where the initial approach involves integrating the equation across the entire domain. Rules are applied to obtain the weak form, namely, defining the residual by multiplying it with an arbitrary function, integrating by parts the highest-order term, and rearranging the equation. Thus:
 
