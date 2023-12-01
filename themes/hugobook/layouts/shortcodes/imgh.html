@@ -1,24 +1,15 @@
-{{- $respSizes := slice "960" "1280" "1920" -}}
+{{- $respSizes := slice "320" "640" "960" "1280" "1600" "1920" -}}
 {{- $imgBase := "images/" -}}
-{{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
-{{- $src := resources.Get $srcPath -}}
-{{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
-{{- $src := resources.Get $srcPath -}}
-{{- if $src -}}
-    {{- $actualImg := $src.Resize "640x" -}}
-    <picture>
-        <source type="image/webp" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
-        <source type="image/jpeg" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
-        <source type="image/jpg" srcset="{{ $actualImg.RelPermalink }}" sizes="(min-width: 1024px) 100vw, 50vw">
-        <img src="{{ $actualImg.RelPermalink }}" alt="{{ .Get "alt" }}" loading="lazy">
-    </picture>
-{{- else -}}
-    <!-- Handle case where $src is nil or empty -->
-    <img src="/path/to/default/image.jpg" alt="Default Image">
-{{- end -}}
+
+
+{{- $src := resources.Get (printf "%s%s" $imgBase (.Get "src")) -}}
 {{- $alt := .Get "alt" -}}
 {{- $divClass := "" -}}{{/* Init'g */}}
 {{- $imgClass := "w-full h-auto animate-fade" -}}
+
+{{- $LQIP_img := $src.Resize "20x jpg" -}}
+{{- $LQIP_b64 := $LQIP_img.Content | base64Encode -}}
+{{- $CFPstyle := printf "%s%s%s" "background: url(data:image/jpeg;base64," $LQIP_b64 "); background-size: cover; background-repeat: no-repeat;" -}}
 {{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}
 {{- $actualImg := $src.Resize "640x jpg" -}}
 <picture>
