@@ -153,7 +153,7 @@ In this simulation, the GA algorithm required 5583 iterations over 237 seconds b
 Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consistently faced difficulties. It often became stuck with just a few bin violations unresolved, persisting even after nearly 20000 iterations, resulting in non-feasible solutions slightly above a cost of 100. The randomness inherent in the GA can contribute to such outcomes, making luck a potential factor in its performance.
 
 {{< hint tip >}}
-[If you would like to advance to the implementation using Particle Swarm Optimization (PSO) click here ✌️](https://ricardochin.com/docs/2code/5od/_index3/)
+[If you would like to advance to the implementation using Particle Swarm Optimization (PSO) click here!](https://ricardochin.com/docs/2code/5od/_index3/)
 
-[Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}{{< /hint >}}
+[Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here! ✌️](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}
 
