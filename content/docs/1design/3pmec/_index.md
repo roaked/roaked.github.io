@@ -7,20 +7,25 @@ title: "Industrial Crane Design"
 
 # **How Much Can You Lift?**
 
+![h21e1e3](https://pwiworks.com/wp-content/uploads/single-girder-bridge-crane-1200x600.jpg)
+
 ## 1 Double Girder Crane for Industrial Application
 
 ### 1.1. Description and Context
 
-This project was carried out within the scope of the Mechanical Design Course, part of my M.Sc journey. It aims to dimension and study fundamental structural components of a double girder suspension crane. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors.
-A bridge crane is a piece of equipment that, despite not being highly complex, encompasses all the elements that warrant study, allowing for the application of theoretical concepts applied to a real-world scenario.
+This project aims to dimension and study fundamental structural components of a double girder suspension crane. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors. 
+
+{{< hint important >}}
+A bridge crane is a piece of equipment that, despite not being highly complex, encompasses all the elements that warrant study, allowing for the application of theoretical concepts in mechanical design engineering applied to a real-world scenario.
+{{< /hint >}}
 
 ### 1.2. Goals
 
-This project aims to conduct the dimensioning and study of fundamental structural components. The sizing will be executed in accordance with applicable standards and demonstrated through analytical calculations and finite element models. In addition to the structural elements of the equipment, fundamental mechanical components of the system, including welded and bolted connections, will also be sized. Coupled with the dimensioning aspect is the economic factor, aiming to minimize costs while ensuring the safety of the entire structure
+The aim is to conduct the dimensioning and study of fundamental structural components. The sizing will be executed in accordance with applicable standards and demonstrated through analytical calculations and finite element models. In addition to the structural elements of the equipment, fundamental mechanical components of the system, including welded and bolted connections, will also be sized. Coupled with the dimensioning aspect is the economic factor, aiming to minimize costs while ensuring the safety of the entire structure
 
 ### 1.3. Functionalities
 
-
+{{< details "Structural and mechanical components - (click to expand)>}}
 Bridge cranes are used for lifting and moving heavy loads. The structural and mechanical components to be sized are:
 - Resistant girders, consisting of a reinforced box profile;
 - Trolley frame;
@@ -31,6 +36,7 @@ The selected structural and mechanical components are:
 - Hoist trolley;
 - Bearings;
 - Gear motor.
+{{< /details >}}
 
 Main components:
 - The trolley frame is located at the ends of the resistant girders. Inside it, the mechanism for the crane's movement is situated, powered by a gear motor. The wheels move along tracks, following well-defined paths.
@@ -56,11 +62,11 @@ The following requirements were considered for this project:
 
 #### 1.4.2. Project Constraints
 
-- The decision was made to design a bridge crane for an enclosed environment.
+- The decision was made to design a bridge crane for an enclosed / indoors environment.
 
 ### 1.5. Standards, Codes, and Regulations
 
-In the completion of this work, the FEM Standards (European Federation of Materials Handling), particularly Chapter II, and Eurocode 3 were utilized. The FEM standards address specific issues related to structures and handling equipment, including cases such as bridge cranes and gantry cranes.
+In the completion of this work, the [FEM Standards (European Federation of Materials Handling)](https://www.fem-eur.com/), particularly Chapter II, and [Eurocode 3](http://eurocodes.jrc.ec.europa.eu/EN-Eurocodes/eurocode-3-design-steel-structures) were utilized. The [FEM standards](https://www.fem-eur.com/) address specific issues related to structures and handling equipment, including cases such as bridge cranes and gantry cranes.
 
 ### 1.6. Approach
 
@@ -68,7 +74,7 @@ A study was conducted on various existing construction solutions available in th
 
 ![saassa](https://live.staticflickr.com/65535/53349230049_69f514c133_w.jpg)
 
-The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and a mass of 755 kg. The following data pertains to the assembly composed of the two girders, two trolley frames, and the hoist trolley:
+The chosen hoist trolley is the [STAHL - SH 5020](https://www.manualslib.com/products/Stahl-Sh-5020-25-11019601.html), which has a wheelbase of 1m and a mass of 755 kg. The following data pertains to the assembly composed of the two girders, two trolley frames, and the hoist trolley:
 
 - Weight: 1229.3 kg
 - Maximum width: 3.4 m
@@ -77,6 +83,9 @@ The chosen hoist trolley is the STAHL - SH 5020, which has a wheelbase of 1m and
 ### 1.7. Manufacturing and Assembly Processes
 
 The steel plates are obtained through a cold rolling process. Their surface roughness with an arithmetic mean deviation is 4.8 micrometers. The geometric tolerance concerning the thickness of these components is {{< katex >}}\pm{{< /katex >}}0.1 mm.
+
+{{< hint info>}}
+Cold rolling is a way to change the shape or reduce the thickness of metal sheets  while keeping the metal at room temperature or slightly above. It's done by passing the metal through rollers that apply pressure, making it thinner or changing its shape.{{< /hint>}}
 
 ![saas2sa](https://live.staticflickr.com/65535/53349139963_c077712bdd_z.jpg)
 
@@ -89,14 +98,15 @@ For the resistant girders:
 - 5. Welding of the lateral reinforcements.
 - 6. Welding of the base fixing.
 
+The welding for the first, third, and fourth steps will be conducted using the Submerged Arc Welding (SAW) process. This method is advantageous due to the substantial length of the welding bead, allowing for automation of the equipment carrying out the operation. The welding for the remaining steps will be executed using TIG (Tungsten Inert Gas) welding. The required equipment will be operated by a skilled worker.
 
-
-The welding for the first, third, and fourth steps will be conducted using the Submerged Arc Welding process. This method is advantageous due to the substantial length of the welding bead, allowing for automation of the equipment carrying out the operation. The welding for the remaining steps will be executed using TIG (Tungsten Inert Gas) welding. The required equipment will be operated by a skilled worker.
+{{< hint info>}}
+TIG uses a non-consumable tungsten electrode, precise control, and shielding gas. Ideal for thinner metals and detailed work. Where SAW involves an arc between a continuously fed wire electrode and the workpiece, submerged under flux. Great for welding thicker materials efficiently in a single pass.{{< /hint>}}
 
 ### 1.8. Costs
 
 
-The price of AISI 1095 Q&T steel is approximately €1/kg. Considering the girders weigh around 346.6 kg, their cost will be approximately €346.6. The labor cost is around €9/m, and the analyzed structure totals 53.2m, amounting to approximately €478.8.
+The price of [AISI 1095 Q&T steel](https://www.azom.com/article.aspx?ArticleID=6561) is approximately €1/kg. Considering the girders weigh around 346.6 kg, their cost will be approximately €346.6. The labour cost is around €9/m, and the analyzed structure totals 53.2m, amounting to approximately €478.8.
 
 ### 1.9. General Simplifications
 
@@ -135,7 +145,7 @@ The mechanical strength criterion was defined using the Pugsley criterion with t
 
 #### 2.3.1. Static Verification
 
-To size the beam, an analytical model was developed considering two vertical loads corresponding to the nominal load and the weight of the trolley. The value of each of these two forces was previously defined according to the FEM standards, already multiplied by the dynamic coefficient and the amplification coefficient. The value of each force is 26.7 kN and they are spaced 1 meter apart. Additionally, the weight of the beam itself, which is not negligible, is represented as a distributed load. To verify the stiffness criterion, an H/L ratio of 2.2 was initially chosen.
+To size the beam, an analytical model was developed considering two vertical loads corresponding to the nominal load and the weight of the trolley. The value of each of these two forces was previously defined according to the [FEM standards](https://www.fem-eur.com/), already multiplied by the dynamic coefficient and the amplification coefficient. The value of each force is 26.7 kN and they are spaced 1 meter apart. Additionally, the weight of the beam itself, which is not negligible, is represented as a distributed load. To verify the stiffness criterion, an H/L ratio of 2.2 was initially chosen.
 Using tables of maximum deflection, employing the superposition method and also considering the load P equivalent to 26700N and the load application point (offset) at x = 4.5 m, the following expression for the beam's maximum deflection is obtained:
 
  {{< katex display >}}
@@ -330,7 +340,7 @@ To conclude the study of welded connections between the vertical and horizontal 
 
 It was mentioned that the purpose of the internal vertical reinforcements is to prevent localized deformation of the beam when subjected to the forces resulting from the equipment's operational regime. They also serve as a means to provide additional stiffness to the box beam. The shear stresses present in the two webs of the box beam, during loading and translation of the beam, could lead to detrimental localized deformations affecting the equipment. It was recommended that vertical transverse reinforcements should also be applied to areas where the beam is supported and bolted to the "headstock".
 
-According to the CMAA (Crane Manufacturers Association of America) specification for overhead cranes, the spacing between vertical reinforcements should not exceed:
+According to the [CMAA (Crane Manufacturers Association of America)](https://en.wikipedia.org/wiki/Crane_Manufacturers_Association_of_America) specification for overhead cranes, the spacing between vertical reinforcements should not exceed:
 
 
 {{< katex display >}}
@@ -391,9 +401,9 @@ For the study of the welded joint in the bolted fixing plate, I was considering 
 {{< columns >}}
 
 
-[sdam](https://live.staticflickr.com/65535/53357465853_6747db4d94_c.jpg)
+![sdam](https://live.staticflickr.com/65535/53357465853_6747db4d94_c.jpg)
 <--->
-[dakoo](https://live.staticflickr.com/65535/53357465848_05f9de1f41_n.jpg)
+![dakoo](https://live.staticflickr.com/65535/53357465848_05f9de1f41_n.jpg)
 
 {{< /columns >}}
 
@@ -499,7 +509,7 @@ Hence:
 
 Therefore, obtaining a fatigue limit stress of Se = 172 MPa.
 {{< katex display >}}
-n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111 \, \\ \\
+n_{\text{Goodman}} = \frac{1}{\frac{\tau_{\text{med}}}{S_e} + \frac{\tau_{\text{alt}}}{\frac{2}{3}S_{ut}}} = \frac{1}{\frac{67.7}{172} + \frac{44.3}{\frac{2}{3} 830} = 2.111 \\
 {{< /katex >}}
 
 {{< katex display >}}
@@ -524,7 +534,7 @@ P = \frac{M \times s}{\sum s_i} = \frac{131775 \times 191 \times 10^{-3}}{0.1173
 {{< /katex >}}
 
 
-{{< hint note >}}
+{{< hint important >}}
 s is the distance from the farthest bolt to the hinge line. 
 {{< /hint >}}
 
@@ -551,7 +561,7 @@ F_i = \max{F_{\text{b}}, F_{\text{comB}}} = 399768 \, \text{N} \\
 {{< /katex >}}
 
 {{< katex display >}}
-A_{t_{min}}} = \frac{F_i}{\chi \times S_p} = 642 \, \text{mm}^2 \\
+A_{t_{min}}} = \frac{F_i}{\chi \times S_p} = 642 mm^2
 {{< /katex >}}
 
 Since these bolts will be structural components, class 10.9 was chosen, corresponding to a proof load Sp = 830 MPa. With the obtained value of {{< katex >}}A_{t_{min}}{{< /katex >}}, resulting from table 8-1 [of Shigley's Mechanical Design book](https://books.google.at/books/about/Shigley_s_Mechanical_Engineering_Design.html?id=B7wivgAACAAJ&redir_esc=y), it is feasible to determine the nominal diameter that meets the minimum area requirement. In this case, at least an M36 bolt will be required.
@@ -602,7 +612,7 @@ n_{\text{comb}} = \frac{F_i}{\frac{P_s}{f_m} + (1 - C) \times P} = 4.11 \\
 
 The combined safety factor, in this case, is equivalent to the separation safety factor of the joint since  {{< katex >}}P_s{{< /katex >}} = 0. The slip safety factor is also not applicable for the same reason, as there is no slipping.
 
-{{< hint info >}}
+{{< hint note >}}
 All safety factors are higher than the design safety factor. Thus, the bolts used in the joint are verified accordingly. ✔️
 {{< /hint >}}
 
