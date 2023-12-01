@@ -184,7 +184,7 @@ Relative error: It is observed that the lowest load associated with a global ins
 {{< /hint>}}
 
 {{< katex display>}}
-\epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1660.79}{1682.3} = 1.28\%
+\epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{1682.3 - 1660.79}{1682.3} \times 100 \% = 1.28\%
 {{< /katex>}}
 
 In order to find a purely global (non-mixed) mode, it's necessary to increase the length, L, of the beam. As the length, L, increases, the plate buckling present in the mixed mode decreases until the mode transitions to purely global. For instance, considering a 3L (mode 134):
@@ -197,7 +197,7 @@ Now, for a 5L (mode 24):
 
 As the length increases, the wrinkling of the plate decreases.
 
-### 3.3. Determination of {{< katex >}}L_{GL} {{/katex}}
+### 3.3. Determination of {{< katex >}}L_{GL} {{< /katex >}}
 
 Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the part file and updating the .fem and .sim files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
 
@@ -234,5 +234,26 @@ For this length, the following modes are obtained:
 The local and global modes are separated by 0.0193 kN = 19.3 N, which corresponds to a relative difference of 0.032% between the two. Therefore, they can be considered equal ({{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}). Comparing with the analytical values:
 
 {{< katex display>}}
+P_{cr}^{EB} = 2.05 \times \frac{\pi^2 \times E \times I}{5.432 \times L^2} = 60.507 kN
+{{< /katex >}}
+
+
+{{< katex display>}}
 \text{Timoshenko}: P_{cr}^T = \frac{P_{cr}^{EB}}{1+\frac{P_{cr}^{EB}}{G \times A_s}} = \frac{P_{cr}^{EB}}{1+\frac{P_{cr}^{EB}}{ \frac{E \times A \times K_s}{2 (1+\upsilon)} }} = 60.445 kN 
 {{< /katex >}}
+
+{{< katex display>}}
+\epsilon = \frac{\left| P_{cr}^T - P_{cr}^{NX} \right|}{P_{cr}^T } \times 100\% = \frac{60.445 - 60.0937}{60.445} \times 100\% = 0.58\%
+{{< /katex >}}
+
+## 4 Linear Static Analysis
+
+To perform the linear static analysis, a new solution is set up within the previously created sim files for both 1D and 2D beam elements, utilizing Solver 101 Linear Statics - Global Constraints.
+
+For this analysis, aligning the compressive force to achieve {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}} was imperative. Given the marginal difference between {{< katex >}}P_G{{< /katex >}} and {{< katex >}}P_L{{< /katex >}}, an averaged force value of P = 60.10 kN was adopted.
+
+Following the meticulous definition of solution parameters, constraints, and applied loads, the problem underwent resolution. Execution of the Solve command enabled the observation of Von-Mises stresses within NX.
+
+#### 3.4.1
+
+In the context of the 1D element beam, the resulting Von-Mises stresses were as follows:
