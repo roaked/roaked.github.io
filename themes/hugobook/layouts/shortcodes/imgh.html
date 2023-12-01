@@ -1,6 +1,7 @@
 {{- $respSizes := slice "960" "1280" "1920" -}}
 {{- $imgBase := "images/" -}}
-{{- $src := resources.Get (printf "%s%s" $imgBase (.Get "src")) -}}
+{{- $srcPath := printf "%s%s" $imgBase (.Get "src") -}}
+{{- $src := resources.Get $srcPath -}}
 {{- $alt := .Get "alt" -}}
 {{- $divClass := "" -}}{{/* Init'g */}}
 {{- $imgClass := "w-full h-auto animate-fade" -}}
