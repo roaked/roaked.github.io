@@ -1,5 +1,5 @@
 ---
-title: "PyBaMM-ML EV Battery Analysis"
+title: "PyBaMM-ML Battery Status"
 
 weight: 9
 ---
