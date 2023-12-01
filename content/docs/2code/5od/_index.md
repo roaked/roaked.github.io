@@ -1,5 +1,5 @@
 ---
-title: "BPP/TSP Optimization: Time & Space"
+title: "EC Optimization: Space & Time"
 weight: 5
 ---
 
