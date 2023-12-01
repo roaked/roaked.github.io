@@ -1,9 +1,9 @@
 ---
-title: "NLP: Deep Learning on Fake News"
+title: "Deep Learning on Fake News"
 weight: 3
 ---
 
-# **Language Features for Detection of Fake News**
+# **NLP: Language Features for Detection of Fake News**
 
 ## 1 A Growing Case
 
