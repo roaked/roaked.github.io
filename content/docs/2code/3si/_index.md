@@ -336,11 +336,11 @@ It's noteworthy that employing a vast number of clusters significantly escalates
 
 Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
 
-Sure, the accuracy obtained was good enough for the work performed, but in the real world, aiming for near-perfect accuracy—like nudging towards that 100% mark—holds serious weight. Think about it, labeling something as fake when it's not, or the other way around, carries hefty ethical, legal, and economic implications.
+The accuracy obtained was good enough for the work performed, but in the real world, aiming for near-perfect accuracy — like nudging towards that 100% mark—holds serious weight. Think about it, labeling something as fake when it's not, or the other way around, carries hefty ethical, legal, and economic implications.
 
-Boosting accuracy is a puzzle. Tweaking model parameters or even experimenting with more clusters might help, but there's a catch—those simulations could drag on forever. Another trick is amping up the features, like diving into the writing style or digging into the website URL to suss out if the source is trustworthy. But beware, piling up features might lead to overfitting headaches.
+Boosting accuracy is a puzzle. Tweaking model parameters or even experimenting with more clusters might help, but there's a catch — those simulations could drag on forever. Another trick is amping up the features, like diving into the writing style or digging into the website URL to assess if the source is trustworthy. But again, piling up features might lead to overfitting headaches.
 
-I could've explored different models too; who knows, they might've bumped up the accuracy. Or, here's a thought: splitting news by their subject could've been a game-changer. I mean, the language in political news can be totally different from religious or society-related stuff.
+I could've explored different models too; they might've bumped up the accuracy. Or, splitting news by their subject could've been a game-changer. I mean, the language in political news can be totally different from religious or society-related stuff.
 
-Here's the kicker though: who's the big shot deciding if an article's legit or not? Right now, it's mostly on the audience to figure that out. But can we really rely solely on them to spot the good from the bad? Food for thought, right?
+
 

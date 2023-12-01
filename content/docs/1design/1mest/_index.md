@@ -137,7 +137,7 @@ In the part file, a sketch is created in the YZ plane depicting the mid-section 
 
 ![30s](https://live.staticflickr.com/65535/53357402386_a345b61c96_b.jpg)
 
-In the `.fem` file, the mesh is generated using a PSHELL-type mesh collector. Within the properties of the PSHELL, the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t=2.25mm) is inserted. The 2D mesh elements are defined as CQUAD4 (quadrilateral elements).
+In the `.fem` file, the mesh is generated using a [PSHELL-type mesh collector](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502). Within the properties of the [PSHELL](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502), the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t=2.25mm) is inserted. The 2D mesh elements are defined as [CQUAD4](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-B4DD4476-B5DF-48FA-9876-6784C14EF736) (quadrilateral elements).
 
 After obtaining the mesh, rigid elements need to be introduced at the ends. To do this, two nodes are created, one at each end of the beam, with Y and Z coordinates corresponding to the centroid of the section. Using the 1D connection command, a rigid element is created at each end, connecting the nodes present at each end.
 
@@ -151,7 +151,7 @@ Once the solution type, constraints, and applied loads are defined, the solution
 
 ### 3.2. Linear Stability Analysis in 2D Beam
 
-The command "Solve" in NX yielded the following results for the first 10 modes of instability:
+The command `Solve` in NX yielded the following results for the first 10 modes of instability:
 
 
 | Mode | Instability Load (kN) |
@@ -167,7 +167,7 @@ The command "Solve" in NX yielded the following results for the first 10 modes o
 | 9    | 81.44                 |
 | 10   | 82.4                  |
 
-In NX, it's observed that all these modes are local modes. The first mode corresponds to the lowest instability load associated with a local mode, hence {{< katex >}}P_L{{< /katex>}} = 61.43 kN. To find the first global instability mode, it's necessary to increase the number of modes identified by NX. Using the critical load value for Timoshenko beam elements (1682.3 kN) as a reference, the search is directed towards a global mode close to this load value. The following mode was found:
+In NX, it's observed that all these modes are local modes. The first mode corresponds to the lowest instability load associated with a local mode, hence {{< katex >}}P_L{{< /katex>}} = 61.43 kN. Therefore, to find the first global instability mode, it's necessary to increase the number of modes identified by NX. Using the critical load value for Timoshenko beam elements (1682.3 kN) as a reference, the search is directed towards a global mode close to this load value. The following mode was found:
 
 ![asdmsa3](https://live.staticflickr.com/65535/53356527972_71c73818f0_z.jpg)
 
@@ -175,7 +175,7 @@ In NX, it's observed that all these modes are local modes. The first mode corres
 
 The identified mode is a mixed mode, displaying both axis and plates buckling. However, it was the sole mode exhibiting significant axis buckling. Thus, considering the lowest load associated with a global mode, the load corresponding to this mode, {{< katex >}}P_G{{< /katex >}} = 1660.79 kN, is regarded as the minimum instability load associated with a global mode. Since {{< katex >}}P_L{{< /katex >}} < {{< katex >}}P_G{{< /katex >}}, {{< katex >}}P_L{{< /katex >}} represents the critical instability load.
 
-{{< hint example >}}
+{{< hint important >}}
 Relative error: It is observed that the lowest load associated with a global instability mode in NX exhibits an error of 1.28% compared to the analytical value.
 {{< /hint>}}
 
@@ -248,7 +248,7 @@ To perform the linear static analysis, a new solution is set up within the previ
 
 For this analysis, aligning the compressive force to achieve {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}} was imperative. Given the marginal difference between {{< katex >}}P_G{{< /katex >}} and {{< katex >}}P_L{{< /katex >}}, an averaged force value of P = 60.10 kN was adopted.
 
-Following the meticulous definition of solution parameters, constraints, and applied loads, the problem underwent resolution. Execution of the Solve command enabled the observation of Von-Mises stresses within NX.
+Following the meticulous definition of solution parameters, constraints, and applied loads, the problem underwent resolution. Execution of the `Solve` command enabled the observation of Von-Mises stresses within NX.
 
 In the context of the 1D element beam, the resulting Von-Mises stresses were as follows:
 
@@ -267,13 +267,14 @@ The maximum value identified is {{< katex >}}\sigma_{max}{{< /katex >}} = 72.58 
 Safety factor: n = {{< katex >}} \frac{\sigma_y}{\sigma_{max}} = 9.64 {{< /katex>}}
 
 
-{{< hint tip>}}
+{{< hint note>}}
 An analytic calculation for the Von-Mises stress can be performed using the formula:
 {{< /hint >}}
 
 {{< katex display>}}
 \sigma_{VM}=\sqrt{ (\sigma_M + \sigma_N)^2 + 3(\tau_T + \tau_V)^2 }
 {{< /katex>}}
+
 
 In this scenario, there's only a compressive force applied at the centroid, meaning there's no applied bending moment ({{< katex >}}\sigma_M{{< /katex >}}=0) and no shear stresses present (zero bending moment and transverse shear). Thus:
 
@@ -306,7 +307,7 @@ For the case of 1.3{{< katex>}}L_{GL}{{< /katex>}} = 1.3 {{< katex>}}\times{{< /
 The nonlinear analysis is conducted using the SOL 106 Nonlinear Statics - Global Constraints solution. This involved 200 iterations and 250 maximum increments. The axial displacements and forces' values can be exported to a `.csv` file, from which the corresponding graphs can be generated.
 
 
-{{< hint note>}}
+{{< hint warning>}}
 The analysis was not performed on the beam with 1D elements for the 0.7L_GL case since there is no local instability mode in the beam with 1D elements.
 {{< /hint>}}
 
@@ -340,6 +341,9 @@ A general conclusion can be drawn that stresses in 1D are approximately constant
 
 The relative error in the analytically obtained values is acceptable in both cases, considering that the finite element method is an approximation of real behaviour. The conclusion suggests a better approximation in the 2D modeling, given that in the 1D case, the mesh isn't as complex. Additionally, it's noted that the yield stress is never reached at any point along the beam, either in linear or nonlinear analysis.
 
+{{< hint example>}}
+
 Although acceptable, the analysis could be enhanced through several avenues. Firstly, mesh refinement stands as a primary area for improvement. Both the 1D and 2D models could benefit from a finer mesh, especially in critical zones where stress concentrations occur. Additionally, introducing nonlinear material properties, such as plasticity models or other complex material behaviours, could render a more realistic depiction of material response.
 
 Exploration of more advanced element types, possibly incorporating mixed-element approaches, might notably improve accuracy, particularly when addressing local deformations within the 2D model. Validating the results against additional analytical solutions or experimental data would also be beneficial to ensure the accuracy of the finite element analysis.
+{{< /hint >}}
