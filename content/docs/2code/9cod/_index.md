@@ -1,5 +1,5 @@
 ---
-title: "EV Battery Health Forecasting"
+title: "PyBaMM-ML EV Battery Analysis"
 
 weight: 9
 ---
