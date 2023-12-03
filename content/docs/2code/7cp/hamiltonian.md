@@ -16,15 +16,24 @@ Graph theory serves as a fundamental framework for modeling and understanding va
 
 Graph theory plays a pivotal role in various scientific and computational domains, offering insights into network structures and paths. This project focuses on a computational simulation implemented in Fortran, a programming language renowned for its numerical computation capabilities, to explore graph path selection and manipulation.
 
-## 3 Code Implementation
+## 3 Goal and Strategy
+
+The primary goal is to identify Hamiltonian paths, which traverse all nodes in a graph exactly once, using a combination of path concatenation, selection, and filtering operations within the soup.
+
+This project's functionality revolves around utilizing linked lists to manage paths and individuals within the soup, employing various filtering and selection criteria to identify potential Hamiltonian paths within a graph structure.
 
 ![sda](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png)
+
+The steps of the program involve preparing random edges between nodes, populating the soup with individuals, and visualizing these edges. It also involves path concatenation, selection based on specific criteria, and identification of Hamiltonian paths.
+
+Core functionalities include linked list operations for path representation, concatenation, and selection. Filtering criteria are applied to identify potential Hamiltonian paths within the graph structure.
+
 
 ### 3.1. Methodology
 
 This study utilizes three essential Fortran modules — `msoup`, `mind`, and `mpath` — each contributing critical functionalities to the overall simulation process. The program `sim` makes uses of all the modules to perform graph traversal.
 
-### 3.2. Modules
+### 3.2. Module Implementation
 
 #### 3.2.1. msoup 
 
