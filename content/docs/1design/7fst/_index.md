@@ -168,7 +168,7 @@ This transmission setup comprises a stepped planetary gear train featuring three
 ![13e21e1e](https://live.staticflickr.com/65535/53373005364_23b8acd41c_w.jpg)
 <--->
 
-![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpgg)
+![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpg)
 {{< /columns>}}
 
 
