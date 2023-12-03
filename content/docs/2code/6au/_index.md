@@ -12,6 +12,8 @@ weight: 6
 
 I apologize for the inconvenience caused by the drawings in this project being in Portuguese. I know it makes it difficult for others to understand the content. I have done my best to translate everything I could, but I acknowledge that there may still be some untranslated elements. I hope that the overall content is still manageable despite these limitations. Nonetheless, I thought this was a funny project so I also decided to include it... because sardines -- a very typical dish for portuguese food!
 
+(Under development)
+
 {{< /hint >}}
 
 ## 1 Why Talk About Sardines and Automation?

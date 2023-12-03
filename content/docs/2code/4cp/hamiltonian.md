@@ -1,6 +1,6 @@
 ---
 title: "Fortran: Hamiltonian Graphs"
-weight: 7
+weight: 4
 bookFlatSection: true
 ---
 
@@ -113,7 +113,7 @@ number_of_individuals = sp%ln
 
 #### 3.2.2. mind 
 
-The `mind` module handles the characteristics of individual entities (`ind`). It encapsulates their spatial coordinates and associated paths. This module includes functionalities for creating individuals, accessing their coordinates, calculating distances between them, and determining their equality. This `ind` type comprises attributes for a path (w) and three real-numbered coordinates (x, y, z).
+The `mind` module handles the characteristics of individual entities (`ind`). It encapsulates their spatial coordinates and associated paths. This module includes functionalities for creating individuals, accessing their coordinates, calculating distances between them, and determining their equality. This `ind` type comprises attributes for a path (`w`) and three real-numbered coordinates (`x`, `y`, `z`).
 
 ```fortran
 use mind
@@ -332,8 +332,11 @@ This study represented the efficacy of Fortran in computational simulations for 
 
 The significance of criteria-based path selection is evident in this study. It serves as a fundamental aspect in uncovering specific graph properties, such as Hamiltonian paths. The discussions around computational efficiency and the impact of different criteria on path selection highlight the practical relevance of these simulations in diverse scientific domains.
 
+{{< hint example>}}
 Moving forward, several promising directions emerge for advancing this research. Algorithmic improvements hold potential for enhancing computational efficiency, especially when dealing with larger and more intricate graphs. Optimizing path selection methodologies could significantly expedite the analysis process.
 
 Investigating parallel computing techniques stands as another avenue to explore, leveraging Fortran's capabilities for faster processing of extensive graph structures and enabling more extensive analyses. 
 
 Lastly, integrating machine learning techniques into the analysis pipeline could refine criteria determination, potentially improving accuracy and adaptability in path selection methodologies.
+
+{{< /hint>}}
