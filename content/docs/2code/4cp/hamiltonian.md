@@ -29,7 +29,7 @@ The primary goal is to identify Hamiltonian paths, which traverse all nodes in a
 
 This project's functionality revolves around utilizing linked lists to manage paths and individuals within the soup, employing various filtering and selection criteria to identify potential Hamiltonian paths within a graph structure.
 
-![sda](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png)
+![sda](https://cdn.hashnode.com/res/hashnode/image/upload/v1645474752428/0-9zYOaWg.gif)
 
 The steps of the program involve preparing random edges between nodes, populating the soup with individuals, and visualizing these edges. It also involves path concatenation, selection based on specific criteria, and identification of Hamiltonian paths.
 
