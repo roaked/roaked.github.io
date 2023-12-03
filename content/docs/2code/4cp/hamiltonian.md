@@ -12,11 +12,17 @@ bookFlatSection: true
 
 Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed. 
 
-## 2 Application
+## 2 Fortran
 
-In the realm of computational graph theory and network analysis, the simulation of complex graph structures is pivotal for understanding connectivity, pathfinding, and specific path characteristics within intricate networks. In this context, the development of a robust simulator becomes instrumental in exploring, filtering, and identifying significant pathways in graph representations.
+Fortran was chosen for this implementation due to its historical significance and specialized advantages in scientific and computational domains. The language's enduring legacy in scientific computing, established libraries, and its efficiency in numerical computations made it an interesting choice for this simulation project.
 
-This project introduces a simulator program that encompasses various graph operations within a modular framework. The program is designed to facilitate the analysis and manipulation of graph structures represented as a collection of paths within a `soup`. The simulator leverages three essential modules: `msoup`, `mind`, and `mpath`, each contributing distinctive functionalities towards simulating, filtering, and identifying specific path attributes within the graph structure.
+One of the primary reasons for opting for Fortran was its robustness and reliability in handling numerical simulations. Additionally, Fortran's performance in handling array-based operations and its ability to optimize code for high performance were crucial factors. Its speed and efficiency in managing computational tasks, especially those involving heavy mathematical computations, were significant advantages for this simulation.
+
+{{< hint important>}}
+Moreover, the language's extensive history and usage within academic and industrial settings made it practical for integrating with existing systems and leveraging legacy codebases. Its established community support and domain-specific expertise in scientific fields further strengthened its suitability for this project.
+{{< /hint >}}
+
+In summary, Fortran's historical prominence in scientific computing, specialized numerical capabilities, performance efficiency, and existing codebases in scientific domains were key factors driving the decision to implement this simulation in Fortran.
 
 ## 3 Goal and Strategy
 
@@ -33,9 +39,9 @@ Core functionalities include linked list operations for path representation, con
 
 ### 3.1. Methodology
 
-This study utilizes three essential Fortran modules — `msoup`, `mind`, and `mpath` — each contributing critical functionalities to the overall simulation process. The program `sim` makes uses of all the modules to perform graph traversal.
+This project introduces a simulator program that encompasses various graph operations within a modular framework. The program is designed to facilitate the analysis and manipulation of graph structures represented as a collection of paths within a `soup`. The simulator leverages three essential modules: `msoup`, `mind`, and `mpath`, each contributing distinctive functionalities towards simulating, filtering, and identifying specific path attributes within the graph structure.
 
-### 3.2. Module Implementation
+### 3.2. Modules
 
 #### 3.2.1. msoup 
 
