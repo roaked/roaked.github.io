@@ -102,13 +102,80 @@ number_of_individuals = sp%ln
 
 The `mind` module handles the characteristics of individual entities (`ind`). It encapsulates their spatial coordinates and associated paths. This module includes functionalities for creating individuals, accessing their coordinates, calculating distances between them, and determining their equality. This `ind` type comprises attributes for a path (w) and three real-numbered coordinates (x, y, z).
 
-Within this module, there are several functions and subroutines:
+```fortran
+use mind
+
+type(path) :: myPath
+type(ind) :: myPoint
+
+! Assume initialization of myPath and coordinates for myPoint
+call makeI(myPath, 1.0, 2.0, 3.0, myPoint)
+
+! Retrieving coordinates
+real :: x_coord, y_coord, z_coord
+x_coord = xposI(myPoint)
+y_coord = yposI(myPoint)
+z_coord = zposI(myPoint)
+```
+
+As visible, within this module, there are several functions and subroutines:
 
 - `makeI`: This subroutine creates an ind object with specified coordinates and a path.
+
+```fortran
+subroutine makeI(w, x, y, z, i)
+    type(path), intent(in) :: w
+    real, intent(in) :: x, y, z
+    type(ind), intent(out) :: i
+    
+    i%w = w
+    i%x = x
+    i%y = y
+    i%z = z
+end subroutine makeI
+
+```
+
 - `pathI`: Extracts the path attribute from an ind object.
-- `xposI`, yposI, zposI: These functions retrieve the x, y, and z coordinates from an ind object.
+- `xposI`, `yposI`, `zposI`: These functions retrieve the x, y, and z coordinates from an ind object.
 - `distI`: Computes the Euclidean distance between two ind objects using their coordinates.
+
+{{< hint important>}}
+This is only the Euclidean distance!
+
+```fortran
+function distI(i1, i2) result(r)
+    type(ind), intent(in) :: i1, i2
+    real :: r
+
+    r = sqrt(((i1%x - i2%x)**2) + ((i1%y - i2%y)**2) + ((i1%z - i2%z)**2))
+end function distI
+```
+{{< /hint>}}
+
 - `ind_eqI`: This function checks if two ind objects have the same coordinates.
+
+{{< hint important>}}
+```fortran
+function ind_eqI(i1, i2) result(b)
+    type(ind), intent(in) :: i1, i2
+    logical :: b
+
+    if ((xposI(i1) == xposI(i2)) .and. (yposI(i1) == yposI(i2)) .and. (zposI(i1) == zposI(i2))) then
+        b = .true.
+    else
+        b = .false.
+    end if
+end function ind_eqI
+
+```
+
+Note: As previously mentioned, this function compares if objects (`i1` and `i2`) have identical coordinates. It compares coordinates using `xposI`, `yposI` and `zposI` functions and returns a logical value.
+{{< /hint>}}
+
+{{< hint note>}}
+These implementations illustrate how the functions extract coordinates (`xposI`, `yposI`, `zposI`), calculate distances between points (`distI`), and determine if points share identical coordinates (`ind_eqI`).
+{{< /hint>}}
 
 #### 3.2.3 mpath
 
