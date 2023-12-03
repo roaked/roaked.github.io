@@ -10,11 +10,13 @@ bookFlatSection: true
 
 ## 1 Simulation and Analysis of Graph Path Selection
 
-Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed.
+Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed. 
 
-## 2 Theoretical Considerations
+## 2 Application
 
-Graph theory plays a pivotal role in various scientific and computational domains, offering insights into network structures and paths. This project focuses on a computational simulation implemented in Fortran, a programming language renowned for its numerical computation capabilities, to explore graph path selection and manipulation.
+In the realm of computational graph theory and network analysis, the simulation of complex graph structures is pivotal for understanding connectivity, pathfinding, and specific path characteristics within intricate networks. In this context, the development of a robust simulator becomes instrumental in exploring, filtering, and identifying significant pathways in graph representations.
+
+This project introduces a simulator program that encompasses various graph operations within a modular framework. The program is designed to facilitate the analysis and manipulation of graph structures represented as a collection of paths within a `soup`. The simulator leverages three essential modules: `msoup`, `mind`, and `mpath`, each contributing distinctive functionalities towards simulating, filtering, and identifying specific path attributes within the graph structure.
 
 ## 3 Goal and Strategy
 
@@ -253,11 +255,21 @@ These functionalities handle path creation, manipulation, comparison, concatenat
 
 {{< /hint>}}
 
-### 3.3. Simulation Steps
+### 3.3. Simulator
 
-- Step 0: Initialization: User-defined parameters and data structure initialization.
+The simulation process within this program is orchestrated across several distinct steps, each playing a crucial role in analyzing, manipulating, and presenting pathways within a given graph structure.
 
-- Step 1: Hybridization: Creation of random edges and path generation within the soup.
+- #1. Initialization & Graph Preparation: This initial step involves setting up the simulation environment and creating the initial `soup`, which holds individual nodes representing edges within the graph.
+
+{{< hint tip>}}
+**Key Actions**:
+
+- Parameter Setup: Initializes user-defined parameters such as the number of nodes (`no`), edges (`s`), and other simulation variables (`ka`, `nu`).
+- Node Creation: Generates individual nodes representing edges, assigning them random coordinates and attributes within the soup.
+
+{{< /hint>}}
+
+- #2. Hybridization & Path Concatenation: Concatenates compatible paths, creating new paths by merging individual paths from the soup, fostering connections in the graph.
 
 ```fortran
 do c6=1, nu
@@ -269,7 +281,15 @@ do c6=1, nu
 end do
 ```
 
-- Steps 2-4: Selection of Paths: Criteria-based filtering and selection of paths.
+{{< hint tip>}}
+**Key Actions**:
+
+- Path Merging: Combines compatible paths from individual nodes to create longer, concatenated paths.
+- Creation of New Paths: Generates new paths representing connected segments within the graph by merging compatible paths.
+
+{{< /hint>}}
+
+- #3. Path Selection & Filtering: Selects specific paths based on defined criteria, filtering out paths that do not meet user-defined conditions.
 
 ```fortran
 do c9=1, no
@@ -282,6 +302,29 @@ do c9=1, no
     end do
 end do
 ```
+
+{{< hint tip>}}
+**Key Actions**:
+
+- Selection Criteria: Filters paths based on criteria such as starting and ending nodes, path length, or nodes traversed.
+- Soup Reorganization: Removes incompatible paths from the soup while organizing selected paths for further analysis.
+
+{{< /hint>}}
+
+- #4. Hamiltonian Path Identification: Identifies and presents Hamiltonian paths, which are paths that traverse all nodes in the graph.
+
+{{< hint tip>}}
+**Key Actions**:
+
+- Traversal Analysis: Analyzes filtered paths to identify those that traverse all nodes in the graph.
+- Presentation of Results: Displays identified Hamiltonian paths for comprehensive graph exploration and analysis.
+
+{{< /hint>}}
+
+In the end, the simulation aids in comprehending how different entities or nodes within a network are interconnected. By identifying paths and relationships between nodes, it offers insights into how information, resources, or influence flow through a network. It facilitates the discovery of optimal paths that traverse all nodes or specific ones. This capability is invaluable for planning efficient routes, optimizing processes, or understanding the most effective pathways within a system.
+
+This project served me as an educational tool, offering a foundational understanding of network theory, paths, and connections -- providing a hands-on approach to learning about complex systems and their underlying structures.
+
 
 ## 4 Discussion and Efficiency
 
