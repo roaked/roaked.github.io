@@ -155,7 +155,7 @@ When the number of teeth is increased, the tooth profile gets thicker at the too
 can generate more strength. As for the tooth profile of a 10-teeth gear, it is gouged at the
 tooth-root and under-cutting occurs.
 
-### 4.2. Transmission
+### 4.2. Abstract
 
 The transmission system in the `FST 010e` prototype serves to transfer power from the electric motors to the wheels, aiming to boost torque while reducing rotational speed. Housed within the hub, it connects to both the hub and the upright.
 
@@ -170,6 +170,18 @@ This transmission setup comprises a stepped planetary gear train featuring three
 
 ![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpg)
 {{< /columns>}}
+
+### 4.3. Gear Ratio
+
+### 4.4. Modeling
+
+#### 4.4.1. General Dimensions
+
+#### 4.4.2. Individual Dimensions
+
+#### 4.4.3. Material
+
+#### 4.4.4. Rating
 
 
 
