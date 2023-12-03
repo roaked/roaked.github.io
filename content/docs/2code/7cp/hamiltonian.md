@@ -24,7 +24,7 @@ This study utilizes three essential Fortran modules — `msoup`, `mind`, and `mp
 
 ### 3.2. Modules
 
-- `msoup` module
+#### 3.2.1. msoup 
 
 The `msoup` module in this Fortran implementation serves as a robust framework for managing a collection of individuals, each representing a specific path within a graph structure. At its core, this module encapsulates a soup type, acting as a container for these individuals, and a node type, serving as the building block for storing individual references.
 
@@ -98,11 +98,19 @@ number_of_individuals = sp%ln
 - `sizeS()` returns the count of individuals in the soup.
 - `showS()` displays details of all individuals in the soup, including their coordinates and paths.
 
-- `mind` module
+#### 3.2.2. mind 
 
-The `mind` module handles the characteristics of individual entities (`ind`). It encapsulates their spatial coordinates and associated paths. This module includes functionalities for creating individuals, accessing their coordinates, calculating distances between them, and determining their equality.
+The `mind` module handles the characteristics of individual entities (`ind`). It encapsulates their spatial coordinates and associated paths. This module includes functionalities for creating individuals, accessing their coordinates, calculating distances between them, and determining their equality. This `ind` type comprises attributes for a path (w) and three real-numbered coordinates (x, y, z).
 
-- `mpath` module
+Within this module, there are several functions and subroutines:
+
+- `makeI`: This subroutine creates an ind object with specified coordinates and a path.
+- `pathI`: Extracts the path attribute from an ind object.
+- `xposI`, yposI, zposI: These functions retrieve the x, y, and z coordinates from an ind object.
+- `distI`: Computes the Euclidean distance between two ind objects using their coordinates.
+- `ind_eqI`: This function checks if two ind objects have the same coordinates.
+
+#### 3.2.3 mpath
 
 The `mpath` module deals with representing paths within the graph structure. It defines the path data structure and includes various procedures for path creation, manipulation, and analysis, such as determining the first and last elements, checking compatibility between paths, and displaying paths.
 
