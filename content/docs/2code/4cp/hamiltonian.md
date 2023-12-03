@@ -36,9 +36,13 @@ The steps of the program involve preparing random edges between nodes, populatin
 Core functionalities include linked list operations for path representation, concatenation, and selection. Filtering criteria are applied to identify potential Hamiltonian paths within the graph structure.
 
 
-### 3.1. Methodology
+### 3.1. Methodology & Code Implementation
 
 This project introduces a simulator program that encompasses various graph operations within a modular framework. The program is designed to facilitate the analysis and manipulation of graph structures represented as a collection of paths within a `soup`. The simulator leverages three essential modules: `msoup`, `mind`, and `mpath`, each contributing distinctive functionalities towards simulating, filtering, and identifying specific path attributes within the graph structure.
+
+{{< hint tip>}}
+My [Github Repo](https://github.com/roaked/hamiltonian-paths) (Disclaimer: There is a C++ function!)
+{{< /hint>}}
 
 ### 3.2. Modules
 
