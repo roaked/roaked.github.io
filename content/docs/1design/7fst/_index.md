@@ -4,9 +4,13 @@ bookHidden: false
 title: "Formula Student Lisbon"
 ---
 
-# **We Also Build Cars**
+# **FST 010e**
 
 ![sada](https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif)
+
+{{< hint warning>}}
+**Disclaimer**: Only partial information is divulged here - mainly for car transmission design and brake system. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/1design/5om/)
+{{< /hint>}}
 
 ## 1 Background
 
