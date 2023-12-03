@@ -22,7 +22,6 @@ One of the primary reasons for opting for Fortran was its robustness and reliabi
 Moreover, the language's extensive history and usage within academic and industrial settings made it practical for integrating with existing systems and leveraging legacy codebases. Its established community support and domain-specific expertise in scientific fields further strengthened its suitability for this project.
 {{< /hint >}}
 
-In summary, Fortran's historical prominence in scientific computing, specialized numerical capabilities, performance efficiency, and existing codebases in scientific domains were key factors driving the decision to implement this simulation in Fortran.
 
 ## 3 Goal and Strategy
 
