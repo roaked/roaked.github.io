@@ -140,6 +140,37 @@ The team explored other avenues, including abrasive flow machining (AFM) or extr
 
 ### 4.1. Gears Profile
 
+Gears come in two main types: standard gears and profile-shifted gears. Standard gears follow a typical tooth profile, while profile-shifted gears involve modifications to this standard shape by shifting the profile relative to the norm. These modifications cater to specific operational needs or optimize gear performance under particular conditions. Each type offers unique advantages, with selection based on factors like load capacity, efficiency, noise reduction, and wear resistance.
+
+![213](https://live.staticflickr.com/65535/53371777247_865b83e570.jpg)
+
+{{< hint note>}}
+In a non-corrected (basic) gear, the teeth height is denoted as 2.25 times the teeth modulus, represented by 'm'. In the illustration, 'A' signifies the addendum (equal to 'm'), and 'D' stands for the dedendum (1.25 times 'm').{{< /hint >}}
+
+While the tooth profile of racks remains straight, the tooth profile of involute gears varies based on the number of teeth. The involute tooth profile is curvilinear but tends to resemble the straight profile of a rack when the number of teeth increases.
+
+![1231](https://live.staticflickr.com/65535/53373005344_edab44eb2d_c.jpg)
+
+When the number of teeth is increased, the tooth profile gets thicker at the tooth-root and
+can generate more strength. As for the tooth profile of a 10-teeth gear, it is gouged at the
+tooth-root and under-cutting occurs.
+
+### 4.2. Transmission
+
+The transmission system in the `FST 010e` prototype serves to transfer power from the electric motors to the wheels, aiming to boost torque while reducing rotational speed. Housed within the hub, it connects to both the hub and the upright.
+
+This transmission setup comprises a stepped planetary gear train featuring three planet gears, with the input directed into the sun gear and the output from the planet carrier. The system is purposefully engineered to deliver a gear ratio of 15.21:1, emphasizing speed reduction and torque amplification.
+
+
+{{< columns >}}
+
+
+![13e21e1e](https://live.staticflickr.com/65535/53373005364_23b8acd41c_w.jpg)
+<--->
+
+![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpgg)
+{{< /columns>}}
+
 
 
 ## 5 Lubrication
