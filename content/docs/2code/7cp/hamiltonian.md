@@ -18,9 +18,11 @@ Graph theory plays a pivotal role in various scientific and computational domain
 
 ## 3 Code Implementation
 
+![sda](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png)
+
 ### 3.1. Methodology
 
-This study utilizes three essential Fortran modules — `msoup`, `mind`, and `mpath` — each contributing critical functionalities to the overall simulation process.
+This study utilizes three essential Fortran modules — `msoup`, `mind`, and `mpath` — each contributing critical functionalities to the overall simulation process. The program `sim` makes uses of all the modules to perform graph traversal.
 
 ### 3.2. Modules
 
@@ -179,7 +181,68 @@ These implementations illustrate how the functions extract coordinates (`xposI`,
 
 #### 3.2.3 mpath
 
-The `mpath` module deals with representing paths within the graph structure. It defines the path data structure and includes various procedures for path creation, manipulation, and analysis, such as determining the first and last elements, checking compatibility between paths, and displaying paths.
+The `mpath` module in Fortran is dedicated to managing paths using linked lists, represented by the path and node types. The path type contains pointers to the first and last elements of the path (`fst`, `lst`) and keeps track of the path's length (`ln`). On the other hand, each node represents an element in the path, storing an integer value and a pointer to the next node. As visible, within this module, there are several functions and subroutines:
+
+- `newP` creates an empty path by setting pointers to null and initializing the length as zero.
+- `enterP` appends an element to the end of a path, updating pointers accordingly.
+
+```fortran
+subroutine enterP(x, w)
+    integer, intent(in) :: x
+    type(path), intent(inout) :: w
+    type(node), pointer :: aux
+
+    allocate(aux)
+    aux%value = x
+    if (w%ln > 0) then
+        w%lst%next => aux
+    else
+        w%fst => aux
+    end if
+    w%lst => aux
+    w%ln = w%ln + 1
+end subroutine enterP
+```
+
+{{< hint note>}}
+In turn, it allocates memory for a new node, assigns the value x to it, updates pointers, and increments the path length.
+{{< /hint >}}
+
+- `revP` copies a specified number of elements from one path to another in reverse order.
+- `shortenP` removes the first element from a path, deallocating memory and updating pointers.
+- `makeP` creates a path with two specified elements by utilizing newP and enterP.
+- `firstP` and `lastP` retrieve the first and last elements of a path, respectively, handling empty path conditions.
+- `lengthP` returns the length of a path by accessing the ln attribute.
+- `compP` checks if the last element of one path matches the first element of another path.
+- `glueP` merges two compatible paths by linking their nodes, creating a new path.
+- `crossesP` determines if a specified value exists within a path by traversing nodes and comparing values.
+- `copyP` duplicates the contents of a path to another in reverse order using revP.
+- `deleteP` recursively removes elements of a path until it becomes empty, deallocating nodes.
+- `showP` displays the elements of a path by reversing it and printing its values.
+
+```fortran
+subroutine showP(w)
+    type(path), intent(in) :: w
+    type(path) :: r
+    integer :: i
+    integer, dimension(w%ln) :: aux
+
+    r = newP()
+    call revP(w, r, w%ln)
+    do i = 1, w%ln
+        aux(i) = firstP(r)
+        if (r%ln > 1) then
+            call shortenP(r)
+        end if
+    end do
+    print *, aux
+end subroutine showP
+```
+
+{{< hint warning >}}
+These functionalities handle path creation, manipulation, comparison, concatenation, element retrieval, deletion, and display efficiently using the linked list structure.
+
+{{< /hint>}}
 
 ### 3.3. Simulation Steps
 
