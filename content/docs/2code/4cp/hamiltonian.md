@@ -19,19 +19,17 @@ Fortran was chosen for this implementation due to its historical significance an
 One of the primary reasons for opting for Fortran was its robustness and reliability in handling numerical simulations. Additionally, Fortran's performance in handling array-based operations and its ability to optimize code for high performance were crucial factors. Its speed and efficiency in managing computational tasks, especially those involving heavy mathematical computations, were significant advantages for this simulation.
 
 {{< hint important>}}
-Moreover, the language's extensive history and usage within academic and industrial settings made it practical for integrating with existing systems and leveraging legacy codebases. Its established community support and domain-specific expertise in scientific fields further strengthened its suitability for this project.
+Moreover, the language's extensive history and usage within academic and industrial settings made it practical for integrating with existing systems and leveraging legacy codebases. Its established community support for similar topics and domain-specific expertise in scientific fields further strengthened its suitability for this project.
 {{< /hint >}}
 
 
 ## 3 Goal and Strategy
 
-The primary goal is to identify Hamiltonian paths, which traverse all nodes in a graph exactly once, using a combination of path concatenation, selection, and filtering operations within the soup.
-
-This project's functionality revolves around utilizing linked lists to manage paths and individuals within the soup, employing various filtering and selection criteria to identify potential Hamiltonian paths within a graph structure.
+The primary goal is to identify Hamiltonian paths, which traverse all nodes in a graph exactly once, using a combination of path concatenation, selection, and filtering operations within the `soup`.
 
 ![sda](https://cdn.hashnode.com/res/hashnode/image/upload/v1645474752428/0-9zYOaWg.gif)
 
-The steps of the program involve preparing random edges between nodes, populating the soup with individuals, and visualizing these edges. It also involves path concatenation, selection based on specific criteria, and identification of Hamiltonian paths.
+The steps of the program involve preparing random edges between nodes, populating the `soup with individuals`, and visualizing these edges. It also involves path concatenation, selection based on specific criteria, and identification of Hamiltonian paths.
 
 Core functionalities include linked list operations for path representation, concatenation, and selection. Filtering criteria are applied to identify potential Hamiltonian paths within the graph structure.
 
