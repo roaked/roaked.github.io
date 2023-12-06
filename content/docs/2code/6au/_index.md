@@ -1,6 +1,7 @@
 ---
 title: "Sardine FAB E2E Automation"
 weight: 6
+bookHidden: true
 ---
 
 # **Automation: The Future of Work is No Work at All**
