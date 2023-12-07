@@ -16,6 +16,7 @@ The world of Red Bull drone racing stands at the intersection of high-speed comp
 This interesting concept revolves around the development of a comprehensive system that seamlessly combines state-of-the-art technologies to enhance Red Bull drone racing. It is desired to fuse AI-driven algorithms, computer vision systems, and simulated dynamics modeling to optimize drone navigation through complex racecourses.
 
 
+
 {{< hint info >}}
 **Topics:**
 
