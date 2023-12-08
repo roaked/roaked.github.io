@@ -70,11 +70,6 @@ The sections are pretty extensive, containing descriptive explaination of the wo
 Motor dynamics approximated by static gain : δi ~  KΩ x Ωi
 {{< /details >}}
 
-## 6 State Space Models (Later..)
-
-## 7 Simulink Linear Model (Later..)
-
-## 8 Simulink Nonlinear Model (Later..)
 
 
 
