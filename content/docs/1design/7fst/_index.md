@@ -9,14 +9,14 @@ title: "Formula Student Lisbon"
 ![sada](https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif)
 
 {{< hint warning>}}
-**Disclaimer**: Only partial information is divulged here - mainly for car transmission design and brake system. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/1design/5om/)
+**Disclaimer**: Only partial information is divulged here - mainly for car transmission design, gear fabrication and lubrication. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/1design/5om/), but for epicyclical gear trains.
 {{< /hint>}}
 
 ## 1 Background
 
 During Formula Student (FS) competitions, students are tasked with creating, testing, and refining a race car adhering to specific guidelines outlined by [Formula Student Germany (FSG)](https://www.formulastudent.de/) and [Formula Society of Automotive Engineers (FSAE)](https://www.fsaeonline.com/). The [Formula Student Team at Tecnico Lisboa (FST Lisboa)](https://www.fstlisboa.com/) has been actively involved in these competitions since 2001. In 2019, with a team comprising over 40 members, they embarked on dual projects for their 10th generation cars. One project involved crafting a new electric prototype, termed `FST10e`, while simultaneously enhancing the existing `FST09e` — previously in competition during the summer of 2019 — with autonomous capabilities, transforming it into `FST10d`. `FST09e` was the team's 5th electric prototype and secured a commendable 9th place overall in FSG 2019, a notably competitive event within the Formula Student season.
 
-{{< hint example>}}
+{{< hint important  >}}
 Each FS competition comprises three static events focusing on design, manufacturing, cost, and business plans. Concurrently, the dynamic events assess the car's performance through four different challenges:
 
 - Acceleration: a straight line with a length of 75 m;
@@ -33,17 +33,8 @@ Before 2019, most FS competitions accommodated three distinct car classes: combu
 
 ![test](https://tecnico.ulisboa.pt/files/2016/08/projecto-fst-novabase-alcanc-a-3--lugar-na-republica-checa.jpg)
 
-Major automotive industry players sponsor FS competitions, providing officials and design judges. They actively shape the competition landscape, aligning it with their future engineering requirements and fostering a talent pipeline by engaging with participating students.
 
-## 2 Braking System Requirements
-
-Following the train of thought described in the theoretical introduction, to properly design the braking system, the most important aspect is to know the desired braking torque. This parameter will allow to calculate and dimension the braking line.
-
-## 2.1. Braking Torque
-
-
-
-## 3 Gear Manufacturing Process
+## 2 Gear Manufacturing Process
 
 
 The production of gears in the `FST-10e` transmission set begins by carefully selecting the most suitable steel for the purpose, as previously detailed. For cylindrical spur gears, the subsequent step involves cutting a cylindrical block with dimensions slightly exceeding the gear's outer measurements. This block then undergoes a sequence of machining procedures to approximate the final gear form, incorporating optimizations for rim and web thickness. This resulting intermediate stage, known as a gear blank, closely resembles the final gear shape but lacks the tooth structure.
@@ -56,16 +47,16 @@ To achieve the final gear shape, the gear blank undergoes several essential mach
 ![wqe3](https://live.staticflickr.com/65535/53372814833_c69749d504_z.jpg)
 
 
-### 3.1. Gear Forming
+### 2.1. Gear Forming
 
 In gear form cutting, the cutting edge of the cutting tool has a shape identical with the shape of the space between the gear teeth. It is then possible to disguise two different machining operations, milling and broaching can be employed to form cut gear teeth:
 
 
-#### 3.1.1. Milling
+#### 2.1.1. Milling
 
 This method, one of the earliest and most familiar for crafting gears, involves the use of a milling machine. It's versatile, capable of creating nearly all types of gears. Using a form cutter, the process entails the cutter moving along the gear tooth's length at the appropriate depth, cutting one tooth at a time. After cutting a tooth, the cutter retracts, the gear blank rotates, and the process repeats for each tooth until completion. However, milling is now primarily utilized for gears that don't demand high dimensional precision. More recent and precise technologies have surpassed milling, rendering it somewhat outdated for high-precision gear manufacturing.
 
-#### 3.1.2. Broaching
+#### 2.1.2. Broaching
 
 
 Broaching is a machining technique employing a toothed tool, known as a broach, to eliminate material. There are two primary types: linear and rotary. Linear broaching, more prevalent, involves the broach moving linearly along the workpiece's surface to make the cut. Conversely, rotary broaching entails the broach rotating and pressing into the workpiece to create an axisymmetric shape. Rotary broaching is typically used in lathes or screw machines. In both methods, the cutting action occurs in a single pass of the broach, ensuring high efficiency in the machining process.
@@ -77,7 +68,7 @@ Broaching stands out as an efficient method to create gear teeth, especially int
 ![dadsw3](https://live.staticflickr.com/65535/53373083260_e283cf13d4_z.jpg)
 
 
-### 3.2. Gear Hobbing
+### 2.2. Gear Hobbing
 
 Gear hobbing is a continuous process where the cutting edges of a rotating tool, the hob, shape the tooth flanks of a moving workpiece. This method generates teeth progressively through a series of cuts using a helical cutting tool. All movements in hobbing are rotary, with both the hob and gear blank continuously rotating, akin to meshing gears, until all teeth are formed.
 
@@ -94,10 +85,11 @@ Its primary advantage lies in versatility: this process can craft various gear t
 {{< /columns>}}
 
 
-### 3.3. Gear Shaping
+### 2.3. Gear Shaping
 
+Gear shaping involves a generating technique where a cutter, designed akin to a gear with cutting edges, is employed. The tool rotates at a specific speed ratio concerning the gear blank, ensuring that each cutter tooth forms one tooth space. Unlike gear hobbing, this method is capable of producing cluster gears, internal gears, and racks, expanding the scope of gear manufacturing possibilities.
 
-### 3.4. Wire EDM
+### 2.4. Wire EDM
 
 A wire electrical discharge machine (EDM) is adept at cutting intricate two-dimensional patterns in steel plates, offering a viable method for producing prototypes and small batches of parts, like spur gears. 
 
@@ -122,7 +114,7 @@ Although wire EDM was the only viable alternative after the shaving process beca
 
 ![2313s](https://live.staticflickr.com/65535/53372814818_ddbfd4226e.jpg)
 
-### 3.5. Grinding
+### 2.5. Grinding
 
 Grinding is a precision process used to achieve fine finishes and accurate dimensions in components that have undergone prior manufacturing stages. While it can also thin very hard materials, this isn't the aim for the gears in the `FST-10e`.
 
@@ -132,13 +124,64 @@ Wire EDM, known for its micro-material removal, theoretically offers a means to 
 
 The team explored other avenues, including abrasive flow machining (AFM) or extrude honing. AFM involves the flow of an abrasive-laden fluid through a workpiece, effectively eroding raised surface features. This method adapts well to gears, as the fluid conforms precisely to their intricate and narrow surface intervals. The process optimally removes material from restricted flow areas, ensuring uniform finishing and enhancing gear meshing uniformity, reducing wear, and bolstering resilience against failure.
 
-### 3.6. Gear Failures
+### 2.6. Gear Failures
 
-(NDA - Review)
+Throughout their operational lifespan, gears endure substantial stresses and cyclic loads. These, coupled with various factors like elevated temperatures, high pressure, misalignment along the gear axis, or inadequate lubrication, can lead to several types of gear failures. The most common failure modes include:
 
-## 4 Design
+#### 2.6.1. Bending Fatigue
 
-### 4.1. Gears Profile
+Bending fatigue failure arises due to cyclic bending stress at the root of the gear tooth. Stress occurs from a load with a variable-level-arm moving along the tooth profile during meshing. The damage process unfolds in three stages: crack nucleation (the starting point of the crack), crack propagation, and eventual unstable fracture. The critical section, or the site where the crack begins, is often at the tooth-root fillet. Here, stresses, heightened by the notch effect (resulting from changes in the component's cross-section, such as drill holes or gear tooth variations), reach their peak, leading to uneven stress distribution and stress peaks.
+
+Once initiated, cracks typically progress through the thickness of the tooth root, although their path may vary depending on the gear's shape and stiffness. For instance, gears with a lightweight, thin-rimmed body might experience cracking along the gear rim, emphasizing the importance of adhering to [KISSsoft](https://www.solidworks.com/partner-product/kisssoft-interface-solidworks) parameters like rim and web thickness.
+
+The fracture surface typically exhibits two distinct areas: a fatigue-crack growth region and a final unstable fracture area. "Beach marks" may become evident, especially in cases of intermittent gear operation that frequently interrupts crack propagation. These marks might also appear on idler gears, particularly where both flanks of each tooth undergo alternating stress cycles, as seen in instances like the `FST-10e` transmission, susceptible to alternating stresses during regeneration processes.
+
+![sdaads](https://live.staticflickr.com/65535/53385086757_1cf43a5981_b.jpg)
+
+#### 2.6.2. Pitting
+
+Pitting, also known as macropitting, occurs due to surface damage caused by cyclic contact stress transmitted through a lubrication film in or near the elastohydrodynamic regime. It's a prevalent cause of gear failure and affects various machine components exposed to heavy loads and rolling/sliding contact, such as antifriction bearings and cams.
+
+The damage typically manifests in the region of negative sliding between the tooth root and pitch line, especially in the dedendum. When mating gears share the same material and heat treatment, pitting is usually first observed on the gear with fewer teeth because it undergoes a greater number of load cycles. In complex gear systems like the `FST-10e's` gear train, where different gears mesh with varying numbers of teeth, this effect intensifies.
+
+Pitting initiates with the formation of subsurface or surface-breaking cracks, which then propagate under repeated contact loading. As a crack grows and reaches the tooth surface, a small volume of material separates, leaving behind a pit. Extensive pitting can alter the tooth profile, leading to vibrations and audible noise. This alteration in sound and vibrations was instrumental in the discovery of issues in the FST-09e`` transmission set during testing when the car produced unusual noise.
+
+This type of failure can occur in both through-hardened and surface-hardened gears, although surface-hardened gears often exhibit what is commonly referred to as micropitting.
+
+![3131](https://live.staticflickr.com/65535/53386005701_dfc8f303a4_h.jpg)
+
+#### 2.6.3. Micropitting
+
+
+Micropitting has emerged as a more prevalent issue due to the increased use of surface-hardened gears made from high-quality, cleaner steel. Additionally, the use of modern lubricants with sophisticated additive packages intended for extreme conditions may indirectly contribute to micropitting.
+
+This phenomenon involves the formation of small craters on the tooth surface, typically below the pitch line in the region of negative sliding. Initially, micropits resemble macropits but are approximately ten times smaller upon first appearance.
+
+These tiny craters originate from short cracks on the surface and gradually remove surface material, akin to abrasive wear. However, micropitting is primarily a result of rolling/sliding contact fatigue affecting the tooth surface and subsurface layer. This fatigue arises from repeated normal and tangential loads in a boundary or mixed-lubrication regime. The ratio of oil-film thickness to mean-surface roughness is considered a crucial predictor of this damage.
+
+Micropits exhibit light-scattering properties, giving the affected area a frosted, light-gray appearance, hence the terms "frosting" or "gray straining." This damage alters the tooth profile, particularly in areas experiencing negative sliding, potentially elevating transmission error, dynamic loads, vibrations, and noise levels. Moreover, severe cases of micropitting can affect the entire tooth flank, impacting gear meshing.
+
+Micropitting can also serve as a precursor to macropitting and may promote bending fatigue failures in tooth flanks, posing additional risks to gear integrity.
+
+![23132](https://live.staticflickr.com/65535/53386191593_ad0c80f545_h.jpg)
+
+
+#### 2.6.4. Wear
+
+Wear is an ongoing process involving the gradual removal of material from the surfaces of mating gear teeth, whether or not abrasive particles are present in the oil. For instance, rough spots or hard asperities on gear flanks can contribute to material removal from the corresponding mating flanks. This process is particularly accelerated when the hardened layer of surface-hardened gears is worn away. Severe wear in spur gears often leads to pointed teeth and a reduced profile contact ratio. Continual wear at the tooth roots can weaken the gear until it eventually fails.
+
+This wear phenomenon typically occurs under boundary or mixed lubrication conditions, where a substantial oil film is lacking to adequately separate tooth surfaces. 
+
+{{< hint tip >}}
+To mitigate wear, mild antiwear additives can be beneficial. These additives assist in protecting surfaces by forming adsorbed or reacted layers, especially under critical lubricating conditions.
+
+{{< /hint >}}
+
+Examining worn-out teeth can provide valuable insights into the gear meshing quality. Unusual patterns observed on worn teeth may indicate potential misalignment in transmission shafts or unwanted displacements and slack in the system. Such inspections help in diagnosing and rectifying issues to ensure proper gear operation.
+
+## 3 Design
+
+### 3.1. Gears Profile
 
 Gears come in two main types: standard gears and profile-shifted gears. Standard gears follow a typical tooth profile, while profile-shifted gears involve modifications to this standard shape by shifting the profile relative to the norm. These modifications cater to specific operational needs or optimize gear performance under particular conditions. Each type offers unique advantages, with selection based on factors like load capacity, efficiency, noise reduction, and wear resistance.
 
@@ -155,7 +198,7 @@ When the number of teeth is increased, the tooth profile gets thicker at the too
 can generate more strength. As for the tooth profile of a 10-teeth gear, it is gouged at the
 tooth-root and under-cutting occurs.
 
-### 4.2. Abstract
+### 3.2. Abstract
 
 The transmission system in the `FST 010e` prototype serves to transfer power from the electric motors to the wheels, aiming to boost torque while reducing rotational speed. Housed within the hub, it connects to both the hub and the upright.
 
@@ -171,29 +214,27 @@ This transmission setup comprises a stepped planetary gear train featuring three
 ![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpg)
 {{< /columns>}}
 
-### 4.3. Gear Ratio
+### 3.3. Modeling
 
-### 4.4. Modeling
+#### 3.3.1. General Dimensions
 
-#### 4.4.1. General Dimensions
+#### 3.3.2. Individual Dimensions
 
-#### 4.4.2. Individual Dimensions
+#### 3.3.3. Material
 
-#### 4.4.3. Material
-
-#### 4.4.4. Rating
+#### 3.3.4. Rating
 
 
 
-## 5 Lubrication
+## 4 Lubrication
 
 Gearboxes, by their nature, involve high-speed contact between metal components under significant loads. Lubrication becomes crucial to safeguard against wear, corrosion, and heat generated by friction in these systems. This holds true for the transmission set used in `FST-10e`.
 
 Diverse types of lubricants operate on a shared principle: they establish a friction-reducing film between moving surfaces in contact. To discern the most effective lubrication methods, it's imperative to scrutinize and differentiate the factors influencing various types of lubricants and their application. Considerations encompass viscosity, additives, base oils, operating conditions like temperature and pressure, gear design, and material composition.
 
-### 5.1. Influencing Factors
+### 4.1. Influencing Factors
 
-#### 5.1.1. Viscosity 
+#### 4.1.1. Viscosity 
 
 
 The viscosity of a fluid, such as oil, refers to its resistance to deformation at a specified rate. Essentially, it quantifies how a fluid resists the movement of immersed objects through it and the motion of layers with varying velocities within the fluid. Mathematically, viscosity ({{< katex>}}\eta{{< /katex>}}) can be expressed as the ratio between the shearing stress (F/A) and the velocity gradient in the fluid (considering variable velocity in the x-direction along the z-plane).
@@ -228,13 +269,13 @@ Viscosity, a crucial property influenced by various factors, including temperatu
 
 Analyzing oil viscosity includes various methods, with one common approach being the [SAE (Society of Automotive Engineers)](https://www.sae.org/) notation. SAE numbers describe motor oil behavior under low and high temperature conditions, relevant to start-up and operation. The first number, followed by the letter "W" for winter, signifies the oil's behavior during start-up, while the second number characterizes its behavior at high temperatures after engine operation. Lower SAE numbers denote oils suited for lower temperatures, often with lower viscosity, while higher numbers signify thicker, more viscous oils. For instance, `10W-40` oil maintains a viscosity not exceeding 7000 [MPa.s] in a cold engine at -25°C and not less than 2.9 [MPa.s] in high-pressure engine regions near overheating (150°C). Additionally, comparing oils through their viscosity at 40ºC (in cSt) is a common practice, often present in commercial oil designations.
 
-#### 5.1.2. Operating Conditions
+#### 4.1.2. Operating Conditions
 
-### 5.2. Types of Lubrication
+### 4.2. Types of Lubrication
 
-### 5.3. Modes of Lubrication
+### 4.3. Modes of Lubrication
 
-### 5.4. Types of Lubricants
+### 4.4. Types of Lubricants
 
 
 
