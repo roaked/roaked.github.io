@@ -1,11 +1,11 @@
 ---
 weight: 2
 bookFlatSection: true
-title: "Coding Portfolio"
+title: "Coding Repository"
 
 ---
 
-# **Workflow**
+# **Abstract**
 
 
 Welcome to the repository showcasing pivotal milestones in my journey through the field of coding. This comprehensive hub offers a glimpse into a range of accomplishments, encompassing the successful resolution of complex algorithmic challenges and the in-depth exploration of data analysis methodologies.

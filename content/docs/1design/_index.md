@@ -1,10 +1,10 @@
 ---
 weight: 1
 bookFlatSection: true
-title: "Design Portfolio"
+title: "Design Repository"
 ---
 
-# **Workflow**
+# **Abstract**
 
 Welcome to my design project repository — a mashup of my academic journey, fruitful collaborations and extracurricular competitions. This place contains a few of my design adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
 
