@@ -22,7 +22,7 @@ I strongly believe in the power of code — it's what turns ideas into reality.
 
 - [AI: Natural Language Processing and Linguistic Features to Assess News Credibility](https://ricardochin.com/docs/2code/3si/)
 
-- [Graph Theory: Identifying Hamiltonian Paths as Linked Lists in Fortran ](https://ricardochin.com/docs/2code/4cp/hamiltonian/)
+- [Graph Theory: Hamiltonian Paths Classification using Linked Lists in Fortran ](https://ricardochin.com/docs/2code/4cp/hamiltonian/)
 
 - [Evolutionary Computation: Particle Swarm Optimization and Genetic Algorithm for Bin Packing](https://ricardochin.com/docs/2code/5od/)
 
