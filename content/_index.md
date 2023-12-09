@@ -3,9 +3,7 @@ title: The Solution is Coffee
 type: docs
 ---
 
-# **Griaß Di. Bin Ricardo, 27 aus Portugal.**
-
-### "I thrive on optimizing code and algorithms for peak efficiency and performance."
+# **Griaß Di. Ricardo. 27. Portugal.**
 
 After earning my [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394), specializing in design engineering and simulation, I delved into materials science research as a university assistant at the Technical University of Graz. In addition, I supervised bachelors thesis at the University of Leoben, concentrating on additive manufacturing for microelectronics fabrication, a field closely tied to my current work. Moreover, I've reignited my passion for various computer science topics, circling back to the roots of my bachelor's journey. I'm deeply immersed in diverse modern computing domains, with a particular interest on data structures and algorithms, recognizing their leading role in my creative problem-solving strategies for system design.
 
