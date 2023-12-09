@@ -18,7 +18,7 @@ I strongly believe in the power of code — it's what turns ideas into reality.
 
 - [UAV Red Bull Air Racing: System Dynamics Modeling, Controller Design and Drone Vision](https://ricardochin.com/docs/2code/1drone/)
 
-- [AGV: System Identification](https://ricardochin.com/docs/2code/2is/)
+- [AGV: Stochastic and Deterministic System Identification](https://ricardochin.com/docs/2code/2is/)
 
 - [AI: Natural Language Processing and Linguistic Features to Assess News Credibility](https://ricardochin.com/docs/2code/3si/)
 
