@@ -6,10 +6,31 @@ title: "Design Portfolio"
 
 # **Workflow**
 
-Welcome to my design project hangout — a mashup of my academic journey and awesome collaborations. This place is packed with my adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and loads of cool 3D CAD projects.
+Welcome to my design project repository — a mashup of my academic journey, fruitful collaborations and extracurricular competitions. This place contains a few of my design adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
 
-Late-night brainstorming, diving into simulations of fluid dynamics, thermal analysis, and structural mechanics, and then making those wild ideas real — It's like a ride where design and simulation crash together in the coolest ways.
+From late-night brainstorming sessions to immersing myself in simulations of fluid dynamics, thermal analysis, and structural mechanics, this space encapsulates the fusion of design concepts with intricate simulations.
 
-![12e](https://wallpapercave.com/dwp1x/wp9380795.png)
+From conceptualization to realization...
+
+`Designs:`
+
+- [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/1design/1mest/)
+
+- [Double Girder Crane Design for Industrial Applications](https://ricardochin.com/docs/1design/3pmec/)
+
+- [FEM Package Development for a Case of Torsional Loading using Prandtl Equations](https://ricardochin.com/docs/1design/4mcomp/)
+
+- [Manual Transmission Design of a Car ](https://ricardochin.com/docs/1design/5om/)
+
+- [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/1design/6ebw/)
+
+`Competitions:`
+
+- [ThermoCup](https://ricardochin.com/docs/1design/2thermo/)
+
+- [Formula Student Lisbon](https://ricardochin.com/docs/1design/7fst/)
+
+✨
+
 
 
