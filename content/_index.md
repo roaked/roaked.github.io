@@ -19,7 +19,7 @@ It's become a hobby of mine to sort through my [recent and past projects](https:
 
 Although work is a significant part of my life, it doesn't define everything I am. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours on end — really, I truly have an endless conversation capacity. Nevertheless, as most of these activities tend to be solitary, I've learned a valuable lesson over time: to appreciate the tranquility and peace these moments offer, cherishing the calm they bring into my life.
 
-{{< button href="https://www.youtube.com/channel/UC8UU4XraMa-k_CYvw3GHrQw" >}}My life in frames 📷{{< /button >}}
+{{< button href="https://www.youtube.com/channel/UC8UU4XraMa-k_CYvw3GHrQw" >}}My life in frames 📷: Friends & Family, Travel & Hobbies{{< /button >}}
 
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
