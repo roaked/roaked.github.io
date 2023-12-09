@@ -1,10 +1,10 @@
 ---
 weight: 10
 bookFlatSection: true
-title: "git commit -m modifications"
+title: "Website Modifications"
 ---
 
-# **Website Modifications / bookHidden: false**
+# **git commit -m Modifications**
 
 ## Hugo Framework
 
