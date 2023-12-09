@@ -16,7 +16,7 @@ I strongly believe in the power of code — it's what turns ideas into reality.
 
 `Frameworks:`
 
-- [UAV Red Bull Air Racing: System Dynamics Modeling, Controller Design and Drone Vision Implementation](https://ricardochin.com/docs/2code/1drone/)
+- [UAV Red Bull Air Racing: System Dynamics Modeling, Controller Design and Drone Vision](https://ricardochin.com/docs/2code/1drone/)
 
 - [AGV: System Identification](https://ricardochin.com/docs/2code/2is/)
 
@@ -24,9 +24,9 @@ I strongly believe in the power of code — it's what turns ideas into reality.
 
 - [Graph Theory: Identifying Hamiltonian Paths as Linked Lists in Fortran ](https://ricardochin.com/docs/2code/4cp/hamiltonian/)
 
-- [Evolutionary Computation for Bin Packing Optimization](https://ricardochin.com/docs/2code/5od/)
+- [Evolutionary Computation: Particle Swarm Optimization and Genetic Algorithm for Bin Packing](https://ricardochin.com/docs/2code/5od/)
 
-- [Integration of Genetic Reinforcement Learning Deep-Q-Network: Snake Game Development](https://ricardochin.com/docs/2code/8snake/)
+- [Genetic Algorithm in Reinforcement Learning Deep-Q-Networks: Snake Game](https://ricardochin.com/docs/2code/8snake/)
 
 ✨
 

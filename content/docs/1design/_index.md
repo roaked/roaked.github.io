@@ -20,7 +20,7 @@ From conceptualization to realization...
 
 - [FEM Package Development for a Case of Torsional Loading using Prandtl Equations](https://ricardochin.com/docs/1design/4mcomp/)
 
-- [Manual Transmission Design of a Car ](https://ricardochin.com/docs/1design/5om/)
+- [Manual Transmission Design for a Car](https://ricardochin.com/docs/1design/5om/)
 
 - [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/1design/6ebw/)
 
