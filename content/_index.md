@@ -16,13 +16,14 @@ It's become a hobby of mine to sort through my [recent and past projects](https:
 
 ![Me41](https://live.staticflickr.com/65535/53352035229_f9204869a6_c.jpg)
 
-Although work is a significant part of my life, it's not my whole world. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours — really, I could talk endlessly. However, since most of these activities are kind of solitary, a valuable lesson I've learned over time is to cherish the peace I find in these moments, enjoying the tranquility that comes with them.
+Although work is a significant part of my life, it doesn't define everything I am. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours on end — really, I truly have an endless conversation capacity. Nevertheless, as most of these activities tend to be solitary, I've learned a valuable lesson over time: to appreciate the tranquility and peace these moments offer, cherishing the calm they bring into my life.
+
+{{< button href="https://www.youtube.com/channel/UC8UU4XraMa-k_CYvw3GHrQw" >}}My life in frames 📷{{< /button >}}
+
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
 Naturally, traveling, particularly to different continents, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world.
-
-{{< button href="https://www.youtube.com/channel/UC8UU4XraMa-k_CYvw3GHrQw" >}}My life in frames 📷{{< /button >}}
 
 
 ![M123e](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_c.jpg)
