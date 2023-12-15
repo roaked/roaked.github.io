@@ -1,5 +1,5 @@
 ---
-title: Drone Controller Design Pt. 2 
+title: Drone Discrete Controller
 weight: 4
 ---
 
