@@ -189,22 +189,21 @@ The `GA_PermutationCrossover` and `GA_RouletteWheelSelection` are relatively sim
 ```Matlab
 function [y1, y2] = GA_PermutationCrossover(x1,x2)
 
-    nVar=numel(x1);
-    
-    c=randi([1 nVar-1]);
-    
+    nVar=numel(x1);   
+    c=randi([1 nVar-1]); 
+
     x11=x1(1:c);
-    x12=x1(c+1:end);
-    
+    x12=x1(c+1:end); 
+
     x21=x2(1:c);
     x22=x2(c+1:end);
-    
+
     r1=intersect(x11,x22);
     r2=intersect(x21,x12);
 
     x11(ismember(x11,r1))=r2;
-    x21(ismember(x21,r2))=r1;
-    
+    x21(ismember(x21,r2))=r1; 
+
     y1=[x11 x22];
     y2=[x21 x12];
 
@@ -212,12 +211,9 @@ end
 
 function i = GA_RouletteWheelSelection(P)
 
-    r=rand;
-    
-    C=cumsum(P);
-    
+    r=rand;    
+    C=cumsum(P);   
     i=find(r<=C,1,'first');
-
 end
 ```
 
@@ -232,7 +228,7 @@ for k = 1:nm
     
     % Select Parent
     p = pop(i);
-    
+   
     % Apply Mutation
     popm(k).Position = GA_PermutationMutate(p.Position);
     
@@ -250,12 +246,10 @@ function y = GA_PermutationMutate(x)
     switch M
         case 1
             % Swap
-            y=DoSwap(x);
-            
+            y=DoSwap(x);            
         case 2
             % Reversion
-            y=DoReversion(x);
-            
+            y=DoReversion(x);            
         case 3
             % Insertion
             y=DoInsertion(x);            
@@ -263,36 +257,29 @@ function y = GA_PermutationMutate(x)
 end
 
 function y=DoSwap(x)   
-    n=numel(x);
-    
+    n=numel(x);    
     i=randsample(n,2);
     i1=i(1);
     i2=i(2);
-
     y=x;
     y([i1 i2])=x([i2 i1]);
     
 end
 
 function y=DoReversion(x)
-
-    n=numel(x);
-    
+    n=numel(x);  
     i=randsample(n,2);
     i1=min(i(1),i(2));
     i2=max(i(1),i(2));
-
     y=x;
     y(i1:i2)=x(i2:-1:i1);
-
 end
 
 function y=DoInsertion(x)
     n=numel(x);  
     i=randsample(n,2);
     i1=i(1);
-    i2=i(2);
-  
+    i2=i(2); 
     if i1<i2
         y=[x(1:i1-1) x(i1+1:i2) x(i1) x(i2+1:end)];
     else
@@ -376,13 +363,12 @@ Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consi
 
 [Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here! ✌️](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}
 
-## Attachments
+## 4 Attachments
 
-For the plotting...
+**The plot thickens...**
 
 ```Matlab
 %Run multiple times GA
-
 clear all
 
 % Simulation parameters
@@ -414,7 +400,6 @@ for i = 1:NSimul
 end
 
 %% Results
-
 if range(NN) == 0
     binc = NN(1);
     counts = length(NN);
@@ -438,7 +423,6 @@ ylim([0 max(counts)+1])
 xlabel('Number of Bins')
 ylabel('Number of incidences')
 title('Simulations with GA')
-
 
 %Plot of Best Costs
 figure
@@ -474,5 +458,4 @@ ylim([0 max(time)+20])
 xlabel('Simulations')
 ylabel('Time [seconds]')
 title('Simulations with GA')
-
 ```
