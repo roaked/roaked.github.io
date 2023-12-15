@@ -42,6 +42,93 @@ In the image, it is seen the original RGB components as they are, without any ch
 
 In the HSV representation, an adjustment was made to the original images specifically for the Hue component. The process involved converting the image to the HSV color space, modifying its Saturation and Value components to a saturation of 1, and then re-converting the image back to the RGB color space. This resulted in a representation highlighting the genuine colors of the image, with only the Hue component "enabled".
 
+```
+function [seg,BW] = Segmenter(img)
+
+imgHSV = rgb2hsv(img);
+
+hue = imgHSV(:,:,1);
+sat = imgHSV(:,:,2);
+val = imgHSV(:,:,3);
+
+[counts,binLocations] = imhist(hue);
+a = 0;
+b = 0;
+for i = 1:256
+    a = a + binLocations(i)*counts(i);
+    b = b + counts(i);
+end
+c = a/b;
+[~,I] = max(counts);
+I = I/256;
+
+if c <= 0.15 
+    BW = hue >= 0.50 & hue <= 0.60 ...
+        | hue >= 0.8 & hue <= 0.990 & val < 0.7 & sat > 0.3 ... 
+        | val > 0.9 & sat > 0.8;
+    
+    BW = imdilate(BW,strel('cube',8));
+    BW = bwareafilt(BW,[5000 9999999999]);
+    BW = imclose(BW,strel('cube',80));
+    BW = imopen(BW,strel('cube',30));
+    
+elseif 0.15 < c && c <= 0.1913 
+    BW = hue >= 0.61 & hue <= 0.65 & sat>=0.30... 
+   | hue >= 0.62 & hue <= 0.68 & sat>=0.08 & val > 0.20...
+   | hue > 0.68 & hue <= 0.72 & sat < 0.2 ...
+   | hue >= 0.0 & hue <= 0.2 & sat<=0.18 & val > 0.55;...
+  
+    BW = bwareafilt(BW,[5000 9999999999]);
+    BW = imdilate(BW,strel('cube',5));
+    BW = bwareafilt(BW,1);%
+
+    BW = imclose(BW,strel('cube',80));
+    BW = imopen(BW,strel('cube',20));
+   
+
+elseif 0.20 < c && c < 0.4 && I > 0.15 && I < 0.20
+    BW = hue >= 0.65 & hue <= 0.69 & sat>=0.4...
+        | hue >= 0.61 & hue <= 0.65 & sat>=0.25 & val >= 0.9 ...
+        | hue >= 0.64 & hue <= 0.65 & sat>=0.35 & val <= 0.9;
+    
+    BW = imdilate(BW,strel('cube',3));
+    BW = bwareafilt(BW,[5000 9999999999]);
+    BW = bwareafilt(BW,1);
+    BW = imclose(BW,strel('cube',80));
+    BW = imopen(BW,strel('cube',30));
+    BW = imdilate(BW,strel('cube',5));
+
+elseif 0.193 < c && c < 0.55
+    BW = hue >= 0.64 & hue <= 0.85 & sat>=0.10 ...
+        | hue >= 0.55 & hue <= 0.64 & sat >= 0.4...
+        | hue >= 0.45 & hue <= 0.64 & val > 0.99 & sat < 0.4...
+        | hue >= 0.68 & hue <= 0.80 & sat<=0.08 & val > 0.4 & val < 0.8;
+        
+    BW = imdilate(BW,strel('cube',2));
+
+    BW = bwareafilt(BW,[5000 9999999999]);
+    BW = bwareafilt(BW,1);
+
+    BW = imclose(BW,strel('cube',80));
+    BW = imopen(BW,strel('cube',20));
+    BW = bwareafilt(BW,1);
+
+elseif c >= 0.55
+    BW = sat >= 0.76;
+    
+    BW = bwareafilt(BW,[5000 9999999999]);
+    BW = bwareafilt(BW,1);
+    BW = imclose(BW,strel('cube',80));
+    BW = imopen(BW,strel('cube',30));
+    BW = imdilate(BW,strel('line',30,90));
+    BW = imerode(BW,strel('cube',10));
+end
+
+seg = img.*uint8(BW);
+
+end
+```
+
 When the image is observed, the gate is distinctly noticeable from the background in the Hue component. The dark and blue tones from the original picture are reflected as dark blue in the Hue representation, while the small white squares take on a magenta hue. The background spans a range from light blue to green and red in this representation. While the Saturation and Value components alone do not facilitate gate identification.
 
 
@@ -197,6 +284,25 @@ Hough lines serve as an alternative method for line detection. In this case, the
 
 The [function *'CornerDetec'*](https://github.com/roaked/redbull-drone-computer-vision/blob/main/CornerDetec.m) was created to calculate the extreme points of the gate image post edge detection. As the gate consistently maintains a square shape, the extreme points can be defined by a sequence of maximum and minimum x and y coordinates. For instance, the top-right corner would be the point where the sum of the x and y coordinates is maximized.
 
+```matlab
+function [C] = CornerDetec(BWcanny)
+
+%1. Get rid of the white border
+I2 = imclearborder(BWcanny);
+
+%2. Find each of the four corners
+[y,x] = find(I2);
+[~,loc] = min(y+x);
+C = [x(loc),y(loc)];
+[~,loc] = min(y-x);
+C(2,:) = [x(loc),y(loc)];
+[~,loc] = max(y+x);
+C(3,:) = [x(loc),y(loc)];
+[~,loc] = max(y-x);
+C(4,:) = [x(loc),y(loc)];
+end
+```
+
 Determining the centroid involved using the [MATLAB function *'regionprops'*](https://www.mathworks.com/help/images/ref/regionprops.html). Given the gate's square and axisymmetric shape, the centroid could be extracted using either the inner or outer square of the gate.
 
 Despite prior morphological operations aimed at refining the segmentation quality, residual noise persisted within the images. To reduce the error between the actual centroid and the estimated centroid, the inner square of the gate, less susceptible to edge detection errors, was utilized. In cases where the inner square wasn't entirely identified, the centroid of the outer square was plotted instead.
@@ -218,7 +324,27 @@ Despite prior morphological operations aimed at refining the segmentation qualit
 
 ### 2.7. Image Enhancement
 
-To accentuate the gate within the image, the region corresponding to the gate was emphasized. This was achieved by inverting the mask obtained from the segmentation process. Inverting the mask allowed for the removal of the gate from the original image and isolating it for highlighting purposes. To accomplish this, each color channel of the inverted mask was isolated and subsequently combined to create a true color RGB image. Additionally, the lines detected from the extreme points were plotted on this highlighted gate region to further outline its boundaries.
+To accentuate the gate within the image, the region corresponding to the gate was emphasized. This was achieved by inverting the mask obtained from the segmentation process. Inverting the mask allowed for the removal of the gate from the original image and isolating it for highlighting purposes. To accomplish this, each color channel of the inverted mask was isolated and subsequently combined to create a true color RGB image.
+
+```matlab
+%% Gate Image Enhancement
+segWB = img.*uint8(WB);
+rgbImage = segWB;
+% Extract the individual red, green, and blue color channels.
+redChannel = rgbImage(:, :, 1);
+greenChannel = rgbImage(:, :, 2);
+blueChannel = rgbImage(:, :, 3);
+% Find pixels that are pure black - black in all 3 channels.
+blackPixels = redChannel == 0 & greenChannel  == 0 & blueChannel  == 0;
+
+redChannel(blackPixels) = 255;
+greenChannel(blackPixels) = 0;
+blueChannel(blackPixels) = 255;
+% Recombine separate color channels into a single, true color RGB image.
+rgbImage = cat(3, redChannel, greenChannel, blueChannel);
+```
+
+ Additionally, the lines detected from the extreme points were plotted on this highlighted gate region to further outline its boundaries.
 
 
 ![imageenhance](https://live.staticflickr.com/65535/53347932412_12209e04fd_z.jpg)
@@ -231,6 +357,7 @@ The conversion from RGB to HSV can be applied to this image. It's important to n
 Upon observing the HSV components, it becomes apparent that the gate is distinctly highlighted in the Saturation and Value images. For all the image datasets:
 
 ![imageenh42141ance](https://live.staticflickr.com/65535/53347932402_ef0bf9b1d0_z.jpg)
+
 
 
 ## 3 Pixel Pilots Certification Acquired
