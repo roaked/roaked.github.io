@@ -7,13 +7,17 @@ weight: 8
 
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
-(*Currently developing...*)
+# Currently working on this (some functions are already outdated)
 
 ## 1. Snake Game
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and reinforcement learning combined with metaheuristics.
 
 ## 2. import pygame / User Controlled Snake Game 
+
+{{< hint important>}}
+Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python. -- [Pygame Documentation](pygame.org/docs)
+{{< /hint >}}
 
 The code begins with initializing Pygame and setting up essential game parameters such as window size, colors, and game speed. Pygame's functionalities are leveraged for window creation, event handling, and display rendering.
 
@@ -161,7 +165,7 @@ def play_step(self, action):
 ```
 
 {{< hint warning>}}
-The game itself is still under development. Nevertheless, current tasks to further enhance the game environment and codebase:
+The game itself is still under development and some of the functions might have been changed already, but not updated here. Nevertheless, current tasks to further enhance the game environment and codebase consist of:
 
 - Complete User Input Handling: Implement the get_user_input method to capture user actions, enabling manual control of the snake.
 - Display Rendering: Develop the _update_display method to visually represent the game state using Pygame's rendering capabilities.
