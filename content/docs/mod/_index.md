@@ -6,20 +6,21 @@ title: "Website Modifications"
 
 # **git commit -m Modifications**
 
-## Logs
+## **Modification Logs**
 
 {{< hint info >}}
-- dark-theme modified // not so user-friendly for white-background images
+- dark-theme modified // not so user-friendly esp. for white-background images
 - color gradient for hint shortcodes changed
 - google analytics connection
 {{< /hint >}}
 
 - Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
 
-## Developer & Contributors
+## **Developer & Contributors**
 
 - Created by [Ricardo Chin](https://github.com/roaked) 
 - [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
+- [Florian Wiegert]
 
 ## Hugo Framework
 
