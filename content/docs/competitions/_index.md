@@ -6,8 +6,8 @@ title: "Academic Competitions"
 
 `Academic Competitions:`
 
-- [ThermoCup](https://ricardochin.com/docs/1design/2thermo/)
+- [ThermoCup](https://ricardochin.com/docs/competitions/thermocup/)
 
-- [Formula Student Lisbon](https://ricardochin.com/docs/1design/7fst/)
+- [Formula Student Lisbon](https://ricardochin.com/docs/competitions/fst/)
 
 ✨
