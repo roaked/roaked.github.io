@@ -212,13 +212,12 @@ The following code aims to give a brief explanation how FCM was modeled. The cod
 function [cmeansTest,cmeansCluster,cmeansAcc,exponentValue] = cmeansClustering(trainingData,testingData,testingClass)
 
 p = 1.1;
-u=1;
+u = 1;
 
 for p=1.1:0.1:3.5
     options = [p 150 0.0000001 0];
     exponentValue(u) = p;
     [centersCM, ~]= fcm(trainingData', 6,options); %6 clusters
-
     totalDelta = 0;
     %i = news index
     %j = cluster index
@@ -233,16 +232,13 @@ for p=1.1:0.1:3.5
             %distance of news i to cluster j
             dist(j,i) = sqrt(totalDelta);
             totalDelta = 0;
-
         end
         [~,ClusterIndex] = min(dist(:,i));
         cluster(i) = ClusterIndex;
     end
 
     fakeCMeans = mode(cluster);
-
     cmeansTest = testingClass(1,:);
-
     cmeansCluster = cluster;
 
     for i = 1:length(cmeansCluster)
@@ -252,7 +248,6 @@ for p=1.1:0.1:3.5
              cmeansCluster(i) = 0;
           end
     end
-
 u=u+1;
 end
 ```
@@ -389,12 +384,10 @@ STR.c = clusterNumber(highestCluster(1));
         end
      %plotconfusion(testingClass(1,:),YClass)
     stats = confusionmatStats(testingClass(1,:),YClass);
-    if MaxAccuracy(j) < stats.accuracy
-        
+    if MaxAccuracy(j) < stats.accuracy     
             MaxAccuracy(j) = stats.accuracy;
             MaxThreshold = Threshold;
     end
-    
     Threshold = Threshold + 0.01;    
     end
 
