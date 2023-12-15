@@ -20,7 +20,6 @@ title: "Website Modifications"
 
 - Created by [Ricardo Chin](https://github.com/roaked) 
 - [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
-- [Florian Wiegert]
 
 ## Hugo Framework
 
