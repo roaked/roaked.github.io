@@ -13,13 +13,13 @@ weight: 8
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and reinforcement learning combined with metaheuristics.
 
-## 2. import pygame
+## 2. import pygame / User Controlled Snake Game 
 
 The code begins with initializing Pygame and setting up essential game parameters such as window size, colors, and game speed. Pygame's functionalities are leveraged for window creation, event handling, and display rendering.
 
+```python
 import random, pygame, sys, time
 
-```python
 # Pygame initialization and window setup
 check_errors = pygame.init()
 if check_errors[1] > 0:
@@ -28,7 +28,7 @@ if check_errors[1] > 0:
 else:
     print('[+] Game successfully initialized')
 
-# Defined other variables here, adapt fontsize, window size, colors, speed, block size, 
+# Defined other variables here, adapt fontsize, window size, colors, speed, block size, etc...
 ```
 
 In addition, SnakeGameAI Class is defined which encapsulates the game logic, managing the game state, snake movement, collision detection, and food placement.
@@ -43,7 +43,7 @@ Vital functions encompass:
 - ```def play_step ```-- Process each step of the game based on user (and later AI actions). (in addition, collects user input, move snake, check collision, update score, etc.)
 {{< /hint >}}
 
-Given ```def__init__``` and ```def __init__game``` the snake is initialized with a starting position, consisting of three body parts (self.head and two segments) positioned horizontally to the right. The game also tracks the score, food, and frame iteration (for managing game duration).
+Given ```__init__``` and ```__init__game``` functions, the snake is initialized with a starting position, consisting of three body parts (self.head and two segments) positioned horizontally to the right. The game also tracks the score, food, and frame iteration (for managing game duration).
 
 ```python
 def _init_game(self):
@@ -61,17 +61,111 @@ def _init_game(self):
         self._place_food()
 ```
 
-After snake initialization, the ```def _move``` adjusts the snake's direction based on the received action (from user or AI). It updates the snake's position accordingly, controlling its movement either left, right, up, or down.
+After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). It updates the snake's position accordingly, controlling its movement either left, right, up, or down.
+
+```python
+ def _move(self, action):
+        # [straight, right, left]
+
+        clock_wise = [Direction.RIGHT, Direction.DOWN, Direction.LEFT, Direction.UP]
+        idx = clock_wise.index(self.direction)
+
+        if np.array_equal(action, [1, 0, 0]):
+            new_dir = clock_wise[idx] # No change
+        elif np.array_equal(action, [0, 1, 0]):
+            next_idx = (idx + 1) % 4
+            new_dir = clock_wise[next_idx] # right turn r -> d -> l -> u
+        else: # [0, 0, 1]
+            next_idx = (idx - 1) % 4
+            new_dir = clock_wise[next_idx] # left turn r -> u -> l -> d
+
+        self.direction = new_dir
+
+        x = self.head.x
+        y = self.head.y
+        if self.direction == Direction.RIGHT:
+            x += BLOCK_SIZE
+        elif self.direction == Direction.LEFT:
+            x -= BLOCK_SIZE
+        elif self.direction == Direction.DOWN:
+            y += BLOCK_SIZE
+        elif self.direction == Direction.UP:
+            y -= BLOCK_SIZE
+
+        self.head = Point(x, y)
+```
+
+Afterwards, the `_place_food` function randomnly places food within the game window. It ensures the food doesn't spawn on the snake's body by repositioning it until a valid location is found.
+
+```python
+def _place_food(self):
+        x = random.randint(0, (self.width-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
+        y = random.randint(0, (self.height-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
+        self.food = Point(x, y)
+        if self.food in self.snake:
+            self._place_food()
+```
+
+In a similar manner, the `is_collision` function checks for collisions with the game window boundaries or the snake's body. If the snake hits the window boundaries or collides with itself, the game ends.
+
+```python
+def is_collision(self, pt=None):
+        if pt is None:
+            pt = self.head
+        # hits boundary
+        if pt.x > self.width - BLOCK_SIZE or pt.x < 0 or pt.y > self.height - BLOCK_SIZE or pt.y < 0: 
+            return True
+        # hits itself
+        if pt in self.snake[1:]: 
+            return True
+        return False
+```
 
 
-The previous vital functions can be thoroughly explored: The ```play_step``` function manages the core game loop, processing each step by collecting user input, moving the snake, and updating the game state based on collisions and food consumption. The ```get_user_input``` function is designed to retrieve user actions, ```while _update_display``` is intended to handle visual updates.
+Lastly, all previous vital functions are combined through the core function ```play_step``` which manages the core game loop, processing each step by collecting user input, moving the snake, and updating the game state based on collisions and food consumption & spawning. The `_update_ui` function refreshes the game display, showing the snake, food, score, and any other visual elements.
 
+```python
+def play_step(self, action):
+        self.frame_iteration += 1
+        # 1. input data from user
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        
+        # 2. move
+        self._move(action) # update the head
+        self.snake.insert(0, self.head)
+        
+        # 3. do we reset? / game over
+        reward = 0
+        game_over = False
+        if self.is_collision() or self.frame_iteration > 100*len(self.snake):
+            game_over = True
+            reward = -10
+            return reward, game_over, self.score
 
+        # 4. place food if eaten, else keep moving
+        if self.head == self.food:
+            self.score += 1
+            reward = 10
+            self._place_food()
+        else:
+            self.snake.pop()
+        
+        # 5. update ui //
+        self._update_ui()
+        self.clock.tick(SPEED)
+        # 6. return score or game over
+        return reward, game_over, self.score
+```
 
-{{< hint tip>}}
-Future Directions to further enhance the game environment and codebase:
+{{< hint warning>}}
+The game itself is still under development. Nevertheless, current tasks to further enhance the game environment and codebase:
 
 - Complete User Input Handling: Implement the get_user_input method to capture user actions, enabling manual control of the snake.
 - Display Rendering: Develop the _update_display method to visually represent the game state using Pygame's rendering capabilities.
-- Enhancements: Explore additional features such as different game difficulty levels, multiplayer functionalities, or advanced AI algorithms to enrich the gaming experience. (`currently under development`)
+- Enhancements: Explore additional features such as different game difficulty levels, multiplayer functionalities, or advanced AI algorithms to enrich the gaming experience.
 {{< /hint>}}
+
+## 3. Reinforcement Deep Q-Network Model
