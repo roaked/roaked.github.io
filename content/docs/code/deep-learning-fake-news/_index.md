@@ -208,7 +208,7 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 
 The following code aims to give a brief explanation how FCM was modeled. The code essentially loops through different parameter values, performs FCM, calculates accuracy, and identifies the best parameter value that maximizes accuracy. Then, it performs the clustering process again using the identified best parameter value. To start off, it iterates through differente 'p' values and performs FCM for each single one of them.
 
-```
+```matlab
 function [cmeansTest,cmeansCluster,cmeansAcc,exponentValue] = cmeansClustering(trainingData,testingData,testingClass)
 
 p = 1.1;
