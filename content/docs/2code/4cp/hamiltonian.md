@@ -1,5 +1,5 @@
 ---
-title: "Hamiltonian Paths: Linked Lists"
+title: "Hamiltonian Graphs: Linked Lists"
 weight: 4
 bookFlatSection: true
 ---
@@ -14,13 +14,7 @@ Graph theory serves as a fundamental framework for modeling and understanding va
 
 ## 2 Fortran
 
-Fortran was chosen for this implementation due to its historical significance and specialized advantages in scientific and computational domains. The language's enduring legacy in scientific computing, established libraries, and its efficiency in numerical computations made it an interesting choice for this simulation project.
-
 One of the primary reasons for opting for Fortran was its robustness and reliability in handling numerical simulations. Additionally, Fortran's performance in handling array-based operations and its ability to optimize code for high performance were crucial factors. Its speed and efficiency in managing computational tasks, especially those involving heavy mathematical computations, were significant advantages for this simulation.
-
-{{< hint important>}}
-Moreover, the language's extensive history and usage within academic and industrial settings made it practical for integrating with existing systems and leveraging legacy codebases. Its established community support for similar topics and domain-specific expertise in scientific fields further strengthened its suitability for this project.
-{{< /hint >}}
 
 
 ## 3 Goal and Strategy
