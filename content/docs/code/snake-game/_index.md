@@ -9,6 +9,13 @@ weight: 8
 
 # Currently working on this (some functions are already outdated)
 
+{{< hint note>}} 
+To do:
+- Script for recording / saving game states
+- Finish adapting the fitness function of my genetic algorithm 
+- Optimize game code for game environment
+{{< /hint >}}
+
 ## 1. Snake Game
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and reinforcement learning combined with metaheuristics.
