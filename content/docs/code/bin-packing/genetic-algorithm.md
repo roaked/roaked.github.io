@@ -145,7 +145,7 @@ Another criterion introduced is a "stuck counter." Often, it's ambiguous whether
 
 Analogous to previous chapter, the algorithm is started by initializing the population. This is done by creating a structure `empty_individual` and then populating pop with random positions for each individual. The fitness cost of each individual is also evaluated using the provided objective function.
 
-```matlab
+```Matlab
 empty_individual.Position = [];
 empty_individual.Cost = [];
 empty_individual.Sol = [];
@@ -223,7 +223,7 @@ end
 
 This process ensures that the offspring have a mixture of segments from both parents while maintaining the uniqueness of elements within segments. Further on, part of the individuals from the population for mutation are selected for mutation. Hence, their positions are mutated and the fitness of the resulting mutants using the provided objective function is also evaluated.
 
-```
+```Matlab
 popm = repmat(empty_individual, nm, 1);
 
 for k = 1:nm
@@ -244,7 +244,7 @@ end
 
 The function `GA_PermutationMutate` randomnly selects one of three mutation operations: swap, reversion, or insertion, and applies the chosen mutation to the individual `x`. 
 
-```
+```Matlab
 function y = GA_PermutationMutate(x)
     M=randi([1 3]);   
     switch M
@@ -376,3 +376,103 @@ Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consi
 
 [Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here! ✌️](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts){{< /hint >}}
 
+## Attachments
+
+For the plotting...
+
+```Matlab
+%Run multiple times GA
+
+clear all
+
+% Simulation parameters
+model = CreateModel(2);
+NSimul = 10;
+
+% Initialization
+BCosts = zeros(NSimul,1)';
+Its = zeros(NSimul,1)';
+k = 1;
+NN = zeros(2,1)';
+time = zeros(NSimul,1)';
+
+% Main loop
+for i = 1:NSimul
+    tic
+    [~,~, BestSol,~, it, GAData] = GA(model);
+        time(i) = toc;
+    disp(['Simulation ' num2str(i) ': Best Cost = ' num2str(BestSol.Cost) ...
+        ': Time = ' num2str(time(i))]);
+
+    BCosts(i) = BestSol.Cost;
+    
+    if floor(BestSol.Cost) == BestSol.Cost
+        NN(k) = BestSol.Cost;
+        k = k + 1;
+    end
+    Its(i) = it;
+end
+
+%% Results
+
+if range(NN) == 0
+    binc = NN(1);
+    counts = length(NN);
+else
+    binc = min(NN):1:max(NN);
+    counts = hist(NN,binc);
+end
+
+% Plot of Bin Incidences
+figure
+X = categorical(binc);
+Y = i-k+1;
+bar(X,counts)
+hold on
+
+if Y > 0
+    X1 = categorical({'Non feasible'});
+    bar(X1,Y)
+end
+ylim([0 max(counts)+1])
+xlabel('Number of Bins')
+ylabel('Number of incidences')
+title('Simulations with GA')
+
+
+%Plot of Best Costs
+figure
+scatter(1:length(BCosts),BCosts)
+xlim([0.5 length(BCosts)+0.5])
+%xticks(0:1:length(BCosts))
+ylim([min(BCosts)-1 max(BCosts)+1])
+hold on
+
+xc = [0 length(BCosts)+1];
+yc = [1 1] * model.m;
+plot(xc,yc,'--','LineWidth',1);
+xlabel('Simulations')
+ylabel('Best Costs')
+title('Simulations with GA')
+
+%Plot of Number of Iterations
+figure
+scatter(1:length(Its),Its)
+xlim([0.5 length(Its)+0.5])
+%xticks(0:1:length(Its))
+ylim([0 max(Its)+50])
+xlabel('Simulations')
+ylabel('Number of Iterations')
+title('Simulations with GA')
+
+%Plot of Simulation Time
+figure
+scatter(1:length(time),time)
+xlim([0.5 length(time)+0.5])
+%xticks(0:1:length(time))
+ylim([0 max(time)+20])
+xlabel('Simulations')
+ylabel('Time [seconds]')
+title('Simulations with GA')
+
+```
