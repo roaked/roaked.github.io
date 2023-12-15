@@ -1,5 +1,5 @@
 ---
-weight: 11
+weight: 7
 bookFlatSection: true
 title: "My LeetCode Solutions"
 ---

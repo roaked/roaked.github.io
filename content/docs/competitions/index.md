@@ -1,7 +1,7 @@
 ---
-weight: 2
+weight: 3
 bookHidden: false
-title: "Competitions"
+title: "Academic Competitions"
 ---
 
 `Academic Competitions:`
