@@ -1,5 +1,5 @@
 ---
-weight: 9
+weight: 2
 bookHidden: false
 title: "ThermoCup"
 ---

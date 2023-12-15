@@ -1,5 +1,5 @@
 ---
-weight: 7
+weight: 1
 bookHidden: false
 title: "Formula Student Lisbon"
 ---
