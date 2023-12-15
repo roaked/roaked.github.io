@@ -54,7 +54,10 @@ Vital functions encompass:
 - ```def play_step ```-- Process each step of the game based on user (and later AI actions). (in addition, collects user input, move snake, check collision, update score, etc.)
 {{< /hint >}}
 
-Given ```__init__``` and ```__init__game``` functions, the snake is initialized with a starting position, consisting of three body parts (self.head and two segments) positioned horizontally to the right. The game also tracks the score, food, and frame iteration (for managing game duration).
+Given ```__init__``` and ```__init__game``` functions, the snake is initialized with a starting position, consisting of three body parts (`self.head` and two segments) positioned horizontally to the right - this is normally executed in good practice for developing a snake game, including representing the `self.head` at the center of the window. This setup essentially creates an initial length for the snake, allowing it to start the game with a visible length and direction. The snake initially consists of these three segments, and as the game progresses and the snake moves, additional segments will be added or removed based on its movement, food consumption, and collision detection. 
+
+{{< hint tip >}}Having an initial length provides a visible presence of the snake on the screen, allowing the player or AI agent to see its position and direction from the beginning of the game.
+{{< /hint >}}
 
 ```python
 def _init_game(self):
@@ -72,7 +75,16 @@ def _init_game(self):
         self._place_food()
 ```
 
-After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). It updates the snake's position accordingly, controlling its movement either left, right, up, or down.
+After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). This is done using a list `clock_wise` that represents the directional movement of the snake - right, down, left, up (clockwise). It determines the current direction's index and handles changes in direction based on the received action:
+
+{{< hint note >}}
+Case scenarios:
+If the action indicates no change [1, 0, 0] -> snake maintains its current direction.
+If the action indicates a right turn [0, 1, 0] -> snake updates the direction to the next index in the clockwise order.
+If the action indicates a left turn [0, 0, 1] -> snake updates the direction to the previous index in the clockwise order (effectively, anti-clockwise).
+{{< /hint >}}
+
+Based on the updated direction, the function calculates the new `position (x, y)` for the snake's head. It increments or decrements the `x` or `y` coordinate of the head based on the direction (right, left, down, up), moving it by `BLOCK_SIZE`, which represents the size of each snake block.
 
 ```python
  def _move(self, action):
@@ -117,7 +129,7 @@ def _place_food(self):
             self._place_food()
 ```
 
-In a similar manner, the `is_collision` function checks for collisions with the game window boundaries or the snake's body. If the snake hits the window boundaries or collides with itself, the game ends.
+For defining the game over condition, two possibilities can be addressed in the `is_collision` function. The first possibility checks whether the specified point (defaulted to `self.head` if no point is provided) is outside the game window. It compares the `x` and `y` coordinates of the point against the window boundaries, considering the size of the game elements (the snake blocks) to ensure they remain within the window. Additionally, the second possibility consideres if the specified point (or `self.head`) is present within the `self.snake` list beyond the first element. This effectively checks if the snake's head or a specified point coincides with any part of the snake's body excluding the head. If a collision is detected, it means the snake has collided with itself.
 
 ```python
 def is_collision(self, pt=None):
@@ -180,3 +192,10 @@ The game itself is still under development and some of the functions might have 
 {{< /hint>}}
 
 ## 3. Reinforcement Deep Q-Network Model
+
+(to insert background)
+
+
+## 4. Genetic Tuning of a RL Deep-Q-Network
+
+(to insert background)
