@@ -6,6 +6,21 @@ title: "Website Modifications"
 
 # **git commit -m Modifications**
 
+## Logs
+
+{{< hint info >}}
+- dark-theme modified // not so user-friendly for white-background images
+- color gradient for hint shortcodes changed
+- google analytics connection
+{{< /hint >}}
+
+- Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
+
+## Developer & Contributors
+
+- Created by [Ricardo Chin](https://github.com/roaked) 
+- [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
+
 ## Hugo Framework
 
 {{< hint info >}}
@@ -156,21 +171,5 @@ Modifications in the relative path to the `hint-icons.svg` must be changed - in 
 {{ end }}
 ```
 
-## Modification
 
-{{< hint info >}}
-- dark-theme modified
-- color gradient for hint shortcodes changed
-- google analytics connection
-{{< /hint >}}
-
-- Last source modification `November 25, 2023` by [Ricardo Chin](https://github.com/roaked)
-
-## Developer
-
-- Created by [Ricardo Chin](https://github.com/roaked) 
-
-## Contributors
-
-- [Manuel Sousa](https://github.com/manuelvsousa) - Fixed the shortcode hint icons display;
 
