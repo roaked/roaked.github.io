@@ -139,9 +139,47 @@ To solve the bin packing problem with these algorithms, the program received a s
 
 Items had to be assigned to different bins. More variables were added inside the position vector to handle this. For instance, [2, 3, 5, 1, 4] could mean two bins: [15, 10] and [20, 5]. Integers higher than the number of items represented bin divisions. Stopping criteria included a maximum number of iterations, adjusted according to the number of items to be assigned due to the inherent randomness in these heuristics.
 
-Another criterion introduced is a "stuck counter." Often, it's ambiguous whether the algorithm is stuck in a local minimum or encountering difficulties in finding an improved solution. To address this, if the program identifies that the best cost remains unchanged from the previous iteration, it initiates a count of iterations. Upon surpassing a predetermined limit, the program halts. Additionally, if the best cost is an integer value, it suggests that the program might have discovered a feasible solution and is trapped within it. This "stuck counter" proves to be a valuable stopping criterion.
+Another criterion introduced is a "stuck counter." Often, it's ambiguous whether the algorithm is stuck in a local minimum or encountering difficulties in finding an improved solution. To address this, if the program identifies that the best cost remains unchanged from the previous iteration, it initiates a count of iterations. Upon surpassing a predetermined limit, the program halts. Additionally, if the best cost is an integer value, it suggests that the program might have discovered a feasible solution and is trapped within it. This "stuck counter" proves to be a valuable stopping criterion. 
 
-### 2.2. Main Function
+
+```Matlab
+for it = 1:MaxIt
+    % The visualization allows tracking the allocation of weights into bins as the algorithm progresses.
+    if it == 1 || BestCost(it, 1) ~= BestCost(it-1, 1)
+        Solution = zeros(max(model.w), BestSol.Sol.nBin);
+        for i = 1:BestSol.Sol.nBin
+            BWeights = cell2mat(BestSol.Sol.BWeights(i));
+            Solution(1:length(BWeights), i) = BWeights';
+        end        
+        figure(1)
+        bar(Solution', 'stacked')
+        title('Weights assignment')
+        xlabel('Bins');
+    end
+    
+
+    % Stopping criteria
+    if (it >= 50)  
+        if (BestCost(it, 1) == BestCost(it-1, 1)) && BestCost(it, 1) == floor(BestCost(it, 1))
+            % Handling stagnation in feasible solution
+            stuckCounter = stuckCounter + 1;
+            if (stuckCounter == 100)
+                break;        
+            end
+        elseif (BestCost(it, 1) == BestCost(it-1, 1))
+            % Handling stagnation in unfeasible solution
+            stuckCounter = stuckCounter + 1;
+            if (stuckCounter == 1000)
+                break;        
+            end
+        else 
+            stuckCounter = 1;   
+        end
+    end 
+end
+```
+
+### 2.2. Initialization, Crossing and Mutation
 
 Analogous to previous chapter, the algorithm is started by initializing the population. This is done by creating a structure `empty_individual` and then populating pop with random positions for each individual. The fitness cost of each individual is also evaluated using the provided objective function.
 
@@ -235,7 +273,6 @@ for k = 1:nm
     % Evaluate Mutant's Fitness
     [popm(k).Cost, popm(k).Sol] = CostFunction(popm(k).Position);
 end
-
 ```
 
 The function `GA_PermutationMutate` randomnly selects one of three mutation operations: swap, reversion, or insertion, and applies the chosen mutation to the individual `x`. 
@@ -292,12 +329,14 @@ Basically, it selects one of the mutation operations based on a `randomized M`an
 
 {{< hint tip>}}
 M is a random integer between 1 and 3, determining the type of mutation to be performed.
-M = 1: Swap mutation.
-M = 2: Reversion mutation.
-M = 3: Insertion mutation.
+
+- M = 1: Swap mutation
+- M = 2: Reversion mutation
+- M = 3: Insertion mutation
 {{< /hint>}}
 
-These mutation operations introduce diversity in the population by altering individuals to explore different regions of the search space in the genetic algorithm. In the end, as showcased, the best solution found as well as the worst cost are tracked and the termination conditions to break out of the main loop based on certain criteria are also described.
+These mutation operations introduce diversity in the population by altering individuals to explore different regions of the search space in the genetic algorithm. 
+
 
 ## 3 Results
 
