@@ -397,7 +397,7 @@ for i = 1:n_elementos
 end
 ```
 
-Afterwards using `min` and `max` `MATLAB` functions, the maximum and minimum stresses are identified and the coordinates of the centers associated with these extreme stresses within the structural elements are also located.
+After using `min` and `max` `MATLAB` functions, the maximum and minimum stresses are identified and the coordinates of the centers associated with these extreme stresses within the structural elements are also located.
 
 
 ### 2.7. Validation Based on Book
