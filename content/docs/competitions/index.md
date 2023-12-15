@@ -1,6 +1,6 @@
 ---
 weight: 3
-bookHidden: false
+bookFlatSection: true
 title: "Academic Competitions"
 ---
 
