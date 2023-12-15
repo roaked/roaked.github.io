@@ -151,9 +151,43 @@ K-means clustering partitions observations into sets to minimize the within-clus
 {{< /details >}}
 
 
-Identifying clusters containing fake news varied across simulations due to differing cluster numbering. To resolve this, the mode was employed to determine the cluster with the most data points, logically corresponding to fake news, given an equal split between true and fake data points.
+Identifying clusters containing fake news varied across simulations due to differing cluster numbering. To resolve this, the mode was employed to determine the cluster with the most data points, logically corresponding to fake news, given an equal split between true and fake data points. The following code was implemented:
 
-Subsequently, fuzzy c-means clustering was executed, allowing data points to belong to multiple clusters with varying degrees of membership. Parameters such as the initial number of clusters 'c' and the exponent controlling fuzzy overlap 'm' were fine-tuned to optimize accuracy.
+```matlab
+function [kmeansTest,kmeansCluster] = kmeansClustering(trainingData,testingData,testingClass)
+
+[pointsKM, ~] = kmeans(trainingData', 6);  %6 clusters
+
+MdlKDT = KDTreeSearcher(trainingData');
+% KDTreeSearcher object performs KNN (K-nearest-neighbor) search or
+% radius search using a kd-tree. You can create a KDTreeSearcher object
+% based on X
+
+for i = 1:length(testingData)
+obsNumber(i) = knnsearch(MdlKDT,testingData(:,i)');
+
+% Knnsearch finds the nearest neighbor in X for each point in Y.
+
+cluster(i) = pointsKM(obsNumber(i));
+end
+
+fakeKMeans = mode(pointsKM);
+kmeansTest = testingClass(1,:);
+kmeansCluster = cluster;
+
+    for i = 1:length(kmeansCluster)
+        if kmeansCluster(i) ~= fakeKMeans
+            kmeansCluster(i) = 1;
+        else
+            kmeansCluster(i) = 0;
+        end
+    end
+end
+```
+
+
+
+Subsequently, fuzzy c-means clustering was executed, allowing data points to belong to multiple clusters with varying degrees of membership. Parameters such as the initial number of clusters 'c' and the exponent controlling fuzzy overlap 'm' were fine-tuned to optimize accuracy. The following code essentially loops through different parameter values, performs FCM, calculates accuracy, and identifies the best parameter value that maximizes accuracy. Then, it performs the clustering process again using the identified best parameter value.
 
 The FCM algorithm partitions a collection of data into fuzzy clusters, returning cluster centers and a partition matrix indicating each data point's degree of belonging to clusters.
 
@@ -172,7 +206,80 @@ The FCM algorithm partitions a collection of data into fuzzy clusters, returning
 - m represents the fuzzifier controlling cluster fuzziness.
 {{< /details >}}
 
-Both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
+The following code aims to give a brief explanation how FCM was modeled. The code essentially loops through different parameter values, performs FCM, calculates accuracy, and identifies the best parameter value that maximizes accuracy. Then, it performs the clustering process again using the identified best parameter value. To start off, it iterates through differente 'p' values and performs FCM for each single one of them.
+
+```
+function [cmeansTest,cmeansCluster,cmeansAcc,exponentValue] = cmeansClustering(trainingData,testingData,testingClass)
+
+p = 1.1;
+u=1;
+
+for p=1.1:0.1:3.5
+    options = [p 150 0.0000001 0];
+    exponentValue(u) = p;
+    [centersCM, ~]= fcm(trainingData', 6,options); %6 clusters
+
+    totalDelta = 0;
+    %i = news index
+    %j = cluster index
+    %k = parameters index
+    for i = 1:length(testingData)
+        for j = 1:size(centersCM,1)
+             for k = 1:size(centersCM,2)
+                %distance between each parameter k and each cluster j of news i
+                delta = (testingData(k,i)-centersCM(j,k))^2;
+                totalDelta = totalDelta + delta;
+             end
+            %distance of news i to cluster j
+            dist(j,i) = sqrt(totalDelta);
+            totalDelta = 0;
+
+        end
+        [~,ClusterIndex] = min(dist(:,i));
+        cluster(i) = ClusterIndex;
+    end
+
+    fakeCMeans = mode(cluster);
+
+    cmeansTest = testingClass(1,:);
+
+    cmeansCluster = cluster;
+
+    for i = 1:length(cmeansCluster)
+          if cmeansCluster(i) ~= fakeCMeans
+              cmeansCluster(i) = 1;
+          else
+             cmeansCluster(i) = 0;
+          end
+    end
+
+u=u+1;
+end
+```
+
+Afterwards, the next part identifies the 'p' value that gives the highest accuracy and performs clustering again using this value.
+
+```matlab
+function [cmeansTest, cmeansCluster, cmeansAcc, exponentValue] = cmeansClustering(trainingData, testingData, testingClass)
+    p = 1.1;
+    u = 1;
+
+    for p = 1.1:0.1:3.5
+        options = [p 150 0.0000001 0];
+        exponentValue(u) = p;
+        [centersCM, ~] = fcm(trainingData', 6, options); % Fuzzy C-means with 6 clusters
+
+        % Clustering process, assigning clusters, and computing accuracy
+        % Same as before
+        % ...
+
+        cmeansAcc(u) = stats.accuracy;
+        u = u + 1;
+    end
+end
+```
+
+In the end, both FCM and k-means aim to minimize objective functions; however, the addition of membership values and the fuzzifier parameter in FCM allows for fuzzier clustering. The fuzzifier 'm' determines the level of cluster fuzziness, with larger 'm' values resulting in fuzzier clusters, while 'm=1' implies crisp partitioning.
 
 {{< details "**Study:** Evaluation of exponent 'm' for all features and linguistic features (click to expand)" close >}}
 
@@ -209,7 +316,98 @@ Let's assume an ideal threshold of 0.51: a visual representation illustrates thi
 
 ![Optimal Threshold](https://live.staticflickr.com/65535/53342552453_91d5f2cc05_c.jpg)
 
-It was previously mentioned that increasing the number of clusters might not always lead to higher accuracy in Fuzzy Modeling. To confirm this, a study was conducted to explore the relationship between accuracy and the number of clusters.
+It was previously mentioned that increasing the number of clusters might not always lead to higher accuracy in Fuzzy Modeling. To confirm this, a study was conducted to explore the relationship between accuracy and the number of clusters. The following script implemented where initially a fuzzy model was trained using different cluster numbers to obtain the optimal cluster number.
+
+```matlab
+Input = trainingData';
+Output = trainingClass';
+
+DAT.U = Input;
+DAT.Y = Output(:, 1);
+clusterNumber(1) = 2;
+
+for j = 1:20
+    clusterNumber(j) = clusterNumber(1) + j - 1;
+    STR.c = clusterNumber(j);
+    [FM, ~] = fmclust(DAT, STR);
+    [Ym,~,~,~,~] = fmsim(testingData',testingClass',FM); 
+
+    %Threshold to define if fake or true
+
+    Threshold = 0.00;
+    MaxAccuracy(j) = 0.00;
+    MaxThreshold = 0.00;
+
+    while(Threshold < 1.00) 
+        for i = 1:size(Ym)
+            if Ym(i) > Threshold
+                YClass(i) = 1;
+            else
+              YClass(i) = 0;
+            end
+        end
+        stats = confusionmatStats(testingClass(1,:),YClass);
+        if MaxAccuracy(j) < stats.accuracy       
+            MaxAccuracy(j) = stats.accuracy;
+            MaxThreshold = Threshold;
+        end   
+        Threshold = Threshold + 0.01;    
+    end    
+    for i = 1:size(Ym)
+        if Ym(i) > MaxThreshold
+            YClassOptimal(i) = 1;
+        else
+            YClassOptimal(i) = 0;
+        end
+    end  
+end
+
+```
+
+Afterwards, the cluster number that provided the highest accuracy is selected and optimal model using this cluster number is computed.
+
+```matlab
+maximum = max(MaxAccuracy);
+[~, highestCluster] = find(MaxAccuracy == maximum);
+STR.c = clusterNumber(highestCluster(1));
+[FM, ~] = fmclust(DAT, STR);
+[Ym,~,~,~,~] = fmsim(testingData',testingClass',FM); 
+
+    %Threshold to define if fake or true
+
+    Threshold = 0.00;
+    MaxAccuracy(j) = 0.00;
+    MaxThreshold = 0.00;
+
+    while(Threshold < 1.00) 
+        for i = 1:size(Ym)
+            if Ym(i) > Threshold
+                YClass(i) = 1;
+            else
+              YClass(i) = 0;
+            end
+        end
+     %plotconfusion(testingClass(1,:),YClass)
+    stats = confusionmatStats(testingClass(1,:),YClass);
+    if MaxAccuracy(j) < stats.accuracy
+        
+            MaxAccuracy(j) = stats.accuracy;
+            MaxThreshold = Threshold;
+    end
+    
+    Threshold = Threshold + 0.01;    
+    end
+
+    for i = 1:size(Ym)
+        if Ym(i) > MaxThreshold
+            YClassOptimal(i) = 1;
+        else
+            YClassOptimal(i) = 0;
+        end
+    end
+end
+```
+
 
 {{< details "**Study:** Impact of numbers of clusters on the model's accuracy - (click to expand)" close >}}
 
@@ -262,6 +460,7 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 | [6 6 6]         | 96.6%        | 88.6%               |
 | [2 2 2 2]       | 96.8%        | 88.8%               |
 | [4 4 4 4]       | 96.8%        | 88.7%               |
+
 
 ## 5 Outcomes
 
