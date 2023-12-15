@@ -70,7 +70,9 @@ The termination criteria is based upon:
 
 Initially, implementing the Best Fit Decreasing (BFD) method was way too simple. Hence, I decided to ommit implementation and results -- since it's a basic heuristic and doesn't need a complex cost function. It was coded from scratch in Matlab.
 
-However, the GA is a bit more intricate. Instead of creating these algorithms from scratch, existing Matlab codes from online sources were adapted and optimized to suit the problem's requirements and parameters.
+However, the GA is a bit more intricate. Instead of creating these algorithms from scratch, existing Matlab codes from online sources were adapted and optimized to suit the problem's requirements and parameters. The code can be seen at [the following GitHub repo](https://github.com/roaked/genetic-algorithm-optimization/tree/main/bpp).
+
+### 2.1. Cost Function and Stopping Criteria
 
 For GA to work, a cost function is needed. This function must consider the main goal (minimizing the number of bins) and the constraints (all weights should fit within the bin capacity). If a bin's capacity is exceeded, it's termed a "bin violation." Initially, the attempt was made to prevent any bin violations from occurring during the simulation. However, this led to the algorithms getting stuck at a suboptimal solution of 16 bins for a problem where the optimal solution was 15 bins. It was challenging for the algorithms to redistribute weights across bins without exceeding their capacities in a single step.
 
@@ -87,11 +89,228 @@ The variables are described as:
 - LBPenalty: Prevents algorithms from converging to a number of bins below a certain lower bound.
 {{< /hint >}}
 
+As per seen below, the function takes `pos` and `model` input parameters to represent the allocation of item to bins and problem parameteres `n`, `w` and `c`, respectively. To start with, `Sep` need to be verified by checking the position where bins are divided in the `pos` vector. Consequently, divides the position vector into bins `B` based on the separators.
+
+```matlab
+function [J, sol] = GA_BinPackingCost(pos, model)
+
+    n = model.n;
+    w = model.w;
+    c = model.c;
+    
+    Sep = find(pos>n);
+    
+    From = [0 Sep] + 1;
+    To = [Sep length(pos)+1] - 1;
+    
+    B = {};
+    for i=1:length(From)
+        Bi = pos(From(i):To(i));
+        if numel(Bi)>0
+            B = [B; Bi]; %#ok
+        end
+    end
+    
+    nBin = numel(B);
+    Viol = zeros(nBin,1);
+    for i=1:nBin
+        Vi = sum(w(B{i}));
+        Viol(i) = max(Vi/c-1, 0);
+    end
+    
+    MeanViol = mean(Viol);
+    
+    if n<100
+        alpha = 0.7*n;
+    else
+        alpha = 1.25*n;
+    end
+    %sum(w)/c = lower bound of bins needed
+    J = nBin + alpha*MeanViol + max(sum(model.w)/model.c - nBin,0)*10;
+    
+    sol.nBin = nBin;
+    sol.BPos = B;
+    sol.Viol = Viol;
+    sol.MeanViol = MeanViol;
+end
+```
+
 To solve the bin packing problem with these algorithms, the program received a set of items with weights that needed to be assigned. A position vector was created and shuffled to obtain a solution. For example, if weights were [20, 15, 10, 5], shuffling them to [2, 3, 1, 4] meant arranging them as [15, 10, 20, 5]. Each item needed at least one decision variable in the position vector.
 
 Items had to be assigned to different bins. More variables were added inside the position vector to handle this. For instance, [2, 3, 5, 1, 4] could mean two bins: [15, 10] and [20, 5]. Integers higher than the number of items represented bin divisions. Stopping criteria included a maximum number of iterations, adjusted according to the number of items to be assigned due to the inherent randomness in these heuristics.
 
 Another criterion introduced is a "stuck counter." Often, it's ambiguous whether the algorithm is stuck in a local minimum or encountering difficulties in finding an improved solution. To address this, if the program identifies that the best cost remains unchanged from the previous iteration, it initiates a count of iterations. Upon surpassing a predetermined limit, the program halts. Additionally, if the best cost is an integer value, it suggests that the program might have discovered a feasible solution and is trapped within it. This "stuck counter" proves to be a valuable stopping criterion.
+
+### 2.2. Main Function
+
+Analogous to previous chapter, the algorithm is started by initializing the population. This is done by creating a structure `empty_individual` and then populating pop with random positions for each individual. The fitness cost of each individual is also evaluated using the provided objective function.
+
+```matlab
+empty_individual.Position = [];
+empty_individual.Cost = [];
+empty_individual.Sol = [];
+
+pop = repmat(empty_individual, nPop, 1);
+
+for i = 1:nPop
+    % Initialize Position
+    pop(i).Position = randperm(nVar);
+    
+    % Evaluate Fitness (Cost) based on the objective function
+    [pop(i).Cost, pop(i).Sol] = CostFunction(pop(i).Position);
+end
+```
+
+Following to population initialization, the parents individuals are selected using roulette wheel selection. Afterwards, crossover to generate offspring is performed, and again, the fitness of the offspring based on the objective function is evaluated.
+
+
+```Matlab
+popc = repmat(empty_individual, nc/2, 2);
+
+for k = 1:nc/2
+    % Select Parents using Roulette Wheel Selection
+    i1 = GA_RouletteWheelSelection(P);
+    i2 = GA_RouletteWheelSelection(P);
+    p1 = pop(i1);
+    p2 = pop(i2);
+    
+    % Apply Crossover
+    [popc(k, 1).Position, popc(k, 2).Position] = GA_PermutationCrossover(p1.Position, p2.Position);
+    
+    % Evaluate Offsprings' Fitness
+    [popc(k, 1).Cost, popc(k, 1).Sol] = CostFunction(popc(k, 1).Position);
+    [popc(k, 2).Cost, popc(k, 2).Sol] = CostFunction(popc(k, 2).Position);
+end
+popc = popc(:);
+```
+
+The `GA_PermutationCrossover` and `GA_RouletteWheelSelection` are relatively simple implementations. `GA_PermutationCrossover`  performs a permutation-based crossover operation for GAs on two parent individuals `x1` and `x2`. On the other hand, tThe function `GA_RouletteWheelSelection` is an utility function used in GAs for selecting individuals based on a roulette wheel selection scheme. Given a set of probabilities `P`, it selects an individual index based on these probabilities using a random number `r`. This function helps in the selection process during crossover operations.
+
+```Matlab
+function [y1, y2] = GA_PermutationCrossover(x1,x2)
+
+    nVar=numel(x1);
+    
+    c=randi([1 nVar-1]);
+    
+    x11=x1(1:c);
+    x12=x1(c+1:end);
+    
+    x21=x2(1:c);
+    x22=x2(c+1:end);
+    
+    r1=intersect(x11,x22);
+    r2=intersect(x21,x12);
+
+    x11(ismember(x11,r1))=r2;
+    x21(ismember(x21,r2))=r1;
+    
+    y1=[x11 x22];
+    y2=[x21 x12];
+
+end
+
+function i = GA_RouletteWheelSelection(P)
+
+    r=rand;
+    
+    C=cumsum(P);
+    
+    i=find(r<=C,1,'first');
+
+end
+```
+
+This process ensures that the offspring have a mixture of segments from both parents while maintaining the uniqueness of elements within segments. Further on, part of the individuals from the population for mutation are selected for mutation. Hence, their positions are mutated and the fitness of the resulting mutants using the provided objective function is also evaluated.
+
+```
+popm = repmat(empty_individual, nm, 1);
+
+for k = 1:nm
+    % Select Parent Index
+    i = randi([1, nPop]);
+    
+    % Select Parent
+    p = pop(i);
+    
+    % Apply Mutation
+    popm(k).Position = GA_PermutationMutate(p.Position);
+    
+    % Evaluate Mutant's Fitness
+    [popm(k).Cost, popm(k).Sol] = CostFunction(popm(k).Position);
+end
+
+```
+
+The function `GA_PermutationMutate` randomnly selects one of three mutation operations: swap, reversion, or insertion, and applies the chosen mutation to the individual `x`. 
+
+```
+function y = GA_PermutationMutate(x)
+    M=randi([1 3]);   
+    switch M
+        case 1
+            % Swap
+            y=DoSwap(x);
+            
+        case 2
+            % Reversion
+            y=DoReversion(x);
+            
+        case 3
+            % Insertion
+            y=DoInsertion(x);            
+    end
+end
+
+function y=DoSwap(x)   
+    n=numel(x);
+    
+    i=randsample(n,2);
+    i1=i(1);
+    i2=i(2);
+
+    y=x;
+    y([i1 i2])=x([i2 i1]);
+    
+end
+
+function y=DoReversion(x)
+
+    n=numel(x);
+    
+    i=randsample(n,2);
+    i1=min(i(1),i(2));
+    i2=max(i(1),i(2));
+
+    y=x;
+    y(i1:i2)=x(i2:-1:i1);
+
+end
+
+function y=DoInsertion(x)
+    n=numel(x);  
+    i=randsample(n,2);
+    i1=i(1);
+    i2=i(2);
+  
+    if i1<i2
+        y=[x(1:i1-1) x(i1+1:i2) x(i1) x(i2+1:end)];
+    else
+        y=[x(1:i2) x(i1) x(i2+1:i1-1) x(i1+1:end)];
+    end
+end
+```
+
+Basically, it selects one of the mutation operations based on a `randomized M`and applies it to the input permutation `x`, resulting in a modified permutation `y`.
+
+{{< hint tip>}}
+M is a random integer between 1 and 3, determining the type of mutation to be performed.
+M = 1: Swap mutation.
+M = 2: Reversion mutation.
+M = 3: Insertion mutation.
+{{< /hint>}}
+
+These mutation operations introduce diversity in the population by altering individuals to explore different regions of the search space in the genetic algorithm. In the end, as showcased, the best solution found as well as the worst cost are tracked and the termination conditions to break out of the main loop based on certain criteria are also described.
 
 ## 3 Results
 
