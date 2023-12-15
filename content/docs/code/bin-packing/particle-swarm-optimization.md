@@ -11,7 +11,7 @@ weight: 3
 
 Particle Swarm Optimization (PSO) draws its inspiration from the social dynamics seen in various species, like birds and insects, as they navigate their environments to fulfill their needs. In this method, each potential solution is likened to a particle, and these particles come together to form a dynamic swarm. Each particle possesses two key characteristics: its position and its velocity. Utilizing this velocity, each particle embarks on a journey to a new position within the search space. Upon arriving at these new positions, individual particle bests and the overall swarm bests are updated accordingly. The velocity of each particle is then fine-tuned based on its experiences, repeating this cycle until certain conditions are met.
 
-Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/2code/5od/_index2/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity. Evaluation for fitness value follows suit, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (pbest) and global bests (gbest) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
+Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity. Evaluation for fitness value follows suit, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (pbest) and global bests (gbest) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
 
 {{< katex display >}}
  v_{ij} = w v_{ij} + c_1 q \frac{(x_{ij}^{pb} - x_{ij})} {\Delta t} + c_2r \frac{( x_{ij}^{gb} - x_{ij})}{ \Delta t}    
@@ -36,7 +36,7 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 {{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm. If you want to read more about it as an example, click here.](https://ricardochin.com/docs/2code/5od/_index2/). Hence, I will skip duplicate writing.
+A similar approach for the code implementation was used for the [Genetic Algorithm. If you want to read more about it as an example, click here.](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). Hence, I will skip duplicate writing.
 
 {{< /hint >}}
 
@@ -135,7 +135,7 @@ In this particular simulation, the PSO algorithm required 8895 iterations, spann
 ## 4 Remarks GA vs. PSO
 
 {{< hint tip >}}
-[If you would like to advance to the implementation using Genetic Algorithm (GA) click here ✌️](https://ricardochin.com/docs/2code/5od/_index2/){{< /hint >}}
+[If you would like to advance to the implementation using Genetic Algorithm (GA) click here ✌️](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/){{< /hint >}}
 
 To further test and compare the GA and PSO algorithms, they were ran 10 times each with the second benchmark. 
 
@@ -153,5 +153,5 @@ Comparatively, both algorithms encountered a higher percentage of non-feasible s
 
 ## 5 Ending Thoughts
 
-[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/2code/5od/#5-ending-thoughts)
+[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts)
 

@@ -14,15 +14,15 @@ From conceptualization to realization...
 
 `Designs:`
 
-- [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/1design/1mest/)
+- [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/design/fea-beam-simulation/)
 
-- [Double Girder Crane Design for Industrial Applications](https://ricardochin.com/docs/1design/3pmec/)
+- [Double Girder Crane Design for Industrial Applications](https://ricardochin.com/docs/design/industrial-crane-design/)
 
-- [FEM Package Development for a Case of Torsional Loading using Prandtl Equations](https://ricardochin.com/docs/1design/4mcomp/)
+- [FEM Package Development for a Case of Torsional Loading using Prandtl Equations](https://ricardochin.com/docs/design/finite-element-method-development/)
 
-- [Manual Transmission Design for a Car](https://ricardochin.com/docs/1design/5om/)
+- [Manual Transmission Design of a Normal Compound Gear Train](https://ricardochin.com/docs/design/manual-transmission-design/#4-you-spin-me-right-round)
 
-- [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/1design/6ebw/)
+- [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/design/electron-beam-tech/)
 
 ✨
 

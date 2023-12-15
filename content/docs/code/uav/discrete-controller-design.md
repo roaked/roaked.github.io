@@ -6,7 +6,7 @@ weight: 4
 # **Phase 3. Amazing Race & Crazy 8**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 8 - Amazing Race](https://ricardochin.com/docs/2code/1drone/_index4/#8-amazing-race). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 8 - Amazing Race](https://ricardochin.com/docs/code/uav/discrete-controller-design/#8-amazing-race). I have cool images! ✌️{{< /hint >}}
 
 ## 1 Continuing from Phase 2...
 
@@ -174,14 +174,14 @@ In contrast, the `MPC` considers the entire 12th order discretized system. The g
 
 ### 3.1. Linear Quadratic Regulator
 
-[In the preceding phase](https://ricardochin.com/docs/2code/1drone/_index3/#5-linear-quadratic-regulator), I presnted and executed the LQR in the continuous domain. Now, in this phase of the project, the discrete iteration of the LQR was implemented. The LQR inherently seeks an optimal controller capable of striking a balance between performance and minimizing actuation. It achieves this by aiming to minimize the discrete version of the performance index.
+[In the preceding phase](https://ricardochin.com/docs/code/uav/continuous-controller-design/#5-linear-quadratic-regulator), I presented and executed the LQR in the continuous domain. Now, in this phase of the project, the discrete iteration of the LQR was implemented. The LQR inherently seeks an optimal controller capable of striking a balance between performance and minimizing actuation. It achieves this by aiming to minimize the discrete version of the performance index.
 
 {{< katex display >}}
 J = \int_{0}^{\infty} (x^T(t)Qx(t) + u^T(t)Ru(t)) \, dt
 {{< /katex >}}
 
 
-Similar to the [approach in the continuous domain](https://ricardochin.com/docs/2code/1drone/_index3/#5-linear-quadratic-regulator), matrix Q penalizes state deviations from zero, while matrix R penalizes significant actuations. However, previously, the LQR values were primarily optimized for step responses, whereas, in this phase, the optimization targeted trajectory following, commencing with the straightforward square trajectory. Employing a trial-and-error method, the following values were selectedfor each subsystem:
+Similar to the [approach in the continuous domain](https://ricardochin.com/docs/code/uav/continuous-controller-design/#5-linear-quadratic-regulator), matrix Q penalizes state deviations from zero, while matrix R penalizes significant actuations. However, previously, the LQR values were primarily optimized for step responses, whereas, in this phase, the optimization targeted trajectory following, commencing with the straightforward square trajectory. Employing a trial-and-error method, the following values were selectedfor each subsystem:
 
 {{< katex display >}}
 Q_{\text{vertical}} = \begin{bmatrix}
@@ -691,4 +691,4 @@ Trajectories emerged as critical design parameters, impacting performance signif
 Using the [MATLAB graphical interface for MPC design](https://www.mathworks.com/products/model-predictive-control.html) led to a potential loss of sensitivity when fine-tuning it. Consequently, the MPC might hold untapped potential not fully explored in this project, presenting an area for further improvement and exploration.
 
 {{< hint tip >}}
-[Advance to UAV Computer Vision Here ✌️](https://ricardochin.com/docs/2code/1drone/_index5/){{< /hint >}}
+[Advance to UAV Computer Vision Here ✌️](https://ricardochin.com/docs/code/uav/computer-vision/){{< /hint >}}

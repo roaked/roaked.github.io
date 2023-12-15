@@ -50,7 +50,7 @@ The sections are pretty extensive, containing descriptive explaination of the wo
 ![video](https://s5.gifyu.com/images/SRQm0.gif)
 
 {{< hint tip >}}
-[That said: Advance to UAV System Dynamics Design Here ✌️](https://ricardochin.com/docs/2code/1drone/_index2/){{< /hint >}}
+[That said: Advance to UAV System Dynamics Design Here ✌️](https://ricardochin.com/docs/code/uav/dynamics/){{< /hint >}}
 
 ## 5 Drone Characteristics 
 

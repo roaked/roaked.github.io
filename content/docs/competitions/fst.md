@@ -9,7 +9,7 @@ title: "Formula Student Lisbon"
 ![sada](https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif)
 
 {{< hint warning>}}
-**Disclaimer**: Only partial information is divulged here - mainly for car transmission design, gear fabrication and lubrication. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/1design/5om/), but for epicyclical gear trains.
+**Disclaimer**: Only partial information is divulged here - mainly for car transmission design, gear fabrication and lubrication. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/design/manual-transmission-design/), but for epicyclical gear trains.
 {{< /hint>}}
 
 ## 1 Background

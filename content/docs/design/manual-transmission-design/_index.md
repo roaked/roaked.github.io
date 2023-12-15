@@ -13,7 +13,7 @@ title: "Gear Train Transmission"
 ## 1 Normal Gear Train Composed of Cylindrical Gears
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - You Spin Me Right Round](https://ricardochin.com/docs/1design/5om/#4-you-spin-me-right-round).{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - You Spin Me Right Round](https://ricardochin.com/docs/design/manual-transmission-design/#4-you-spin-me-right-round).{{< /hint >}}
 
 ### 1.1. Functionality
 
@@ -445,7 +445,7 @@ To prevent the existence of primary external interferences, the minimum number o
 Z_{1 \text{min}} \geq -Z_2 + \sqrt{Z_2^2 + \frac{4 \cdot (1 + Z_2)}{\sin^2(\alpha)}} = -40 + \sqrt{40^2 + \frac{4 \cdot (1+40)}{sin^2(20^\circ)}} = 14.789 \approx 15 \text{ teeth}
 {{< /katex >}}
 
-Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A [MATLAB code](https://ricardochin.com/docs/1design/5om/#sneak-peak-of-matlab) was developed to systematize these calculations.
+Since in this first gearing E1-E2, Z1 = 30 teeth, the condition is verified, and there's no risk of primary external interferences. Similarly, the formulas can be applied to all gearings. A [MATLAB code](https://ricardochin.com/docs/design/manual-transmission-design/#sneak-peak-of-matlab) was developed to systematize these calculations.
 
 
 |      | E1-E2 | E3-E8 | E4-E9 | E5-E6 | E7-E10 |

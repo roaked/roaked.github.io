@@ -9,7 +9,7 @@ title: "FEM Package Development"
 ## 1 DIY: A FEA Playground
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, and would like to know my thoughts on attempting to code a finite element method software or alternatively develop a SDK for existing SW, [please click here to jump to the summarized findings Ch. 4 - My Considerations](https://ricardochin.com/docs/1design/4mcomp/#4-my-considerations).{{< /hint >}}
+If you wish to skip the theoretical and implementation details, and would like to know my thoughts on attempting to code a finite element method software or alternatively develop a SDK for existing SW, [please click here to jump to the summarized findings Ch. 4 - My Considerations](https://ricardochin.com/docs/design/finite-element-method-development/#4-my-considerations).{{< /hint >}}
 
 ### 1.1. Partial Differential Equations (PDEs)
 
