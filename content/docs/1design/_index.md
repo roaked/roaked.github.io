@@ -24,12 +24,6 @@ From conceptualization to realization...
 
 - [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/1design/6ebw/)
 
-`Competitions:`
-
-- [ThermoCup](https://ricardochin.com/docs/1design/2thermo/)
-
-- [Formula Student Lisbon](https://ricardochin.com/docs/1design/7fst/)
-
 ✨
 
 
