@@ -1,7 +1,7 @@
 ---
 weight: 5
 bookHidden: false
-title: "Manual Transmission Design"
+title: "Normal Geartrain Transmission"
 ---
 
 # **The Manual Gear Train Blueprint**

@@ -1,5 +1,5 @@
 ---
-title: Drone Controller Design Pt. 1 
+title: Drone Continuous Controller
 weight: 3
 ---
 

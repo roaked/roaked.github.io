@@ -1,7 +1,7 @@
 ---
 weight: 3
 bookHidden: false
-title: "Industrial Crane Design"
+title: "Industrial Girder Crane"
 
 ---
 
