@@ -404,8 +404,7 @@ Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consi
 
 ## 4 Attachments
 
-**The plot thickens...**
-
+{{< details "**The plot thickens...**" close >}}
 ```Matlab
 %Run multiple times GA
 clear all
@@ -498,3 +497,4 @@ xlabel('Simulations')
 ylabel('Time [seconds]')
 title('Simulations with GA')
 ```
+{{< /details >}}
