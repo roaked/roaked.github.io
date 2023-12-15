@@ -42,11 +42,10 @@ In the image, it is seen the original RGB components as they are, without any ch
 
 In the HSV representation, an adjustment was made to the original images specifically for the Hue component. The process involved converting the image to the HSV color space, modifying its Saturation and Value components to a saturation of 1, and then re-converting the image back to the RGB color space. This resulted in a representation highlighting the genuine colors of the image, with only the Hue component "enabled".
 
-```
+```matlab
 function [seg,BW] = Segmenter(img)
 
 imgHSV = rgb2hsv(img);
-
 hue = imgHSV(:,:,1);
 sat = imgHSV(:,:,2);
 val = imgHSV(:,:,3);
@@ -80,8 +79,7 @@ elseif 0.15 < c && c <= 0.1913
   
     BW = bwareafilt(BW,[5000 9999999999]);
     BW = imdilate(BW,strel('cube',5));
-    BW = bwareafilt(BW,1);%
-
+    BW = bwareafilt(BW,1);
     BW = imclose(BW,strel('cube',80));
     BW = imopen(BW,strel('cube',20));
    
@@ -105,17 +103,14 @@ elseif 0.193 < c && c < 0.55
         | hue >= 0.68 & hue <= 0.80 & sat<=0.08 & val > 0.4 & val < 0.8;
         
     BW = imdilate(BW,strel('cube',2));
-
     BW = bwareafilt(BW,[5000 9999999999]);
     BW = bwareafilt(BW,1);
-
     BW = imclose(BW,strel('cube',80));
     BW = imopen(BW,strel('cube',20));
     BW = bwareafilt(BW,1);
 
 elseif c >= 0.55
-    BW = sat >= 0.76;
-    
+    BW = sat >= 0.76;   
     BW = bwareafilt(BW,[5000 9999999999]);
     BW = bwareafilt(BW,1);
     BW = imclose(BW,strel('cube',80));
@@ -125,7 +120,6 @@ elseif c >= 0.55
 end
 
 seg = img.*uint8(BW);
-
 end
 ```
 
