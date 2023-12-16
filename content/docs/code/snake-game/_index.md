@@ -282,12 +282,12 @@ Employing the Q-learning update rule, the function computes target Q-values base
 
 Together, these classes form the backbone of a Q-learning approach, where the LinearQNet acts as the neural network to estimate Q-values and the QTrainer orchestrates the training process by updating the network's parameters to improve Q-value predictions.
 
-{{< hint warning
+{{< hint warning>}}
 Modifications:
 - Experiment with deeper networks, different activation functions (Sigmoid, i.e), regularization L2/ Dropout to prevent overfitting (getting stuck) and use different optimizers (RMSprop or SGD) for `LinearQClass`
 - It is possible to implement different loss functions or Double Q-learning to mitigate bias impact using separate networks to update Q-values
 - Explore how to improve learning efficiency from the agent
-{{< /hint>}}>}}
+{{< /hint>}}
 
 ## 4. Genetic Tuning of a RL Deep-Q-Network
 
