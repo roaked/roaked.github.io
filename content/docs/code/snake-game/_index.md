@@ -52,7 +52,7 @@ else:
 # Defined other variables here, adapt fontsize, window size, colors, speed, block size, etc...
 ```
 
-In addition, SnakeGameAI Class is defined which encapsulates the game logic, managing the game state, snake movement, collision detection, and food placement.
+In addition, `SnakeGameAI` class is defined which encapsulates the game logic, managing the game state, snake movement, collision detection, and food placement.
 
 {{< hint important >}}
 Vital functions encompass:
@@ -201,7 +201,7 @@ The game itself is still under development and some of the functions might have 
 - Enhancements: Explore additional features such as different game difficulty levels, multiplayer functionalities, or advanced AI algorithms to enrich the gaming experience.
 {{< /hint>}}
 
-![123](https://gifyu.com/image/SiDzT)
+![123](https://s5.gifyu.com/images/SiDzT.gif)
 
 
 ## 3. Reinforcement Deep Q-Network Model
