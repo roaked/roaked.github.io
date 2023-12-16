@@ -17,6 +17,15 @@ General Fixes:
 - Post results
 {{< /hint >}}
 
+
+{{< columns >}}
+
+![123](https://gifyu.com/image/SiDzT)
+<--->
+![123019](https://gifyu.com/image/SiDzw)
+{{< /columns >}}
+
+
 ## 1. Snake Game
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and reinforcement learning combined with metaheuristics.
@@ -192,9 +201,12 @@ The game itself is still under development and some of the functions might have 
 - Enhancements: Explore additional features such as different game difficulty levels, multiplayer functionalities, or advanced AI algorithms to enrich the gaming experience.
 {{< /hint>}}
 
+![123](https://gifyu.com/image/SiDzT)
+
+
 ## 3. Reinforcement Deep Q-Network Model
 
-(to insert background)
+`(to insert theoretical background)`
 
 The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. 
 
@@ -292,10 +304,12 @@ Modifications:
 
 ## 4. Genetic Tuning of a RL Deep-Q-Network
 
-(to insert background)
+`(to insert theoretical background)`
+
+![123019](https://gifyu.com/image/SiDzw)
 
 ## 5. Results
 
-(to insert images)
+`(to insert images)`
 
 ## 6. Outcomes 
