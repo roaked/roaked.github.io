@@ -20,9 +20,9 @@ General Fixes:
 
 {{< columns >}}
 
-![123](https://gifyu.com/image/SiDzT)
+![123](https://s5.gifyu.com/images/SiDzT.gif)
 <--->
-![123019](https://gifyu.com/image/SiDzw)
+![123019](https://s5.gifyu.com/images/SiDzw.gif)
 {{< /columns >}}
 
 
@@ -306,7 +306,7 @@ Modifications:
 
 `(to insert theoretical background)`
 
-![123019](https://gifyu.com/image/SiDzw)
+![123019](https://s5.gifyu.com/images/SiDzw.gif)
 
 ## 5. Results
 
