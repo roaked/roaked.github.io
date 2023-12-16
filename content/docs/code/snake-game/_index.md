@@ -20,7 +20,7 @@ To do:
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and reinforcement learning combined with metaheuristics.
 
-## 2. import pygame / User Controlled Snake Game 
+## 2. User Controlled Snake 
 
 {{< hint important>}}
 Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python. -- [Pygame Documentation](pygame.org/docs)
@@ -284,11 +284,17 @@ Together, these classes form the backbone of a Q-learning approach, where the Li
 
 {{< hint warning>}}
 Modifications:
-- Experiment with deeper networks, different activation functions (Sigmoid, i.e), regularization L2/ Dropout to prevent overfitting (getting stuck) and use different optimizers (RMSprop or SGD) for `LinearQClass`
-- It is possible to implement different loss functions or Double Q-learning to mitigate bias impact using separate networks to update Q-values
-- Explore how to improve learning efficiency from the agent
+- Experiment with deeper networks, different activation functions (Sigmoid, i.e), regularization L2/ Dropout to prevent overfitting (getting stuck) and use different optimizers (RMSprop or SGD) for `LinearQClass`.
+- It is possible to implement different loss functions or Double Q-learning to mitigate bias impact using separate networks to update Q-values.
+- Explore how to improve learning efficiency of the agent.
 {{< /hint>}}
 
 ## 4. Genetic Tuning of a RL Deep-Q-Network
 
 (to insert background)
+
+## 5. Results
+
+(to insert images)
+
+## 6. Outcomes 
