@@ -42,9 +42,26 @@ I've customized [Hugo Book theme template](https://themes.gohugo.io/hugo-book/) 
 
 - This can be customize in this section of the `hugo-book/layout/shortcodes/hint-html`.
 
-{{< hint tip >}}
+
+{{< hint tip>}} `Example Tip`
+{{< /hint>}}
+
+{{< hint note>}} `Example Note`
+{{< /hint>}}
+
+{{< hint info>}} `Example Info`
+{{< /hint>}}
+
+{{< hint important>}} `Example Important`
+{{< /hint>}}
+
+{{< hint example>}} `Example Example`
+{{< /hint>}}
+
+{{< hint warning>}} `Example Warning`
+{{< /hint>}}
+
 - Modifications in the `_shortcodes.scss` file
-{{< /hint >}}
 
 ```scss
 .book-hint {
@@ -85,9 +102,9 @@ vertical-align: middle;
 ```
 
 
-{{< hint tip >}}
+
 - Modifications `_defaults.css` 
-{{< /hint >}}
+
 
 
 ```scss
@@ -123,9 +140,9 @@ $hint-colors: (
 }
 ```
 
-{{< hint tip >}}
-- Lastly, adaption of the manifest.json file accordingly, as well as addition of new icons in `.svg` format. This way personalized icons can be added to the shortcodes.
-{{< /hint >}}
+
+- Lastly, adaption of the `manifest.json`` file accordingly, as well as addition of new icons in `.svg` format. This way personalized icons can be added to the shortcodes.
+
 
 ```json
 {
@@ -145,10 +162,8 @@ $hint-colors: (
 }
 ```
 
-{{< hint danger >}}
-
+{{< hint warning >}}
 Modifications in the relative path to the `hint-icons.svg` must be changed - in case addition of new icons. Otherwise failed to deploy & build new pages.
-
 {{< /hint >}}
 
 ```html
