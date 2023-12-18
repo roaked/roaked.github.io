@@ -49,7 +49,8 @@ if check_errors[1] > 0:
 else:
     print('[+] Game successfully initialized')
 
-# Defined other variables here, adapt fontsize, window size, colors, speed, block size, etc...
+# Defined other variables here, adapt fontsize, window size, colors, speed, 
+# block size, etc...
 ```
 
 In addition, `SnakeGameAI` class is defined which encapsulates the game logic, managing the game state, snake movement, collision detection, and food placement.
@@ -104,7 +105,8 @@ Furthermore, using a dictionary `movement_adjustments` that maps directions foor
 ```python
  def _move(self, action):
         # Define clockwise directions
-        clockwise_directions = [Direction.RIGHT, Direction.DOWN, Direction.LEFT, Direction.UP]
+        clockwise_directions = [Direction.RIGHT, Direction.DOWN,
+                                 Direction.LEFT, Direction.UP]
         current_direction = self.direction
 
         # Define action codes for each movement direction
@@ -145,17 +147,17 @@ Afterwards, the `_place_food` selects a random position within the game grid to 
 
 ```python
 def _place_food(self):
-        snake_positions = {point for point in self.snake}  # set of snake positions
+    snake_positions = {point for point in self.snake}  # set of snake positions
 
-        # Generate random positions until an available one is found
-        while True:
-            x = random.randint(0, (self.width - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
-            y = random.randint(0, (self.height - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
+    # Generate random positions until an available one is found
+    while True:
+        x = random.randint(0, (self.width - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
+        y = random.randint(0, (self.height - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
 
-            new_food_position = Point(x, y)
-            if new_food_position not in snake_positions:
-                self.food = new_food_position
-                break
+        new_food_position = Point(x, y)
+        if new_food_position not in snake_positions:
+            self.food = new_food_position
+            break
 ```
 
 For defining the game over condition, the `is_collision` function determines if a collision occurs at a given point within the game. Initially checking the point's existence, defaulting to the snake's head if not provided, it then examines whether the point lies beyond the game's boundaries, assessing if its coordinates exceed the game area's width or height. Additionally, it verifies if the point coincides with any part of the snake's body, excluding the head. If the point is outside the game boundaries or matches a segment of the snake's body, the function returns `True`, indicating a collision has occurred. Otherwise, it returns `False`, signifying no collision at that specific point in the game.
@@ -229,7 +231,8 @@ def _update_ui(self):
     for pt in self.snake:
         snake_rect = pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE)
         pygame.draw.rect(self.display, BLUE1, snake_rect)
-        pygame.draw.rect(self.display, BLUE2, snake_rect.inflate(-8, -8))  # Inflate the rectangle
+        # Inflate the rectangle
+        pygame.draw.rect(self.display, BLUE2, snake_rect.inflate(-8, -8)) 
 
     # Draw the food
     food_rect = pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE)
@@ -314,42 +317,42 @@ Q(s,a) represents the Q-value, indicating the expected cumulative reward by taki
 Employing the Q-learning update rule, the function computes target Q-values based on the predicted values, updating them according to the received rewards and the next state's Q-values if the episode hasn't terminated. Subsequently, it calculates the Mean Squared Error (MSE) loss between the predicted and target Q-values and performs backpropagation to derive gradients for updating the neural network's parameters. Finally, the optimizer applies these gradients to adjust the model's weights through optimization, enhancing the network's ability to approximate accurate Q-values for efficient decision-making in reinforcement learning scenarios.
 
 ```python
-    def train_step(self, state, action, reward, next_state, done):
-        state = torch.tensor(state, dtype=torch.float)
-        next_state = torch.tensor(next_state, dtype=torch.float)
-        action = torch.tensor(action, dtype=torch.long)
-        reward = torch.tensor(reward, dtype=torch.float)
+def train_step(self, state, action, reward, next_state, done):
+    state = torch.tensor(state, dtype=torch.float)
+    next_state = torch.tensor(next_state, dtype=torch.float)
+    action = torch.tensor(action, dtype=torch.long)
+    reward = torch.tensor(reward, dtype=torch.float)
 
-        pred = self.model(state)
-        target = pred.clone()
+    pred = self.model(state)
+    target = pred.clone()
 
-        # Q-learning update rule
-        # Handling single-dimensional state and action tensors
-        if state.dim() == 1:  # (1,x)
-            state = state.unsqueeze(0)
-            next_state = next_state.unsqueeze(0)
-            action = action.unsqueeze(0)
-            reward = reward.unsqueeze(0)
-            done = (done,)
+    # Q-learning update rule
+    # Handling single-dimensional state and action tensors
+    if state.dim() == 1:  # (1,x)
+        state = state.unsqueeze(0)
+        next_state = next_state.unsqueeze(0)
+        action = action.unsqueeze(0)
+        reward = reward.unsqueeze(0)
+        done = (done,)
 
-        # Predicting Q-values based on current state-action pair
-        pred = self.model(state)
+    # Predicting Q-values based on current state-action pair
+    pred = self.model(state)
 
-        # Clone the prediction for updating
-        target = pred.clone()
-        for idx in range(len(done)):
-            Q_new = reward[idx]
-            if not done[idx]:
-                Q_new = reward[idx] + self.gamma * torch.max(self.model(next_state[idx]))
+    # Clone the prediction for updating
+    target = pred.clone()
+    for idx in range(len(done)):
+        Q_new = reward[idx]
+        if not done[idx]:
+            Q_new = reward[idx] + self.gamma * torch.max(self.model(next_state[idx]))
 
-            action_idx = torch.argmax(action[idx]).item()
-            target[idx][action_idx] = Q_new
+        action_idx = torch.argmax(action[idx]).item()
+        target[idx][action_idx] = Q_new
 
-        # Zero the gradients, compute loss, backpropagate, and update weights
-        self.optimizer.zero_grad()
-        loss = self.criterion(target, pred)
-        loss.backward()
-        self.optimizer.step()
+    # Zero the gradients, compute loss, backpropagate, and update weights
+    self.optimizer.zero_grad()
+    loss = self.criterion(target, pred)
+    loss.backward()
+    self.optimizer.step()
 ```
 
 Together, these classes form the backbone of a Q-learning approach, where the LinearQNet acts as the neural network to estimate Q-values and the QTrainer orchestrates the training process by updating the network's parameters to improve Q-value predictions.
