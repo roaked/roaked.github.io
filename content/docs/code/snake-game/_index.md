@@ -89,7 +89,7 @@ def _init_game(self):
     self._place_food()
 ```
 
-After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). This is done using a list `clock_wise` that represents the directional movement of the snake - right, down, left, up (clockwise). It determines the current direction's index and handles changes in direction based on the received action:
+After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). This is done using a list `clockwise_directions` that represents the directional movement of the snake - right, down, left, up (clockwise). Moreover, it determines the intended change in direction: no change, right turn, or left turn. Calculating the new direction index by locating the current direction within the `clockwise_directions` list and adjusting it based on the determined change, it then updates the snake's direction accordingly. 
 
 {{< hint note >}}
 Case scenarios:
@@ -98,7 +98,7 @@ If the action indicates a right turn [0, 1, 0] -> snake updates the direction to
 If the action indicates a left turn [0, 0, 1] -> snake updates the direction to the previous index in the clockwise order (effectively, anti-clockwise).
 {{< /hint >}}
 
-Based on the updated direction, the function calculates the new `position (x, y)` for the snake's head. It increments or decrements the `x` or `y` coordinate of the head based on the direction (right, left, down, up), moving it by `BLOCK_SIZE`, which represents the size of each snake block.
+Furthermore, using a dictionary `movement_adjustments` that maps directions foor movement adjustments (changes in `x` and `y` coordinates), it applies the corresponding adjustment to the snake's head position, effectively moving it in the intended direction by a distance specified by the `BLOCK_SIZE`, aligning its position with the game grid.
 
 ```python
  def _move(self, action):
@@ -140,7 +140,7 @@ Based on the updated direction, the function calculates the new `position (x, y)
         self.head = Point(self.head.x + move_x, self.head.y + move_y)
 ```
 
-Afterwards, the `_place_food` function randomnly places food within the game window. It ensures the food doesn't spawn on the snake's body by repositioning it until a valid location is found.
+Afterwards, the `_place_food` selects a random position within the game grid to place the food for the snake. Initially creating a set containing all current positions occupied by the snake segments, it enters a loop that generates random x and y coordinates within the game boundaries, scaled by the block size, effectively aligning with the grid. These coordinates form a potential new food position. The loop continues generating random positions until it finds a position that doesn't coincide with any segment of the snake. Once a suitable position is found, it assigns this new position as the food's location, effectively placing the food at an unoccupied spot within the game grid, ensuring it does not overlap with the snake's current positions.
 
 ```python
 def _place_food(self):
@@ -157,11 +157,37 @@ def _place_food(self):
                 break
 ```
 
-For defining the game over condition, two possibilities can be addressed in the `is_collision` function. The first possibility checks whether the specified point (defaulted to `self.head` if no point is provided) is outside the game window. It compares the `x` and `y` coordinates of the point against the window boundaries, considering the size of the game elements (the snake blocks) to ensure they remain within the window. Additionally, the second possibility consideres if the specified point (or `self.head`) is present within the `self.snake` list beyond the first element. This effectively checks if the snake's head or a specified point coincides with any part of the snake's body excluding the head. If a collision is detected, it means the snake has collided with itself.
+For defining the game over condition, the `is_collision` function determines if a collision occurs at a given point within the game. Initially checking the point's existence, defaulting to the snake's head if not provided, it then examines whether the point lies beyond the game's boundaries, assessing if its coordinates exceed the game area's width or height. Additionally, it verifies if the point coincides with any part of the snake's body, excluding the head. If the point is outside the game boundaries or matches a segment of the snake's body, the function returns `True`, indicating a collision has occurred. Otherwise, it returns `False`, signifying no collision at that specific point in the game.
+
+```python
+def is_collision(self, pt=None):
+        if pt is None:
+            pt = self.head
+
+        # Boundary collision check
+        collides_with_boundary = (
+            pt.x > self.width - BLOCK_SIZE or
+            pt.x < 0 or
+            pt.y > self.height - BLOCK_SIZE or
+            pt.y < 0
+        )
+
+        # Snake body collision check
+        collides_with_snake = pt in self.snake[1:]
+        
+        return collides_with_boundary or collides_with_snake
+```
+
+Lastly, the `play_step` function manages a single step within the game loop. It increments the frame count to track game progress and handles events like quitting the game. It updates the snake's movement based on the received action, adding a new head position to the snake's body. The function checks for game-ending conditions — such as collision with itself or exceeding a frame limit—and sets the game over status accordingly, applying penalties if necessary. If the snake consumes the food, it increments the score and updates the food position. After these actions, it refreshes the game display and controls the game's frame rate before returning the reward earned, the game over status, and the current score, providing essential information for the game loop to proceed.
 
 ```python
 def play_step(self, action):
     self.frame_iteration += 1
+
+    for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
     
     # Move the snake
     self._move(action)
