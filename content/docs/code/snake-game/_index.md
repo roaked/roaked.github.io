@@ -62,6 +62,7 @@ Vital functions encompass:
 - ```def _place_food``` -- Places food randomly within the game window, avoiding snake collision
 - ```def _move``` -- Handling snake movement based on user or AI action
 - ```def play_step ```-- Process each step of the game based on user (and later AI actions). (in addition, collects user input, move snake, check collision, update score, etc.)
+- ```def death_control``` -- Controls the commands for user-controlled gameplay, taking keyboard arrow inputs
 {{< /hint >}}
 
 Given ```__init__``` and ```__init__game``` functions, the snake is initialized with a starting position, consisting of three body parts (`self.head` and two segments) positioned horizontally to the right - this is normally executed in good practice for developing a snake game, including representing the `self.head` at the center of the window. This setup essentially creates an initial length for the snake, allowing it to start the game with a visible length and direction. The snake initially consists of these three segments, and as the game progresses and the snake moves, additional segments will be added or removed based on its movement, food consumption, and collision detection. 
@@ -261,14 +262,15 @@ The game itself is still under development and some of the functions might have 
 The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. Additionally, it sets up other optional components, such as dropout regularization or weight initialization techniques, aiming to enhance the network's learning process and generalization ability.
 
 ```python
-super().__init__()
-        self.linear1 = nn.Linear(input_size, hidden_size)
-        self.linear2 = nn.Linear(hidden_size, output_size)
-        self.dropout = nn.Dropout(0.2)  # Example: Adding dropout with p=0.2
+def __init__(self, input_size, hidden_size, output_size):
+    super().__init__()
+    self.linear1 = nn.Linear(input_size, hidden_size)
+    self.linear2 = nn.Linear(hidden_size, output_size)
+    self.dropout = nn.Dropout(0.2)  # Example: Adding dropout with p=0.2
 
-        # Initialize weights using Xavier initialization
-        nn.init.xavier_uniform_(self.linear1.weight)
-        nn.init.xavier_uniform_(self.linear2.weight)
+    # Initialize weights using Xavier initialization
+    nn.init.xavier_uniform_(self.linear1.weight)
+    nn.init.xavier_uniform_(self.linear2.weight)
 ```
 
 The forward method defines the forward pass, applying a rectified linear unit (ReLU) activation to the hidden layer's output before generating the Q-values. Additionally, the save method facilitates saving the model's state dictionary `self.state_dict()` to a specified file path using PyTorch's `torch.save` functionality, ensuring the preservation of trained model parameters.
@@ -280,13 +282,13 @@ def forward(self, x):
         x = self.linear2(x)
         return x
 
-    def save(self, file_name='model.pth'):
-        model_folder_path = './model'
-        if not os.path.exists(model_folder_path):
-            os.makedirs(model_folder_path)
+def save(self, file_name='model.pth'):
+    model_folder_path = './model'
+    if not os.path.exists(model_folder_path):
+        os.makedirs(model_folder_path)
 
-        file_name = os.path.join(model_folder_path, file_name)
-        torch.save(self.state_dict(), file_name)    
+    file_name = os.path.join(model_folder_path, file_name)
+    torch.save(self.state_dict(), file_name)    
 ```
 
 Meanwhile, the QTrainer class manages the training process for the Q-network. Its initialization configures key parameters like learning rate and discount factor, along with setting up an Adam optimizer to update the model's parameters based on the provided learning rate.
