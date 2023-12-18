@@ -258,21 +258,25 @@ The game itself is still under development and some of the functions might have 
 
 `(to insert theoretical background)`
 
-The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. 
+The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. Additionally, it sets up other optional components, such as dropout regularization or weight initialization techniques, aiming to enhance the network's learning process and generalization ability.
 
 ```python
-class LinearQNet(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
-        super().__init__()
+super().__init__()
         self.linear1 = nn.Linear(input_size, hidden_size)
         self.linear2 = nn.Linear(hidden_size, output_size)
+        self.dropout = nn.Dropout(0.2)  # Example: Adding dropout with p=0.2
+
+        # Initialize weights using Xavier initialization
+        nn.init.xavier_uniform_(self.linear1.weight)
+        nn.init.xavier_uniform_(self.linear2.weight)
 ```
 
 The forward method defines the forward pass, applying a rectified linear unit (ReLU) activation to the hidden layer's output before generating the Q-values. Additionally, the save method facilitates saving the model's state dictionary `self.state_dict()` to a specified file path using PyTorch's `torch.save` functionality, ensuring the preservation of trained model parameters.
 
 ```python
-    def forward(self, x):
+def forward(self, x):
         x = F.relu(self.linear1(x))
+        x = self.dropout(x)  # Applying dropout
         x = self.linear2(x)
         return x
 
@@ -318,25 +322,28 @@ Employing the Q-learning update rule, the function computes target Q-values base
         target = pred.clone()
 
         # Q-learning update rule
-
-        if len(state.shape) == 1: # (1,x)
-            state = torch.unsqueeze(state, 0)
-            next_state = torch.unsqueeze(next_state, 0)
-            action = torch.unsqueeze(action, 0)
-            reward = torch.unsqueeze(reward, 0)
-            done = (done, )
+        # Handling single-dimensional state and action tensors
+        if state.dim() == 1:  # (1,x)
+            state = state.unsqueeze(0)
+            next_state = next_state.unsqueeze(0)
+            action = action.unsqueeze(0)
+            reward = reward.unsqueeze(0)
+            done = (done,)
 
         # Predicting Q-values based on current state-action pair
-
         pred = self.model(state)
+
+        # Clone the prediction for updating
         target = pred.clone()
         for idx in range(len(done)):
             Q_new = reward[idx]
             if not done[idx]:
                 Q_new = reward[idx] + self.gamma * torch.max(self.model(next_state[idx]))
 
-            target[idx][torch.argmax(action[idx]).item()] = Q_new
+            action_idx = torch.argmax(action[idx]).item()
+            target[idx][action_idx] = Q_new
 
+        # Zero the gradients, compute loss, backpropagate, and update weights
         self.optimizer.zero_grad()
         loss = self.criterion(target, pred)
         loss.backward()
