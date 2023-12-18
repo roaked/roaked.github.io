@@ -71,18 +71,22 @@ Given ```__init__``` and ```__init__game``` functions, the snake is initialized 
 
 ```python
 def _init_game(self):
-        # Initializing game state variables (snake position, score, food)
-        self.direction = Direction.RIGHT
-        self.head = Point(self.width / 2, self.height / 2)
-        self.snake = [
-            self.head,
-            Point(self.head.x - BLOCK_SIZE, self.head.y),
-            Point(self.head.x - (2 * BLOCK_SIZE), self.head.y)
-        ]
-        self.score = 0
-        self.food = None
-        self.frame_iteration = 0
-        self._place_food()
+    # Game state variables (snake position, score, food)
+    start_x = self.width // 2
+    start_y = self.height // 2
+
+    self.direction = Direction.RIGHT
+    self.head = Point(start_x, start_y)
+    self.snake = [self.head]
+
+    # Create initial instance of the snake with three blocks
+    for i in range(1, 3):
+        self.snake.append(Point(self.head.x - i * BLOCK_SIZE, start_y))
+
+    self.score = 0
+    self.food = None
+    self.frame_iteration = 0
+    self._place_food()
 ```
 
 After snake initialization, the ```_move``` function adjusts the snake's direction based on the received action (from user or AI). This is done using a list `clock_wise` that represents the directional movement of the snake - right, down, left, up (clockwise). It determines the current direction's index and handles changes in direction based on the received action:
@@ -98,100 +102,120 @@ Based on the updated direction, the function calculates the new `position (x, y)
 
 ```python
  def _move(self, action):
-        # [straight, right, left]
+        # Define clockwise directions
+        clockwise_directions = [Direction.RIGHT, Direction.DOWN, Direction.LEFT, Direction.UP]
+        current_direction = self.direction
 
-        clock_wise = [Direction.RIGHT, Direction.DOWN, Direction.LEFT, Direction.UP]
-        idx = clock_wise.index(self.direction)
+        # Define action codes for each movement direction
+        no_change_action = [1, 0, 0]
+        right_turn_action = [0, 1, 0]
+        left_turn_action = [0, 0, 1]
 
-        if np.array_equal(action, [1, 0, 0]):
-            new_dir = clock_wise[idx] # No change
-        elif np.array_equal(action, [0, 1, 0]):
-            next_idx = (idx + 1) % 4
-            new_dir = clock_wise[next_idx] # right turn r -> d -> l -> u
-        else: # [0, 0, 1]
-            next_idx = (idx - 1) % 4
-            new_dir = clock_wise[next_idx] # left turn r -> u -> l -> d
+        # Determine the change in direction based on action
+        if action == no_change_action:
+            direction_change = 0
+        elif action == right_turn_action:
+            direction_change = 1
+        elif action == left_turn_action:
+            direction_change = -1
 
-        self.direction = new_dir
+        # Calculate the new direction index
+        current_index = clockwise_directions.index(current_direction)
+        new_index = (current_index + direction_change) % 4
+        new_direction = clockwise_directions[new_index]
 
-        x = self.head.x
-        y = self.head.y
-        if self.direction == Direction.RIGHT:
-            x += BLOCK_SIZE
-        elif self.direction == Direction.LEFT:
-            x -= BLOCK_SIZE
-        elif self.direction == Direction.DOWN:
-            y += BLOCK_SIZE
-        elif self.direction == Direction.UP:
-            y -= BLOCK_SIZE
+        # Update the direction
+        self.direction = new_direction
 
-        self.head = Point(x, y)
+        # Define movement adjustments for each direction
+        movement_adjustments = {
+            Direction.RIGHT: (BLOCK_SIZE, 0),
+            Direction.LEFT: (-BLOCK_SIZE, 0),
+            Direction.DOWN: (0, BLOCK_SIZE),
+            Direction.UP: (0, -BLOCK_SIZE)
+        }
+
+        # Apply movement adjustments to update the head position
+        move_x, move_y = movement_adjustments[self.direction]
+        self.head = Point(self.head.x + move_x, self.head.y + move_y)
 ```
 
 Afterwards, the `_place_food` function randomnly places food within the game window. It ensures the food doesn't spawn on the snake's body by repositioning it until a valid location is found.
 
 ```python
 def _place_food(self):
-        x = random.randint(0, (self.width-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
-        y = random.randint(0, (self.height-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
-        self.food = Point(x, y)
-        if self.food in self.snake:
-            self._place_food()
+        snake_positions = {point for point in self.snake}  # set of snake positions
+
+        # Generate random positions until an available one is found
+        while True:
+            x = random.randint(0, (self.width - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
+            y = random.randint(0, (self.height - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
+
+            new_food_position = Point(x, y)
+            if new_food_position not in snake_positions:
+                self.food = new_food_position
+                break
 ```
 
 For defining the game over condition, two possibilities can be addressed in the `is_collision` function. The first possibility checks whether the specified point (defaulted to `self.head` if no point is provided) is outside the game window. It compares the `x` and `y` coordinates of the point against the window boundaries, considering the size of the game elements (the snake blocks) to ensure they remain within the window. Additionally, the second possibility consideres if the specified point (or `self.head`) is present within the `self.snake` list beyond the first element. This effectively checks if the snake's head or a specified point coincides with any part of the snake's body excluding the head. If a collision is detected, it means the snake has collided with itself.
 
 ```python
-def is_collision(self, pt=None):
-        if pt is None:
-            pt = self.head
-        # hits boundary
-        if pt.x > self.width - BLOCK_SIZE or pt.x < 0 or pt.y > self.height - BLOCK_SIZE or pt.y < 0: 
-            return True
-        # hits itself
-        if pt in self.snake[1:]: 
-            return True
-        return False
+def play_step(self, action):
+    self.frame_iteration += 1
+    
+    # Move the snake
+    self._move(action)
+    self.snake.insert(0, self.head)
+    
+    # Check for game over conditions
+    game_over = False
+    reward = 0
+    collision_or_frame_limit = self.is_collision() or self.frame_iteration > 100 * len(self.snake)
+    if collision_or_frame_limit:
+        game_over = True
+        reward = -10
+        return reward, game_over, self.score
+    
+    # Check if the snake has eaten the food
+    if self.head == self.food:
+        self.score += 1
+        reward = 10
+        self._place_food()
+    else:
+        self.snake.pop()
+    
+    # Update UI and clock
+    self._update_ui()
+    self.clock.tick(SPEED)
+    
+    # Return game status and score
+    return reward, game_over, self.score
 ```
 
-
-Lastly, all previous vital functions are combined through the core function ```play_step``` which manages the core game loop, processing each step by collecting user input, moving the snake, and updating the game state based on collisions and food consumption & spawning. The `_update_ui` function refreshes the game display, showing the snake, food, score, and any other visual elements.
+For visualization, the `_update_ui` function serves as the visual engine of the game, orchestrating the graphical elements displayed to the player. It begins by wiping the display clean with a black background, then proceeds to render the snake's body as a sequence of blue rectangles, each block outlined by a smaller blue rectangle, creating a bordered appearance. Next, it draws the red food block at its designated position within the game grid. Additionally, it generates the textual representation of the player's score, showcasing it prominently in the top-left corner of the screen. Finally, by updating the display, it ensures that all these visual elements accurately reflect the ongoing state of the game, providing players with a real-time view of the snake's movement, the position of the food, and their current score as they play.
 
 ```python
-def play_step(self, action):
-        self.frame_iteration += 1
-        # 1. input data from user
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-        
-        # 2. move
-        self._move(action) # update the head
-        self.snake.insert(0, self.head)
-        
-        # 3. do we reset? / game over
-        reward = 0
-        game_over = False
-        if self.is_collision() or self.frame_iteration > 100*len(self.snake):
-            game_over = True
-            reward = -10
-            return reward, game_over, self.score
+def _update_ui(self):
+    self.display.fill(BLACK)
 
-        # 4. place food if eaten, else keep moving
-        if self.head == self.food:
-            self.score += 1
-            reward = 10
-            self._place_food()
-        else:
-            self.snake.pop()
-        
-        # 5. update ui //
-        self._update_ui()
-        self.clock.tick(SPEED)
-        # 6. return score or game over
-        return reward, game_over, self.score
+    # Draw the snake
+    for pt in self.snake:
+        snake_rect = pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE)
+        pygame.draw.rect(self.display, BLUE1, snake_rect)
+        pygame.draw.rect(self.display, BLUE2, snake_rect.inflate(-8, -8))  # Inflate the rectangle
+
+    # Draw the food
+    food_rect = pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE)
+    pygame.draw.rect(self.display, RED, food_rect)
+
+    # Render the score text
+    score_text = font.render("Score: " + str(self.score), True, WHITE)
+    self.display.blit(score_text, (0, 0))
+
+    # Update the display
+    pygame.display.flip()
 ```
+
 
 {{< hint warning>}}
 The game itself is still under development and some of the functions might have been changed already, but not updated here. Nevertheless, current tasks to further enhance the game environment and codebase consist of:
