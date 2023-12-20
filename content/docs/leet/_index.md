@@ -15,3 +15,5 @@ While I may not consider myself an expert, I'm passionate about problem-solving 
 ## **GitHub Repo**
 
 Explore my solutions, implementations, and additional resources in [my GitHub repository](https://github.com/roaked/leetcode). The repository contains a comprehensive collection of my LeetCode problem solutions, providing a detailed look at my coding practices and problem-solving approaches. :)
+
+![2913i](https://miro.medium.com/v2/resize:fit:1400/1*Kw-uI4abGgBnOJGMp1vX1g.png)
