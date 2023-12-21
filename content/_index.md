@@ -3,7 +3,7 @@ title: The Solution is Coffee
 type: docs
 ---
 
-# **Hi. I am Ricardo. I like to help others to code :)**
+# **Hi. I am Ricardo and I sometimes code. :)**
 
 Upon earning my [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) from the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/), specialized in systems engineering, I delved into [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) of the [Technical University of Graz](https://www.tugraz.at/en/home) as a university assistant. My role revolved around the enhancement of design models using computational simulations by integrating machine learning frameworks for material failure analysis. In addition, I supervised bachelors thesis at the [University of Leoben](https://www.unileoben.ac.at/en/), emphasizing on additive manufacturing for microelectronics fabrication. Drawing from a foundation in FEA/CFD evidenced in my [design repository](https://ricardochin.com/docs/design/), I've invested substantial time in selecting boundary conditions and refining ideal mesh parameters. Now, I'm drawn to integrating software tools to address the growing complexity of design challenges and the need for scalability. 
 
