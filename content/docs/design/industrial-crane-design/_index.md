@@ -13,7 +13,7 @@ title: "Industrial Girder Crane"
 
 ### 1.1. Description and Context
 
-Dimensioning and studying fundamental structural components of a double girder suspension crane can be way more complex than they seem. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors. 
+Dimensioning and studying fundamental structural components of a double girder suspension crane can be in an interesting study framework. Bridge cranes are frequently used equipment in the industry, especially in metallurgy, playing a pivotal role and being deployable both indoors and outdoors. 
 
 {{< hint important >}}
 A bridge crane is a piece of equipment that, despite not being highly complex, encompasses all the elements that warrant study, allowing for the application of theoretical concepts in mechanical design engineering applied to a real-world scenario.
