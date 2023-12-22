@@ -7,14 +7,14 @@ weight: 8
 
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
-# Working on - some functions might be outdated
+# Undergoing dev // Functions might be outdated
 
 {{< hint note>}} 
 General Fixes:
 
-- Script for recording / saving game states
-- Finish adapting the fitness function of the genetic algorithm 
-- Post results
+- Script for recording / saving game states (done, but freezing after ending)
+- Genetic cost function: F = total_score * 5000 - deaths * 150 - avg_steps * 100 - penalties*1000 (test)
+- Mutation /crossover rate defining
 {{< /hint >}}
 
 
