@@ -8,10 +8,10 @@ title: "FEA Beam Instability Modes"
 
 ## 1 Beams & Deformations
 
-In this project, the process of modeling and simulating a beam with a thin-walled, constant cross-section in a C-profile along a length L will be described. [Siemens NX 12 software](https://plm.sw.siemens.com/en-US/nx/), a commercial finite element program, was used to obtain the global and local instability modes of the beam under compression loading. 
+The process of modeling and simulating a beam with a thin-walled, constant cross-section in a C-profile along a length L is described. [Siemens NX 12 software](https://plm.sw.siemens.com/en-US/nx/), a commercial finite element program, is used to obtain the global and local instability modes of the beam under compression loading. 
 
 {{< hint info>}}
-Consider the following values:
+Considering the following values:
 
 - Thickness t = 2.25L 
 - Width B = 100 mm
@@ -41,7 +41,7 @@ Looking at the cross-section...
 {{< /columns>}}
 
 
-To analyze the results obtained in NX, it will be necessary to calculate the analytical values. For the boundary conditions of the problem (fixed support at the left end and sliding support at the right end), the calculation of the critical load for a beam with Euler-Bernoulli elements is given by:
+To analyze the results obtained in NX, it is necessary to calculate the analytical values. For the boundary conditions of the problem (fixed support at the left end and sliding support at the right end), the calculation of the critical load for a beam with Euler-Bernoulli elements is given by:
 
 ![4](https://live.staticflickr.com/65535/53357625093_8b11c7078f_b.jpg)
 
@@ -69,13 +69,13 @@ In the NX software, the modeling begins with the creation of a part. To model th
 
 ![4](https://live.staticflickr.com/65535/53357402451_33d5094c17_b.jpg)
 
-To obtain the mesh, a mesh collector is required, in this case, a Beam Collector of type PBEAML. Within the properties of the PBEAML, define the section type (CHAN) and its parameters (base, height, and section thickness). Once the section is defined, it's possible to analyze its properties such as area, centroid, moments of inertia, shear correction factors, among others, calculated by the software. The material of the beam is also defined within the PBEAML. For this purpose, a material is created with the desired Young's modulus, yield stress, and Poisson's ratio.
+To obtain the mesh, a mesh collector is required, in this case, a Beam Collector of type [PBEAML](https://2021.help.altair.com/2021/hwsolvers/os/topics/solvers/os/pbeaml_bulk_r.htm). Within the properties of the [PBEAML](https://2021.help.altair.com/2021/hwsolvers/os/topics/solvers/os/pbeaml_bulk_r.htm), define the section type ([CHAN](https://2022.help.altair.com/2022.1/hwdesktop/hm/topics/conversion_between_solvers/convert_optistruct_to_ansys_mapping.htm)) and its parameters (base, height, and section thickness). Once the section is defined, it's possible to analyze its properties such as area, centroid, moments of inertia, shear correction factors, among others, calculated by the software. The material of the beam is also defined within the [PBEAML](https://2021.help.altair.com/2021/hwsolvers/os/topics/solvers/os/pbeaml_bulk_r.htm). For this purpose, a material is created with the desired Young's modulus, yield stress, and Poisson's ratio.
 
-The mesh elements are defined as CBeam elements (beam elements). Within the mesh properties, establish the orientation of the section and its position relative to the beam line. The aim is to ensure that the beam line coincides with the centroid of the section.
+The mesh elements are defined as [CBEAM](https://2021.help.altair.com/2021/hwsolvers/os/topics/solvers/os/cbeam_bulk_r.htm) elements (beam elements). Within the mesh properties, establish the orientation of the section and its position relative to the beam line. The aim is to ensure that the beam line coincides with the centroid of the section.
 
 ![5](https://live.staticflickr.com/65535/53357735684_2f9acd1133_z.jpg)
 
-Finally, the `.sim` file is created. In this file, start by defining the solution type. To perform the linear stability analysis in order to obtain the instability modes, the [SOL 105 Linear Buckling solution](https://docs.plm.automation.siemens.com/data_services/resources/nxnastran/10/help/en_US/tdocExt/pdf/User.pdf) is used.
+Finally, the `.sim` file is created. In this file, start by selecting the solution type. To perform the linear stability analysis in order to obtain the instability modes, the [SOL 105 Linear Buckling solution](https://docs.plm.automation.siemens.com/data_services/resources/nxnastran/10/help/en_US/tdocExt/pdf/User.pdf) is used.
 
 Within the `.sim` file, the boundary conditions and the loads of the problem are applied. In this specific problem, the beam is fixed at the left end and has a sliding support, along with an applied load, at the right end.
 
@@ -133,11 +133,11 @@ The critical instability load obtained in NX has an error of 3% compared to the 
 
 ### 3.1. Modeling & Meshing
 
-In the part file, a sketch is created in the YZ plane depicting the mid-section thickness line. An extrusion of length L is made along the X-plane from this sketch.
+In the `part` file, a sketch is created in the YZ plane depicting the mid-section thickness line. An extrusion of length L is made along the X-plane from this sketch.
 
 ![30s](https://live.staticflickr.com/65535/53357402386_a345b61c96_b.jpg)
 
-In the `.fem` file, the mesh is generated using a [PSHELL-type mesh collector](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502). Within the properties of the [PSHELL](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502), the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t=2.25mm) is inserted. The 2D mesh elements are defined as [CQUAD4](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-B4DD4476-B5DF-48FA-9876-6784C14EF736) (quadrilateral elements).
+In the `.fem` file, the mesh is generated using a [PSHELL-type mesh collector](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502). Within the properties of the [PSHELL](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-FBD4444A-13A2-4363-9B51-9D02C962C502), the material properties (desired Young's modulus, yield stress, and Poisson's coefficient) are defined, and the section thickness (t = 2.25mm) is inserted. The 2D mesh elements are defined as [CQUAD4](https://help.autodesk.com/view/NINCAD/2024/ENU/?guid=GUID-B4DD4476-B5DF-48FA-9876-6784C14EF736) (quadrilateral elements).
 
 After obtaining the mesh, rigid elements need to be introduced at the ends. To do this, two nodes are created, one at each end of the beam, with Y and Z coordinates corresponding to the centroid of the section. Using the 1D connection command, a rigid element is created at each end, connecting the nodes present at each end.
 
@@ -195,7 +195,7 @@ As the length increases, the wrinkling of the beam decreases.
 
 ### 3.3. Determination of L_GL
 
-Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the part file and updating the `.fem` and `.sim` files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
+Through sensitivity analysis, the length (L) of the 2D beam was varied to make {{< katex >}}P_G{{< /katex >}} = {{< katex >}}P_L{{< /katex >}}. Modifying the length required changes in the `part` file and updating the `.fem` and `.sim` files. An initial estimate of 5L was used, adjusting it based on whether {{< katex >}}P_G{{< /katex >}} was greater or lesser than {{< katex >}}P_L{{< /katex >}}. The value of {{< katex >}}P_G{{< /katex >}} significantly decreases as L increases (considering the {{< katex >}}P_{cr}{{< /katex >}} formula for Euler-Bernoulli elements). On the other hand, {{< katex >}}P_L{{< /katex >}} shows minimal variation with changes in L. Therefore, if PG exceeds {{< katex >}}P_L{{< /katex >}}, L is increased; otherwise, L is decreased. The following table summarizes the iterative process:
 
 | Iteration | Length | {{< katex >}}P_{Global}{{< /katex >}} (kN) | {{< katex >}}P_{Local}{{< /katex >}} (kN)        |
 |-----------|--------|--------------|--------------------|
@@ -298,7 +298,7 @@ Evidently, the yield stress is far from being exceeded, with safety factors clos
 
 ## 5 Nonlinear Analysis
 
-To generate load-displacement plots in a nonlinear regime, it was necessary to create an initial geometric imperfection shaped according to the local instability mode for a beam length of 0.7{{< katex>}}L_{GL}{{< /katex>}} = 0.7 {{< katex>}}\times{{< /katex>}} 5.342L = 5.44 m. This involved modifying the part file and updating the `.fem` and `.sim` files for a beam length of 5.44 m. The displacement corresponding to the first local mode was determined. Using these values, a local geometric imperfection was introduced into a new `.fem` file, utilized to create a new `.sim` file for conducting a nonlinear analysis. Through this analysis, variations in applied force concerning the load and displacement changes across different increments were obtained:
+To generate load-displacement plots in a nonlinear regime, it was necessary to create an initial geometric imperfection shaped according to the local instability mode for a beam length of 0.7{{< katex>}}L_{GL}{{< /katex>}} = 0.7 {{< katex>}}\times{{< /katex>}} 5.342L = 5.44 m. This involved modifying the `part` file and updating the `.fem` and `.sim` files for a beam length of 5.44 m. The displacement corresponding to the first local mode was determined. Using these values, a local geometric imperfection was introduced into a new `.fem` file, utilized to create a new `.sim` file for conducting a nonlinear analysis. Through this analysis, variations in applied force concerning the load and displacement changes across different increments were obtained:
 
 ![13ok33](https://live.staticflickr.com/65535/53356527837_26e7f9950b_c.jpg)
 
