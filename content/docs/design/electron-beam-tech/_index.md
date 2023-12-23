@@ -10,4 +10,4 @@ title: "Electron Beam Technology"
 
 # **AM: EB Melting for Shape-Memory NiTi-Alloys**
 
-(to check NDA)
+(To check what can be published considering a NDA.)

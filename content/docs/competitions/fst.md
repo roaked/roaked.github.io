@@ -9,7 +9,7 @@ title: "Formula Student Lisbon"
 ![sada](https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif)
 
 {{< hint warning>}}
-**Disclaimer**: Only partial information is divulged here - mainly for car transmission design, gear fabrication and lubrication. It follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/design/manual-transmission-design/), but for epicyclical gear trains.
+**Disclaimer**: Only little information is divulged here as it is NDA-related - mainly for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/design/manual-transmission-design/), but for epicyclical gear trains.
 {{< /hint>}}
 
 ## 1 Background
@@ -214,17 +214,6 @@ This transmission setup comprises a stepped planetary gear train featuring three
 ![14kie21e0](https://live.staticflickr.com/65535/53372872943_6f998e30d5_w.jpg)
 {{< /columns>}}
 
-### 3.3. Modeling
-
-#### 3.3.1. General Dimensions
-
-#### 3.3.2. Individual Dimensions
-
-#### 3.3.3. Material
-
-#### 3.3.4. Rating
-
-
 
 ## 4 Lubrication
 
@@ -269,13 +258,6 @@ Viscosity, a crucial property influenced by various factors, including temperatu
 
 Analyzing oil viscosity includes various methods, with one common approach being the [SAE (Society of Automotive Engineers)](https://www.sae.org/) notation. SAE numbers describe motor oil behavior under low and high temperature conditions, relevant to start-up and operation. The first number, followed by the letter "W" for winter, signifies the oil's behavior during start-up, while the second number characterizes its behavior at high temperatures after engine operation. Lower SAE numbers denote oils suited for lower temperatures, often with lower viscosity, while higher numbers signify thicker, more viscous oils. For instance, `10W-40` oil maintains a viscosity not exceeding 7000 [MPa.s] in a cold engine at -25°C and not less than 2.9 [MPa.s] in high-pressure engine regions near overheating (150°C). Additionally, comparing oils through their viscosity at 40ºC (in cSt) is a common practice, often present in commercial oil designations.
 
-#### 4.1.2. Operating Conditions
-
-### 4.2. Types of Lubrication
-
-### 4.3. Modes of Lubrication
-
-### 4.4. Types of Lubricants
 
 
 
