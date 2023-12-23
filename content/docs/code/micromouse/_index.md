@@ -16,7 +16,7 @@ weight: 9
 
 <--->
 
-![q0d02](https://micromouseguideforbeginners.files.wordpress.com/2015/03/ezgif-com-video-to-gif.gif)
+![q0d02](https://j.gifs.com/Yvlr6M.gif)
 
 {{< /columns >}}
 
