@@ -6,6 +6,10 @@ title: "ThermoCup"
 
 # **ThermoCup**
 
+{{< hint warning>}}
+**Disclaimer**: **Only little information is divulged here as it is NDA-related. Calculations and simulation results are ommitted** 
+{{< /hint>}}
+
 ## 1 What is the ThermoCup?
 
 ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.
