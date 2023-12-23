@@ -5,7 +5,8 @@ weight: 9
 ---
 
 
-# AI Pioneers: Theseus' Debut in Maze Navigation and Graph Traversal
+# AI Pioneer Theseus' Debut: Maze SLAM
+
 
 [According to many sources](https://webmuseum.mit.edu/detail.php?module=objects&type=related&kv=76066), "the first system (...) is the Theseus. It was built by *Claude Shannon* in 1950 and was a remote-controlled mouse that was able to find its way out of a labyrinth and could remember its course.  In seven decades, the abilities of artificial intelligence have come a long way.
 
