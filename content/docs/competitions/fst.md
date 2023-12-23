@@ -9,7 +9,7 @@ title: "Formula Student Lisbon"
 ![sada](https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif)
 
 {{< hint warning>}}
-**Disclaimer**: **Only little information is divulged here as it is NDA-related. Calculations are spared** 
+**Disclaimer**: **Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.** 
 
 The content consists mainly on certain topics for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at [*Car Transmission Design*](https://ricardochin.com/docs/design/manual-transmission-design/), but for epicyclical gear trains.
 {{< /hint>}}

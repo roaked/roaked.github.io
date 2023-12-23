@@ -7,7 +7,7 @@ title: "ThermoCup"
 # **ThermoCup**
 
 {{< hint warning>}}
-**Disclaimer**: **Only little information is divulged here as it is NDA-related. Calculations and simulation results are ommitted** 
+**Disclaimer**: **Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.** 
 {{< /hint>}}
 
 ## 1 What is the ThermoCup?
