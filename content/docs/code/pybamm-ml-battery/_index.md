@@ -1,7 +1,7 @@
 ---
 title: "PyBaMM-ML EV Battery Status"
 
-weight: 9
+weight: 15
 ---
 # Forecasting Battery Health in EVs: PyBaMM-ML Hybrid Approach
 
