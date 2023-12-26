@@ -280,7 +280,7 @@ The game itself is still under development and some of the functions might have 
 
 ## 3. Reinforcement Deep Q-Network Model
 
-### 3.1. Learning Agent
+### 3.1. LinearQNet and QTrainer Classes
 
 The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. Additionally, it sets up other optional components, such as dropout regularization or weight initialization techniques, aiming to enhance the network's learning process and generalization ability.
 
@@ -384,7 +384,94 @@ Modifications:
 - Explore how to improve learning efficiency of the agent.
 {{< /hint>}}
 
-### 3.2. Max Replay Buffer and Target Network
+### 3.2. Deploying a Reinforcement Learning Agent
+
+Let us start by applying the constructor method (__init__) of a class. This is where several fundamental attributes and objects are initialized for a reinforcement learning agent.
+
+```python
+def __init__(self):
+        self.n_games = 0 # Number of games played
+        self.epsilon = 0 # Parameter for exploration-exploitation trade-off
+        self.gamma = 0.9 # Discount factor for future rewards
+        self.memory = deque(maxlen=MAX_MEMORY) # Replay memory for storing experiences
+        self.trainer = QTrainer(self.model, lr=ALPHA, gamma=self.gamma) # QTrainer for model training 
+```
+
+`self.n_games` tracks the number of games the agent has played. `self.epsilon` represents a parameter essential for the [exploration-exploitation trade-off](https://en.wikipedia.org/wiki/Exploration-exploitation_dilemma), influencing the agent's decision-making process. The `self.gamma` variable signifies the discount factor applied to future rewards, impacting the agent's prioritization of immediate versus delayed rewards. The `deque` named `self.memory`, constrained by `MAX_MEMORY`, functions as a replay memory, storing previous experiences crucial for the agent's learning process. Additionally, the `self.trainer`, instantiated as `QTrainer`, facilitates model training using the `self.model`, employing the provided learning rate (`ALPHA`) and discount factor (`gamma`) within the `QTrainer` class.
+
+```python
+self.model = LinearQNet(11, 256, 3)  # Neural network model (input size, hidden size, output size)
+self.target_model = LinearQNet(11, 256, 3)
+```
+
+The `self.model` is a neural network structure defined as `LinearQNet(11, 256, 3)` indicates specific architectural details tailored for a reinforcement learning task. The choice of these parameters signifies the design of the neural network for this particular problem domain.
+
+The '11' in the network signifies the input size, representing the number of features or variables characterizing the environment's state, which encompass details directions: vertical and horizontal distance, dangers based on moving forward, left or right and snake and food locations. The '256' hidden units denote the number of neurons in the hidden layer. This specific number, 256, is a heuristic or empirical choice commonly used across different domains: ranging from generative Convolutional Neural Networks (CNNs) architectures such as AlexNet or VGG to Natural Language Processing (NLPs) Recurrent Neural Network (RNNs) architectures. It provides a moderately sized layer that offers sufficient capacity for learning complex representations from the input data without overly increasing computational costs. Additionally, being a [power of two, it aligns well with computational optimizations and hardware implementations](https://stackoverflow.com/questions/63515846/in-neural-networks-why-conventionally-set-number-of-neurons-to-2n), making it computationally efficient for many systems. Lastly, the '3' as the output size corresponds to the number of actions the agent can undertake in the environment. In this case, having three outputs suggests that the agent has three distinct possible actions it can choose from in response to a given state in the environment. For instance, these actions represent movements such as "left", "right" and "forward" seen previously in the development of `game.py`.
+
+```python
+def get_state(self, game):
+    # Extracting snake's head position and defining points in different directions
+    head = game.snake[0]
+    point_l = Point(head.x - 20, head.y)
+    point_r = Point(head.x + 20, head.y)
+    point_u = Point(head.x, head.y - 20)
+    point_d = Point(head.x, head.y + 20)
+    
+    # Determining the snake's current direction
+    dir_l = game.direction == Direction.LEFT
+    dir_r = game.direction == Direction.RIGHT
+    dir_u = game.direction == Direction.UP
+    dir_d = game.direction == Direction.DOWN
+
+    # Checking for potential dangers in different directions
+    danger_straight = (dir_r and game.is_collision(point_r)) or \
+                      (dir_l and game.is_collision(point_l)) or \
+                      (dir_u and game.is_collision(point_u)) or \
+                      (dir_d and game.is_collision(point_d))
+
+    # Indicating the snake's movement direction
+    move_direction = [int(dir_l), int(dir_r), int(dir_u), int(dir_d)]
+
+    # Determining food's relative position compared to the snake's head
+    food_position = [
+        game.food.x < game.head.x,  # food left
+        game.food.x > game.head.x,  # food right
+        game.food.y < game.head.y,  # food up
+        game.food.y > game.head.y   # food down
+    ]
+
+    # Constructing the state representation
+    state = [
+        int(danger_straight),  # Danger straight
+        int(dir_r), int(dir_l), int(dir_u), int(dir_d),  # Move direction
+    ] + food_position  # Food location
+
+    return np.array(state, dtype=int)
+```
+
+The `get_state` function within the code constructs a comprehensive representation of the game state in the Snake environment. It begins by extracting vital information such as the snake's head position and defining points in multiple directions to detect potential dangers, which include positions 20 units away in various directions. The function then derives the snake's current direction by comparing it with predefined directional indicators (left, right, up, down) based on the game's orientation. It proceeds to assess the presence of **potential dangers in the straight, right, and left directions** by checking for collisions with specific points relative to the snake's current orientation. Furthermore, binary flags are employed to indicate the snake's movement direction, while the relative position of the food compared to the snake's head (left, right, up, down) is determined. Finally, all these features are flushed into an array that serves as a numeric representation of the game state. 
+
+
+```python
+def get_action(self, state):
+        # Select actions based on an epsilon-greedy strategy
+        self.epsilon = 80 - self.n_games
+        final_move = [0,0,0]
+        if random.randint(0, 200) < self.epsilon:
+            move = random.randint(0, 2)
+            final_move[move] = 1
+        else:
+            state0 = torch.tensor(state, dtype=torch.float)
+            prediction = self.model(state0)
+            move = torch.argmax(prediction).item()
+            final_move[move] = 1
+
+        return final_move
+```
+
+The `get_action` method operates as the decision-maker, employing an [epsilon-greedy strategy](https://medium.com/@gridflowai/part-2-in-depth-exploration-on-epsilon-greedy-algorithm-2b19e59bbe22) to balance exploration and exploitation. This strategy dynamically adjusts the agent's behaviour by modifying the exploration rate (`epsilon`) based on the number of games played (`n_games`). If a randomnly generated value falls below the epsilon threshold, indicating exploration, the agent randomly selects an action from the available choices (**move left, right, or straight**). Conversely, in the exploitation phase, when the generated value surpasses the epsilon threshold, the agent exploits its learned knowledge. It leverages its neural network model (`self.model`) to predict Q-values for each potential action given the current state, selecting the action with the highest predicted Q-value. The resulting one-hot encoded representation (`final_move`) denotes the chosen action, guiding the agent's movement and decision-making process within the game.
+
+### 3.3. Max Replay Buffer and Target Network
 
 In reinforcement learning, a replay buffer serves as a memory repository, capturing and retaining past experiences encountered by an agent during its interactions with an environment. This data structure enables the agent to reutilize and learn from diverse historical interactions by storing state-action-reward-next_state tuples. By decoupling the immediate use of experiences and instead sampling randomnly from this stored memory during training, the replay buffer breaks the temporal correlation between consecutive experiences, leading to more stable and efficient learning. Meanwhile, a target network, often employed in algorithms like Deep Q-Networks (DQN), functions as a stabilized reference for target Q-values during training. This secondary neural network provides less frequently updated Q-value targets, addressing the issue of rapidly changing targets and enhancing training stability by decoupling the estimation of target Q-values from the primary network's parameters. 
 
