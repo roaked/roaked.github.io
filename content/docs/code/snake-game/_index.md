@@ -280,7 +280,7 @@ The game itself is still under development and some of the functions might have 
 
 ## 3. Reinforcement Deep Q-Network Model
 
-`(to insert theoretical background)`
+### 3.1. Learning Agent
 
 The [LinearQNet](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/model.py) class represents a simple neural network architecture tailored for Q-value approximation in reinforcement learning. It consists of two linear layers initialized during instantiation, with the first layer transforming input features to a hidden layer and the second layer producing Q-values for different actions. Additionally, it sets up other optional components, such as dropout regularization or weight initialization techniques, aiming to enhance the network's learning process and generalization ability.
 
@@ -384,9 +384,44 @@ Modifications:
 - Explore how to improve learning efficiency of the agent.
 {{< /hint>}}
 
+### 3.2. Max Replay Buffer and Target Network
+
+In reinforcement learning, a replay buffer serves as a memory repository, capturing and retaining past experiences encountered by an agent during its interactions with an environment. This data structure enables the agent to reutilize and learn from diverse historical interactions by storing state-action-reward-next_state tuples. By decoupling the immediate use of experiences and instead sampling randomnly from this stored memory during training, the replay buffer breaks the temporal correlation between consecutive experiences, leading to more stable and efficient learning. Meanwhile, a target network, often employed in algorithms like Deep Q-Networks (DQN), functions as a stabilized reference for target Q-values during training. This secondary neural network provides less frequently updated Q-value targets, addressing the issue of rapidly changing targets and enhancing training stability by decoupling the estimation of target Q-values from the primary network's parameters. 
+
+```python
+from collections import deque
+import random
+
+MAX_MEMORY = 100_000
+BATCH_SIZE = 1000
+
+class QLearningAgent:
+    def __init__(self):
+
+        # Initialize replay buffer
+        self.memory = deque(maxlen=MAX_MEMORY)
+
+    def remember(self, state, action, reward, next_state, done):
+        # Store experiences in memory
+        self.memory.append((state, action, reward, next_state, done))
+
+    def train_long_memory(self):
+        # Perform training using experiences from the replay buffer
+        if len(self.memory) < BATCH_SIZE:
+            return
+
+        mini_batch = random.sample(self.memory, BATCH_SIZE)
+        states, actions, rewards, next_states, dones = zip(*mini_batch)
+        self.trainer.train_step(states, actions, rewards, next_states, dones)
+```
+
+The applied methodology enhances stability by mitigating overfitting to recent experiences and improves learning efficiency by allowing the agent to reuse and learn from its past interactions, contributing to more stable and effective training in reinforcement learning algorithms. In the `agent.py`, particularly in the `train_and_record` function, the integration of the replay buffer involves augmenting the agent's interactions with the environment to store experiences and utilizing those experiences for training. As the agent interacts with the environment in each game step, the `remember` function within the `QLearningAgent` class captures the state-action-reward-next_state tuples and stores them in the replay buffer. They are essential for off-policy learning, and the `train_short_memory` and `train_long_memory` functions facilitate short-term and long-term learning, respectively. After each completed game, the agent leverages the stored experiences by calling `train_long_memory`, which samples a batch of experiences from the replay buffer and uses these experiences to update the agent's model via the `train_step` method in the `QTrainer` class. This integration facilitates learning from a diverse set of past interactions, contributing to more stable and efficient training by breaking temporal correlations between consecutive experiences. Adjusting memory replay features in the likes of `MAX_MEMORY` and `BATCH_SIZE` in addition to initialization variables allows not only for fine-tuning of the replay buffer's capacity and the size of experiences utilized for training, but also for studying the whole agent's learning process which can be studied using commonly known evolutionary algorithms such as: Genetic Algorithms.
+
+
+
+
 ## 4. Genetic Tuning of a RL Deep-Q-Network
 
-`(to insert theoretical background)`
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
 
