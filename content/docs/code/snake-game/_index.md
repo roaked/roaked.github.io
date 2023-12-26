@@ -7,16 +7,12 @@ weight: 8
 
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
-# Undergoing dev // Functions might be outdated
+# Undergoing dev // Functions documentated as soon as I can!!
 
-{{< hint note>}} 
-General Fixes:
-
-- Script for recording / saving game states (done, but freezing after ending)
-- Genetic cost function: F = total_score * 5000 - deaths * 150 - avg_steps * 100 - penalties*1000 (test)
-- Mutation /crossover rate defining
+{{< hint warning>}} 
+- Fitness function optimization needed.
+- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my Genetic Algorithm implementation.
 {{< /hint >}}
-
 
 {{< columns >}}
 
