@@ -418,10 +418,22 @@ class QLearningAgent:
 The applied methodology enhances stability by mitigating overfitting to recent experiences and improves learning efficiency by allowing the agent to reuse and learn from its past interactions, contributing to more stable and effective training in reinforcement learning algorithms. In the `agent.py`, particularly in the `train_and_record` function, the integration of the replay buffer involves augmenting the agent's interactions with the environment to store experiences and utilizing those experiences for training. As the agent interacts with the environment in each game step, the `remember` function within the `QLearningAgent` class captures the state-action-reward-next_state tuples and stores them in the replay buffer. They are essential for off-policy learning, and the `train_short_memory` and `train_long_memory` functions facilitate short-term and long-term learning, respectively. After each completed game, the agent leverages the stored experiences by calling `train_long_memory`, which samples a batch of experiences from the replay buffer and uses these experiences to update the agent's model via the `train_step` method in the `QTrainer` class. This integration facilitates learning from a diverse set of past interactions, contributing to more stable and efficient training by breaking temporal correlations between consecutive experiences. Adjusting memory replay features in the likes of `MAX_MEMORY` and `BATCH_SIZE` in addition to initialization variables allows not only for fine-tuning of the replay buffer's capacity and the size of experiences utilized for training, but also for studying the whole agent's learning process which can be studied using commonly known evolutionary algorithms such as: Genetic Algorithms.
 
 
+## 4. Genetic Optimization of a RL Deep-Q-Network
 
 
-## 4. Genetic Tuning of a RL Deep-Q-Network
+In the context of optimizing key parameters for reinforcement learning — such as batch size, learning rate, memory capacity for replay buffers, and the architecture of a target network—genetic algorithms (GAs) provide a systematic approach. To apply GAs in this scenario, the first step involves defining a chromosome that encodes these parameters. For instance, genes within the chromosome can represent batch size, learning rate, memory capacity, and the structure of the target network — specifying inputs, outputs, and hidden layers.
 
+### 4.1. Theoretical Background
+
+The process begins by generating an initial population of diverse chromosomes, each embodying a unique combination of these hyperparameters. These chromosomes are then evaluated through training RL agents, employing the specified parameters within each chromosome, and assessing their performance using a fitness function that measures success in accomplishing RL tasks or objectives.
+
+The next phase revolves around selection, where high-performing chromosomes are chosen based on their fitness scores. These selected chromosomes undergo crossover and mutation operations, allowing for the creation of offspring that inherit genetic information from their parents—enabling exploration of new hyperparameter combinations.
+
+In the context of optimizing the target network's structure, the crossover and mutation operations would specifically manipulate genes representing the network's architecture—modifying inputs, outputs, and hidden layers' configurations.
+
+The offspring are then evaluated by training RL agents with their respective hyperparameters. Through this iterative process of selection, crossover, and mutation across multiple generations, the GA systematically refines the population, fine-tuning parameters like batch size, learning rates, memory capacities, and the architecture of the target network.
+
+By leveraging GAs in this tailored manner, the reinforcement learning agent iteratively explores and refines the hyperparameter space, aiming to discover optimized configurations that significantly enhance its learning performance in the specific environment, such as the Snake game, encapsulated within the provided code.
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
 
