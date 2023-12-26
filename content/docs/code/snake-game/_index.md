@@ -433,7 +433,6 @@ In the context of optimizing the target network's structure, the crossover and m
 
 The offspring are then evaluated by training RL agents with their respective hyperparameters. Through this iterative process of selection, crossover, and mutation across multiple generations, the GA systematically refines the population, fine-tuning parameters like batch size, learning rates, memory capacities, and the architecture of the target network.
 
-By leveraging GAs in this tailored manner, the reinforcement learning agent iteratively explores and refines the hyperparameter space, aiming to discover optimized configurations that significantly enhance its learning performance in the specific environment, such as the Snake game, encapsulated within the provided code.
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
 
