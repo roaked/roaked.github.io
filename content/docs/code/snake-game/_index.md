@@ -7,7 +7,7 @@ weight: 8
 
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
-# Undergoing dev // Functions documentated as soon as I can!!
+# Undergoing dev // Documented ASAP!!
 
 {{< hint warning>}} 
 - Fitness function optimization needed.
