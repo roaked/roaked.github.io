@@ -504,17 +504,211 @@ The applied methodology enhances stability by mitigating overfitting to recent e
 ## 4. Genetic Optimization of a RL Deep-Q-Network
 
 
-In the context of optimizing key parameters for reinforcement learning — such as batch size, learning rate, memory capacity for replay buffers, and the architecture of a target network—genetic algorithms (GAs) provide a systematic approach. To apply GAs in this scenario, the first step involves defining a chromosome that encodes these parameters. For instance, genes within the chromosome can represent batch size, learning rate, memory capacity, and the structure of the target network — specifying inputs, outputs, and hidden layers.
+In the context of optimizing key parameters for reinforcement learning — such as batch size, learning rate, memory capacity for replay buffers, and the architecture of a target network—genetic algorithms (GAs) provide a systematic approach. 
 
-### 4.1. Theoretical Background
+### 4.1. Parameter Space Definition
 
-The process begins by generating an initial population of diverse chromosomes, each embodying a unique combination of these hyperparameters. These chromosomes are then evaluated through training RL agents, employing the specified parameters within each chromosome, and assessing their performance using a fitness function that measures success in accomplishing RL tasks or objectives.
+The parameter space definition refers to the specification and range of parameters that influence the architecture, behavior, and learning process of a our deep network (DQN). This includes continuous parameters like learning rate and discount factor, discrete parameters such as activation functions and optimizer types, and integer parameters like the number of hidden layers and neurons per layer.
 
-The next phase revolves around selection, where high-performing chromosomes are chosen based on their fitness scores. These selected chromosomes undergo crossover and mutation operations, allowing for the creation of offspring that inherit genetic information from their parents—enabling exploration of new hyperparameter combinations.
+{{< hint info >}}
 
-In the context of optimizing the target network's structure, the crossover and mutation operations would specifically manipulate genes representing the network's architecture—modifying inputs, outputs, and hidden layers' configurations.
+**Continuous Parameters**
 
-The offspring are then evaluated by training RL agents with their respective hyperparameters. Through this iterative process of selection, crossover, and mutation across multiple generations, the GA systematically refines the population, fine-tuning parameters like batch size, learning rates, memory capacities, and the architecture of the target network.
+- `learning_rate`: Influences the speed at which the DQN learns. Higher values enable faster learning, while lower values promote stability.
+- `discount_factor`: Determines the importance of future rewards in the learning process. Values closer to 1 emphasize long-term rewards.
+- `dropout_rate`: Affects the number of neurons dropped out during training to prevent overfitting.
+- `exploration_rate`: Controls the level of exploration versus exploitation in the learning process.
+
+**Discrete Parameters**
+
+- `batch_size`: Dictates the number of experiences sampled from the replay buffer for training.
+- `activation_function`: Determines the type of activation function used in neural network layers (e.g., ReLU, sigmoid, tanh).
+- `optimizer`: Specifies the optimization algorithm for updating the DQN's parameters during training (e.g., Adam, SGD, RMSprop).
+
+
+**Integer Parameters**
+
+`num_hidden_layers`: Specifies the number of hidden layers in the neural network.
+`neurons_per_layer`: Defines the number of neurons in each hidden layer.
+
+{{< /hint >}}
+
+For each parameter, a defined range or set of possible values is established. These ranges are carefully chosen based on prior knowledge, domain expertise, or empirical observations of their impact on the DQN's behaviour and performance. By exploring this parameter space, the GA aims to discover configurations that maximize game-related metrics, such as higher scores or fewer steps.
+
+```python
+param_ranges = {
+    # Continuous parameters
+    'learning_rate': (0.001, 0.1), # Alpha / Higher values allow faster learning, while lower values ensure more stability
+    'discount_factor': (0.9, 0.999), #Gamma / Closer to 1 indicate future rewards are highly important, emphasizing long-term rewards
+    'dropout_rate': (0.1, 0.5), # Higher drops out a more neurons -> prevent overfit in complex models or datasets with limited samples
+    'exploration_rate': (0.1, 0.5), #Epsilon /Higher more exploration -> Possibly better actions /Lower -> More stability using learned policy
+    
+    # Discrete parameters
+    'batch_size': [10, 100, 250, 500, 1000, 2000, 5000], # Number of experiences sampled from the replay buffer for training.
+    'activation_function': ['relu', 'sigmoid', 'tanh'],
+    'optimizer': ['adam', 'sgd', 'rmsprop'], 
+    
+    # Integer parameters (num_inputs, num_neurons, num_outputs of NN)
+    'num_hidden_layers': [1, 2, 3, 4, 5],
+    'neurons_per_layer': [32, 64, 128, 256, 512, 1024]
+    }
+```
+
+### 4.2. Genetic Algorithm
+
+The algorithm starts with the initialization of a class `GeneticAlgorithm` and an initial population, both comprising diverse parameter sets. This involves creating a collection of potential solutions, representing different combinations of parameters within the specified ranges. The population's diversity plays a pivotal role in enabling the exploration of a broad spectrum of parameter configurations.
+
+
+```python
+def generate_population(self, population_size, param_ranges, chromosome_length): #Random init or heuristic init (using prior info)
+        population = []
+        for _ in range(population_size):
+            params = {}
+            for param, value_range in param_ranges.items():
+                if isinstance(value_range, tuple):  # Random init for continuous parameters
+                    params[param] = random.uniform(value_range[0], value_range[1])
+                elif isinstance(value_range, list):  # Discrete parameters
+                    params[param] = random.choice(value_range)
+                elif isinstance(value_range, int):  # Integer parameters
+                    params[param] = random.randint(0, value_range)
+                elif isinstance(value_range, str):  # String parameters
+                    params[param] = value_range  # Set the string value directly
+            population.append(params)
+        return population
+```
+
+Afterwards, the `fitness function` evaluates the performance of the Deep Q Network (DQN) by considering various game-related metrics such as `score`, `record`, `steps`, `collisions`, and `same_positions_counter`. These metrics are utilized to compute a fitness score that quantifies the effectiveness of a parameter set within the DQN. Normalization of metrics like `score` and `steps` occurs next, ensuring that these metrics are on a comparable scale for fair evaluation. Normalization enables a coherent assessment where disparate metrics contribute equitably to the overall fitness score. Moreover, the function integrates conditional adjustments like penalties for certain conditions. For instance, it penalizes repeated visits to the same positions (`penalty_same_positions`) or inefficient utilization of steps (`penalty_efficiency_decay`), reflecting a meticulous consideration of nuanced gameplay elements.
+
+```python
+def fitness_function(self, score, record, steps, collisions, same_positions_counter): # From current state
+        # Metrics and weights
+        weight_score = 0.75
+        weight_steps, MAX_POSSIBLE_STEPS = 0.25, 300
+
+       # Normalize metrics
+        normalized_score = score / record if record != 0 else 0
+        normalized_steps = 1 - (steps / MAX_POSSIBLE_STEPS) if MAX_POSSIBLE_STEPS != 0 else 0
+
+        # Penalty for revisiting same positions > 150 (5%)
+        penalty_same_positions = 0.05 if same_positions_counter > 150 else 0
+
+        # Efficiency decay (5%)
+        efficiency_decay = max(0, (steps - score) / MAX_POSSIBLE_STEPS)
+        penalty_efficiency_decay = 0.05 * efficiency_decay
+```
+
+Ultimately, the fitness score is computed by merging the normalized metrics, weighted according to their significance, and factoring in penalties or bonuses where applicable. The goal is to synthesize a comprehensive fitness score that encapsulates the effectiveness of a particular parameter set in improving the DQN's performance within the game environment
+
+```python
+        # Calculate fitness
+        fitness = (
+            (normalized_score * weight_score) +
+            (normalized_steps * weight_steps) -
+            penalty_same_positions - penalty_efficiency_decay
+        )
+
+        return max(0, fitness)  # Ensure non-negative fitness
+```
+
+The fitness scores for the entirity of the population of parameter sets can be computed using `calculate_population_fitness`. It ensures the inclusion of at least 5 recent game metrics for evaluation or uses all available metrics if fewer than 5 are present. By iterating through these metrics, it extracts essential indicators like `score`, `record`, `steps`, `collisions`, and `same_positions_counter` for each individual set. Afterwards, there is selection: it determines which individuals, represented as parameter sets, proceed to the next generation based on their fitness scores. Initially, it normalizes the fitness scores received from the `fitness_function`, ensuring these scores reflect the effectiveness of parameter sets in enhancing the DQN's performance. Subsequently, it computes probabilities for each individual proportional to their fitness scores, favouring individuals with higher fitness. Employing a roulette wheel selection strategy, the method then selects individuals from the population according to these probabilities, allowing higher-scoring individuals a greater chance of being chosen. This selection process forms the basis for creating a new population consisting of the chosen individuals, facilitating the iterative evolution and refinement of parameter sets across successive generations within the GA framework.
+
+```python
+def selection(self, population, fitness_scores):
+        # Normalize fitness scores to probabilities
+        total_fitness = sum(fitness_scores)
+
+        if total_fitness == 0:
+            probabilities = [1 / len(fitness_scores)] * len(fitness_scores)
+        else:
+            probabilities = [fitness / total_fitness for fitness in fitness_scores]
+
+        # Ensure probabilities array size matches population size
+        while len(probabilities) < len(population):
+            probabilities.append(0.0)
+
+        # Select based on fitness (roulette wheel selection) // replace = True means one chromosome can be picked more than 1 time
+        selected_indices = np.random.choice(
+            len(population), 
+            size=self.population_size, 
+            replace=True, 
+            p=probabilities / np.sum(probabilities)  # Normalize probabilities to sum up to 1
+        )
+
+        # Create a new population based on the selected indices
+        new_population = [population[idx] for idx in selected_indices] # List Comprehension - New population Array
+
+        return new_population
+```
+
+Following the `selection` of individuals, the `crossover` function exemplifies genetic recombination between two parent individuals to produce offspring individuals as potential solutions within the GA. Initially, it ensures that both parents have the same length of genetic information, converting them into lists if they are initially dictionaries. Then, based on a randomnly determined crossover probability (`crossover_rate`), it either conducts the crossover process or maintains the parents as they are. When the crossover occurs (determined by a random probability check), it identifies a crossover point within the genetic information and generates two offspring by swapping the genetic information of the parents before and after this point. These newly created offspring individuals represent combinations of genetic material from both parents, potentially leading to diverse and potentially advantageous solutions within the population. If the crossover does not happen, it returns the original parent individuals as the output.
+
+```python
+"""Single-point crossover for two parent individuals. Can explore two-point crossover, uniform crossover, elitist crossover, etc."""
+    def crossover(self, parent1, parent2, crossover_rate):
+
+        if isinstance(parent1, dict) and isinstance(parent2, dict):
+            # Convert dictionary values to lists
+            parent1 = list(parent1.values())
+            parent2 = list(parent2.values())
+
+        assert len(parent1) == len(parent2) # Only if same len
+
+        if random.random() < crossover_rate:
+            # Crossover point
+            crossover_point = random.randint(1, len(parent1) - 1)
+
+            # Create offspring by combining parent genes
+            offspring1 = parent1[:crossover_point] + parent2[crossover_point:]
+            offspring2 = parent2[:crossover_point] + parent1[crossover_point:]
+
+            return offspring1, offspring2
+        else:
+            return parent1, parent2 # If crossover doesn't happen, return the parents
+```
+
+The `mutation` function operates on individuals — comprising genetic material representing potential solutions — and introduces small alterations to their genetic makeup based on a predefined `mutation rate`. This genetic variation mechanism enables exploration of novel solution spaces. The function iterates through the genetic information of an individual and, for each gene, checks if a randomly generated probability falls below the specified `mutation rate`. If so, it attempts to modify the gene: for numeric values, it converts the gene to an integer and performs a transformation (in this case, subtracting the value from 1), showcasing the alteration; for non-numeric values, it retains the original gene. The function aggregates these modified genes, generating a mutated individual with potential genetic diversity that might lead to the exploration of new and potentially beneficial solution areas within the GA's solution space.
+
+```python
+"""According to Genetic Algorithm, after crossover (breeding), we apply mutation to the resulting offspring to introduce
+    small changes to their genetic material depending on the mutation rate, this helps explores new areas of solution space"""
+    def mutation(self, individual, mutation_rate):
+
+        mutated_individual = []
+        for gene in individual:
+            if random.random() < mutation_rate:
+                try: # Assuming 'gene' is a string that needs to be converted to a numerical type
+                    gene = int(gene)  # Convert 'gene' to an integer
+                    mutated_gene = 1 - gene
+                except ValueError:
+                    print("Conversion to integer failed. 'gene' might not be a numeric value.")
+            else:
+                mutated_gene = gene
+            mutated_individual.append(mutated_gene)
+        return mutated_individual
+```
+
+Lastly, itxtends the existing offspring list with newly generated offspring, resulting from genetic recombination and mutation processes. Subsequently, it implements an elitism strategy, identifying the top-performing individuals within the population based on their fitness scores and replacing the least fit part of the population with these elite individuals. This preserves highly fit solutions from the current population for the next generation, ensuring the retention of successful traits. Additionally, it evaluates the fitness of each parameter set in the current population, identifying the best-performing parameters by comparing their fitness against a stored best fitness value, thereby capturing the best parameters encountered during the Genetic Algorithm's execution. 
+
+```python
+# Replace the least fit part of the population with offspring
+            elite_count = int(self.population_size * 0.1)  # Keep top 10% as elite
+            elite_indices = sorted(range(len(fitness_scores)), key=lambda i: fitness_scores[i], reverse=True)[:elite_count]
+        
+            for idx in elite_indices:
+                offspring[idx] = self.population[idx]  # Preserve elite chromosomes
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
