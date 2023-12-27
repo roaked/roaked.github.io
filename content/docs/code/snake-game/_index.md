@@ -528,8 +528,8 @@ The parameter space definition refers to the specification and range of paramete
 
 **Integer Parameters**
 
-`num_hidden_layers`: Specifies the number of hidden layers in the neural network.
-`neurons_per_layer`: Defines the number of neurons in each hidden layer.
+- `num_hidden_layers`: Specifies the number of hidden layers in the neural network.
+- `neurons_per_layer`: Defines the number of neurons in each hidden layer.
 
 {{< /hint >}}
 
@@ -687,7 +687,7 @@ The `mutation` function operates on individuals — comprising genetic material 
         return mutated_individual
 ```
 
-Lastly, itxtends the existing offspring list with newly generated offspring, resulting from genetic recombination and mutation processes. Subsequently, it implements an elitism strategy, identifying the top-performing individuals within the population based on their fitness scores and replacing the least fit part of the population with these elite individuals. This preserves highly fit solutions from the current population for the next generation, ensuring the retention of successful traits. Additionally, it evaluates the fitness of each parameter set in the current population, identifying the best-performing parameters by comparing their fitness against a stored best fitness value, thereby capturing the best parameters encountered during the Genetic Algorithm's execution. 
+Lastly, it extends the existing offspring list with newly generated offspring, resulting from genetic recombination and mutation processes. Subsequently, it implements an elitism strategy, identifying the top-performing individuals within the population based on their fitness scores and replacing the least fit part of the population with these elite individuals. This preserves highly fit solutions from the current population for the next generation, ensuring the retention of successful traits. Additionally, it evaluates the fitness of each parameter set in the current population, identifying the best-performing parameters by comparing their fitness against a stored best fitness value, thereby capturing the best parameters encountered during the Genetic Algorithm's execution. 
 
 ```python
 # Replace the least fit part of the population with offspring
@@ -698,23 +698,13 @@ Lastly, itxtends the existing offspring list with newly generated offspring, res
                 offspring[idx] = self.population[idx]  # Preserve elite chromosomes
 ```
 
-
-
-
-
-
-
-
-
-
-
-
+## 5. Results
 
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
 
-## 5. Results
-
 `(to insert images)`
+
+Maybe introduce RL vs Genetic one plot
 
 ## 6. Outcomes 
