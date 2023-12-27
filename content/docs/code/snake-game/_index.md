@@ -11,7 +11,10 @@ weight: 8
 
 {{< hint warning>}} 
 - Fitness function optimization needed.
+- Sometimes the parameter ranges is mutating with values from a different param_range (but they are hash maps) (?)
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my Genetic Algorithm implementation.
+
+- Status 85% Done
 {{< /hint >}}
 
 {{< columns >}}
