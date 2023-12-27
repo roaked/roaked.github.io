@@ -705,6 +705,14 @@ Lastly, it extends the existing offspring list with newly generated offspring, r
 
 `(to insert images)`
 
-Maybe introduce RL vs Genetic one plot
+Maybe introduce RL vs Genetic one plot...
 
 ## 6. Outcomes 
+
+The GA can efficiently search through a defined parameter space to identify better sets of hyperparameters for the RL model. This can lead to enhanced performance, quicker convergence, and increased stability within the learning process. By fine-tuning the hyperparameters, the RL model might exhibit improved performance metrics such as higher rewards, more efficient learning, reduced training time, and potentially better generalization to unseen data, unlike using only the RL model, where it took approximately 150 games to converge to good scores.
+
+{{< hint important >}}
+An interesting take on GA is the ability to explore diverse solution spaces, by doing so it might uncover parameter configurations that promote better exploration-exploitation trade-offs, addressing challenges like the exploration-exploitation dilemma common in RL.
+{{< /hint >}}
+
+More to add....
