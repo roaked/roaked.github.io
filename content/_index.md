@@ -3,11 +3,12 @@ title: The Solution is Coffee
 type: docs
 ---
 
-# **Hi. I am Ricardo and I sometimes code. :)**
+# **Hi — I am Ricardo. :)**
 
 Upon earning my [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) from the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/), specialized in systems engineering, I delved into [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) of the [Technical University of Graz](https://www.tugraz.at/en/home) as a university assistant. My role revolved around the enhancement of design models using computational simulations by integrating machine learning frameworks for material failure analysis. In addition, I supervised bachelors thesis at the [University of Leoben](https://www.unileoben.ac.at/en/), emphasizing on additive manufacturing for microelectronics fabrication. Drawing from a foundation in FEA/CFD evidenced in my [design repository](https://ricardochin.com/docs/design/), I've invested substantial time in selecting boundary conditions and refining ideal mesh parameters. Now, I'm drawn to integrating software tools to address the growing complexity of design challenges and the need for scalability. 
 
-Simultaneously, I have always had profound curiosity in modern computing domains given my roots in Computer Science, which laid particular focus upon [Data Structures and Algorithms](https://ricardochin.com/docs/leet/) and Graph Theory. Nevertheless, at the center of my current goals lies the integration of optimization methods and AI fields (such as deep learning, natural language processing and computer vision) into engineering solutions for system design. Moreover, built upon my experience at the Materials Science research group, in which I leveraged clustering, SVM and other AI tools, I have studied the possibility of extending LSTM model incorporation to assess machine condition based on long-horizon forecasts from a less restrained research setting to a manufacturing plant. A [short display of my coding repository is accessible here](https://ricardochin.com/docs/code/).
+
+My roots in Computer Science focused on [Data Structures, Algorithms]((https://ricardochin.com/docs/leet/)), and Graph Theory, sparking my deep curiosity in modern computing. Currently, my primary interest lies on merging optimization methods with branches in the sense of deep learning, natural language processing, and computer vision to engineer innovative solutions for [system design challenges, as per my coding repository](https://ricardochin.com/docs/code/). Moreover, my experience in Materials Science research, utilizing clustering, SVM, and AI tools, has already pushed me into developing LSTM models to forecast machine conditions in a high-volume manufacturing setting. 
 
 ![Me41](https://live.staticflickr.com/65535/53352035229_f9204869a6_c.jpg)
 
