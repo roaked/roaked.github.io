@@ -1,5 +1,5 @@
 ---
-title: "Hamiltonian Graphs: Linked Lists"
+title: "Hamiltonian Paths: Linked Lists"
 weight: 4
 bookFlatSection: true
 ---
