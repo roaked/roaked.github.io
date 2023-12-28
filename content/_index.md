@@ -18,8 +18,6 @@ Although work is a significant part of my life, it doesn't define everything I a
 
 Naturally, traveling, particularly to different continents, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world.
 
-{{< button href="https://www.youtube.com/channel/UC8UU4XraMa-k_CYvw3GHrQw" >}}My life in frames 📷: A sneak peak{{< /button >}}
-
 ![M123e](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_c.jpg)
 
 
