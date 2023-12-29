@@ -10,7 +10,7 @@ Upon earning my [master's degree in mechanical engineering with honors](https://
 
 My roots in Computer Science focused on [Data Structures, Algorithms](https://ricardochin.com/docs/leet/), and Graph Theory, sparking my deep curiosity in modern computing. Currently, my primary interest lies on merging optimization methods with branches in the sense of deep learning, natural language processing, and computer vision to engineer innovative solutions for [system design challenges, as per my coding repository](https://ricardochin.com/docs/code/). Moreover, my experience in Materials Science research, utilizing clustering, SVM, and AI tools, has already pushed me into developing LSTM models to forecast machine conditions in a high-volume manufacturing setting. 
 
-![Me41](https://live.staticflickr.com/65535/53428908555_32a54f9aa8.jpg)
+![Me41](https://live.staticflickr.com/65535/53428645948_a3743cf1e0_c.jpg)
 
 Although work is a significant part of my life, it doesn't define everything I am. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours on end — really, I truly have an endless conversation capacity. Nevertheless, as most of these activities tend to be solitary, I've learned a valuable lesson over time: to appreciate the tranquility and peace these moments offer, cherishing the calm they bring into my life.
 
