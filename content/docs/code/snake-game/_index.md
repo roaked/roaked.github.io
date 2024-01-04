@@ -10,13 +10,10 @@ weight: 8
 # Undergoing dev // Documented ASAP!!
 
 {{< hint warning>}} 
-- Undergoing dev // Documented ASAP!!
-- Status 85% Done
+- I am currently writing the remaining details about the Genetic Algorithm: 85%
 
-
-- Fitness function optimization needed.
 - **Bug**: Parameter ranges is mutating with values from a different param_range.
-- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my Genetic Algorithm implementation.
+- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation.
 {{< /hint >}}
 
 {{< columns >}}
