@@ -36,9 +36,77 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 {{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm. If you want to read more about it as an example, click here.](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). Hence, I will skip duplicate writing.
+A similar approach for the code implementation was used for the [Genetic Algorithm.](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). 
 
 {{< /hint >}}
+
+The implementation presetend through the function `PSO.m` initializes parameters, including the objective function (`CostFunction`) and defines variables related to the problem, such as the number of decision variables (`nVar`), their boundaries (`VarMin` and `VarMax`), and PSO-specific parameters like maximum iterations (`MaxIt`), population size (`nPop`), and velocity limits.
+
+
+```matlab
+nVar = 2*model.n-1;     % Number of Decision Variables
+VarSize = [1 nVar];     % Decision Variables Matrix Size
+
+VarMin = 0;        % Lower Bound of Decision Variables
+VarMax = nVar;     % Upper Bound of Decision Variables
+
+
+%% PSO Parameters
+
+if model.n < 100
+    MaxIt = 3000;            % Maximum Number of Iterations
+else
+    MaxIt = 30000;
+end
+```
+
+The script initializes the particles (potential solutions) and their velocities randomly within defined bounds. It evaluates the cost of each particle based on the provided objective function (`CostFunction`). This cost function is depicted in `PSO_BinPackingCost.m`, it assesses the cost of a bin packing solution based on input parameters `x` and `model`. 
+
+```matlab
+empty_particle.Position = [];
+empty_particle.Cost = [];
+empty_particle.Sol = [];
+empty_particle.Velocity = [];
+empty_particle.Best.Position = [];
+%... other empty_particle fields
+
+particle = repmat(empty_particle, nPop, 1);
+GlobalBest.Cost = inf;
+
+for i = 1:nPop
+    particle(i).Position = unifrnd(VarMin, VarMax, VarSize);
+    particle(i).Velocity = zeros(VarSize);
+    %... evaluation and updating best positions
+end
+%... BestCost and AvgCost initialization
+```
+
+
+Afterwards, the main `PSO.m` function iterates through a predefined number of iterations (`MaxIt`), wherein each iteration involves updating the velocities of particles based on personal and global best positions. It subsequently adjusts particle positions considering the updated velocities and ensures these positions adhere to predefined limits. Within each iteration, the loop evaluates the cost of each particle's position using the provided objective function, [applies mutation operations](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO_Mutate.m) to potentially enhance solutions, and updates personal best positions accordingly. Additionally, the algorithm tracks the global best solution among all particles. Throughout iterations, it collects information about the best solution found (`BestSol`), its associated cost (`BestCost`), the average cost (`AvgCost`), and displays the progress. The loop includes a stopping criterion based on a stuck counter to break out if the algorithm appears trapped in a solution or reaches the maximum number of iterations. Upon completion or reaching the stopping criteria, the loop returns the gathered results.
+
+```matlab
+    for it = 1:MaxIt
+        for i = 1:nPop
+            % Update velocity
+            particle(i).Velocity = w * particle(i).Velocity ...
+                + c1 * rand(VarSize) .* (particle(i).Best.Position - particle(i).Position) ...
+                + c2 * rand(VarSize) .* (GlobalBest.Position - particle(i).Position);
+            %... velocity and position adjustments
+            %... cost evaluation and mutation operations
+            %... updating personal and global best
+        end
+        %... adjusting parameters and collecting data for BestSol, BestCost, and AvgCost
+        %... breaking criteria based on the stuckCounter
+    end
+    %... end of the PSO loop, returning results
+end
+```
+
+{{< hint tip >}}
+[More info available @ GitHub repo.](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO.m)
+{{< /hint >}}
+
+
 
 ## 3 Results
 
