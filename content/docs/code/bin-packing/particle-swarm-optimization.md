@@ -36,7 +36,7 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 {{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm.](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). 
+A similar approach for the code implementation was used for the [Genetic Algorithm](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). 
 
 {{< /hint >}}
 
@@ -82,7 +82,7 @@ end
 ```
 
 
-Afterwards, the main `PSO.m` function iterates through a predefined number of iterations (`MaxIt`), wherein each iteration involves updating the velocities of particles based on personal and global best positions. It subsequently adjusts particle positions considering the updated velocities and ensures these positions adhere to predefined limits. Within each iteration, the loop evaluates the cost of each particle's position using the provided objective function, [applies mutation operations](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO_Mutate.m) to potentially enhance solutions, and updates personal best positions accordingly. Additionally, the algorithm tracks the global best solution among all particles. Throughout iterations, it collects information about the best solution found (`BestSol`), its associated cost (`BestCost`), the average cost (`AvgCost`), and displays the progress. The loop includes a stopping criterion based on a stuck counter to break out if the algorithm appears trapped in a solution or reaches the maximum number of iterations. Upon completion or reaching the stopping criteria, the loop returns the gathered results.
+Afterwards, the main `PSO.m` function iterates through a predefined number of iterations (`MaxIt`), wherein each iteration involves updating the velocities of particles based on personal and global best positions. It subsequently adjusts particle positions considering the updated velocities and ensures these positions adhere to predefined limits. Within each iteration, the loop evaluates the cost of each particle's position using the provided objective function, [applies mutation operations](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO_Mutate.m) to potentially enhance solutions, and updates personal best positions accordingly. Additionally, the algorithm tracks the global best solution among all particles. Throughout iterations, it collects information about the best solution found (`BestSol`), its associated cost (`BestCost`), the average cost (`AvgCost`), and displays the progress. 
 
 ```matlab
     for it = 1:MaxIt
@@ -102,8 +102,32 @@ Afterwards, the main `PSO.m` function iterates through a predefined number of it
 end
 ```
 
+As shown above, the loop includes a stopping criterion based on a stuck counter to break out if the algorithm appears trapped in a solution or reaches the maximum number of iterations. Upon completion or reaching the stopping criteria, the loop returns the gathered results.
+
+```matlab
+if (it>=50)  
+        if (BestCost(it,1) == BestCost(it-1,1)) && BestCost(it,1) == floor(BestCost(it,1))
+            %Stuck in feasible solution
+            stuckCounter=stuckCounter+1;
+            if (stuckCounter == 100)
+                break;        
+            end
+            
+        elseif (BestCost(it,1) == BestCost(it-1,1))
+            %Stuck in unfeasible solution
+            stuckCounter=stuckCounter+1;
+            if (stuckCounter == 5000)
+                break;        
+            end
+        else 
+            stuckCounter=1;   
+        end
+        
+    end
+```
+
 {{< hint tip >}}
-[More info available @ GitHub repo.](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO.m)
+[More info available @ GitHub repo](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO.m)
 {{< /hint >}}
 
 
