@@ -540,7 +540,7 @@ The error histogram is more spread out through the bins, but it still generated 
 {{< /columns >}}
 
 
-### 5.2. Results Interpretation
+## 6. Results Interpretation
 
 After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
 
@@ -572,7 +572,7 @@ It's noteworthy that employing a vast number of clusters significantly escalates
 
 ![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
 
-### 5.3. My Thoughts on Applying Machine Learning for Fake News Detections
+## 7. Thoughts on ML for Fake News Detections
 
 Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
 
