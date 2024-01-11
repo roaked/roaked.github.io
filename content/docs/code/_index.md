@@ -20,7 +20,7 @@ I strongly believe in the power of code — it's what turns ideas into reality.
 
 - [AGV: Stochastic and Deterministic System Identification](https://ricardochin.com/docs/code/agv/)
 
-- [AI: Natural Language Processing and Linguistic Features to Assess News Credibility](https://ricardochin.com/docs/code/deep-learning-fake-news/)
+- [Soft-and-Hard Clustering, Fuzzy Inference and Neural Networks to Assess News Credibility](https://ricardochin.com/docs/code/deep-learning-fake-news/)
 
 - [Graph Theory: Hamiltonian Paths Classification using Linked Lists in Fortran ](https://ricardochin.com/docs/code/hamiltonian-graphs/hamiltonian/)
 
