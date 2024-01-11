@@ -436,7 +436,7 @@ The pattern recognition neural network chosen aims to classify news as true or f
 
 Various training methods exist, with factors like problem type, network size, and memory influencing selection. For this project, Levenberg-Marquardt (LM) algorithm was chosen due to its robustness and standard usage for pattern recognition problems.
 
-The activation function 'tansig' (hyperbolic tangent sigmoid) was utilized for neurons to ensure smooth activation, less computation demand, and easier weight learning, aligning well with the LM algorithm.
+The activation function ['tansig' (hyperbolic tangent sigmoid)](https://mathworks.com/help/deeplearning/ref/tansig.html) was utilized for neurons to ensure smooth activation, less computation demand, and easier weight learning, aligning well with the LM algorithm.
 
 The number of neurons in the hidden layer was also left to the user’s choice, it was varied between 5, 10 and 15 neurons.
 
@@ -457,7 +457,7 @@ The number of neurons in the hidden layer was also left to the user’s choice, 
 
 ## 5 Outcomes
 
-Using the available function in MATLAB and [the developed Python script](https://github.com/roaked/fake-news-machine-learning/blob/main/confusionmatStats.py) (see below.) to retrieve the confusion matrices and the remaining metrics, it was possible to study certain parameters such as accuracy. For simplicity sake; I will just list down the results.
+Using the available function in MATLAB and [the developed Python script](https://github.com/roaked/fake-news-machine-learning/blob/main/confusionmatStats.py) (see below.) to retrieve the confusion matrices and the remaining metrics, it was possible to study certain parameters such as accuracy. 
 
 ```python
 def confusionmatStats(group, grouphat=None):
@@ -494,28 +494,76 @@ def confusionmatStats(group, grouphat=None):
     return stats
 ```
 
-### 5.1. Results Interpretation
+### 5.1. All Features
+
+![231rrr](https://live.staticflickr.com/65535/53457844863_2d58dfb510.jpg)
+
+The performance of the test data was better due to the performance improvement of the validation, which avoids overfitting to the train data. It is also clear that the test performance is close to the best line, which indicates successful training.
+
+![dkskda9](https://live.staticflickr.com/65535/53457844928_4b21932f69.jpg)
+
+The error histogram also shows promising results, as the bin with most samples is the one with the smallest
+error.
+
+{{< columns >}}
+![1sdadsa](https://live.staticflickr.com/65535/53458126405_808d6831ff_n.jpg)
+<--->
+![daoisdka](https://live.staticflickr.com/65535/53458029909_04c7ab6eae_n.jpg)
+{{< /columns >}}
+
+{{< columns >}}
+![1sd3123123sa](https://live.staticflickr.com/65535/53457720396_e123077bea_n.jpg)
+<--->
+![daois21313dka](https://live.staticflickr.com/65535/53458029819_e4158cb39a_n.jpg)
+{{< /columns >}}
+
+### 5.2. Linguistic Features
+
+![232131231rrr](https://live.staticflickr.com/65535/53458126375_b0c35a5abc.jpg)
+
+With the linguistic features, the MSE is more similar than with all features, but the error is slightly higher.
+
+![dkskd23131a9](https://live.staticflickr.com/65535/53457844883_4a664b77df.jpg)
+
+The error histogram is more spread out through the bins, but it still generated acceptable values.
+
+{{< columns >}}
+![1sd123123adsa](https://live.staticflickr.com/65535/53458029824_f8de22024e_n.jpg)
+<--->
+![daois2312314dka](https://live.staticflickr.com/65535/53458126480_09cce6d57a_n.jpg)
+{{< /columns >}}
+
+{{< columns >}}
+![1sd3123141241423sa](https://live.staticflickr.com/65535/53456794142_c5771d1ca2_n.jpg)
+<--->
+![daois213141413dka](https://live.staticflickr.com/65535/53457844858_803fb8e33f_w.jpg)
+{{< /columns >}}
+
+
+### 5.2. Results Interpretation
 
 After generating the confusion matrix plots, a comprehensive table was compiled to encompass all available accuracy metrics.
 
 | Model Methods               | ANN   | T-S FIS | FCM   | KM    |
 |-----------------------------|-------|---------|-------|-------|
 | All Features Accuracy       | 97.3% | 95.9%   | 94.1% | 94.1% |
+| All Features F1-Score       | 97.7% | 98.1%   | 96.3% | 96.3% |
 | All Features True Positive  | 96.6% | 93.8%   | 93.3% | 93.3% |
 | All Features False Positive | 2.9%  | 1.9%    | 5.2%  | 5.2%  |
 | Linguistic Features Accuracy| 89.0% | 87.6%   | 87.1% | 87.0% |
+| Linguistic Features F1-Score| 90.3% | 88.2%   | 83.9% | 84.1% |
 | Linguistic Features True Positive| 86.7% | 85.8% | 89.2% | 89.1% |
 | Linguistic Features False Positive| 8.8% | 10.5% | 15.1% | 15.2% |
 
 
-Upon reviewing the results from the testing set, the anticipated hierarchy of performance among models held true: neural networks outperformed fuzzy models, which, in turn, surpassed clustering methods. The accuracies obtained for all features were as follows: Artificial Neural Network (ANN) at 97.3%, Takagi-Sugeno Fuzzy Inference System (T-S FIS) at 95.9%, Fuzzy Clustering Means (FCM) at 94.1%, and K-Means (KM) also at 94.1%. As expected, the use of only linguistic features resulted in lower accuracies due to fewer comparison terms.
+Upon reviewing the results from the testing set, the anticipated hierarchy of performance among models held true: neural networks outperformed fuzzy models, which, in turn, surpassed clustering methods. The accuracies and F1-scores obtained for all features were as follows: Artificial Neural Network (ANN) at 97.3% and 97.7%, Takagi-Sugeno Fuzzy Inference System (T-S FIS) at 95.9% and 98.1%, Fuzzy Clustering Means (FCM) at 94.1% and 96.3%, and K-Means (KM) also at 94.1% and 96.3%. As expected, the use of only linguistic features resulted in lower accuracies due to fewer comparison terms.
 
 {{< hint tip >}}
 Observing the performance on training versus testing sets revealed slight overfitting in the NN and T-S FIS models, showcasing approximately 1% higher accuracy in the training set. To address this issue, augmenting the dataset and employing regularization techniques could enhance model generalization, ensuring better learning of patterns from the training data.{{< /hint >}}
 
 Interestingly, FCM and KM showed closely aligned results, especially with linguistic features where they were identical. Altering the exponent for the fuzzy partition matrix could prompt FCM to converge towards KM values.
 
-All methods exhibited accuracies exceeding 94% when using all features, indicating proficient performance in categorizing news. This implies that out of 7200 news pieces, more than 6760 were accurately identified based on their features, with the highest accuracy of 97.3% signaling misclassification of only about 200 news articles.
+All methods exhibited exceptional F1-scores exceeding 96% when using all features, indicating proficient performance in categorizing news. This implies that out of 7200 news pieces, more than 6912 were accurately identified based on their features, with the highest F1-score of 98.1% signaling misclassification of only about 136 news articles.
 
 Using solely linguistic features yielded satisfactory results, with all methods achieving accuracy equal to or greater than 87%. This indicates that, among 7200 news items, more than 6264 were correctly categorized based on their features. However, the highest accuracy of 89.1% suggested misidentification of 784 news articles.
 
@@ -524,7 +572,7 @@ It's noteworthy that employing a vast number of clusters significantly escalates
 
 ![fake](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmZ0Z3U0MG94a3hpOWY1ZjVuNGFtc2ltZXg5MTlobmhvbWY3YXN6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2E6XD7P7Q0n184/giphy.gif)
 
-### 5.2. My Thoughts on Applying Machine Learning for Fake News Detections
+### 5.3. My Thoughts on Applying Machine Learning for Fake News Detections
 
 Wrapping things up, the ANN, T-S FIS, C-M, and K-M methods all delivered pretty solid outcomes, with the ANN standing out as the star performer here.
 
