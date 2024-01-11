@@ -8,10 +8,10 @@ weight: 8
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
 {{< hint warning>}} 
-- I am currently writing the remaining details about the Genetic Algorithm: 85%
-
-- **Bug**: Parameter ranges is mutating with values from a different param_range.
-- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation.
+- I am currently writing the result details about the Genetic Algorithm
+- [Risto Miikkulainen and Lex Fridman discussing the importance of evolutionary computation in deep networks: for instance, to assess architecture topology or the layer depth]
+- **Bug**: Parameter ranges is mutating with values from a different param_range
+- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation
 {{< /hint >}}
 
 {{< columns >}}
