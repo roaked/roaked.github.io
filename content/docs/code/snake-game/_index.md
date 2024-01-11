@@ -9,7 +9,7 @@ weight: 8
 
 {{< hint warning>}} 
 - I am currently writing the result details about the Genetic Algorithm
-- [Risto Miikkulainen and Lex Fridman discussing the importance of evolutionary computation in deep networks: for instance, to assess architecture topology or the layer depth]
+- [Risto Miikkulainen and Lex Fridman discussing the importance of neuroevolution](https://youtu.be/CY_LEa9xQtg?t=2467) in deep networks: for instance, how applying evolutionary computation is helpful in assessing architecture topology or the layer depth
 - **Bug**: Parameter ranges is mutating with values from a different param_range
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation
 {{< /hint >}}
