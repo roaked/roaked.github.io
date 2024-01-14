@@ -29,7 +29,7 @@ The Snake game has served as a fundamental project for programming novices due t
 ## 2. User and AI Controlled Snake 
 
 {{< hint important>}}
-Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python. -- [Pygame Documentation](pygame.org/docs)
+Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python.
 {{< /hint >}}
 
 The code begins with initializing Pygame and setting up essential game parameters such as window size, colors, and game speed. Pygame's functionalities are leveraged for window creation, event handling, and display rendering.
@@ -95,7 +95,7 @@ If the action indicates a right turn [0, 1, 0] -> snake updates the direction to
 If the action indicates a left turn [0, 0, 1] -> snake updates the direction to the previous index in the clockwise order (effectively, anti-clockwise).
 {{< /hint >}}
 
-Furthermore, using a dictionary `movement_adjustments` that maps directions foor movement adjustments (changes in `x` and `y` coordinates), it applies the corresponding adjustment to the snake's head position, effectively moving it in the intended direction by a distance specified by the `BLOCK_SIZE`, aligning its position with the game grid.
+Furthermore, using a dictionary `movement_adjustments` that maps directions for movement adjustments (changes in `x` and `y` coordinates), it applies the corresponding adjustment to the snake's head position, effectively moving it in the intended direction by a distance specified by the `BLOCK_SIZE`, aligning its position with the game grid.
 
 ```python
  def _move(self, action):
@@ -138,7 +138,7 @@ Furthermore, using a dictionary `movement_adjustments` that maps directions foor
         self.head = Point(self.head.x + move_x, self.head.y + move_y)
 ```
 
-Afterwards, the `_place_food` selects a random position within the game grid to place the food for the snake. Initially creating a set containing all current positions occupied by the snake segments, it enters a loop that generates random x and y coordinates within the game boundaries, scaled by the block size, effectively aligning with the grid. These coordinates form a potential new food position. The loop continues generating random positions until it finds a position that doesn't coincide with any segment of the snake. Once a suitable position is found, it assigns this new position as the food's location, effectively placing the food at an unoccupied spot within the game grid, ensuring it does not overlap with the snake's current positions.
+Afterwards, the `_place_food` selects a random position within the game grid to place the food for the snake. Initially creating a set containing all current positions occupied by the snake segments, it enters a loop that generates random `x` and `y` coordinates within the game boundaries, scaled by the block size, effectively aligning with the grid. These coordinates form a potential new food position. The loop continues generating random positions until it finds a position that doesn't coincide with any segment of the snake. Once a suitable position is found, it assigns this new position as the food's location, effectively placing the food at an unoccupied spot within the game grid, ensuring it does not overlap with the snake's current positions.
 
 ```python
 def _place_food(self):
@@ -176,7 +176,7 @@ def is_collision(self, pt=None):
         return collides_with_boundary or collides_with_snake
 ```
 
-Lastly, the `play_step` function manages a single step within the game loop. It increments the frame count to track game progress and handles events like quitting the game. It updates the snake's movement based on the received action, adding a new head position to the snake's body. In the case of a user-controlled snake AI game, it must take as input, the respective key that is being pressed at the time and adjust the action based on that specific task. Otherwise, `play_step` will take the action as an input value (in case of AI controlled).
+Lastly, the `play_step` function manages a single step within the game loop. It increments the frame count to track game progress and handles events like quitting the game. It updates the snake's movement based on the received action, adding a new head position to the snake's body. In the case of a user-controlled snake game, it must take as input, the respective key that is being pressed at the time and adjust the action based on that specific task. Otherwise, `play_step` will take the action as an input value (in case of AI controlled).
 
 ```python
 def play_step(self):
@@ -238,40 +238,6 @@ def play_step(self, action):
     # Return game status and score
     return reward, game_over, self.score
 ```
-
-For visualization, the `_update_ui` function serves as the visual engine of the game, orchestrating the graphical elements displayed to the player. It begins by wiping the display clean with a dark grey background, then proceeds to render the snake's body as a sequence of blue rectangles, each block outlined by a smaller blue rectangle, creating a bordered appearance. Next, it draws the red food block at its designated position within the game grid. Additionally, it generates the textual representation of the player's score, showcasing it prominently in the top-left corner of the screen. Finally, by updating the display, it ensures that all these visual elements accurately reflect the ongoing state of the game, providing players with a real-time view of the snake's movement, the position of the food, and their current score as they play.
-
-```python
-def _update_ui(self):
-    self.display.fill(GREY)
-
-    # Draw the snake
-    for pt in self.snake:
-        snake_rect = pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE)
-        pygame.draw.rect(self.display, BLUE1, snake_rect)
-        # Inflate the rectangle
-        pygame.draw.rect(self.display, BLUE2, snake_rect.inflate(-8, -8)) 
-
-    # Draw the food
-    food_rect = pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE)
-    pygame.draw.rect(self.display, RED, food_rect)
-
-    # Render the score text
-    score_text = font.render("Score: " + str(self.score), True, WHITE)
-    self.display.blit(score_text, (0, 0))
-
-    # Update the display
-    pygame.display.flip()
-```
-
-
-{{< hint warning>}}
-The game itself is still under development and some of the functions might have been changed already, but not updated here. Nevertheless, current tasks to further enhance the game environment and codebase consist of:
-
-- Complete User Input Handling: Implement the get_user_input method to capture user actions, enabling manual control of the snake.
-- Display Rendering: Develop the _update_display method to visually represent the game state using Pygame's rendering capabilities.
-- Enhancements: Explore additional features such as different game difficulty levels, multiplayer functionalities, or advanced AI algorithms to enrich the gaming experience.
-{{< /hint>}}
 
 ![123](https://s5.gifyu.com/images/SiDzT.gif)
 
