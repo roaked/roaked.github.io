@@ -1,9 +1,9 @@
 ---
-title: "Deep Learning on Fake News"
+title: "Fake News: Clusters, FIS & ANN "
 weight: 3
 ---
 
-# **NLP: Language Features for Detection of Fake News**
+# **Language Features for Detection of Fake News**
 
 ## 1 A Growing Case
 

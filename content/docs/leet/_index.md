@@ -1,13 +1,17 @@
 ---
 weight: 7
 bookFlatSection: true
-title: "My LeetCode Solutions"
+title: "My Programming Lectures"
 ---
+
+# **DSA Lectures @ GitHub**
+
+I am currently holding programming lectures on data structures and algorithms encompassing different levels at my current position. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures). As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people. More to come. :)
+
 
 # **Exploring DSA with LeetCode**
 
-
-This is a small sample of my interest for Data Structures and Algorithms (DSA) problems on LeetCode. 
+In addition, this is a small sample of my interest for Data Structures and Algorithms (DSA) problems on LeetCode. 
 
 {{< hint warning >}}
 While I may not consider myself an expert, I'm passionate about problem-solving and enjoy exploring these challenges purely for the joy of it..{{< /hint >}}
