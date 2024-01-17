@@ -6,10 +6,13 @@ title: "My Programming Lectures"
 
 # **DSA Lectures @ GitHub**
 
-I am currently holding programming lectures on data structures and algorithms encompassing different levels at my current position. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures) As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people. More to come. :)
+![q031](https://live.staticflickr.com/65535/53470682660_24754952d2_w.jpg)
 
+I am currently holding programming lectures on data structures and algorithms encompassing different levels at my current position. I have taught the basics to undergraduate students, as well as, to doctoral colleagues of mine without prior extensive experience in programming. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures) As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people. Hopefully, more to come. :)
 
-# **Exploring DSA with LeetCode**
+- I can recommend the Grokkings series of books for learning diverse computing topics!
+
+## **Exploring DSA with LeetCode**
 
 In addition, this is a small sample of my interest for Data Structures and Algorithms (DSA) problems on LeetCode. 
 
