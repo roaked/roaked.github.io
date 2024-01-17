@@ -310,7 +310,7 @@ In order to calculate the torques, the manipulator equation can be decomposed in
 
 Implementing these calculations in real-time requires a dynamics block in Simulink. [A general Newton-Euler equation was developed in MATLAB](https://github.com/roaked/robotics-kinematics-dynamics-and-control/tree/main/DynamicsV1), capable of [solving the Newton-Euler formulation](https://github.com/roaked/robotics-kinematics-dynamics-and-control/blob/main/DynamicsV1/Newton_Euler.m) for any robot with both revolute and prismatic joints. This equation takes the Denavit-Hartenberg (DH) table, along with the necessary properties of links and motors, and outputs the torques.
 
-Using the function, one can also obtain `B`, `{{< katex >}}\phi{{< /katex >}}`, and `g`. The gravity vector is the simplest to obtain: {{< katex >}}g = \tau (q, \dot{q}, q\ddot{q}) = \tau (q, 0, 0){{< /katex >}}. Imposing the joints velocities and accelerations to zero, `B` and `C` are erased from the equation.
+Using the function, it is possible to obtain `B`, {{< katex >}}\phi{{< /katex >}}, and `g`. The gravity vector is the simplest to obtain: {{< katex >}}g = \tau (q, \dot{q}, q\ddot{q}) = \tau (q, 0, 0){{< /katex >}}. Imposing the joints velocities and accelerations to zero, `B` and `C` are erased from the equation.
 
 To obtain the mass matrix, since it doesn’t depend on the velocity, {{< katex >}}\dot{q}{{< /katex >}} can be set to zero. The acceleration of gravity is also turned to zero, leaving the equation as {{< katex >}}B(q\dot{q})\ddot{q} = \tau {{< /katex >}}. Deriving the expressions by the vector {{< katex >}}\ddot{q}{{<  /katex >}}, `B` is finally obtained.
 
@@ -389,6 +389,37 @@ K_d = 2 \xi \omega_n^2 B
 Hence, `B` will be represented by the maximum values of the mass matrix `B` diagonal. Given that each joint will be controlled separately, each joint will have its respective `Kd`, `Kp` and `B`.
 
 ### 9.2. Worst Case Inertia
+
+To identify the worst-case inertia, represented by the maximum values along the diagonal of the `B` matrix, a trial-and-error method was employed by searching for joint values `q`. The obtained values and the corresponding robot configurations for each inertia are shown in the table. Notably, for joints `q1`, `q2` and `q3` the changes in inertia values were negligible, suggesting that any configuration of `q` would yield the maximum inertia value for these joints.
+
+      | Maximum Inertia  | Joint values [\º]  |
+| Joint |   [Kg ⋅ m^2]              | q1 | q2 | q3 | q4 | q5 | q6 | q7 |
+|-------|---------------------------|----|----|----|----|----|----|----|
+| q1    | 89.24                     | -  | -  | -  | -  | -  | -  | -  |
+| q2    | 5.319                     | -  | -  | 0  | 10 | -145 | 0  | -  |
+| q3    | 4.876                     | -  | -  | -  | 10 | -90 | 0  | -  |
+| q4    | 2.516                     | -  | -  | -  | -  | -90 | 0  | -  |
+| q5    | 2.111                     | -  | -  | -  | -  | | - [-140,-45] and [45,140] | - |
+| q6    | 2.101                     | -  | -  | -  | -  | -  | -  | -  |
+| q7    | 2.1                       | -  | -  | -  | -  | -  | -  | -  |
+
+
+{{< details "**Configurations:** q2, q3 and q5 - (click to expand)" close >}}
+
+`q2` configuration:
+
+![53](https://live.staticflickr.com/65535/53469658316_d7eab0a5b8_w.jpg) 
+
+`q3` configuration:
+
+![54](https://live.staticflickr.com/65535/53469800663_f1ea4ae6a4.jpg)
+
+`q5` configuration:
+
+![55](https://live.staticflickr.com/65535/53469658306_13bc14c536.jpg)
+
+{{< /details >}}
+
 
 ### 9.3. Controller Gains Tuning
 
