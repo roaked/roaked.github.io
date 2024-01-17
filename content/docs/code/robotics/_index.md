@@ -39,22 +39,22 @@ Utilizing the convention of [Denavit-Hartenberg (DH)](https://en.wikipedia.org/w
 
 The dimensions `a2`, `a3`, `a4`, `d5` and `d7` are known. Hence, the table of DH can be built.
 
-| Link | {{<katex>}}d_i{{</katex>}} [\m] | {{<katex>}}\vartheta_i{{</katex>}} [\rad] | {{<katex>}}a_i{{</katex>}} [\m] | {{<katex>}}\alpha_i{{</katex>}} [\rad] | offset [\rad] |
+| Link | di [ m] |𝜗i [ rad] | ai [ m] | α [ rad] | offset [ rad] |
 |------|-------------|-----------------------|------------|---------------------|------------------------|
-| 1    | {{<katex>}}d_1{{</katex>}}      | 0                     | 0          | {{<katex>}}-\frac{\pi}{2}{{</katex>}}   | 0                      |
-| 2    | 0           | {{<katex>}}\vartheta_2{{</katex>}}        | 0.025      | {{<katex>}}\frac{\pi}{2}{{</katex>}}   | 0                      |
-| 3    | 0           | {{<katex>}}\vartheta_3{{</katex>}}        | 0.315      | 0                   | 0                      |
-| 4    | 0           | {{<katex>}}\vartheta_4{{</katex>}}        | 0.035      | {{<katex>}}\frac{\pi}{2}{{</katex>}}   | 0                      |
-| 5    | -0.365      | {{<katex>}}\vartheta_5{{</katex>}}        | 0          | {{<katex>}}-\frac{\pi}{2}{{</katex>}}   | 0                      |
-| 6    | 0           | {{<katex>}}\vartheta_6{{</katex>}}        | 0          | {{<katex>}}\frac{\pi}{2}{{</katex>}}    | 0                      |
-| 7    | -0.080      | {{<katex>}}\vartheta_7{{</katex>}}        | 0          | {{<katex>}}\pi{{</katex>}}              | 0                      |
+| 1    | d1      | 0                     | 0          | -π/2   | 0                      |
+| 2    | 0           | 𝜗2        | 0.025      | π/2   | 0                      |
+| 3    | 0           | 𝜗3        | 0.315      | 0                   | 0                      |
+| 4    | 0           | 𝜗4        | 0.035      | π/2   | 0                      |
+| 5    | -0.365      | 𝜗5       | 0          | -π/2   | 0                      |
+| 6    | 0           | 𝜗6        | 0          |π/2    | 0                      |
+| 7    | -0.080      | 𝜗7        | 0          | π              | 0                      |
 
 
 
 For this robot, the vector of joint variables `q` can be expressed as:
 
 {{< katex display >}}
-q = [d1 \hspace{.2cm} \vartheta_2 \hspace{.2cm} \vartheta_3 \hspace{.2cm} \vartheta_4 \hspace{.2cm} \vartheta_5 \hspace{.2cm} \vartheta_6 \hspace{.2cm} \vartheta_7 ]^T
+q = [ d1 \hspace{.2cm} \vartheta_2 \hspace{.2cm} \vartheta_3 \hspace{.2cm} \vartheta_4 \hspace{.2cm} \vartheta_5 \hspace{.2cm} \vartheta_6 \hspace{.2cm} \vartheta_7 ]^T
 {{< /katex >}}
 
 ## 3. Direct Kinematics
@@ -399,7 +399,7 @@ To identify the worst-case inertia, represented by the maximum values along the 
 | q2    | 5.319                     | -  | -  | 0  | 10 | -145 | 0  | -  |
 | q3    | 4.876                     | -  | -  | -  | 10 | -90 | 0  | -  |
 | q4    | 2.516                     | -  | -  | -  | -  | -90 | 0  | -  |
-| q5    | 2.111                     | -  | -  | -  | -  | | - [-140,-45] and [45,140] | - |
+| q5    | 2.111                     | -  | -  | -  | -  | | - [ -140,-45] and [ 45,140] | - |
 | q6    | 2.101                     | -  | -  | -  | -  | -  | -  | -  |
 | q7    | 2.1                       | -  | -  | -  | -  | -  | -  | -  |
 
