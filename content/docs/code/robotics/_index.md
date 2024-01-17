@@ -197,7 +197,7 @@ Another test involved applying sinusoidal inputs to all joints simultaneously. T
 
 Inverse kinematics involves determining the values of the joint variables `q`, given the position and orientation of the end effector. It's important to note that solving such problems may yield multiple solutions.
 
-In the case of the KR6, the end effector's position and orientation are described by 6 parameters: three displacements (`x`, `y`, `z`) and three Euler angles (`{{< katex>}}\phi{{</ katex>}}`, `{{< katex}}\theta{{</ katex>}}`, `{{< katex}}\psi{{</ katex>}}`). However, the robot has 7 links, indicating it possesses 7 degrees of freedom. This redundancy implies that, to solve the inverse kinematics problem, one of the joint variables must be specified initially. In this scenario, `q1`, corresponding to the prismatic joint, was chosen to be fixed, leaving 6 degrees of freedom to be determined.
+In the case of the KR6, the end effector's position and orientation are described by 6 parameters: three displacements (`x`, `y`, `z`) and three Euler angles ({{< katex>}}\phi{{</ katex>}}, {{< katex}}\theta{{</ katex>}}, {{< katex}}\psi{{</ katex>}}). However, the robot has 7 links, indicating it possesses 7 degrees of freedom. This redundancy implies that, to solve the inverse kinematics problem, one of the joint variables must be specified initially. In this scenario, `q1`, corresponding to the prismatic joint, was chosen to be fixed, leaving 6 degrees of freedom to be determined.
 
 To address this, a kinematic decoupling approach was adopted. This involves separating the arm and wrist, solving the arm joints first and then addressing the wrist joints. This strategy simplifies the inverse kinematics problem and facilitates a systematic solution to determine the joint variables.
 
@@ -234,7 +234,7 @@ After computing `q1`, `q2`, `q3` and `q4` only the wrist parameters are left to 
 
 The system offers two input options for `pd` and `Rd`:
 
-- Option 1: Users can specify the end effector position and orientation using parameters `x`, `y`, `z` (combined to form `pd`) and the Euler angles `{{< katex>}}\phi{{</ katex>}}`, `{{< katex}}\theta{{</ katex>}}`, `{{< katex}}\psi{{</ katex>}}`. The rotation matrix `Rd` is derived from these Euler angles.
+- Option 1: Users can specify the end effector position and orientation using parameters `x`, `y`, `z` (combined to form `pd`) and the Euler angles {{< katex>}}\phi{{</ katex>}}, {{< katex}}\theta{{</ katex>}}, {{< katex}}\psi{{</ katex>}}. The rotation matrix `Rd` is derived from these Euler angles.
 
 - Option 2: Users can input joint variables `q`, which are then processed and transformed into `pd` and `Rd` through direct kinematics. This option is particularly useful for validation purposes.
 
