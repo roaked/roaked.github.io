@@ -253,20 +253,162 @@ A switch at the bottom-left corner can be activated to halt the simulation when 
 
 ### 4.1. Validation
 
+{{< hint warning >}}
 To add later...
+{{< /hint >}}
 
 ## 5. Geometric Jacobian
 
+The geometric Jacobian is a matrix that represents the relationship between joint velocities and the linear and angular velocities of the end effector in a robotic system. It is a crucial tool in robotics for understanding how changes in joint positions contribute to the overall motion of the robot's end effector.
 
-### 5.1. Postion Validation
+{{< katex display >}}
+J = \begin{bmatrix} J_P \\ J_O \end{bmatrix}
+{{< /katex >}}
+
+Here,
+
+- {{< katex display >}}J_P{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector linear velocities.
+- {{< katex display >}}J_O{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector angular velocities.
+
+{{< katex display >}} 
+\begin{bmatrix} \dot{p}_e \\
+w_e
+\end{bmatrix}
+= \begin{bmatrix}
+JP \\
+JO
+\end{bmatrix}
+q
+{{< /katex >}}
+
+The best approach to compute the Jacobian is to separate the linear and angular velocities.
+
+{{< katex display>}}
+\dot{p_e} = \sum_{i=1}^{n} \frac{\partial p_e}{\partial q_i} \dot{q_i} = \sum_{i=1}^{n} J_{P_i} \dot{q}_i
+{{< /katex >}}
+
+
+{{< katex display>}}
+w_e = \sum_{i=1}^{n} w_{i-1,i} = \sum_{i=1}^{n} J_{O_i} \dot{q}_i
+{{< /katex >}}
+
+Every term in the Jacobian matrix signifies the velocity contribution of an individual joint `i` to the end effector when all other joints are held stationary.
+
+1. Prismatic Joints:
+
+{{< katex display>}}
+J_{P_i} = z_{i-1} \\
+J_{O_i} = 0
+{{< /katex >}}
+
+2. Revolute Joints:
+
+
+{{< katex display>}}
+J_{P_i} = z_{i-1} (p_e - p_{i-1}) \\
+J_{O_i} = z_{i-1}
+{{< /katex >}}
+
+As mentioned earlier, the computation of the Jacobian is encapsulated within the function [DKin.m](https://github.com/roaked/robotics-kinematics-dynamics-and-control/blob/main/DKin.m). This design proves beneficial as, in the process of calculating direct kinematics, the transformation matrix {{< katex>}}T_0^i{{< /katex >}} is computed for each link. To validate the Jacobian matrix, it is essential to compare the velocities obtained through the differentiation of the end effector position with the velocities obtained by multiplying the Jacobian matrix by the derivative of the joints vector, {{< katex>}}\dot{q}{{< /katex >}}. In essence, the following conditions need verification:
+
+{{< katex display>}}
+\dot{p_e} - \sum_{i=1}^{n} J_{P_i} \dot{q}_i = 0
+{{< /katex >}}
+
+
+{{< katex display>}}
+w_e - \sum_{i=1}^{n} J_{O_i} \dot{q}_i = 0
+{{< /katex >}}
+
+Having the following Simulink model:
+
+![23](https://live.staticflickr.com/65535/53469950705_3cbb296754_c.jpg)
+
+![24](https://live.staticflickr.com/65535/53469950655_04a460ef38_b.jpg)
+
+
+In the first figure (the left side of the Simulink model), two types of inputs for `q` are available: sliders or trajectory. `q` enters the direct kinematics block and also the animation block `vrsink`. The second figure represents the validation process. For the validation process, sine wave functions were employed as inputs for `q`. This choice ensured that all joints would be moving simultaneously.
+
+### 5.1. Position Validation
+
+![25](https://live.staticflickr.com/65535/53469950660_4cb4f03c74_z.jpg)
+
+
+The values on the extreme right side represent the difference between velocities. Since the largest absolute number is on the order of {{< katex >}}10^{-8} {{< /katex>}}, it can be concluded that {{< katex >}}J_P {{< /katex>}} is validated, as these values can be considered approximately zero.
 
 ### 5.2. Orientation Validation
+
+
+Following a similar approach, to obtain {{< katex >}}w_e {{< /katex>}}, matrix S is computed:
+
+{{< katex display>}}
+S = \dot{R}(t) \times R^T = \begin{bmatrix} 0 & -\omega_z & \omega_y \\ \omega_z & 0 & -\omega_x \\ -\omega_y & \omega_x & 0 \end{bmatrix}
+{{< /katex>}}
+
+R(t)  represents the rotation matrix R in this case. S is a skew-symmetric operator, and its symmetric elements represent the components of the angular velocity vector {{< katex>}}w_e{{< /katex>}}. Note:
+
+{{< katex display>}}
+w_e = \begin{bmatrix} w_x w_y w_z \end{bmatrix}^T = \begin{bmatrix} S(3, 2) S(1, 3) S(2, 1) \end{bmatrix}^T
+{{< /katex>}}
+
+To validate {{< katex>}}J_O{{< /katex>}}, the difference between the angular velocity vector obtained from `S` and the angular velocity obtained from {{< katex>}}J_O{{< /katex>}} times {{< katex>}}\dot{q}{{< /katex>}} must tend to zero. Results in Simulink are shown below, having used the sine waves as inputs for vector `q`:
+
+![27](https://live.staticflickr.com/65535/53469950650_509204d65c_z.jpg)
 
 ### 5.3. Kinematic Singularities
 
 ## 6. Closed Loop Inverse Kinematics (CLIK)
 
+CLIK allows to solve the inverse kinematics problem with a closed loop control, as the name implies.
+
+![34](https://live.staticflickr.com/65535/53469672813_aacb08df0d_z.jpg)
+
+Given the redundancy of the manipulator, there is flexibility in how {{< katex >}}\dot{q}{{< /katex>}} and {{< katex >}}J^{-1}(q){{< /katex>}} are computed. Initially, the inverse Jacobian {{< katex >}}J^{-1}(q){{< /katex>}} can be substituted with the damped least squares inverse:
+
+{{< katex display>}}
+J^* = J^T(JJ^T + k^2I)^{-1}
+{{< /katex >}}
+
+The computation of {{< katex >}}\dot{q}{{< /katex>}} is modified to include the stabilization of the null-space:
+
+{{< katex display>}}
+\dot{q} = J^* v_e + (I_n - J^*J)\dot{q}_0
+{{< /katex>}}
+
+{{< katex >}}\dot{q}_0{{< /katex>}} is given by:
+
+{{< katex display>}}
+\dot{q}_0 = k_0 \left(\frac{\partial w(q)}{\partial q}\right)^T
+{{< /katex>}}
+
+{{< katex >}}\omega{{< /katex>}}(q) allows to maximize the distance from mechanical joint limits and is computed as:
+
+{{< katex display>}}
+w(q) = -\frac{1}{2n} \sum_{i=1}^{n} \left(\frac{q_i - \overlina{q_i}}{q_{iM} + q_{im}}\right)^2
+{{< /katex>}}
+
+Hence, there are four distinct gains to consider: {{< katex >}}K_P{{< /katex>}} for position, {{< katex >}}K_O{{< /katex>}} for orientation, `k` for the damped least squares inverse and {{< katex >}}k_0{{< /katex>}} for null-space stabilization. It is imperative to fine-tune each of these gains to achieve the desired system behaviour.
+
+Each gain exerts different influences on the system dynamics. For `k`, a low (or zero) value diminishes the damping effect on the damped least squares inverse, potentially leading to elevated initial velocities {{< katex >}}\dot{q}{{< /katex>}}. Conversely, a high gain results in excessive damping, causing the system to take more time to reach the desired position.
+
+Regarding the null-space stabilization gain {{< katex >}}k_0{{< /katex>}}, a low value prolongs the system's convergence time to the desired solution. Conversely, a high value may introduce slight instability, causing the joints to continue moving even after the robot reaches the desired position as it attempts to minimize the distance from the joint limits {{< katex >}}\omega{{< /katex>}}(q). If {{< katex >}}k_0{{< /katex>}} is excessively high, the computational load also becomes extensive.
+
+{{< katex >}}K_P{{< /katex>}} and {{< katex >}}K_O{{< /katex>}} are straightforward. A higher {{< katex >}}K_P{{< /katex>}} facilitates the robot in reaching the desired position more swiftly, while an increased {{< katex >}}K_O{{< /katex>}} enables to reach the desired orientation faster. Lower values result in sluggish robot movement, whereas higher values may induce excessive speed, with the potential of burdening computations. 
+
+The robot imposes constraints on joint velocities {{< katex >}}\dot{q}{{< /katex>}}. For {{< katex >}}\dot{q}_1{{< /katex>}}, the prismatic joint, the maximum attainable speed is 2.5 m/s. Revolute joints, on the other hand, have a maximum speed of around 360º/s, equivalent to 6.28 rad/s.
+
+Another constraint pertains to the range of motion for each joint, encompassing the maximum and minimum angles for revolute joints and the maximum and minimum distances for the prismatic joint. These values were extracted from the robot manual and incorporated into our model during the symbolic expression calculations for {{< katex >}}\dot{q}_0{{< /katex>}}.
+
+![35](https://live.staticflickr.com/65535/53469950615_3fffa19de1_b.jpg)
+
+![36](https://live.staticflickr.com/65535/53469533791_de4c0eaf20.jpg)
+
 ### 6.1. Validation
+
+{{< hint warning >}}
+To add later...
+{{< /hint >}}
+
 
 ## 7. Link Properties
 
