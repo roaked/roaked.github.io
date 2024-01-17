@@ -466,8 +466,46 @@ The final objective is to demonstrate the tracking performance of each joint `q`
 
 ![62](https://live.staticflickr.com/65535/53469658281_ed341505cc_z.jpg)
 
+![63](https://live.staticflickr.com/65535/53469658246_e472495fe9_c.jpg)
+
+{{< hint important >}}
+It's crucial to highlight that the selection of natural frequency and damping ratios depends on the trajectory. Lower values for these parameters may generally function, but they might not be sufficient to minimize the tracking error effectively. Adjusting these values based on the characteristics of the specific trajectory is essential for achieving optimal control performance.
+{{< /hint >}}
+
 
 ## 10. Centralized Controller
+
+To better manage high velocities with non-linear compensation, a centralized controller has been developed. The centralized controller facilitates joint space inverse dynamics control, enhancing the system's ability to handle complex dynamics and achieve precise control over high-velocity movements.
+
+![64](https://live.staticflickr.com/65535/53470076220_b43ef67e60_c.jpg)
+
+The controller dynamics are:
+
+{{< katex display>}}
+\tau = B(q)\ddot{q} + n(q, \dot{q}) \\
+
+n(q, \dot{q}) = \phi(q, \dot{q}) + g(q)
+{{< /katex>}}
+
+The block diagram illustrates that the system can be divided into two main components: *stabilizing control* and *non-linear compensation and decoupling*. Within the non-linear part, it is established that:
+
+{{< katex display>}}
+y = K_P \tilde{q} + K_D \dot{\tilde{q}} + \ddot{q}_d
+{{< /katex>}}
+
+Considering that {{< katex >}} \ddot{\tilde{q}} = \ddot{q} - \ddot{q}_d {{< /katex >}}, replacing y with {{< katex >}}\ddot{q}_d{{< /katex >}}:
+
+{{< katex display>}}
+\ddot{\tilde{q}} = K_D \dot{\tilde{q}} + K_P \tilde{q} = 0
+{{< /katex>}}
+
+This equation represents a second-order differential equation. The values for Kp (proportional gain) and Kd (derivative gain) are defined from the characteristic equation as follows:
+
+{{< katex display>}}
+K_P = \text{diag}\{\omega_{n1}^2, \ldots, \omega_{nn}^2\} \\
+K_D = \text{diag}\{2\xi_1\omega_{n1}, \ldots, 2\xi_n\omega_{nn}\}
+{{< /katex>}}
+
 
 ## 11. Trajectory Planning 
 
