@@ -449,6 +449,24 @@ As observed, the errors have become significantly smaller, indicating that the i
 
 ![59](https://live.staticflickr.com/65535/53469800638_8fc7d282db_c.jpg)
 
+Now, testing for different damping rations:
+
+| ξ \ Error | q1    | q2    | q3    | q4    | q5    | q6    | q7    |
+|------|-------|-------|-------|-------|-------|-------|-------|
+| 0.4  | 0.0147| 0.0186| 0.0324| 0.0257| 0.0165| 0.0155| 0.0259|
+| 0.707| 0.0257| 0.0363| 0.0416| 0.0435| 0.0353| 0.0331| 0.0353|
+| 0.9  | 0.0320| 0.0449| 0.0462| 0.0537| 0.0432| 0.0405| 0.0432|
+
+As evident, a damping ratio of 0.4 results in lower error values, but it introduces more noticeable oscillating behaviour. Further reduction of this value can lead to system instability. Additionally, for values above 0.707, the error tends to increase, and surpassing 1, it causes the system to go unstable. Therefore, a damping ratio of 0.707 will be utilized for the trajectory planning, striking a balance between minimizing error and avoiding excessive oscillations or instability. The finalized parameters for the Stiffness and Damping Gains.
+
+![60](https://live.staticflickr.com/65535/53469658271_2014107e63_c.jpg)
+![61](https://live.staticflickr.com/65535/53468756007_c776831f02_c.jpg)
+
+The final objective is to demonstrate the tracking performance of each joint `q` during the oval trajectory. This will serve to affirm that the decentralized control effectively ensures accurate following of the desired `q` values for each joint.
+
+![62](https://live.staticflickr.com/65535/53469658281_ed341505cc_z.jpg)
+
+
 ## 10. Centralized Controller
 
 ## 11. Trajectory Planning 
