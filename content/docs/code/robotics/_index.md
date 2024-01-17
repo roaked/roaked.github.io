@@ -3,7 +3,7 @@ title: "Robotics: Kin, Dynamics & Control"
 weight: 7
 ---
 
-## KUKA Robotics: From Kinematics to Motion Planning
+# KUKA Robotics: From Kinematics to Motion Planning
 
 [To add report when I have time :)](https://github.com/roaked/robotics-kinematics-dynamics-and-control)
 
@@ -17,7 +17,7 @@ I think it would turn out a very informative and interesting project!
 {{< /hint >}}
 
 
-### 1. Abstract
+## 1. Abstract
 
 This research centers on the kinematic analysis of the KUKA KR6 R700 robot, which is installed on a linear KL100 axis. The KUKA KR6 R700 is an industrial robot designed for tasks such as tool and fixture handling, as well as processing or transferring components or products.
 
@@ -25,7 +25,7 @@ The initial phase of studying the robot involves analyzing and constructing its 
 
 Presented and validated through various Simulink models, it is intended to ease the extraction of the robot's direct kinematics, inverse kinematics, geometric Jacobian, and Closed Loop Inverse Kinematics (CLIK).
 
-### 2. Kinematics
+## 2. Kinematics
 
 The robot consists on the presence of 6 revolute joints. Additionally, there is a single prismatic joint that facilitates horizontal movement of the robot. Consequently, the overall configuration of the robot comprises a total of 7 links.
 
@@ -39,21 +39,16 @@ Utilizing the convention of [Denavit-Hartenberg (DH)](https://en.wikipedia.org/w
 
 The dimensions `a2`, `a3`, `a4`, `d5` and `d7` are known. Hence, the table of DH can be built.
 
-{{< katex display >}}
-\begin{array}{|c|c|c|c|c|c|}
-\hline
-\text{Link} & d_i [\m] & \vartheta_i [\rad] & a_i [\m] & \alpha_i [\rad] & \text{offset} [\rad] \\
-\hline
-1 & d_1 & 0 & 0 & -\frac{\pi}{2} & 0 \\
-2 & 0 & \vartheta_2 & 0.025 & \frac{\pi}{2} & 0 \\
-3 & 0 & \vartheta_3 & 0.315 & 0 & 0 \\
-4 & 0 & \vartheta_4 & 0.035 & \frac{\pi}{2} & 0 \\
-5 & -0.365 & \vartheta_5 & 0 & -\frac{\pi}{2} & 0 \\
-6 & 0 & \vartheta_6 & 0 & \frac{\pi}{2} & 0 \\
-7 & -0.080 & \vartheta_7 & 0 & \pi & 0 \\
-\hline
-\end{array}
-{{< /katex >}}
+| Link | {{<katex>}}d_i{{</katex>}} [\m] | {{<katex>}}\vartheta_i{{</katex>}} [\rad] | {{<katex>}}a_i{{</katex>}} [\m] | {{<katex>}}\alpha_i{{</katex>}} [\rad] | offset [\rad] |
+|------|-------------|-----------------------|------------|---------------------|------------------------|
+| 1    | {{<katex>}}d_1{{</katex>}}      | 0                     | 0          | {{<katex>}}-\frac{\pi}{2}{{</katex>}}   | 0                      |
+| 2    | 0           | {{<katex>}}\vartheta_2{{</katex>}}        | 0.025      | {{<katex>}}\frac{\pi}{2}{{</katex>}}   | 0                      |
+| 3    | 0           | {{<katex>}}\vartheta_3{{</katex>}}        | 0.315      | 0                   | 0                      |
+| 4    | 0           | {{<katex>}}\vartheta_4{{</katex>}}        | 0.035      | {{<katex>}}\frac{\pi}{2}{{</katex>}}   | 0                      |
+| 5    | -0.365      | {{<katex>}}\vartheta_5{{</katex>}}        | 0          | {{<katex>}}-\frac{\pi}{2}{{</katex>}}   | 0                      |
+| 6    | 0           | {{<katex>}}\vartheta_6{{</katex>}}        | 0          | {{<katex>}}\frac{\pi}{2}{{</katex>}}    | 0                      |
+| 7    | -0.080      | {{<katex>}}\vartheta_7{{</katex>}}        | 0          | {{<katex>}}\pi{{</katex>}}              | 0                      |
+
 
 
 For this robot, the vector of joint variables `q` can be expressed as:
@@ -62,7 +57,7 @@ For this robot, the vector of joint variables `q` can be expressed as:
 q = [d1 \hspace{.2cm} \vartheta_2 \hspace{.2cm} \vartheta_3 \hspace{.2cm} \vartheta_4 \hspace{.2cm} \vartheta_5 \hspace{.2cm} \vartheta_6 \hspace{.2cm} \vartheta_7 ]^T
 {{< /katex >}}
 
-### 3. Direct Kinematics
+## 3. Direct Kinematics
 
 Through the direct kinematics analysis, one can compute the position and orientation of the end effector by considering the values of the joint variables within the vector `q`. 
 
@@ -89,7 +84,6 @@ The transformation matrix for 7 links:
 
 {{< katex display >}}
 T_7^0 = A_1^0 A_2^1 A_3^2 A_4^3 A_4^5 A_6^5 A_7^6
-\end{bmatrix}
 {{< /katex >}}
 
 
@@ -103,7 +97,9 @@ The resulting Simulink model incorporates two input options for the `q` vector: 
 ![4](https://live.staticflickr.com/65535/53469950785_90a2919709_c.jpg)
 
 
-#### 3.1. Validation
+### 3.1. Validation
+
+#### 3.1.1. Pose One
 
 The initial validation involves inputting a set of known coordinates, denoted as `q`, and verifying if the resulting rotation matrix and position vector of the end effector align with the anticipated outcomes. During this validation process, certain adjustments to the offsets were necessary. Specifically, a -90º offset was applied to joint `q4`, and a +180º offset was applied to joint `q7`, with these values determined through the validation process. To define the `q` vector, sliders were employed.
 
@@ -126,7 +122,6 @@ Therefore the rotation matrix from base to end effector is defined as:
 
 {{< katex display >}}
 R_7^b = R_0^b R_7^0
-\end{bmatrix}
 {{< /katex >}}
 
 Simultaneously, the translation using the position vector:
@@ -161,7 +156,8 @@ Simulink results given by:
 
 ![7](https://live.staticflickr.com/65535/53468628947_f0e300b867_c.jpg)
 
-{{< details "**Pose 2:** Validation for Pose 2 - (click to expand)" close >}}
+
+#### 3.1.2. Pose Two
 
 Analytical results are:
 
@@ -183,9 +179,8 @@ Simulink results given by:
 
 ![9](https://live.staticflickr.com/65535/53469533956_5b76d48ea0_c.jpg)
 
-{{< /details >}}
 
-#### 3.2. Joint Trajectories
+### 3.2. Joint Trajectories
 
 To conduct further testing of the direct kinematics, a series of joint trajectories was incorporated into the Simulink model, selectable by manipulating a manual switch. Initially, a set of ramps was chosen for the inputs, with the exception of joint `q1`, where a sine input was employed. This decision was made to avoid impractical robot movement away from the base, given the nature of a ramp input. Each ramp trajectory was individually examined to ensure that the robot's motion aligned with the anticipated behaviour.
 
@@ -198,4 +193,4 @@ Another test involved applying sinusoidal inputs to all joints simultaneously. T
 
 ![11](https://live.staticflickr.com/65535/53469533946_d84d6bd8d9.jpg)
 
-### 4. Inverse Kinematics
+## 4. Inverse Kinematics
