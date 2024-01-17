@@ -274,7 +274,7 @@ To incorporate the dynamics of the robot, it's essential to determine approximat
 
 Given that the robot's manual specified a weight of 50 kilograms for the KR6 robot without the carriage and KL beam, a uniform density of 1680 kg/m³ was applied in Solidworks. This density adjustment resulted in the KR6 parts weighing approximately 50.4 kilograms, providing a satisfactory approximation. It's noteworthy that link 1 comprises two parts: the base of KR6 and a carriage supporting KR6. In the manual, the carriage weight is not included in the KR6's weight specification.
 
-| Link | Mass [\kg] | x | y | z | Ixx | Iyy | Izz | Ixy | Ixz | Iyz |
+| Link | Mass [ kg] | x | y | z | Ixx | Iyy | Izz | Ixy | Ixz | Iyz |
 |------|-----------|---|---|---|-----|-----|-----|-----|-----|-----|
 | 1    | 54.153    | 0.0004   | -0.0005  | 0.4416  | 1.2211  | 1.3092  | 1.0273  | -0.0033  | -0.1784  | 0.0012   |
 | 2    | 10.526    | -0.0170  | 0.0674   | 0.0020  | 0.1277  | 0.0943  | 0.0840  | 0.0089  | 0       | 0.0009   |
@@ -390,10 +390,10 @@ Hence, `B` will be represented by the maximum values of the mass matrix `B` diag
 
 ### 9.2. Worst Case Inertia
 
-To identify the worst-case inertia, represented by the maximum values along the diagonal of the `B` matrix, a trial-and-error method was employed by searching for joint values `q`. The obtained values and the corresponding robot configurations for each inertia are shown in the table. Notably, for joints `q1`, `q2` and `q3` the changes in inertia values were negligible, suggesting that any configuration of `q` would yield the maximum inertia value for these joints.
+To identify the worst-case inertia, represented by the maximum values along the diagonal of the `B` matrix, a trial-and-error method was employed by searching for joint values `q`. The obtained values and the corresponding robot configurations for each inertia are shown in the subsequent table. Notably, for joints `q1`, `q2` and `q3` the changes in inertia values were negligible, suggesting that any configuration of `q` would yield the maximum inertia value for these joints.
 
-      | Maximum Inertia  | Joint values [\º]  |
-| Joint |   [Kg ⋅ m^2]              | q1 | q2 | q3 | q4 | q5 | q6 | q7 |
+
+| Joint |   Maximum Inertia  [Kg ⋅ m^2] | q1 | q2 | q3 | q4 | q5 | q6 | q7 |
 |-------|---------------------------|----|----|----|----|----|----|----|
 | q1    | 89.24                     | -  | -  | -  | -  | -  | -  | -  |
 | q2    | 5.319                     | -  | -  | 0  | 10 | -145 | 0  | -  |
@@ -404,24 +404,50 @@ To identify the worst-case inertia, represented by the maximum values along the 
 | q7    | 2.1                       | -  | -  | -  | -  | -  | -  | -  |
 
 
-{{< details "**Configurations:** q2, q3 and q5 - (click to expand)" close >}}
-
-`q2` configuration:
-
-![53](https://live.staticflickr.com/65535/53469658316_d7eab0a5b8_w.jpg) 
-
-`q3` configuration:
-
-![54](https://live.staticflickr.com/65535/53469800663_f1ea4ae6a4.jpg)
-
-`q5` configuration:
-
-![55](https://live.staticflickr.com/65535/53469658306_13bc14c536.jpg)
-
-{{< /details >}}
-
 
 ### 9.3. Controller Gains Tuning
+
+Considering the trial-and-error approach, it was decided to incorporate a simple oval trajectory for the end-effector. The objective is to assess the robot's response to this trajectory and analyze the errors across all joints. The oval trajectory involves the end-effector completing two revolutions. These experiments are conducted over a 20-second duration, enabling the exploration of various natural frequencies and damping ratios.
+
+![56](https://live.staticflickr.com/65535/53469978149_31d94f96f1_w.jpg)
+
+To initiate the process, it was determined to employ identical {{< katex >}}\omega_n{{< /katex>}} (natural frequency) and {{< katex >}}\xi{{< /katex>}} (damping ratio) values for all joints. 
+
+|      | q1  | q2  | q3   | q4   | q5   | q6   | q7   |
+|------|-----|-----|------|------|------|------|------|
+| wn [ rad/s] | 10  | 10  | 10   | 10   | 10   | 10   | 10   |
+| ξ    | 0.707 | 0.707   | 0.707    | 0.707    | 0.707    | 0.707    | 0.707    |
+| Kp   | 8924 | 531.9 | 487.6 | 251.6 | 211.1 | 210.1 | 254.1 |
+| Kd   | 1262 | 75.2 | 69.0 | 35.6 | 29.9 | 29.7 | 32.7 |
+| Maximum Tracking Error | 0.0614 | 0.0953 | 0.1240 | 0.1605 | 0.1805 | 0.1722 | 0.1814 |
+
+
+![57](https://live.staticflickr.com/65535/53469658291_68abcfbcfd_z.jpg)
+
+Observing the error values, it is evident that they are quite high, with the largest error observed in `q7` at 18 cm. This level of error, even if the robot eventually converges to the final position, is deemed substantial. To address this, the natural frequency of the joints will be increased. This adjustment aims to expedite the robot's response and convergence to the desired values for each joint during the trajectory. Additionally, considering the larger error, a more significant increase in the natural frequency, especially for the last joints, has been decided upon.
+
+|                        | q1   | q2    | q3    | q4    | q5    | q6    | q7    |
+|------------------------|------|-------|-------|-------|-------|-------|-------|
+| wn [ rad/s]             | 20   | 20    | 20    | 20    | 40    | 40    | 40    |
+| ξ    | 0.707 | 0.707   | 0.707    | 0.707    | 0.707    | 0.707    | 0.707    |
+| Kp                     | 35696 | 2128  | 1950  | 1006  | 3378  | 3362  | 3360  |
+| Kd                     | 2524.1| 150.4 | 137.9 | 71.2  | 119.4 | 118.9 | 118.8 |
+| Maximum Tracking Error | 0.0316| 0.0520| 0.0678| 0.0820| 0.0499| 0.0468| 0.0498|
+
+![58](https://live.staticflickr.com/65535/53468756027_2abc8daa83_c.jpg)
+
+As observed, the errors have become significantly smaller, indicating that the increase in natural frequency has accelerated the system's response. It's essential to note that this increase has its limits, as excessively high natural frequencies can render the system unstable. Additionally, with the inertias being relatively small, the stiffness and damping gains become increasingly larger in response. 
+
+|                        | q1   | q2    | q3    | q4    | q5    | q6    | q7    |
+|------------------------|------|-------|-------|-------|-------|-------|-------|
+| wn [ rad/s]             | 25   | 30    | 40    | 40    | 60    | 60    | 60    |
+| ξ    | 0.707 | 0.707   | 0.707    | 0.707    | 0.707    | 0.707    | 0.707    |
+| Kp                     | 55775| 4787  | 7802  | 4026  | 7600  | 7564  | 7560  |
+| Kd                     | 3155.1| 225.7 | 275.8 | 142.3 | 179.1 | 178.3 | 178.2 |
+| Maximum Tracking Error | 0.0257| 0.0363| 0.0416| 0.0435| 0.0353| 0.0331| 0.0353|
+
+
+![59](https://live.staticflickr.com/65535/53469800638_8fc7d282db_c.jpg)
 
 ## 10. Centralized Controller
 
