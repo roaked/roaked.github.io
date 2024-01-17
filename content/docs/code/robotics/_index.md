@@ -267,8 +267,8 @@ J = \begin{bmatrix} J_P \\ J_O \end{bmatrix}
 
 Here,
 
-- {{< katex display >}}J_P{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector linear velocities.
-- {{< katex display >}}J_O{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector angular velocities.
+- {{< katex >}}J_P{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector linear velocities.
+- {{< katex >}}J_O{{< /katex >}} is a (3 × n) matrix that relates joint velocities to end effector angular velocities.
 
 {{< katex display >}} 
 \begin{bmatrix} \dot{p}_e \\
@@ -294,14 +294,14 @@ w_e = \sum_{i=1}^{n} w_{i-1,i} = \sum_{i=1}^{n} J_{O_i} \dot{q}_i
 
 Every term in the Jacobian matrix signifies the velocity contribution of an individual joint `i` to the end effector when all other joints are held stationary.
 
-1. Prismatic Joints:
+1. **Prismatic Joints**:
 
 {{< katex display>}}
 J_{P_i} = z_{i-1} \\
 J_{O_i} = 0
 {{< /katex >}}
 
-2. Revolute Joints:
+2. **Revolute Joints**:
 
 
 {{< katex display>}}
@@ -384,7 +384,7 @@ The computation of {{< katex >}}\dot{q}{{< /katex>}} is modified to include the 
 {{< katex >}}\omega{{< /katex>}}(q) allows to maximize the distance from mechanical joint limits and is computed as:
 
 {{< katex display>}}
-w(q) = -\frac{1}{2n} \sum_{i=1}^{n} \left(\frac{q_i - \overlina{q_i}}{q_{iM} + q_{im}}\right)^2
+w(q) = -\frac{1}{2n} \sum_{i=1}^{n} \left(\frac{q_i - \overline{q_i}}{q_{iM} + q_{im}}\right)^2
 {{< /katex>}}
 
 Hence, there are four distinct gains to consider: {{< katex >}}K_P{{< /katex>}} for position, {{< katex >}}K_O{{< /katex>}} for orientation, `k` for the damped least squares inverse and {{< katex >}}k_0{{< /katex>}} for null-space stabilization. It is imperative to fine-tune each of these gains to achieve the desired system behaviour.
