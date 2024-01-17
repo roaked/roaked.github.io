@@ -6,13 +6,32 @@ title: "My Programming Lectures"
 
 # **DSA Lectures @ GitHub**
 
-![q031](https://live.staticflickr.com/65535/53470682660_24754952d2_w.jpg)
+![q031](https://live.staticflickr.com/65535/53470685640_2730be6ede_z.jpg)
 
-I am currently holding programming lectures on data structures and algorithms encompassing different levels at my current position. I have taught the basics to undergraduate students, as well as, to doctoral colleagues of mine without prior extensive experience in programming. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures) As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people. Hopefully, more to come. :)
+I am currently holding programming lectures that cover data structures and algorithms at various levels in my current role. My teaching experience spans from introducing fundamental concepts to undergraduate students to guiding doctoral colleagues with limited prior programming experience through more advanced topics. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures) As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people. Hopefully, more to come. :)
 
-- I can recommend the Grokkings series of books for learning diverse computing topics!
+## **Books**
 
-## **Exploring DSA with LeetCode**
+- [Automate the Boring Stuff with Python by Al Sweigart](https://automatetheboringstuff.com/)
+
+- [Think Python, 2nd Edition by Allen B. Downey](http://greenteapress.com/thinkpython2/thinkpython2.pdf)
+
+- [Python for Everybody by Dr. Charles Severance](https://www.py4e.com/book.php)
+
+- [Grokking Algorithms, 2nd Edition by Aditya Bhargava](https://www.manning.com/books/grokking-algorithms-second-edition)
+
+- [Grokking Deep Reinforcement Learning by Charles Isbell](https://www.manning.com/books/grokking-deep-reinforcement-learning)
+
+## **Online Courses and Tutorials**
+
+- [Cheatsheet on String Formatting](https://mkaz.blog/working-with-python/string-formatting/)
+
+- [Learn X in Y Minutes - Python](https://learnxinyminutes.com/docs/python/)
+
+- [Python Cheat Sheets by Eric Matthes](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
+
+
+# **Exploring DSA with LeetCode**
 
 In addition, this is a small sample of my interest for Data Structures and Algorithms (DSA) problems on LeetCode. 
 
