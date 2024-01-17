@@ -565,4 +565,97 @@ When executing CLIK to obtain the desired positions, velocities, and acceleratio
 
 ### 11.1. Trajectory with Decentralized Controller
 
+After attempting to use the previously determined gain values for the new trajectory, an unstable behavior was observed in the error values for joint `q1`. Consequently, the natural frequency for q1({{< katex >}}\omega_{n1}{{< /katex >}}) was reduced by 5 rad/s to {{< katex >}}\omega_{n1} = 20{{< /katex >}}. This adjustment yielded the following error values for the "IST" trajectory.
+
+|      | q1    | q2    | q3    | q4    | q5    | q6    | q7    |
+|------|-------|-------|-------|-------|-------|-------|-------|
+| Maximum Error | 0.0556 | 0.0408 | 0.0339 | 0.0183 | 0.0574 | 0.0214 | 0.1417 |
+
+![73](https://live.staticflickr.com/65535/53469658201_1b666e68dc_z.jpg)
+
+The elevated error value for joint `q7` can be attributed primarily to the controller relying solely on joint position. Since the end-effector exhibits varying velocities along the path, especially during curves where velocities are higher, it leads to the controller "losing track" of the position, resulting in larger errors. However, the animation remains satisfactory as the robot remains stable throughout, and the error converges to the final value. Another evaluation approach is to examine the different end-effector positions throughout the trajectory. 
+
+![74](https://live.staticflickr.com/65535/53469800553_e16e234471_w.jpg)
+
+From this plot, as mentioned earlier, it is evident that the robot encounters difficulty in accurately following the curves of the trajectory, particularly in the contours of the "I" and "T" where velocities are higher. The most significant tracking error occurs during the "S" trajectory, characterized by two consecutive curves. The following figures will illustrate the desired positions, current positions of the robot, and the error between them.
+
+![75](https://live.staticflickr.com/65535/53470076170_ffa5b4255b_c.jpg)
+
+![76](https://live.staticflickr.com/65535/53469978069_ac9cc8824c_c.jpg)
+
+From the last two images, it may appear that the values on the y-axis in the first figure exhibit the most disparity, but this is solely due to the scale of the Scope. The highest difference error in this axis is approximately 0.00037 meters.
+
+Given that the trajectory primarily occurs in the "x" and "z" axes, these are the dimensions that display the highest peaks in error. From the right subplot of the last image, five prominent spikes are observed in the x-axis, corresponding to the five main curves of the trajectory (two for "I," two for "S," and one for "T"). The maximum error values obtained for x, y, and z are {{< katex >}}e_x = 0.0429, e_y = 0.0011 \text{and} e_z = 0.0119  {{< /katex >}}
+
+![77](https://live.staticflickr.com/65535/53469800528_e09e68643b_z.jpg)
+
+
+The plots illustrate that the joint values `q` exhibit capacity of following the trajectory throughout its course, showcasing the effectiveness of the decentralized controller as a capable tool for controlling robot trajectories.
+
 ### 11.2. Trajectory with Centralized Controller
+
+When using {{< katex >}}\xi = 1 \text{and} \omega_n = 15{{< /katex >}}, the following results were obtained after executing the "IST" trajectory:
+
+|      | q1    | q2    | q3    | q4    | q5    | q6    | q7    |
+|------|-------|-------|-------|-------|-------|-------|-------|
+| Maximum Error | 0.0024 | 0.0110 | 0.0061 | 0.0027 | 0.0379 | 0.0019 | 0.0966 |
+
+![78](https://live.staticflickr.com/65535/53469978034_0994d50615.jpg)
+
+
+Similar to the Decentralized controller, the most significant error occurs with joint `q7`. The results are not significantly different from the decentralized control, with small errors. The end-effector position plot yielded the following result:
+
+![79](https://live.staticflickr.com/65535/53469978039_a2c83d9bea_w.jpg)
+
+The most substantial errors emerge in the tight turns of the "I" and "T," as well as the large curves during the "S." However, these errors are not overly significant, as the plots closely resemble each other, and the letters can still be distinctly recognized. As for the errors in the end-effector position:
+
+![80](https://live.staticflickr.com/65535/53469800513_817f2c893b_z.jpg)
+
+The maximum values of error obtained for x, y, and z are {{< katex >}}e_x = 0.0045, e_y = 0.0017 \text{and} e_z = 0.0030  {{< /katex >}}. As for evolution of the joints’ positions:
+
+![81](https://live.staticflickr.com/65535/53469978019_0556179347_c.jpg)
+
+The plots of `q` and `qd` are nearly overlaid, indicating good tracking. The most noticeable errors are observed in `q5` and `q7`, as expected from the table of maximum errors presented.
+
+As a final experiment, we decided to increase the values of {{< katex >}}\omega_n{{< /katex >}} to observe their impact on the tracking errors. The chosen values were {{< katex >}}\omega_n = [ 20,20,20,20,20,30,20,50]{{< /katex >}}. {{< katex >}}\omega_{n5}{{< /katex >}} and {{< katex >}}\omega_{n7}{{< /katex >}} were selected to have higher values than the rest due to having the largest errors. The results were:
+
+|      | q1    | q2    | q3    | q4    | q5    | q6    | q7    |
+|------|-------|-------|-------|-------|-------|-------|-------|
+| Maximum Error | 0.0024 | 0.0081 | 0.0035 | 0.0018 | 0.0222 | 0.0020 | 0.0286 |
+
+
+![82](https://live.staticflickr.com/65535/53469978009_ec14068be9_c.jpg)
+
+The errors are smaller, and the "spikes" persist for a shorter duration than before (indicating a faster rise and fall). Upon closer inspection of a zoomed-in section, it appears that the system remains stable, with no significant oscillations:
+
+![83](https://live.staticflickr.com/65535/53469658161_31bd7c8b44_c.jpg)
+
+These values produced slightly better results than those used before, but they are more tuned to this specific trajectory. The previous values also yielded good results and may be more appropriate for a broader range of trajectories, with less risk of causing instability in the system.
+
+## 12. Final Remarks
+
+At the first chapters, the direct kinematics and inverse kinematics were implemented. Although direct kinematics where the joint coordinates are given to determine the end effector's position and orientation, were successfully implemented and validated, the inverse kinematics posed a challenge and a geometric approach was employed, involving drawings to enhance understanding of joint relationships. It was found that `q1` needed to be initially prescribed as a solution. 
+
+The CLIK model overcame the redundancy in the robot, providing solutions without prescribing q1. However, it introduced complexities with four different gains, requiring tuning for optimal performance. While CLIK simplified the algebraic work compared to the non-closed-loop form, the gain tuning process was not trivial, and finding an optimal solution required adjusting multiple parameters.
+
+Despite the complexities, CLIK offered a more straightforward approach to inverse kinematics, especially for robots with different architectures. The ability to handle redundancy was a significant advantage. After tuning the gains to optimal values, CLIK demonstrated reliable results.
+
+{{< hint important >}}
+It's important to note that, while a geometric approach was chosen for the inverse kinematics, other analytical approaches utilizing transformation matrices for each joint are possible. The geometric approach, driven by its intuitiveness, was selected for this project.
+{{< /hint >}}
+
+As for the dynamics and control: starting with the extraction of masses and inertias of the links, SolidWorks proved to be a successful tool. The choice of Newton-Euler formulation for dynamics computation was efficient due to its recursive nature and simple implementation, making it easier and more effective than Lagrange. The fall of the robot under gravity when no torques were applied aligned with expectations.
+
+In terms of controllers, both the Decentralized and Centralized Controllers exhibited good performance in trajectory tracking. However, the Centralized Controller demonstrated superiority, utilizing not only joint positions `qd` but also joint velocities `qd/dt` and accelerations `q2d/dt2` for improved tracking. The Decentralized Controller, employing a P-D control with gravity compensation replacing the integrative part of PID, showed a slight deviation in the reference trajectory, especially during high-velocity movements.
+
+The Centralized Controller, when appropriately tuned, showcased robust performance, even in the presence of disturbances in the estimation of dynamics. The trajectory planning using CLIK was successful, emphasizing its reliability for both kinematic analysis and task description.
+
+The error analysis highlighted the Centralized Controller's superior results over the Decentralized Controller:
+
+|                     | q1     | q2     | q3     | q4     | q5     | q6     | q7     |
+|---------------------|--------|--------|--------|--------|--------|--------|--------|
+| Decentralized Controller | 0.0556 | 0.0408 | 0.0339 | 0.0183 | 0.0574 | 0.0214 | 0.1417 |
+| Centralized Controller   | 0.0024 | 0.0110 | 0.0061 | 0.0027 | 0.0379 | 0.0019 | 0.0966 |
+
+
+In summary, both controllers proved effective for the imposed trajectory, but for tasks involving high velocities, the Centralized Controller demonstrated greater reliability compared to the Decentralized Controller.
