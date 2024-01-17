@@ -194,3 +194,76 @@ Another test involved applying sinusoidal inputs to all joints simultaneously. T
 ![11](https://live.staticflickr.com/65535/53469533946_d84d6bd8d9.jpg)
 
 ## 4. Inverse Kinematics
+
+Inverse kinematics involves determining the values of the joint variables `q`, given the position and orientation of the end effector. It's important to note that solving such problems may yield multiple solutions.
+
+In the case of the KR6, the end effector's position and orientation are described by 6 parameters: three displacements (`x`, `y`, `z`) and three Euler angles (`{{< katex>}}\phi{{</ katex>}}`, `{{< katex}}\theta{{</ katex>}}`, `{{< katex}}\psi{{</ katex>}}`). However, the robot has 7 links, indicating it possesses 7 degrees of freedom. This redundancy implies that, to solve the inverse kinematics problem, one of the joint variables must be specified initially. In this scenario, `q1`, corresponding to the prismatic joint, was chosen to be fixed, leaving 6 degrees of freedom to be determined.
+
+To address this, a kinematic decoupling approach was adopted. This involves separating the arm and wrist, solving the arm joints first and then addressing the wrist joints. This strategy simplifies the inverse kinematics problem and facilitates a systematic solution to determine the joint variables.
+
+![12](https://live.staticflickr.com/65535/53469672968_55e4fe8b0c_c.jpg)
+
+
+The wrist's position serves as a reference point for calculating the initial four parameters of the robot. Beginning with the end effector's position, the wrist's position can be computed.
+
+{{< katex display >}}
+p_w = p_{07} - d_7 \times z_7^0 - [\begin{bmatrix} 0 \\ 0 \\ q_1 \end{bmatrix}]
+{{< /katex >}}
+
+It's crucial to note that all subsequent calculations utilize reference frame 0', which corresponds to reference frame 0 translated with `q1`. Additionally, in these equations, `d5` and `d7` are assumed to be positive values. Furthermore, the equations provided are applicable for a shoulder-up configuration.
+
+![13](https://live.staticflickr.com/65535/53468628917_1d8779ccb6_z.jpg)
+
+![14](https://live.staticflickr.com/65535/53469851864_32e835bddb_z.jpg)
+
+After extensive trigonometric algebra, {{< \katex >}}\alpha{{< /katex >}} and {{< \katex >}}\beta{{< /katex >}} are computed:
+
+{{< katex display >}}
+\alpha = atan2 (- p _{wy}, \sqrt{p_{wx}^2 + p_{wz}^2} - a_2)
+{{< /katex >}}
+
+{{< katex display >}}
+\beta = atan2 (a_w \sqrt{1-c_w^2}, a_3 + a_w c_w)
+{{< /katex >}}
+
+{{< hint important >}}
+After computing `q1`, `q2`, `q3` and `q4` only the wrist parameters are left to find. Hence, using rotation matrix 4 -> 7, it is possible to compute `q5`, `q6` and `q7`
+{{< /hint >}}
+
+![15](https://live.staticflickr.com/65535/53469851869_a78896bf27_c.jpg)
+
+The system offers two input options for `pd` and `Rd`:
+
+- Option 1: Users can specify the end effector position and orientation using parameters `x`, `y`, `z` (combined to form `pd`) and the Euler angles `{{< katex>}}\phi{{</ katex>}}`, `{{< katex}}\theta{{</ katex>}}`, `{{< katex}}\psi{{</ katex>}}`. The rotation matrix `Rd` is derived from these Euler angles.
+
+- Option 2: Users can input joint variables `q`, which are then processed and transformed into `pd` and `Rd` through direct kinematics. This option is particularly useful for validation purposes.
+
+To select either Option 1 or Option 2, two manual switches are provided. Both switches should be consistently either up (Option 1) or down (Option 2). Once the option is chosen, `pd` and `Rd` are transformed into `p07` and `R07`.
+
+The inverse kinematics block accepts four inputs: `p07`, `R07`, `q1`, and a vector defining the robot's configuration. The configuration vector should consist of integers 0 or 1, representing:
+
+- 1. The elbow's orientation (1 for up, 0 for down).
+- 2. The wrist's s6 value (1 for positive, 0 for negative).
+- 3. The robot's orientation (1 for facing forwards, 0 for facing backward).
+- 4. An additional number to address out-of-boundary positions when `q1` is fixed. Setting this value to 1 allows `q1` to take the inputted value, while 0 aligns `q1` with `xb` from the end effector position relative to the base reference frame — a "free range" configuration for `q1`.
+
+The output of the inverse kinematics block is the joints vector `q`, which feeds into the animation block (VR sink) and a direct kinematics block that outputs the obtained `R` and `p`. `q` is also displayed in a block labeled "vector `q`". For validation purposes, a comparison is made between `pd` and `Rd` (desired) and `p` and `R` (obtained).
+
+A switch at the bottom-left corner can be activated to halt the simulation when the robot encounters a singularity.
+
+### 4.1. Validation
+
+To add later...
+
+## 5. Geometric Jacobian
+
+
+### 5.1. Postion Validation
+
+### 5.2. Orientation Validation
+
+### 5.3. Kinematic Singularities
+
+## 6. Closed Loop Inverse Kinematics (CLIK)
+
+### 6.1. Validation
