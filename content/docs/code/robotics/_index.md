@@ -227,7 +227,7 @@ After extensive trigonometric algebra, {{< \katex >}}\alpha{{< /katex >}} and {{
 {{< /katex >}}
 
 {{< hint important >}}
-After computing `q1`, `q2`, `q3` and `q4` only the wrist parameters are left to find. Hence, using rotation matrix 4 -> 7, it is possible to compute `q5`, `q6` and `q7`
+After computing `q1`, `q2`, `q3` and `q4` only the wrist parameters are left to find. Hence, using rotation matrix 4 -> 7, it is possible to compute `q5`, `q6` and `q7`.
 {{< /hint >}}
 
 ![15](https://live.staticflickr.com/65535/53469851869_a78896bf27_c.jpg)
@@ -270,11 +270,123 @@ To add later...
 
 ## 7. Link Properties
 
+To incorporate the dynamics of the robot, it's essential to determine approximate values for the mechanical properties of the links. Solidworks, with its available CAD models, was employed for this purpose. Assigning a material in Solidworks is a crucial step, and since the CAD models represented solid bodies instead of hollow structures, it was necessary to adjust the density.
+
+Given that the robot's manual specified a weight of 50 kilograms for the KR6 robot without the carriage and KL beam, a uniform density of 1680 kg/m³ was applied in Solidworks. This density adjustment resulted in the KR6 parts weighing approximately 50.4 kilograms, providing a satisfactory approximation. It's noteworthy that link 1 comprises two parts: the base of KR6 and a carriage supporting KR6. In the manual, the carriage weight is not included in the KR6's weight specification.
+
+| Link | Mass [\kg] | x | y | z | Ixx | Iyy | Izz | Ixy | Ixz | Iyz |
+|------|-----------|---|---|---|-----|-----|-----|-----|-----|-----|
+| 1    | 54.153    | 0.0004   | -0.0005  | 0.4416  | 1.2211  | 1.3092  | 1.0273  | -0.0033  | -0.1784  | 0.0012   |
+| 2    | 10.526    | -0.0170  | 0.0674   | 0.0020  | 0.1277  | 0.0943  | 0.0840  | 0.0089  | 0       | 0.0009   |
+| 3    | 12.299    | -0.1840  | -0.0053  | -0.0058 | 0.0639  | 0.2515  | 0.2255  | 0.0015  | 0.0028  | 0        |
+| 4    | 4.810     | -0.0246  | 0        | -0.0161 | 0.0164  | 0.0186  | 0.0136  | 0       | 0.0023  | 0        |
+| 5    | 4.582     | 0.0001   | -0.1341  | 0.0036  | 0.0287  | 0.0096  | 0.0259  | 0       | 0       | -0.0003  |
+| 6    | 0.747     | 0        | 0.0019   | -0.0168 | 0.0010  | 0.0009  | 0.0005  | 0       | 0       | 0        |
+| 7    | 0.023     | 0        | 0        | -0.0075 | 3E-6    | 3E-6    | 5E-6    | 0       | 0       | 0        |
+
+
+The inclusion of motors within the robot's links was modeled by representing them as cylinders with a diameter of 1 cm and a height of 10 cm, constructed from steel. The resulting inertia of the motors around their z-axis (Im) was determined to be 0.00021 kg m². Additionally, gear reduction ratios (`kr`) were set at a value of 100. 
+
 ## 8. Newton-Euler Formulation
+
+The Newton-Euler formulation relies on the equilibrium of forces acting on the manipulator's links. This formulation enables a recursive solution, divided into two sets of recursion:
+
+- 1. **Forward Recursion**: This phase propagates and computes link velocities and accelerations, commencing from link 1 and concluding at the end-effector.
+
+- 2. **Backward Recursion**: In this phase, forces for prismatic joints and moments for revolute joints are propagated and calculated. The recursion begins at the end-effector and concludes at link 1.
+
+
+{{< hint tip >}}
+A key advantage of the Newton-Euler formulation lies in its simplicity of implementation, facilitating an efficient computation of the dynamics solution.
+{{< /hint >}}
+
+The underlying concept of the Newton-Euler formulation is as follows: the forward recursion helps calculate velocities and accelerations, enabling the determination of end-effector forces and moments. Subsequently, by proceeding backward, each force and moment for the link preceding the end-effector is computed. This approach allows for the determination of all forces and moments acting on the links. With this information, the behaviour of torque joints for any trajectory can be calculated. Utilizing the torque joints, and assuming no external forces at the end-effector, the joint space dynamic model can be established.
+
+{{< katex display >}}
+B(q)\ddot{q} + C(q, \dot{q})\dot{q} + g(q) = \tau
+{{< /katex >}}
+
+In order to calculate the torques, the manipulator equation can be decomposed into three main components: the mass matrix `B`, the Coriolis/Centrifugal matrix `C` and a given gravity vector `g`. The term {{< katex >}} C(q, \dot{q})\dot{q} {{< /katex >}} can be expressed as a vector {{< katex >}} \phi (q, \dot{q}) {{< /katex >}}.
+
+Implementing these calculations in real-time requires a dynamics block in Simulink. [A general Newton-Euler equation was developed in MATLAB](https://github.com/roaked/robotics-kinematics-dynamics-and-control/tree/main/DynamicsV1), capable of [solving the Newton-Euler formulation](https://github.com/roaked/robotics-kinematics-dynamics-and-control/blob/main/DynamicsV1/Newton_Euler.m) for any robot with both revolute and prismatic joints. This equation takes the Denavit-Hartenberg (DH) table, along with the necessary properties of links and motors, and outputs the torques.
+
+Using the function, one can also obtain `B`, `{{< katex >}}\phi{{< /katex >}}`, and `g`. The gravity vector is the simplest to obtain: {{< katex >}}g = \tau (q, \dot{q}, q\ddot{q}) = \tau (q, 0, 0){{< /katex >}}. Imposing the joints velocities and accelerations to zero, `B` and `C` are erased from the equation.
+
+To obtain the mass matrix, since it doesn’t depend on the velocity, {{< katex >}}\dot{q}{{< /katex >}} can be set to zero. The acceleration of gravity is also turned to zero, leaving the equation as {{< katex >}}B(q\dot{q})\ddot{q} = \tau {{< /katex >}}. Deriving the expressions by the vector {{< katex >}}\ddot{q}{{<  /katex >}}, `B` is finally obtained.
+
+{{< katex >}}\phi = C(q, \dot{q})\dot{q}{{< /katex >}} is obtained by setting {{< katex >}}\ddot{q}{{< /katex >}} and the gravity acceleration to zero.
+
+Regarding `B` and {{< katex >}}\phi{{< /katex >}}, another separation can be made. Both parameters can be divided by the contributions of the augmented links, {{< katex >}}B_l{{< /katex >}} and {{< katex >}}\phi_l{{< /katex >}}, and contributions of the motors, {{< katex >}}B_m{{< /katex >}} and {{< katex >}}\phi_m{{<  /katex >}}. To obtain the contributions of the links, the mechanical properties of the motors {{< katex >}}k_r{{< /katex >}} and {{< katex >}}I_m{{< /katex >}} can be set to zero, while to obtain the motors' contributions the masses of the links `m` and their inertia tensors `I` can be set to zero. This separation can be useful to visualize the influence of the motors on these parameters.
+
+### 8.1. Validation
+
+
+![50](https://live.staticflickr.com/65535/53468756072_f11d1ac5a6_b.jpg)
+
+The dynamics block takes the position and velocity vectors, q and {{< katex >}}\dot{q}{{< /katex >}}, as inputs and produces `B` and {{< katex >}}\phi{{< /katex >}} (with separated terms for contributions from links and motors) along with `g` as outputs. Accelerations are computed and then integrated to derive velocities, which are subsequently integrated to obtain positions.
+
+{{< katex display >}}
+\ddot{q} = B^{-1}(\tau - \phi - g)
+{{< /katex >}}
+
+By setting the torques to zero, the robot undergoes motion solely due to the influence of gravity. The nature of this movement is contingent upon the initial conditions of the robot. For instance, with initial conditions {{< katex >}}q_0 = [ 0,0,0, −\frac{\pi}{2}, 0,0,0 ]{{< /katex >}}, the robot exhibits pendulum-like behavior, with the arm fully extended. Absent viscous forces, mechanical energy is conserved, leading to sustained oscillations. Alternatively, setting the initial conditions to {{< katex >}}q_0 = [ 0,\frac{\pi}{2},0,0 0,0,0 ]{{< /katex >}} results in the arm behaving akin to a double pendulum as subsequently shown.
+
+![51](https://live.staticflickr.com/65535/53469800668_6e985fb8b5.jpg)
+
 
 ## 9. Decentralized PID Joint Controllers
 
+The central concept behind the decentralized controller involves breaking down the manipulator into `n` independent systems, where `n` represents the number of joints. Each joint is then controlled independently. The proposed solution entails the creation of a closed-loop PID (Proportional-Integral-Derivative) controller for each joint. In this setup, the input is the desired joint value `qd` and the output is the `q` values, which the KR6 Robot uses for computation. This approach relies on the equation:
+
+{{< katex display >}}
+\tau = -K_d \dot{q} + K_p(q - q_d) - K_i \int (q - q_d) \, dt
+{{< /katex >}}
+
+The integral action in the PID controller serves to eliminate the persistent error induced by the simulated gravity. Consequently, instead of using the integral gain, replace it by directly incorporating the manipulator's gravity compensation outputs for each joint. This adjustment helps counteract the influence of simulated gravity and contributes to improved control performance.
+
+{{< katex display >}}
+\tau = -K_d \dot{q} + K_p(q - q_d) + g(q)
+{{< /katex >}}
+
+Opting for a PD (Proportional-Derivative) controller without an integral gain is beneficial as it avoids introducing a pole at the origin, which could otherwise slow down the system response. The chosen approach involves creating a PD controller and incorporating gravity compensation. In this setup, the dynamics manipulator receives an initial condition and produces the joint velocities {{< katex >}} `\dot{q}` {{< /katex >}}, joint values `q` and gravity compensation. These outputs feed into the controller, which computes a new torque {{< katex >}} `\tau` {{< /katex >}}. This torque is then fed back into the dynamics manipulator, resulting in updated joint values `q` that are subsequently utilized in the actual robot. This iterative process helps refine the control of the system.
+
+![52](https://live.staticflickr.com/65535/53468756057_84d50fd68c_z.jpg)
+
 ### 9.1. Stifness and Damping Gains
+
+To determine the values for the Stiffness `Kp` and Damping `Kd` gains:
+
+{{< katex display >}}
+B(q)\ddot{q} + C(q, \dot{q})\dot{q} + g(q) = -K_d\dot{q} + K_p(q - q_d) + g(q)
+{{< /katex >}}
+
+By removing the gravity compensation from both sides and making the assumption that in the decentralized controller, the joints are decoupled and the model is completely linearized — thus {{< katex >}} \dot{q}^2 \approx 0 {{< /katex >}} and the Coriolis effect {{< katex >}} C(q, \dot{q})\dot{q} {{< /katex >}} infered to be null.
+
+{{< katex display >}}
+B(q)\ddot{q} = -K_d\dot{q} + K_p(q - q_d)
+{{< /katex >}}
+
+Obtaining the transfer function of second order using Laplace transform:
+
+{{< katex display >}}
+\frac{q(s)}{q_d(s)} = \frac{\frac{K_p}{B}}{s^2 + \frac{K_d}{B}s + \frac{K_p}{B}}
+{{< /katex >}}
+
+Comparing the second-order system without dampening and natural frequency with a second-order system with dampening and natural frequency, it is safe to conclude:
+
+{{< katex display >}}
+\frac{\omega_n^2}{s^2 + 2 \xi \omega_n s + \omega_n^2} = \frac{\frac{K_p}{B}}{s^2 + \frac{K_d}{B}s + \frac{K_p}{B}}
+{{< /katex >}}
+
+{{< katex display >}}
+K_p = \omega_n^2 B
+{{< /katex >}}
+
+{{< katex display >}}
+K_d = 2 \xi \omega_n^2 B
+{{< /katex >}}
+
+Hence, `B` will be represented by the maximum values of the mass matrix `B` diagonal. Given that each joint will be controlled separately, each joint will have its respective `Kd`, `Kp` and `B`.
 
 ### 9.2. Worst Case Inertia
 
