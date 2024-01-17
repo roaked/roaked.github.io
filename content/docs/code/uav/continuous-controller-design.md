@@ -1,5 +1,5 @@
 ---
-title: Drone Continuous Controller
+title: Continuous Controller
 weight: 3
 ---
 

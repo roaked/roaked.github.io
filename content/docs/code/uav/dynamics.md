@@ -1,5 +1,5 @@
 ---
-title: Drone Dynamics
+title: Drone System Dynamics
 weight: 2
 ---
 

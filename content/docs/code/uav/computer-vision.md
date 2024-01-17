@@ -1,5 +1,5 @@
 ---
-title: Drone Computer Vision
+title: "Gate Detection: Computer Vision"
 weight: 5
 ---
 

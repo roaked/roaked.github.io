@@ -1,5 +1,5 @@
 ---
-title: Drone Discrete Controller
+title: Discrete Controller
 weight: 4
 ---
 
