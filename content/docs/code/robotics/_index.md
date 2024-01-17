@@ -219,7 +219,7 @@ It's crucial to note that all subsequent calculations utilize reference frame 0'
 After extensive trigonometric algebra, {{< \katex >}}\alpha{{< /katex >}} and {{< \katex >}}\beta{{< /katex >}} are computed:
 
 {{< katex display >}}
-\alpha = atan2 (- p _{wy}, \sqrt{p_{wx}^2 + p_{wz}^2} - a_2)
+\alpha = atan2 (- p_{wy}, \sqrt{p_{wx}^2 + p_{wz}^2} - a_2)
 {{< /katex >}}
 
 {{< katex display >}}
@@ -242,10 +242,10 @@ To select either Option 1 or Option 2, two manual switches are provided. Both sw
 
 The inverse kinematics block accepts four inputs: `p07`, `R07`, `q1`, and a vector defining the robot's configuration. The configuration vector should consist of integers 0 or 1, representing:
 
-- 1. The elbow's orientation (1 for up, 0 for down).
-- 2. The wrist's s6 value (1 for positive, 0 for negative).
-- 3. The robot's orientation (1 for facing forwards, 0 for facing backward).
-- 4. An additional number to address out-of-boundary positions when `q1` is fixed. Setting this value to 1 allows `q1` to take the inputted value, while 0 aligns `q1` with `xb` from the end effector position relative to the base reference frame — a "free range" configuration for `q1`.
+1. The elbow's orientation (1 for up, 0 for down).
+2. The wrist's s6 value (1 for positive, 0 for negative).
+3. The robot's orientation (1 for facing forwards, 0 for facing backward).
+4. An additional number to address out-of-boundary positions when `q1` is fixed. Setting this value to 1 allows `q1` to take the inputted value, while 0 aligns `q1` with `xb` from the end effector position relative to the base reference frame — a "free range" configuration for `q1`.
 
 The output of the inverse kinematics block is the joints vector `q`, which feeds into the animation block (VR sink) and a direct kinematics block that outputs the obtained `R` and `p`. `q` is also displayed in a block labeled "vector `q`". For validation purposes, a comparison is made between `pd` and `Rd` (desired) and `p` and `R` (obtained).
 
