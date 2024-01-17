@@ -1,6 +1,6 @@
 ---
 weight: 2
-title: "AGV: System Identification"
+title: "AGV: Stochastic Identification"
 ---
 
 # **They See Me Rollin', They Navigatin'**
