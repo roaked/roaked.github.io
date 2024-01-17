@@ -1,6 +1,6 @@
 ---
 title: UAV Red Bull Air Racing
-weight: 1
+weight: 2
 ---
 
 # **An Autonomous Drone Racing Competition**

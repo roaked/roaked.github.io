@@ -1,6 +1,6 @@
 ---
 title: "Fake News: Clusters, FIS & ANN "
-weight: 3
+weight: 4
 ---
 
 # **Language Features for Detection of Fake News**
