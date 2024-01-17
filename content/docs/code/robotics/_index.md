@@ -506,8 +506,62 @@ K_P = \text{diag}\{\omega_{n1}^2, \ldots, \omega_{nn}^2\} \\
 K_D = \text{diag}\{2\xi_1\omega_{n1}, \ldots, 2\xi_n\omega_{nn}\}
 {{< /katex>}}
 
+**Simulink design:**
+
+![65](https://live.staticflickr.com/65535/53469658241_da2c684048_c.jpg)
+
+For the centralized controller, the parameters `B` and `n` are estimated. In order to thoroughly test the controller and simulate a real-life scenario where the manipulator dynamics may not precisely match the modeled dynamics (due to simplifications and neglecting factors such as viscous forces), a different dynamics block was introduced. This new dynamics block incorporates a 10% error in the masses of the links. While this adjustment might lead to a slightly less optimal controller performance, it enhances the realism of the simulation. Essentially, it is assumed that the positions and velocities of the manipulator joints can be measured, but directly extracting the `B` and `n` parameters requires an estimator due to potential uncertainties in the dynamics.
+
+### 10.1. Controller Gains Tuning
+
+For the centralized controller, the natural frequencies and damping coefficient ratios were initially uniform across all joints. The initial test involved a step response with {{< katex >}}\omega_n = 10, \xi = \frac{\sqrt{2}}{2} \approx{{< /katex >}} 0.707. However, it was observed that the system was underdamped, with some oscillations appearing in the response. To address this, {{< katex >}}\xi{{< /katex >}} was adjusted to 1.
+
+![66](https://live.staticflickr.com/65535/53470076215_fc43a60a45_c.jpg)
+
+Further increasing {{< katex >}}\xi{{< /katex >}} would result in an overdamped system, thereby slowing down the response. Thus, {{< katex >}}\xi{{< /katex >}} was maintained. It is observed that, for both responses, the steady-state error is zero.
+
+Regarding {{< katex >}}\omega_n{{< /katex >}}, since the centralized controller receives desired velocities and accelerations, it doesn't necessitate as high a {{< katex >}}\omega_n{{< /katex >}} as in decentralized control. Elevating {{< katex >}}\omega_n{{< /katex >}} would accelerate the response, potentially leading to motor saturation, while reducing it could slow down the response, increasing the tracking error. To enhance the response speed without causing saturation, {{< katex >}}\omega_n{{< /katex >}} was increased to 15.
+
+![67](https://live.staticflickr.com/65535/53469800598_2905dedb8c_c.jpg)
+
+This image illustrates that the response is rapid, with no overshoot and no steady-state error for all joints. With these parameters, the gains of the controller are {{< katex >}}K_p{{< /katex >}} = {{< katex >}}\omega_n^2 = 225{{< /katex >}} and {{< katex >}}2 \xi \omega_n = 30{{< /katex >}}. Another conducted test involved a ramp response, where imposing a ramp with a slope of 1 yielded the following tracking errors:
+
+![68](https://live.staticflickr.com/65535/53469978089_4640e1ca09_z.jpg)
+
+From the figure above, it is evident that the system rapidly converges to a tracking error of zero. This rapid convergence is attributed to the fact that desired velocities of the joints are provided. To further validate the centralized controller, it was tested with a simple oval trajectory, yielding the following results:
+
+![69](https://live.staticflickr.com/65535/53469800593_1892f9b62a_c.jpg)
+![70](https://live.staticflickr.com/65535/53469658226_1e46402deb.jpg)
+
 
 ## 11. Trajectory Planning 
+
+For trajectory planning, the decision was made to have the KR6 end-effector trace the ["IST"](https://tecnico.ulisboa.pt/) university logo. Achieving this required the development of a method for the robot to follow the designated trajectory. To implement the trajectory, a time-law was formulated, allowing for the specification of the time duration of a trajectory and establishing boundary conditions for the movement.
+
+The chosen time-law is based on a cubic polynomial. The selected constraints include initial and final times to coincide with the initial and final position of the trajectory, and initial and final accelerations set to zero. These conditions contribute to a seamless and smooth movement of the robot. The resulting time-law is:
+
+{{< katex display >}}
+s = s_0 + 3(sf - s_0)(\frac{t}{t_f})^2 - 2(sf - s_0)(\frac{t}{t_f})^3
+{{< /katex >}}
+
+{{< katex display >}}
+\frac{ds}{dt} = \frac{6}{t_f^2}(s_f - s_0)t - \frac{6}{t_f^3}(s_f - s_0)t^2
+{{< /katex >}}
+
+
+The trajectory was implemented using the parameterization of the length as a function of time, denoted as s = s(t). The trajectory was carefully designed to enable the robot to write the letters without abrupt changes in velocities, aiming to avoid generating very large accelerations. Specifically, the goal was to eliminate discontinuities in velocities. For instance, when forming the letter 'T', at some point, the end-effector would need to reverse its direction. Instead of an abrupt reversal from positive to negative velocity, the robot first slows down until it reaches zero velocity and then begins moving backward. Similarly, sharp 90º turns were avoided.
+
+The trajectory was integrated into the Closed Loop Inverse Kinematics from the initial part of the project. The Simulink subsystem for the trajectory is depicted below:
+
+![71](https://live.staticflickr.com/65535/53468755942_111edcf19b_c.jpg)
+
+After executing CLIK, the obtained results for the position of the end-effector were visualized by plotting the data in Matlab.
+
+![72](https://live.staticflickr.com/65535/53469978084_8b2e5dd09b_w.jpg)
+
+Since CLIK had already been validated in the previous report, the successful implementation of the trajectory demonstrates that the system is performing as intended. The trajectory was designed to last for 20 seconds, featuring letters with dimensions of 0.4 x 0.4 meters. The corners in the letters 'I' and 'T' were intentionally rounded to achieve a smoother movement.
+
+When executing CLIK to obtain the desired positions, velocities, and accelerations, it is crucial to adjust the solver settings. By default, the solver has a variable step. Switching to a fixed step, with a step size of 0.01 seconds, allows for a more precise sampling of data from CLIK.
 
 ### 11.1. Trajectory with Decentralized Controller
 
