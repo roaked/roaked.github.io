@@ -267,3 +267,23 @@ To add later...
 ## 6. Closed Loop Inverse Kinematics (CLIK)
 
 ### 6.1. Validation
+
+## 7. Link Properties
+
+## 8. Newton-Euler Formulation
+
+## 9. Decentralized PID Joint Controllers
+
+### 9.1. Stifness and Damping Gains
+
+### 9.2. Worst Case Inertia
+
+### 9.3. Controller Gains Tuning
+
+## 10. Centralized Controller
+
+## 11. Trajectory Planning 
+
+### 11.1. Trajectory with Decentralized Controller
+
+### 11.2. Trajectory with Centralized Controller
