@@ -1,6 +1,6 @@
 ---
 title: "Robotics: Kin, Dynamics & Control"
-weight: 1
+weight: 3
 ---
 
 # KUKA: From Kinematics to Motion Planning
