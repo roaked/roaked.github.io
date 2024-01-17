@@ -8,9 +8,11 @@ title: "My Programming Lectures"
 
 ![q031](https://live.staticflickr.com/65535/53470685640_2730be6ede_z.jpg)
 
-I am currently holding programming lectures that cover data structures and algorithms at various levels in my current role. My teaching experience spans from introducing fundamental concepts to undergraduate students to guiding doctoral colleagues with limited prior programming experience through more advanced topics. The [TeX presentations are available @ my Github page!](https://github.com/roaked/programming-lectures) As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people.
+I am currently holding programming lectures that cover data structures and algorithms at various levels in my current role. My teaching experience spans from introducing fundamental concepts to undergraduate students to guiding doctoral colleagues with limited prior programming experience through more advanced topics. As [Steve Brunton said in one his videos](https://youtu.be/wDVteayWWvU?t=52), one of greatest ways to learn is by teaching it to other people.
 
-## **Books**
+The TeX presentations are available [@ my Github page!](https://github.com/roaked/programming-lectures)
+
+## **Reference Books**
 
 - [Automate the Boring Stuff with Python by Al Sweigart](https://automatetheboringstuff.com/)
 
@@ -22,7 +24,7 @@ I am currently holding programming lectures that cover data structures and algor
 
 - [Grokking Deep Reinforcement Learning by Charles Isbell](https://www.manning.com/books/grokking-deep-reinforcement-learning)
 
-## **Online Courses and Tutorials**
+## **Reference Courses and Tutorials**
 
 - [Cheatsheet on String Formatting](https://mkaz.blog/working-with-python/string-formatting/)
 
