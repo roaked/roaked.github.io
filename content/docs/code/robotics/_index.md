@@ -3,7 +3,7 @@ title: "Robotics: Kin, Dynamics & Control"
 weight: 7
 ---
 
-# KUKA Robotics: From Kinematics to Motion Planning
+# KUKA: From Kinematics to Motion Planning
 
 [To add report when I have time :)](https://github.com/roaked/robotics-kinematics-dynamics-and-control)
 
