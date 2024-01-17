@@ -37,6 +37,8 @@ Utilizing the convention of [Denavit-Hartenberg (DH)](https://en.wikipedia.org/w
 
 ![3](https://live.staticflickr.com/65535/53469851939_221cf7f814.jpg)
 
+The dimensions `a2`, `a3`, `a4`, `d5` and `d7` are known. Hence, the table of DH can be built.
+
 | Link | \(d_i\) | \(\theta_i\) | \(a_i\) | \(\alpha_i\) | \( \text{offset} \) |
 |------|---------|--------------|--------|--------------|---------------------|
 | 1    | \(d_1\) | 0            | 0      | \(-\frac{\pi}{2}\) | 0                   |
@@ -47,4 +49,8 @@ Utilizing the convention of [Denavit-Hartenberg (DH)](https://en.wikipedia.org/w
 | 6    | 0       | \(\theta_6\) | 0      | \(\frac{\pi}{2}\)  | 0                   |
 | 7    | -0.080  | \(\theta_7\) | 0      | \(\pi\)           | 0                   |
 
+For this robot, the vector of joint variables `q` can be expressed as:
 
+{{< katex display >}}
+q = [d1 \hspace{.2cm} \vartheta_2 \hspace{.2cm} \vartheta_3 \hspace{.2cm} \vartheta_4 \hspace{.2cm} \vartheta_5 \hspace{.2cm} \vartheta_6 \hspace{.2cm} \vartheta_7 ]^T
+{{< katex >}}
