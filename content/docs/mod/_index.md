@@ -1,6 +1,7 @@
 ---
 weight: 10
-bookFlatSection: true
+bookHidden: true
+bookSearchExclude: true
 title: "Website Modifications"
 ---
 

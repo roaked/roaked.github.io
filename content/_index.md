@@ -1,7 +1,6 @@
 ---
 title: Portfolio
 type: docs
-bookHidden: True
 ---
 
 # **Hi — I am Ricardo :)**
