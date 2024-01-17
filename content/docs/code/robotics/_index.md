@@ -494,7 +494,7 @@ Opting for a PD (Proportional-Derivative) controller without an integral gain is
 
 ![52](https://live.staticflickr.com/65535/53468756057_84d50fd68c_z.jpg)
 
-### 9.1. Stifness and Damping Gains
+### 9.1. Stiffness and Damping Gains
 
 To determine the values for the Stiffness `Kp` and Damping `Kd` gains:
 
