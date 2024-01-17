@@ -1,5 +1,5 @@
 ---
-title: "Gate: Computer Vision"
+title: "Gate Sense: Computer Vision"
 weight: 5
 ---
 
