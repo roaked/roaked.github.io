@@ -1,5 +1,5 @@
 ---
-title: UAV Red Bull Air Racing
+title: "UAV: Red Bull Air Racing"
 weight: 2
 ---
 
