@@ -5,8 +5,6 @@ weight: 3
 
 # KUKA: From Kinematics to Motion Planning
 
-[To finalize report when I have time :)](https://github.com/roaked/robotics-kinematics-dynamics-and-control)
-
 ![soakd](https://blogs.mathworks.com/images/seth/2009Q2/Robot.gif)
 
 {{< hint warning >}}
