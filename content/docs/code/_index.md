@@ -8,9 +8,7 @@ title: "System Repository"
 # **Abstract**
 
 
-Welcome to the repository showcasing pivotal milestones in my journey through the field of coding. This comprehensive hub offers a glimpse into a range of accomplishments, encompassing the successful resolution of complex algorithmic challenges and the in-depth exploration of data analysis methodologies.
-
-In addition, this repository serves as a testament to collaborative endeavours, engaging talented individuals from diverse geographical backgrounds. The landscape of my exploration has traversed the intricacies of data interpretation, the frontiers of artificial intelligence, and the application of sophisticated computational techniques to optimize systems.
+Welcome to the repository showcasing interesting research projects in my journey through the field of applied system design. This comprehensive hub offers a glimpse into a range of accomplishments, encompassing the successful resolution of complex algorithmic challenges and the in-depth exploration of data analysis methodologies. 
 
 I strongly believe in the power of code — it's what turns ideas into reality.
 
