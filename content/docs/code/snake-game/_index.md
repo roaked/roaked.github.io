@@ -22,11 +22,11 @@ weight: 8
 {{< /columns >}}
 
 
-## 1. Snake Game
+## 1 Snake Game
 
 The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and Reinforcement Learning (RL) combined with metaheuristics or evolutionary computation.
 
-## 2. User and AI Controlled Snake 
+## 2 User and AI Controlled Snake 
 
 {{< hint important>}}
 Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python.
@@ -242,7 +242,7 @@ def play_step(self, action):
 ![123](https://s5.gifyu.com/images/SiDzT.gif)
 
 
-## 3. Reinforcement Deep Q-Network Model
+## 3 Reinforcement Deep Q-Network Model
 
 ### 3.1. LinearQNet and QTrainer Classes
 
@@ -471,7 +471,7 @@ class QLearningAgent:
 The applied methodology enhances stability by mitigating overfitting to recent experiences and improves learning efficiency by allowing the agent to reuse and learn from its past interactions, contributing to more stable and effective training in RL algorithms. In the `agent.py`, particularly in the `train_and_record` function, the integration of the replay buffer involves augmenting the agent's interactions with the environment to store experiences and utilizing those experiences for training. As the agent interacts with the environment in each game step, the `remember` function within the `QLearningAgent` class captures the state-action-reward-next_state tuples and stores them in the replay buffer. They are essential for off-policy learning, and the `train_short_memory` and `train_long_memory` functions facilitate short-term and long-term learning, respectively. After each completed game, the agent leverages the stored experiences by calling `train_long_memory`, which samples a batch of experiences from the replay buffer and uses these experiences to update the agent's model via the `train_step` method in the `QTrainer` class. This integration facilitates learning from a diverse set of past interactions, contributing to more stable and efficient training by breaking temporal correlations between consecutive experiences. Adjusting memory replay features in the likes of `MAX_MEMORY` and `BATCH_SIZE` in addition to initialization variables allows not only for fine-tuning of the replay buffer's capacity and the size of experiences utilized for training, but also for studying the whole agent's learning process which can be studied using commonly known evolutionary algorithms such as: Genetic Algorithms (GAs).
 
 
-## 4. Genetic Optimization of a RL Deep-Q-Network
+## 4 Genetic Optimization of a RL Deep-Q-Network
 
 
 In the context of optimizing key parameters for RL — such as batch size, learning rate, memory capacity for replay buffers, and the architecture of a target network — GAs provide a systematic approach. 
@@ -679,7 +679,7 @@ for idx in elite_indices:
     offspring[idx] = self.population[idx]  # Preserve elite chromosomes
 ```
 
-## 5. Results
+## 5 Results
 
 
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
@@ -688,7 +688,7 @@ for idx in elite_indices:
 
 Maybe introduce RL vs Genetic one plot...
 
-## 6. Outcomes 
+## 6 Outcomes 
 
 The GA can efficiently search through a defined parameter space to identify better sets of hyperparameters for the RL model. This can lead to enhanced performance, quicker convergence, and increased stability within the learning process. By fine-tuning the hyperparameters, the RL model might exhibit improved performance metrics such as higher rewards, more efficient learning, reduced training time, and potentially better generalization to unseen data, unlike using only the RL model, where it took approximately 150 games to converge to good scores.
 

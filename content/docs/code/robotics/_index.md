@@ -15,7 +15,7 @@ I think it would turn out a very informative and interesting project!
 {{< /hint >}}
 
 
-## 1. Abstract
+## 1 Abstract
 
 This research centers on the kinematic analysis of the KUKA KR6 R700 robot, which is installed on a linear KL100 axis. The KUKA KR6 R700 is an industrial robot designed for tasks such as tool and fixture handling, as well as processing or transferring components or products.
 
@@ -23,7 +23,7 @@ The initial phase of studying the robot involves analyzing and constructing its 
 
 Presented and validated through various Simulink models, it is intended to ease the extraction of the robot's direct kinematics, inverse kinematics, geometric Jacobian, and Closed Loop Inverse Kinematics (CLIK).
 
-## 2. Kinematics
+## 2 Kinematics
 
 The robot consists on the presence of 6 revolute joints. Additionally, there is a single prismatic joint that facilitates horizontal movement of the robot. Consequently, the overall configuration of the robot comprises a total of 7 links.
 
@@ -55,7 +55,7 @@ For this robot, the vector of joint variables `q` can be expressed as:
 q = [ d1 \hspace{.2cm} \vartheta_2 \hspace{.2cm} \vartheta_3 \hspace{.2cm} \vartheta_4 \hspace{.2cm} \vartheta_5 \hspace{.2cm} \vartheta_6 \hspace{.2cm} \vartheta_7 ]^T
 {{< /katex >}}
 
-## 3. Direct Kinematics
+## 3 Direct Kinematics
 
 Through the direct kinematics analysis, one can compute the position and orientation of the end effector by considering the values of the joint variables within the vector `q`. 
 
@@ -191,7 +191,7 @@ Another test involved applying sinusoidal inputs to all joints simultaneously. T
 
 ![11](https://live.staticflickr.com/65535/53469533946_d84d6bd8d9.jpg)
 
-## 4. Inverse Kinematics
+## 4 Inverse Kinematics
 
 Inverse kinematics involves determining the values of the joint variables `q`, given the position and orientation of the end effector. It's important to note that solving such problems may yield multiple solutions.
 
@@ -255,7 +255,7 @@ A switch at the bottom-left corner can be activated to halt the simulation when 
 To add later...
 {{< /hint >}}
 
-## 5. Geometric Jacobian
+## 5 Geometric Jacobian
 
 The geometric Jacobian is a matrix that represents the relationship between joint velocities and the linear and angular velocities of the end effector in a robotic system. It is a crucial tool in robotics for understanding how changes in joint positions contribute to the overall motion of the robot's end effector.
 
@@ -355,7 +355,7 @@ To validate {{< katex>}}J_O{{< /katex>}}, the difference between the angular vel
 
 ### 5.3. Kinematic Singularities
 
-## 6. Closed Loop Inverse Kinematics (CLIK)
+## 6 Closed Loop Inverse Kinematics (CLIK)
 
 CLIK allows to solve the inverse kinematics problem with a closed loop control, as the name implies.
 
@@ -408,7 +408,7 @@ To add later...
 {{< /hint >}}
 
 
-## 7. Link Properties
+## 7 Link Properties
 
 To incorporate the dynamics of the robot, it's essential to determine approximate values for the mechanical properties of the links. Solidworks, with its available CAD models, was employed for this purpose. Assigning a material in Solidworks is a crucial step, and since the CAD models represented solid bodies instead of hollow structures, it was necessary to adjust the density.
 
@@ -427,7 +427,7 @@ Given that the robot's manual specified a weight of 50 kilograms for the KR6 rob
 
 The inclusion of motors within the robot's links was modeled by representing them as cylinders with a diameter of 1 cm and a height of 10 cm, constructed from steel. The resulting inertia of the motors around their z-axis (Im) was determined to be 0.00021 kg m². Additionally, gear reduction ratios (`kr`) were set at a value of 100. 
 
-## 8. Newton-Euler Formulation
+## 8 Newton-Euler Formulation
 
 The Newton-Euler formulation relies on the equilibrium of forces acting on the manipulator's links. This formulation enables a recursive solution, divided into two sets of recursion:
 
@@ -474,7 +474,7 @@ By setting the torques to zero, the robot undergoes motion solely due to the inf
 ![51](https://live.staticflickr.com/65535/53469800668_6e985fb8b5.jpg)
 
 
-## 9. Decentralized PID Joint Controllers
+## 9 Decentralized PID Joint Controllers
 
 The central concept behind the decentralized controller involves breaking down the manipulator into `n` independent systems, where `n` represents the number of joints. Each joint is then controlled independently. The proposed solution entails the creation of a closed-loop PID (Proportional-Integral-Derivative) controller for each joint. In this setup, the input is the desired joint value `qd` and the output is the `q` values, which the KR6 Robot uses for computation. This approach relies on the equation:
 
@@ -613,7 +613,7 @@ It's crucial to highlight that the selection of natural frequency and damping ra
 {{< /hint >}}
 
 
-## 10. Centralized Controller
+## 10 Centralized Controller
 
 To better manage high velocities with non-linear compensation, a centralized controller has been developed. The centralized controller facilitates joint space inverse dynamics control, enhancing the system's ability to handle complex dynamics and achieve precise control over high-velocity movements.
 
@@ -674,7 +674,7 @@ From the figure above, it is evident that the system rapidly converges to a trac
 ![70](https://live.staticflickr.com/65535/53469658226_1e46402deb.jpg)
 
 
-## 11. Trajectory Planning 
+## 11 Trajectory Planning 
 
 For trajectory planning, the decision was made to have the KR6 end-effector trace the ["IST"](https://tecnico.ulisboa.pt/) university logo. Achieving this required the development of a method for the robot to follow the designated trajectory. To implement the trajectory, a time-law was formulated, allowing for the specification of the time duration of a trajectory and establishing boundary conditions for the movement.
 
@@ -772,7 +772,7 @@ The errors are smaller, and the "spikes" persist for a shorter duration than bef
 
 These values produced slightly better results than those used before, but they are more tuned to this specific trajectory. The previous values also yielded good results and may be more appropriate for a broader range of trajectories, with less risk of causing instability in the system.
 
-## 12. Final Remarks
+## 12 Final Remarks
 
 At the first chapters, the direct kinematics and inverse kinematics were implemented. Although direct kinematics where the joint coordinates are given to determine the end effector's position and orientation, were successfully implemented and validated, the inverse kinematics posed a challenge and a geometric approach was employed, involving drawings to enhance understanding of joint relationships. It was found that `q1` needed to be initially prescribed as a solution. 
 
