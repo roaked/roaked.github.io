@@ -9,7 +9,7 @@ weight: 3
 If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 9 - Piloting in a Loop](https://ricardochin.com/docs/code/uav/continuous-controller-design/#9-piloting-in-a-loop). I have cool images! ✌️{{< /hint >}}
 
 
-## 1 Continuing from Section 1...
+## 1 Continuing from Phase 1...
 
 Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.
 
