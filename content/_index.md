@@ -3,7 +3,7 @@ title: Portfolio
 type: docs
 ---
 
-# **Hi — I am Ricardo :)**
+# **My name is Ricardo :)**
 
 Upon earning my [master's degree in mechanical engineering with honors](https://fenix.tecnico.ulisboa.pt/cursos/memec/dissertacao/1128253548922394) from the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/), specializing in systems engineering, I delved into [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) of the [Technical University of Graz](https://www.tugraz.at/en/home) as a university assistant. My role revolved around the enhancement of design models using computational simulations by integrating supervised classifier algorithms and other auxiliary AI frameworks for material failure analysis. From research to a high-volume manufacturing setting, I explored the potential of machine learning in forecasting machine conditions using long short-term memory models. In addition, I supervised bachelors thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) that emphasized on additive manufacturing.
 
