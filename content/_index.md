@@ -13,6 +13,7 @@ My foundational roots in computer science instanced in me a deep curiosity in mo
 
 Although work is a significant part of my life, it doesn't define everything I am. I love hitting the slopes for some mountain sports and taking time for winter activities. Running, though, that's my serious addiction — a peaceful getaway from the constant social interaction, despite my talkative nature. I mean, I can dive into conversations spanning politics, philosophy, or the fascinating realms of geology for hours on end — really, I truly have an endless conversation capacity. Nevertheless, as most of these activities tend to be solitary, I've learned a valuable lesson over time: to appreciate the tranquility and peace these moments offer, cherishing the calm they bring into my life.
 
+![123e](https://live.staticflickr.com/65535/53508624564_f5ffc99727_c.jpg)
 
 Naturally, traveling, particularly to different countries, is also a big part of my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. See, with family scattered across the globe, I've learned firsthand how languages are like bridges connecting people. Mandarin, being the language spoken by most of my family, holds a special place in my heart. It's taught me something profound: speaking someone's native language is the ultimate way to create genuine connections, no matter where you are in the world.
 
