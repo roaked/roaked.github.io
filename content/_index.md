@@ -15,7 +15,7 @@ While work plays a significant role in my life, it doesn't encapsulate my entire
 
 ![1223e](https://live.staticflickr.com/65535/53508758200_1562f1d34e_c.jpg)
 
-Similarly to most people, traveling, especially to various countries, holds great importance in my life. Exploring new places allows me to not just visit but truly immerse myself in diverse cultures. With family members scattered across the globe, I've learned firsthand how languages serve as powerful bridges connecting people. Mandarin, being the language spoken by most of my family, holds a dear place in my heart. Despite not particularly skilled in it, it has taught me a valuable lesson: speaking someone's native tongue is the most authentic way to establish genuine connections, no matter where you are in the world.
+Like many others, traveling holds significant meaning in my life, particularly exploring different countries.  It's not just about visiting new places or sightseeing; it's more about fully immersing myself in diverse cultures. With family members spread across the globe, I've experienced firsthand the power of languages in bridging people together. Mandarin is predominantly spoken among my relatives, and in spite of not being particularly skilled in it, it has taught me a valuable lesson: speaking someone's native tongue is the most authentic way to establish genuine connections, no matter where you are in the world.
 
 ![M123e](https://live.staticflickr.com/65535/53343069030_6d4e5837cd_c.jpg)
 
