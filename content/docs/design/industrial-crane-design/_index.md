@@ -436,10 +436,9 @@ F = 1150 \times 5 + 26700 = 32475 N \, \\
 {{< /katex >}}
 {{< katex display >}}
 P_s = 2 \times 0.5964 + 2 \times 0.244 + 4 \times 0.18 + 4 \times 0.008 = 2.4328 m \, \\
-{{< katex display >}}
 {{< /katex >}}
-A_s = 0.707 \times h \times P_s = 0.707 \times 0.101 \times 2.4328 = 0.0172 m^2 \, \\
 {{< katex display >}}
+A_s = 0.707 \times h \times P_s = 0.707 \times 0.101 \times 2.4328 = 0.0172 m^2 \, \\
 {{< /katex >}}
 {{< katex display >}}
 \tau_V = \frac{F}{A_s} = \frac{32475}{0.0172} = 1.89 \times 10^6 \, \text{Pa} \, \\
