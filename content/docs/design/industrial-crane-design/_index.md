@@ -426,7 +426,7 @@ J_u = \frac{0.5964^3}{6} + 2 \times \frac{0.180^3}{6} + \frac{0.244 \times 0.180
 Similarly to the calculations for previous welded joints:
 
 {{< katex display >}}
-\tau_{MT} = \tau_{T} + \tau_{M} = \frac{131775 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{2250 \times \fra{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
+\tau_{MT} = \tau_{T} + \tau_{M} = \frac{131775 \times 0.13}{\frac{0.0335}{\sqrt{2}} \times 0.01} + \frac{2250 \times \frac{0.5964}{2}}{\frac{0.0418}{\sqrt{2}} \times 0.01}
 {{< /katex >}}
 
 For the primary shear stress, it is critical to compute the applied shear force as well as the throat area of the weld:
