@@ -8,6 +8,7 @@ weight: 8
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
 {{< hint warning>}} 
+- **Report not updated**
 - **Bug**: Parameter ranges is mutating with values from a different param_range
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation
 {{< /hint >}}
