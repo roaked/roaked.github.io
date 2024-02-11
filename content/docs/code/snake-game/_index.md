@@ -8,8 +8,6 @@ weight: 8
 ![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
 {{< hint warning>}} 
-- I am currently writing the result details about the Genetic Algorithm
-- [Risto Miikkulainen and Lex Fridman discussing the importance of neuroevolution](https://youtu.be/CY_LEa9xQtg?t=2467) in deep networks: for instance, how applying evolutionary computation is helpful in assessing architecture topology or the layer depth
 - **Bug**: Parameter ranges is mutating with values from a different param_range
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation
 {{< /hint >}}
@@ -686,7 +684,6 @@ for idx in elite_indices:
 
 `(to insert images)`
 
-Maybe introduce RL vs Genetic one plot...
 
 ## 6 Outcomes 
 
@@ -696,4 +693,4 @@ The GA can efficiently search through a defined parameter space to identify bett
 An interesting take on GA is the ability to explore diverse solution spaces, by doing so it might uncover parameter configurations that promote better exploration-exploitation trade-offs, addressing challenges like the exploration-exploitation dilemma common in RL.
 {{< /hint >}}
 
-More to add....
+- [Risto Miikkulainen and Lex Fridman discussing the importance of neuroevolution](https://youtu.be/CY_LEa9xQtg?t=2467) in deep networks: for instance, how applying evolutionary computation is helpful in assessing architecture topology or the layer depth

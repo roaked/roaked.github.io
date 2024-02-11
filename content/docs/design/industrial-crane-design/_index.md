@@ -452,10 +452,20 @@ This value isn't far from the initially assigned one, also being the lowest amon
 
 {{< katex display >}}
 M_{alt} = \frac{131775 - 27970}{2} = 51902.5 \, \text{Nmm} \, \\
+{{< /katex >}}
+{{< katex display >}}
 M_{med} = \frac{131775 + 27970}{2} = 79872.5 \, \text{Nmm} \, \\
+{{< /katex >}}
+{{< katex display >}}
 T_{alt} = \frac{2250 - (2300 \times 0.0842)}{2} = 1028.2 \, \text{Nmm} \, \\
+{{< /katex >}}
+{{< katex display >}}
 T_{med} = \frac{2250 + (2300 \times 0.0842)}{2} = 1221.8 \, \text{Nmm} \, \\
+{{< /katex >}}
+{{< katex display >}}
 F_{alt} = \frac{32475 - (1155 \times 5 + 2300)}{2} = 12200 \, \text{N} \\
+{{< /katex >}}
+{{< katex display >}}
 F_{med} = \frac{32475 + (1155 \times 5 + 2300)}{2} = 20275 \, \text{N}
 {{< /katex >}}
 
