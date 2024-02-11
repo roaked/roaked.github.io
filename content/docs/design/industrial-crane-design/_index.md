@@ -172,9 +172,13 @@ At present, the computation of the Von Mises equivalent stress has become feasib
 
 {{< katex display >}}
 \tau_V = \frac{V \times Q}{I_z \times b} = \frac{27170 \times 2 \times (0.125 \times 0.0025 + 0.255 \times 0.0023)}{0.00052 \times 0.02} = 3.234 \times 10^6 \text{Pa} \\
+{{< /katex >}}
 
+{{< katex display >}}
 \\ \tau_T = \frac{T}{2 \times A_m \times t} = \frac{2250 \times 2}{2 \times (0.1664 \times 0.510) \times 0.1} = 2.651 \times 10^6 \text{Pa} \\
+{{< /katex >}}
 
+{{< katex display >}}
 \\ \sigma_M = \frac{M_c}{I_z} = \frac{131660 \times 0.26}{0.00052} = 6.637 \times 10^7 \text{Pa} \\
 {{< /katex >}}
 
@@ -201,9 +205,10 @@ R = \frac{\sigma_{VM_0}}{\sigma_{VM}} = \frac{1.106 \times 10^7}{6.723 \times 10
 The fatigue limit stress was determined to be 321.617 MPa through the calculation of Marin's factors.
 
 {{< katex display >}}
-
 n_{Goodman} = \frac{1}{\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_u}} = 8.355\\ \\
+{{< /katex >}}
 
+{{< katex display >}}
 \\ n_{Yield} = \frac{1}{\frac{\sigma_a + \sigma_m}{S_y}} = 11.482\\
 {{< /katex >}}
 
@@ -428,8 +433,15 @@ For the primary shear stress, it is critical to compute the applied shear force 
 
 {{< katex display >}}
 F = 1150 \times 5 + 26700 = 32475 N \, \\
+{{< /katex >}}
+{{< katex display >}}
 P_s = 2 \times 0.5964 + 2 \times 0.244 + 4 \times 0.18 + 4 \times 0.008 = 2.4328 m \, \\
+{{< katex display >}}
+{{< /katex >}}
 A_s = 0.707 \times h \times P_s = 0.707 \times 0.101 \times 2.4328 = 0.0172 m^2 \, \\
+{{< katex display >}}
+{{< /katex >}}
+{{< katex display >}}
 \tau_V = \frac{F}{A_s} = \frac{32475}{0.0172} = 1.89 \times 10^6 \, \text{Pa} \, \\
 {{< /katex >}}
 
