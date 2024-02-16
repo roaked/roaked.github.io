@@ -78,17 +78,17 @@ Consequently, this signifies that the minimum requisite number of bins correspon
 
 ### 4.1. Genetic Algorithm in Time Management
 
-Genetic Algorithm, inspired by the principles of natural selection and genetic inheritance, applies a population-based approach to search for optimal solutions. In the context of time management, GA can be likened to a process of 'evolving' schedules by iteratively selecting, combining, and mutating tasks within time constraints. The analogy to genetic traits in time management involves tasks mutating or evolving to fit within limited time slots, optimizing overall productivity.
+GA, inspired by the principles of natural selection and genetic inheritance, applies a population-based approach to search for optimal solutions. In the context of time management, GA can be likened to a process of 'evolving' schedules by iteratively selecting, combining, and mutating tasks within time constraints. The analogy to genetic traits in time management involves tasks mutating or evolving to fit within limited time slots, optimizing overall productivity.
 
 {{< hint tip >}}
-[If you would like to advance to the section explaining the implementation and results of a Genetic Algorithm (GA) click here ✌️](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/){{< /hint >}}
+[Section explaining the implementation and results of GA](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/){{< /hint >}}
 
 ### 4.2. Particle Swarm Optimization in Time Management:
 
-In contrast to Genetic Algorithms, Particle Swarm Optimization mimics the social behaviour of particles to iteratively converge towards optimal solutions. In time management scenarios, PSO represents tasks as particles moving through a solution space, adjusting their positions (task schedules) based on individual experiences and collective knowledge. This method emphasizes cooperation and information sharing among tasks to reach efficient scheduling solutions within time constraints.
+In contrast to GAs, PSO mimics the social behaviour of particles to iteratively converge towards optimal solutions. In time management scenarios, PSO represents tasks as particles moving through a solution space, adjusting their positions (task schedules) based on individual experiences and collective knowledge. This method emphasizes cooperation and information sharing among tasks to reach efficient scheduling solutions within time constraints.
 
 {{< hint tip >}}
-[If you would like to advance to the section explaining the implementation and results of a Particle Swarm Optimization (PSO) click here ✌️](https://ricardochin.com/docs/code/bin-packing/particle-swarm-optimization/){{< /hint >}}
+[Section explaining the implementation and results of PSO](https://ricardochin.com/docs/code/bin-packing/particle-swarm-optimization/){{< /hint >}}
 
 
 ### 4.3. Comparative Analysis GA vs. PSO

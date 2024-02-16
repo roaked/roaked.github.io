@@ -38,7 +38,7 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 {{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/)
+A similar approach for the code implementation was used for the [GA](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/)
 
 {{< /hint >}}
 
@@ -127,12 +127,6 @@ if (it>=50)
         
     end
 ```
-
-{{< hint tip >}}
-[More info available @ GitHub repo](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO.m)
-{{< /hint >}}
-
-
 
 ## 3 Results
 
@@ -229,7 +223,7 @@ In this particular simulation, the PSO algorithm required 8895 iterations, spann
 ## 4 Remarks GA vs. PSO
 
 {{< hint tip >}}
-[If you would like to advance to the implementation using Genetic Algorithm (GA) click here ✌️](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/){{< /hint >}}
+[Implementation using Genetic Algorithm (GA)](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/){{< /hint >}}
 
 To further test and compare the GA and PSO algorithms, they were ran 10 times each with the second benchmark. 
 
@@ -247,5 +241,5 @@ Comparatively, both algorithms encountered a higher percentage of non-feasible s
 
 ## 5 Ending Thoughts
 
-[I have included a brief summary about the algorithms in the main chapter, kindly click here!](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts)
+[Brief summary about the algorithms in the main chapter](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts)
 

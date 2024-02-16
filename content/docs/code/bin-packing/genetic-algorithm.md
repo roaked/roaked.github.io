@@ -3,7 +3,7 @@ title: "Genetic Algorithm"
 weight: 2
 ---
 
-# **Time Tetris: Genetic Algorithms**
+# **Space in Bin Packing: Genetic Algorithm**
 
 {{< columns>}}
 ![sa](https://user-images.githubusercontent.com/36581610/78828900-6d6a2080-79b3-11ea-81a3-bd284849c3f2.gif)
@@ -18,7 +18,7 @@ weight: 2
 
 ## 1 Theoretical Remarks
 
-Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of "survival of the fittest." By emulating this phenomenon, genetic algorithms possess the capability to "evolve" solutions for real-world problems, provided they have been encoded effectively.
+Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of "survival of the fittest." By emulating this phenomenon, GAs possess the capability to "evolve" solutions for real-world problems, provided they have been encoded effectively.
 
 While GA does not assure convergence or the discovery of the global optimal solution, it does tend to furnish an "acceptably good" solution relatively swiftly, on average. Typically, GA is extensively tailored to suit specific applications, resulting in a myriad of variants. Consequently, pinning down a singular "generic" or "traditional" GA proves challenging due to this diversity. Nevertheless, a study of the foundational concepts behind early GA, along with exploration of its various adaptations, enables the identification of key operations, culminating in a conceptualization of a "traditional" GA.
 
@@ -32,7 +32,7 @@ The selection operator plays a critical role by electing chromosomes from the cu
 P_s(i) = \frac{f(i)}{\sum_{J=1}^{N} f(J)}
 {{< /katex>}}
 
-The process described outlines the selection, crossover, and mutation stages within the Genetic Algorithm (GA) framework:
+The process described outlines the selection, crossover, and mutation stages within GAs framework:
 
 1. **Selection**:
 
@@ -335,7 +335,7 @@ M is a random integer between 1 and 3, determining the type of mutation to be pe
 - M = 3: Insertion mutation
 {{< /hint>}}
 
-These mutation operations introduce diversity in the population by altering individuals to explore different regions of the search space in the genetic algorithm. 
+These mutation operations introduce diversity in the population by altering individuals to explore different regions of the search space in the GA. 
 
 
 ## 3 Results
@@ -400,4 +400,4 @@ Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consi
 {{< hint tip >}}
 [If you would like to advance to the implementation using Particle Swarm Optimization (PSO) click here!](https://ricardochin.com/docs/code/bin-packing/particle-swarm-optimization/)
 
-[Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here! ✌️](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts){{< /hint >}}
+[Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here!](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts){{< /hint >}}
