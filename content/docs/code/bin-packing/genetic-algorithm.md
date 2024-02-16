@@ -342,7 +342,7 @@ These mutation operations introduce diversity in the population by altering indi
 
 ### 3.1. First Benchmark
 
-In the GA algorithm, the primary parameters for adjustment include population size (nPop), crossover probability (pc), and mutation probability (pm). Initial trials utilized high crossover and low mutation probabilities, aligning with common recommendations. Each parameter set underwent 100 tests to offer a comprehensive understanding of their impact. Results for a population size of 100 are detailed below.
+In the GA algorithm, the primary parameters for adjustment include population size `nPop`, crossover probability `pc`, and mutation probability `pm`. Initial trials utilized high crossover and low mutation probabilities, aligning with common recommendations. Each parameter set underwent 100 tests to offer a comprehensive understanding of their impact. Results for a population size of 100 are detailed below.
 
 
 | Crossover | Mutation | # Optimal | # Non-Opt | # Non Feasible | AVG Time (s) | Best Time (s) |
@@ -375,7 +375,7 @@ Attempts to modify and test the selection probabilities function yielded inconcl
 {{< /hint>}}
 
 
-In the initial benchmark, the GA underwent testing with the parameters: population size (nPop) = 50, crossover probability (pc) = 0.2, and mutation probability (pm) = 0.8. A single simulation's outcome is depicted as follows:
+In the initial benchmark, the GA underwent testing with the parameters: population size `nPop = 50`, crossover probability `pc = 0.2`, and mutation probability `pm = 0.8`. A single simulation's outcome is depicted as follows:
 
 ![wqdj](https://live.staticflickr.com/65535/53359214487_89cbbc4d1d.jpg)
 
@@ -386,7 +386,7 @@ In this simulation, the GA algorithm reached a stopping criterion after 390 iter
 
 ### 3.2. Second Benchmark
 
-In the second benchmark, the GA was tested with identical parameters to the first benchmark: population size (nPop) = 50, crossover probability (pc) = 0.2, and mutation probability (pm) = 0.8. While the algorithm may not produce the same result in every simulation, after several runs, it managed to approach a near-optimal solution, achieving 101 bins. Results are visualized below.
+In the second benchmark, the GA was tested with identical parameters to the first benchmark: population size `nPop = 50`, crossover probability `pc = 0.2`, and mutation probability `pm = 0.8`. While the algorithm may not produce the same result in every simulation, after several runs, it managed to approach a near-optimal solution, achieving 101 bins. Results are visualized below.
 
 ![3i2kd](https://live.staticflickr.com/65535/53360419414_5ec7249cc5.jpg)
 
@@ -401,100 +401,3 @@ Despite attempts to achieve 100 bins by tweaking parameters, the algorithm consi
 [If you would like to advance to the implementation using Particle Swarm Optimization (PSO) click here!](https://ricardochin.com/docs/code/bin-packing/particle-swarm-optimization/)
 
 [Alternatively, I have included a comparison between GA and PSO in the main chapter, kindly click here! ✌️](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts){{< /hint >}}
-
-## 4 Attachments
-
-{{< details "**The plot thickens...**" close >}}
-```Matlab
-%Run multiple times GA
-clear all
-
-% Simulation parameters
-model = CreateModel(2);
-NSimul = 10;
-
-% Initialization
-BCosts = zeros(NSimul,1)';
-Its = zeros(NSimul,1)';
-k = 1;
-NN = zeros(2,1)';
-time = zeros(NSimul,1)';
-
-% Main loop
-for i = 1:NSimul
-    tic
-    [~,~, BestSol,~, it, GAData] = GA(model);
-        time(i) = toc;
-    disp(['Simulation ' num2str(i) ': Best Cost = ' num2str(BestSol.Cost) ...
-        ': Time = ' num2str(time(i))]);
-
-    BCosts(i) = BestSol.Cost;
-    
-    if floor(BestSol.Cost) == BestSol.Cost
-        NN(k) = BestSol.Cost;
-        k = k + 1;
-    end
-    Its(i) = it;
-end
-
-%% Results
-if range(NN) == 0
-    binc = NN(1);
-    counts = length(NN);
-else
-    binc = min(NN):1:max(NN);
-    counts = hist(NN,binc);
-end
-
-% Plot of Bin Incidences
-figure
-X = categorical(binc);
-Y = i-k+1;
-bar(X,counts)
-hold on
-
-if Y > 0
-    X1 = categorical({'Non feasible'});
-    bar(X1,Y)
-end
-ylim([0 max(counts)+1])
-xlabel('Number of Bins')
-ylabel('Number of incidences')
-title('Simulations with GA')
-
-%Plot of Best Costs
-figure
-scatter(1:length(BCosts),BCosts)
-xlim([0.5 length(BCosts)+0.5])
-%xticks(0:1:length(BCosts))
-ylim([min(BCosts)-1 max(BCosts)+1])
-hold on
-
-xc = [0 length(BCosts)+1];
-yc = [1 1] * model.m;
-plot(xc,yc,'--','LineWidth',1);
-xlabel('Simulations')
-ylabel('Best Costs')
-title('Simulations with GA')
-
-%Plot of Number of Iterations
-figure
-scatter(1:length(Its),Its)
-xlim([0.5 length(Its)+0.5])
-%xticks(0:1:length(Its))
-ylim([0 max(Its)+50])
-xlabel('Simulations')
-ylabel('Number of Iterations')
-title('Simulations with GA')
-
-%Plot of Simulation Time
-figure
-scatter(1:length(time),time)
-xlim([0.5 length(time)+0.5])
-%xticks(0:1:length(time))
-ylim([0 max(time)+20])
-xlabel('Simulations')
-ylabel('Time [seconds]')
-title('Simulations with GA')
-```
-{{< /details >}}
