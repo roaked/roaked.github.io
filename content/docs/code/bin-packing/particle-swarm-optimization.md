@@ -11,7 +11,9 @@ weight: 3
 
 Particle Swarm Optimization (PSO) draws its inspiration from the social dynamics seen in various species, like birds and insects, as they navigate their environments to fulfill their needs. In this method, each potential solution is likened to a particle, and these particles come together to form a dynamic swarm. Each particle possesses two key characteristics: its position and its velocity. Utilizing this velocity, each particle embarks on a journey to a new position within the search space. Upon arriving at these new positions, individual particle bests and the overall swarm bests are updated accordingly. The velocity of each particle is then fine-tuned based on its experiences, repeating this cycle until certain conditions are met.
 
-Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity. Evaluation for fitness value follows suit, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (pbest) and global bests (gbest) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
+Similar to [Genetic Algorithm (GA)](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/), PSO commences with an initialization step wherein the initial swarm of particles is generated. The idea of representing solutions aligns closely with that of GA, where each particle begins with a random position and zero velocity.
+
+Evaluation for fitness value follows, where every particle's fitness is computed and compared against its prior best fitness and the best fitness across the entire swarm. These comparisons lead to updates in the personal bests and global bests positions. Unless a stopping criterion intervenes, the velocity and position of each particle undergo updates. These adjustments are determined by incorporating both the personal bests (`pbest`) and global bests (`gbest`) positions, along with the previous velocity, to compute the updated velocity using a defined formula.
 
 {{< katex display >}}
  v_{ij} = w v_{ij} + c_1 q \frac{(x_{ij}^{pb} - x_{ij})} {\Delta t} + c_2r \frac{( x_{ij}^{gb} - x_{ij})}{ \Delta t}    
@@ -27,7 +29,7 @@ The variables are:
 - c1: Represents the experience of an individual particle (cognitive or self learning factor)
 - c2: Represents the experience of the whole swarm (group or social learning factor)
 - r and q: Random variables from 0 to 1
-- wij: Diversification term -- responsible for searching for new solutions in new regions while the rest of the expression is the intensification term, which explores the current region with the objective of finding a better solution
+- vwij: This is the **diversification term** which is responsible for searching for new solutions in new regions while the rest of the expression is the **intensification term**, which explores the current region with the objective of finding a better solution
 {{< /hint>}}
 
 The velocity is also limited by upper and lower bounds (maximum and minimum velocities), since if the velocity is too high, the algorithm may become too unstable. In addition, a noteworthy aspect of the PSO algorithm is its divergence from the necessity of sorting fitness values of solutions throughout its processes. This particular characteristic could serve as a considerable computational advantage, particularly in scenarios where dealing with a large population size. Unlike GA, which often involves sorting operations, PSO relies on straightforward arithmetic operations involving real numbers for its velocity and position updates. This simplicity in operations contributes to its efficiency, making it an appealing choice, especially in computational-intensive situations.
@@ -36,11 +38,11 @@ The velocity is also limited by upper and lower bounds (maximum and minimum velo
 
 {{< hint important >}}
 
-A similar approach for the code implementation was used for the [Genetic Algorithm](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/). 
+A similar approach for the code implementation was used for the [Genetic Algorithm](https://ricardochin.com/docs/code/bin-packing/genetic-algorithm/)
 
 {{< /hint >}}
 
-The implementation presetend through the function `PSO.m` initializes parameters, including the objective function (`CostFunction`) and defines variables related to the problem, such as the number of decision variables (`nVar`), their boundaries (`VarMin` and `VarMax`), and PSO-specific parameters like maximum iterations (`MaxIt`), population size (`nPop`), and velocity limits.
+The implementation presented through the function `PSO.m` initializes parameters, including the objective function `CostFunction` and defines variables related to the problem, such as the number of decision variables `nVar`, their boundaries `VarMin` and `VarMax`, and PSO-specific parameters like maximum iterations `MaxIt`, population size `nPop`, and velocity limits.
 
 
 ```matlab
@@ -60,7 +62,7 @@ else
 end
 ```
 
-The script initializes the particles (potential solutions) and their velocities randomly within defined bounds. It evaluates the cost of each particle based on the provided objective function (`CostFunction`). This cost function is depicted in `PSO_BinPackingCost.m`, it assesses the cost of a bin packing solution based on input parameters `x` and `model`. 
+The script initializes the particles (potential solutions) and their velocities randomly within defined bounds. It evaluates the cost of each particle based on the provided objective function `CostFunction`. This cost function is depicted in `PSO_BinPackingCost.m`, it assesses the cost of a bin packing solution based on input parameters `x` and `model`. 
 
 ```matlab
 empty_particle.Position = [];
@@ -82,7 +84,7 @@ end
 ```
 
 
-Afterwards, the main `PSO.m` function iterates through a predefined number of iterations (`MaxIt`), wherein each iteration involves updating the velocities of particles based on personal and global best positions. It subsequently adjusts particle positions considering the updated velocities and ensures these positions adhere to predefined limits. Within each iteration, the loop evaluates the cost of each particle's position using the provided objective function, [applies mutation operations](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO_Mutate.m) to potentially enhance solutions, and updates personal best positions accordingly. Additionally, the algorithm tracks the global best solution among all particles. Throughout iterations, it collects information about the best solution found (`BestSol`), its associated cost (`BestCost`), the average cost (`AvgCost`), and displays the progress. 
+Afterwards, the main `PSO.m` function iterates through a predefined number of iterations `MaxIt`, wherein each iteration involves updating the velocities of particles based on personal and global best positions. It subsequently adjusts particle positions considering the updated velocities and ensures these positions adhere to predefined limits. Within each iteration, the loop evaluates the cost of each particle's position using the provided objective function, [applies mutation operations](https://github.com/roaked/genetic-algorithm-optimization/blob/main/bpp/PSO_Mutate.m) to potentially enhance solutions, and updates personal best positions accordingly. Additionally, the algorithm tracks the global best solution among all particles. Throughout iterations, it collects information about the best solution found `BestSol`, its associated cost `BestCost`, the average cost `AvgCost`, and displays the progress. 
 
 ```matlab
     for it = 1:MaxIt
@@ -143,11 +145,11 @@ For the initial benchmark, PSO underwent 10 simulations, each employing the foll
 ![2](https://live.staticflickr.com/65535/53360419489_89b9888fff_c.jpg)
 
 
-It was evident that while PSO demonstrated notable advantages over GA, showcasing rapid convergence in specific scenarios, it also revealed certain limitations. These included susceptibility to getting trapped in local optima and a significant decline in convergence rate, as evidenced by all (10) simulations becoming non-feasible upon reaching the stopping criteria. Attempts to bolster PSO's performance through parameter tuning yielded limited success.
+It was evident that while PSO demonstrated notable advantages over GA, showcasing rapid convergence in specific scenarios, it also revealed certain limitations. These included susceptibility to getting trapped in local optima and a significant decline in convergence rate, as evidenced by all (10) simulations becoming non-feasible upon reaching the stopping criteria. Attempts to boost PSO's performance through parameter tuning yielded limited success.
 
 In response to these challenges, an innovative approach was adopted by introducing a mutation mechanism. This involved mutations affecting both the particles' personal best and the global best. Integrating this mutation operator into the PSO algorithm offered significant benefits. Not only did it expedite convergence, but it also mitigated premature convergence issues, thereby enhancing accuracy and circumventing the aforementioned challenges.
 
-Multiple experiments were conducted in an effort to fine-tune the diverse parameters. The initial focus was on understanding the influence of population size. Interestingly, it was noted that augmenting the population had only a restrained impact on the number of optimal solutions, particularly when the number of iterations remained unchanged. The experiments were executed using the following parameters: w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 10.
+Multiple experiments were conducted in an effort to fine-tune the diverse parameters. The initial focus was on understanding the influence of population size. Interestingly, it was noted that augmenting the population had only a restrained impact on the number of optimal solutions, particularly when the number of iterations remained unchanged. The experiments were executed using the following parameters: `w = 0.9`, `wdamp = 0.99`, `c1 = c2 = 2`, `VelMax = 0.0001`, `nParticleMutation = 3` and `nGlobalBestMutation = 10`.
 
 | Population Size | Optimal Sols | Non-Optimal Sols | Non-feasible | Average Simulation Time (s) |
 |-----------------|--------------|------------------|--------------|-----------------------------|
@@ -187,19 +189,19 @@ The initial tests were conducted with a population size of 20, revealing notably
 
 Increasing the count of global best mutations while reducing the number of particle mutations notably enhanced overall performance. When employing either 3 or 5 particle mutations alongside 20 global best mutations, all simulations resulted in achieving the optimal solution — an outstanding outcome for PSO. The preference leans towards 3 particle mutations due to its lower simulation times, presenting a favourable trade-off.
 
-Moreover, these parameters wield a direct influence on average simulation time. Fewer mutation values expedite each iteration but risk resembling the original PSO, increasing the chances of entrapment and necessitating more iterations, ultimately leading to non-feasible solutions and elongated simulation times. Conversely, an excess of mutations doesn't significantly benefit performance. Based on the data, the optimal parameters thus far appear to be nPop = 10, nParticleMutation = 3, and nGlobalBestMutation = 20.
+Moreover, these parameters wield a direct influence on average simulation time. Fewer mutation values expedite each iteration but risk resembling the original PSO, increasing the chances of entrapment and necessitating more iterations, ultimately leading to non-feasible solutions and elongated simulation times. Conversely, an excess of mutations doesn't significantly benefit performance. Based on the data, the optimal parameters thus far appear to be `nPop = 10`, `nParticleMutation = 3` and `nGlobalBestMutation = 20`.
 
 Further evaluations explored the impact of maximum velocity on the algorithm. Tests were conducted at different velocities while maintaining other parameters constant. 
 
 ![213](https://live.staticflickr.com/65535/53360310213_90bfabcdbc_c.jpg)
 
 
-The examination reveals that higher velocities introduce instability to the algorithm, manifesting as noise in the Average Cost plot. Notably, a MaxVel of 0.01 resulted in an Average Cost oscillating around 18, while reducing MaxVel to 0.001 led to oscillations closer to 16. This velocity variation also impacted the Best Cost of the particles; higher velocities correlated with higher Best Cost. This sensitivity of the algorithm to velocity proves crucial when tackling the bin packing problem.
+The examination reveals that higher velocities introduce instability to the algorithm, manifesting as noise in the `Average Cost` plot. Notably, a `MaxVel` of 0.01 resulted in an `Average Cost` oscillating around 18, while reducing `MaxVel` to 0.001 led to oscillations closer to 16. This velocity variation also impacted the Best Cost of the particles; higher velocities correlated with higher `Best Cost`. This sensitivity of the algorithm to velocity proves crucial when tackling the bin packing problem.
 
-In addition to velocity, the parameters related to inertia (w and wdamp) and learning factors (c1 and c2) underwent testing. To comprehend their impacts better, mutations were maintained at lower values. If set too low, the algorithm would require more iterations to find the optimal solution due to excessively low velocities, thereby affecting simulation time. Conversely, excessively high values would cause velocities to saturate quickly to the maximum allowed value, which is also suboptimal. However, unlike mutations, these parameters didn't exhibit the same influential impact. Ultimately, values were selected based on recommendations found in literature, settling on c1 = c2 = 2, w = 0.9, and wdamp = 0.99.
+In addition to velocity, the parameters related to inertia, `w` and `wdamp`, and learning factors , `c1` and `c2` underwent testing. To comprehend their impacts better, mutations were maintained at lower values. If set too low, the algorithm would require more iterations to find the optimal solution due to excessively low velocities, thereby affecting simulation time. Conversely, excessively high values would cause velocities to saturate quickly to the maximum allowed value, which is also suboptimal. However, unlike mutations, these parameters didn't exhibit the same influential impact. Ultimately, values were selected based on recommendations found in literature, settling on `c1 = c2 = 2`, `w = 0.9` and `wdamp = 0.99`.
 
 
-Afterwards, the PSO algorithm underwent testing utilizing the following parameters: nPop = 10, w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 20:
+Afterwards, the PSO algorithm underwent testing utilizing the following parameters: `nPop = 10`, `w = 0.9`, `wdamp = 0.99`, `c1 = c2 = 2`, `VelMax = 0.0001`, `nParticleMutation = 3` and `nGlobalBestMutation = 20`:
 
 ![123](https://live.staticflickr.com/65535/53359214432_4fd4ff5172.jpg)
 
@@ -213,7 +215,7 @@ In this simulation, the PSO algorithm completed 206 iterations within 2.52 secon
 ### 3.2. Second Benchmark
 
 
-In the second benchmark, the PSO underwent testing using identical parameters to those employed in the first benchmark: nPop = 10, w = 0.9, wdamp = 0.99, c1 = c2 = 2, VelMax = 0.0001, nParticleMutation = 3, and nGlobalBestMutation = 20.
+In the second benchmark, the PSO underwent testing using identical parameters to those employed in the first benchmark: `nPop = 10`, `w = 0.9`, `wdamp = 0.99`, `c1 = c2 = 2`, `VelMax = 0.0001`, `nParticleMutation = 3` and `nGlobalBestMutation = 20`.
 
 While the algorithm doesn't yield identical results in each simulation, it managed to attain the optimal solution in certain instances. Here is the outcome of one such simulation depicted:
 
