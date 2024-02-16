@@ -401,13 +401,6 @@ Another constraint pertains to the range of motion for each joint, encompassing 
 
 ![36](https://live.staticflickr.com/65535/53469533791_de4c0eaf20.jpg)
 
-### 6.1. Validation
-
-{{< hint warning >}}
-To add later...
-{{< /hint >}}
-
-
 ## 7 Link Properties
 
 To incorporate the dynamics of the robot, it's essential to determine approximate values for the mechanical properties of the links. Solidworks, with its available CAD models, was employed for this purpose. Assigning a material in Solidworks is a crucial step, and since the CAD models represented solid bodies instead of hollow structures, it was necessary to adjust the density.
