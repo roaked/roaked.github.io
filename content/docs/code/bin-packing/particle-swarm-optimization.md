@@ -241,5 +241,5 @@ Comparatively, both algorithms encountered a higher percentage of non-feasible s
 
 ## 5 Ending Thoughts
 
-[Brief summary about the algorithms in the main chapter](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts)
+[Brief summary about the algorithms in the main chapter.](https://ricardochin.com/docs/code/bin-packing/#5-ending-thoughts)
 
