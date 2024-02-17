@@ -4,9 +4,6 @@ title = "Ricardo Chin"
 enableGitInfo = true
 theme = "hugobook"
 
-[services.googleAnalytics]
-  ID = "G-10WQY47KS2"
-
 [params]
   BookRepo = 'https://github.com/roaked/roaked.github.io'
   BookDateFormat = 'January 2, 2006'
