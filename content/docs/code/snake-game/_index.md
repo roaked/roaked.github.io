@@ -38,11 +38,11 @@ Initially, when the snake's body is short and moves slowly, potentially leading 
 
 To achieve this goal, a simple Reinforcement Learning (RL) approach was taken. Notably, successes such as Google's DeepMind Challenge¹ in [AlphaGo in 2017](https://en.wikipedia.org/wiki/AlphaGo) mastering complex games have demonstrated the efficacy of RL. Hence, it can be seen that this is a commonly applied straategy to game-theory environments --- training the AI to achieve higher scores in less time through RL. 
 
-![https://i.makeagif.com/media/5-09-2017/qNfoPW.gif](Go)
+![dsadas](https://i.makeagif.com/media/5-09-2017/qNfoPW.gif)
 
 ¹ Google DeepMind Challenge Match with top-ranked Go player Lee Sedol.
 
-But how to find the perfect solution – namely, a RL algorithm?
+**But how to find the perfect solution?**
 
 I would like to, furthermore, delve into the foundational concepts underpinning the most prominent scientific advancecs and RL algorithms. 
 
@@ -52,18 +52,17 @@ Arguably, over the past decade a lot of significant contributions have been made
 
 ![eka](https://www.marktechpost.com/wp-content/uploads/2021/02/image6.gif)
 
-[For instance, Kevin Chen successfully employed DQN to play Flappy Bird ](https://cs229.stanford.edu/proj2015/362_report.pdf). However, it was observed that with increased training sessions, overfitting occurred, leading to a gradual decline in the AI's performance score. 
+[For instance, Kevin Chen successfully employed DQN to play Flappy Bird](https://cs229.stanford.edu/proj2015/362_report.pdf). However, it was observed that with increased training sessions, overfitting occurred, leading to a gradual decline in the AI's performance score. 
 
 ![sad](https://d3i71xaburhd42.cloudfront.net/b56c7703337cb9db008422b9b3410c97fff8bb54/1-Figure1-1.png)
 
 Since then, both DeepMind and OpenAI have achieved remarkable success by applying RL algorithms to games like Starcraft 2. ["This is how Google's DeepMind crushed puny humans at StarCraft."](https://www.wired.co.uk/article/deepmind-starcraft-results-alphastar)
 
-Furthermore, there are numerous competitions, encompassing iterative deepening search, Monte Carlo Tree Search, Flood Fill and the A* algorithm, like the Micromouse Competition in Japan. Many papers have emmerged in different topics for applied RL (https://towardsdatascience.com/reinforcement-learning-3f87a0290ba2)
+Furthermore, there are numerous competitions, encompassing iterative deepening search, Monte Carlo Tree Search, Flood Fill and the A* algorithm, like the Micromouse Competition in Japan. [Many papers and articles have emmerged in different topics for applied RL](https://towardsdatascience.com/reinforcement-learning-3f87a0290ba2).
 
 ![adoska](https://miro.medium.com/v2/resize:fit:786/format:webp/1*ueJkuVP8fkY8p5nXN2gc7Q.png)
 
-Motivated by these advancements, a simple off-policy DQN algorithm was utilized, building upon the successes of previous endeavours. Venus to study hyperparameter selection optimization are also considered using a genetic algorithm.
-
+Motivated by these advancements, initially a simple off-policy DQN algorithm was  considered, building upon the successes of previous endeavours. Further, hyperparameter selection optimization was also considered using a genetic algorithm.
 
 
 ## 2 User and AI Controlled Snake 
