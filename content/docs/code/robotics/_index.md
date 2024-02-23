@@ -168,7 +168,7 @@ R_{7}^b = \begin{bmatrix}
 {{< /katex >}}
 
 {{< katex display >}}
-r_{b,7}^b = [0.20163 0.44482  0.97382]^T (m)
+r_{b,7}^b = [0.20163 \hspace{.2cm} 0.44482 \hspace{.2cm}  0.97382]^T (m)
 {{< /katex >}}
 
 Simulink results given by:
