@@ -3,7 +3,7 @@ title: "SnakeRL: Reinforcement Learning"
 weight: 8
 ---
 
-# **Genetic Tuning for Smarter Deep Q-Learning**
+# **Smarter Reinforcement Learning**
 
 {{< hint warning>}} 
 - **Report not updated**

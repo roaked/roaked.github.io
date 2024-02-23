@@ -3,6 +3,8 @@ title: "Off Policy and Neuroevolution"
 weight: 2
 ---
 
+**Off Policy and DQN Parameter Selection Optimization**
+
 ![sidas](https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
 ## 1 Reinforcement Deep Q-Network Model
