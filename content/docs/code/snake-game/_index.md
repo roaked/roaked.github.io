@@ -1,29 +1,71 @@
 ---
-title: "Snake Game: Genetic RL-DQN"
+title: "Snake Game: Reinforcement Learning"
 weight: 8
 ---
 
 # **Genetic Tuning for Smarter Deep Q-Learning**
 
-![213d](https://miro.medium.com/v2/resize:fit:2800/1*zRZ46MeFZMd5F52CHM6EYA.png)
-
 {{< hint warning>}} 
 - **Report not updated**
 - **Bug**: Parameter ranges is mutating with values from a different param_range
-- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) base code for the Snake Game, with a couple tweaks for my RL / Genetic Algorithm implementation
+- **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) and [GH repo](https://github.com/GNiendorf/snake) base code for the Snake Game
 {{< /hint >}}
 
-{{< columns >}}
+![213d](https://segaretro.org/images/b/b4/Blockade_title.png)
 
-![123](https://s5.gifyu.com/images/SiDzT.gif)
-<--->
-![123019](https://s5.gifyu.com/images/SiDzw.gif)
-{{< /columns >}}
+## 1 Introduction
+
+### 1.1. Background and Rules
+
+[Blockade, a classic arcade game also recognized as Snake](https://en.wikipedia.org/wiki/Blockade_(video_game)), debuted on the Gremlin platform back in 1976. Initially, it was exclusively accessible on consoles like the Atari 2600. However, its global popularity surged around the turn of the twenty-first century with its release on Nokia mobile phones. The primary objective of the game is to accumulate as many "apples" as possible within the confines of the board. Nevertheless, as the score escalates, the snake's length increases, and the available space on the board diminishes, rendering navigation progressively challenging. The **core** rules of the game are as follows:
+
+1. The snake’s movement can be directed: up, down, left, or right.
+2. The snake always moves forward and increases in length by one frame (i.e., one pixel) after eating
+an apple. (Otherwise the tail in the stack is popped)
+3. If the snake hits its own body or the border of the board, the game ends.
+4. The position of the apples on the board is random, and there is only one apple present at any
+one time.
+
+### 1.2. AI Interplay
 
 
-## 1 Snake Game
+The Snake game typically presents two critical phases:
 
-The Snake game has served as a fundamental project for programming novices due to its simplicity and versatility. In this work, Pygame is used, a Python library designed for game development, to create a Snake game environment. The core motivation is to provide a controlled and adaptable setting for AI development and Reinforcement Learning (RL) combined with metaheuristics or evolutionary computation.
+- Early game
+- Late game
+
+Initially, when the snake's body is short and moves slowly, potentially leading to distractions and eventual demise, perhaps considered as not being challenging enough; and later, when fatigue sets in, player attention decreases resulting in the snake colliding with its own body or eventually getting stuck within its own boundaries, abruptly ending the game. These challenges are player-induced and a keyplay here is to introduc AI as it remains unaffected by emotional fluctuations and fatigue-induced errors.
+
+To achieve this goal, a simple reinforcement learning approach was taken. Notably, successes such as Google's DeepMind Challenge¹ in [AlphaGo in 2017](https://en.wikipedia.org/wiki/AlphaGo) mastering complex games have demonstrated the efficacy of reinforcement learning. Hence, it can be seen that this is a commonly applied straategy to game-theory environments --- training the AI to achieve higher scores in less time through reinforcement learning. 
+
+![https://i.makeagif.com/media/5-09-2017/qNfoPW.gif](Go)
+
+¹ Google DeepMind Challenge Match with top-ranked Go player Lee Sedol.
+
+But how to find the perfect solution – namely, a reinforcement learning algorithm?
+
+I would like to, furthermore, delve into the foundational concepts underpinning the most prominent reinforcement learning algorithms. 
+
+### 1.3. Reinforcement Learning in Game Theory
+
+Arguably, over the past decade a lot of significant contributions have been made. [DeepMind team's utilization of the DQN algorithm on the Atari 2600](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf) platform to surpass human-level performance levels. Subsequently, further advancements in RL algorithms for video games emerged. 
+
+![eka](https://www.marktechpost.com/wp-content/uploads/2021/02/image6.gif)
+
+[For instance, Kevin Chen successfully employed DQN to play Flappy Bird ](https://cs229.stanford.edu/proj2015/362_report.pdf). However, it was observed that with increased training sessions, overfitting occurred, leading to a gradual decline in the AI's performance score. 
+
+![sad](https://d3i71xaburhd42.cloudfront.net/b56c7703337cb9db008422b9b3410c97fff8bb54/1-Figure1-1.png)
+
+In 2017, the world champion Ke Jie was defeated by DeepMind's AlphaGo Master, sparking widespread interest in the AI community and inspiring our team's foray into artificial intelligence (Chouard, 2016). Since then, both DeepMind and OpenAI have achieved remarkable success by applying RL algorithms to games like Starcraft 2 and Dota 2 (Vinyals et al., 2019; Berner et al., 2019) as illustrated in 2(c).
+
+Furthermore, the "AI Snake" tournaments organized by Innopolis University in 2020 and 2021 saw the top three teams predominantly utilizing alpha-beta pruning, iterative deepening search, Monte Carlo Tree Search, and the A* algorithm (Brown et al., 2021), as shown in 2(d). This highlighted the potential of these algorithms in enhancing gameplay.
+
+Motivated by these advancements, our project began with the question of whether it was feasible to achieve better scores in the single-player mode of the Snake game. Consequently, we opted to employ the DQN algorithm, building upon the successes of previous endeavors. A concise overview of the Proximal Policy Optimization (PPO) and DQN approaches is provided, culminating in the presentation of our model optimization for the Snake game in the ensuing Methods section.
+
+
+
+
+
 
 ## 2 User and AI Controlled Snake 
 
