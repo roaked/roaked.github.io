@@ -1,5 +1,5 @@
 ---
-title: "Snake Game: Reinforcement Learning"
+title: "SnakeRL: Reinforcement Learning"
 weight: 8
 ---
 
@@ -11,7 +11,7 @@ weight: 8
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) and [GH repo](https://github.com/GNiendorf/snake) base code for the Snake Game
 {{< /hint >}}
 
-![213d](https://segaretro.org/images/b/b4/Blockade_title.png)
+![213d](https://i.ytimg.com/vi/xcPqs92j4r4/maxresdefault.jpg)
 
 ## 1 Introduction
 
