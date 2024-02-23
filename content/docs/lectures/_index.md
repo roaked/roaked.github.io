@@ -11,7 +11,7 @@ title: "My Programming Lectures"
 I am currently holding programming lectures that cover data structures and algorithms at various levels in my current role. My teaching experience spans from introducing fundamental concepts to undergraduate students to guiding doctoral colleagues with limited prior programming experience through more advanced topics.
 
 
-#### A highly effective method of learning is through the process of teaching others as sharing knowledge not only helps them but also deepens your own understanding of the subject --- [Prof. Steve Brunton, University of Washington](https://youtu.be/wDVteayWWvU?t=52)
+*A highly effective method of learning is through the process of teaching others as sharing knowledge not only helps them but also deepens your own understanding of the subject* --- [Prof. Steve Brunton, University of Washington](https://youtu.be/wDVteayWWvU?t=52)
 
 The TeX presentations are available [@ my Github page!](https://github.com/roaked/programming-lectures)
 
