@@ -1,6 +1,5 @@
 ---
 title: "Fake News: Inference & Clusters"
-title: "SnakeRL: Reinforcement Learning"
 weight: 4
 ---
 
