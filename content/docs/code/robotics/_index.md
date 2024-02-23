@@ -125,7 +125,7 @@ R_7^b = R_0^b R_7^0
 Simultaneously, the translation using the position vector:
 
 {{< katex display >}}
-r_{b,0}^b = [0  0  0.756 ]^T
+r_{b,0}^b = [0 \hspace{.2cm} 0 \hspace{.2cm} 0.756 ]^T
 {{< /katex >}}
 
 The position vector from base to end effector is defined as:
@@ -145,7 +145,7 @@ R_{7}^b = \begin{bmatrix}
 {{< /katex >}}
 
 {{< katex display >}}
-r_{b,7}^b = [0 0.470  1.106]^T [\m] 
+r_{b,7}^b = [0 \hspace{.2cm} 0.470 \hspace{.2cm}  1.106]^T (m)
 {{< /katex >}}
 
 Simulink results given by:
@@ -168,7 +168,7 @@ R_{7}^b = \begin{bmatrix}
 {{< /katex >}}
 
 {{< katex display >}}
-r_{b,7}^b = [0.20163 0.44482  0.97382]^T [\m] 
+r_{b,7}^b = [0.20163 0.44482  0.97382]^T (m)
 {{< /katex >}}
 
 Simulink results given by:
