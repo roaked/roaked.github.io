@@ -65,7 +65,12 @@ Furthermore, there are numerous competitions, encompassing iterative deepening s
 Motivated by these advancements, initially a simple off-policy DQN algorithm was  considered, building upon the successes of previous endeavours. Further, hyperparameter selection optimization was also considered using a genetic algorithm.
 
 
-## 2 User and AI Controlled Snake 
+## 2 Methods
+
+
+
+
+## 3 User and AI Controlled Snake 
 
 {{< hint important>}}
 Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python.

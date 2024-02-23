@@ -1,5 +1,6 @@
 ---
-title: "Fake News: Clusters, FIS & ANN "
+title: "Fake News: Inference & Clusters"
+title: "SnakeRL: Reinforcement Learning"
 weight: 4
 ---
 
