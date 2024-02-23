@@ -471,10 +471,14 @@ for idx in elite_indices:
 
 ## 3 Results
 
+{{< columns>}}
+![123](https://s5.gifyu.com/images/SiDzT.gif)
 
+<--->
 ![123019](https://s5.gifyu.com/images/SiDzw.gif)
+{{< /columns>}}
 
-`(to insert images)`
+`(to insert more images)`
 
 
 ## 4 Outcomes 

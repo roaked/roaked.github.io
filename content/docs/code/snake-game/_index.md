@@ -1,5 +1,5 @@
 ---
-title: "SnakeRL: Reinforcement Learning"
+title: "Snake: Reinforcement Learning"
 weight: 8
 ---
 
@@ -320,6 +320,3 @@ def play_step(self, action):
     # Return game status and score
     return reward, game_over, self.score
 ```
-
-![123](https://s5.gifyu.com/images/SiDzT.gif)
-
