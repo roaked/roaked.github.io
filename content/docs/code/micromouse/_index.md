@@ -1,6 +1,6 @@
 ---
 title: "Micromouse: Flood Fill to A*"
-
+bookHidden: True
 weight: 9
 ---
 
