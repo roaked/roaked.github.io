@@ -1,5 +1,5 @@
 ---
-title: "Off Policy and Neuroevolution"
+title: "Off Policy RL & Neuroevolution"
 weight: 2
 ---
 
@@ -9,7 +9,7 @@ weight: 2
 
 ## 1 Reinforcement Deep Q-Network Architecture
 
-DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address reinforcement learning challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:
+DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address RL challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:
 
 - 1. **Initialization**: Initialize a neural network with random weights θ to approximate the Q function Q(s,a,θ).
 
@@ -32,7 +32,7 @@ a_t = \begin{cases}
 
 - 5. **Repeat**: Iterate step 3 and 4 until convergence, continually updating the neural network to better approximate the Q function.
 
-Overall, the DQN algorithm leverages deep learning techniques to efficiently handle reinforcement learning problems characterized by large state and action spaces, enabling effective learning and decision-making in complex environments.
+Overall, the DQN algorithm leverages deep learning techniques to efficiently handle RL problems characterized by large state and action spaces, enabling effective learning and decision-making in complex environments.
 
 ### 1.1. LinearQNet and QTrainer Classes
 
