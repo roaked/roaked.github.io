@@ -19,11 +19,11 @@ weight: 8
 
 [Blockade, a classic arcade game also recognized as Snake](https://en.wikipedia.org/wiki/Blockade_(video_game)), debuted on the Gremlin platform back in 1976. Initially, it was exclusively accessible on consoles like the Atari 2600. However, its global popularity surged around the turn of the twenty-first century with its release on Nokia mobile phones. The primary objective of the game is to accumulate as many "apples" as possible within the confines of the board. Nevertheless, as the score escalates, the snake's length increases, and the available space on the board diminishes, rendering navigation progressively challenging. The **core** rules of the game are as follows:
 
-1. The snake’s movement can be directed: up, down, left, or right.
-2. The snake always moves forward and increases in length by one frame (i.e., one pixel) after eating
+- 1. The snake’s movement can be directed: up, down, left, or right.
+- 2. The snake always moves forward and increases in length by one frame (i.e., one pixel) after eating
 an apple. (Otherwise the tail in the stack is popped)
-3. If the snake hits its own body or the border of the board, the game ends.
-4. The position of the apples on the board is random, and there is only one apple present at any
+- 3. If the snake hits its own body or the border of the board, the game ends.
+- 4. The position of the apples on the board is random, and there is only one apple present at any
 one time.
 
 ### 1.2. AI Interplay
@@ -36,7 +36,7 @@ The Snake game typically presents two critical phases:
 
 Initially, when the snake's body is short and moves slowly, potentially leading to distractions and eventual demise, perhaps considered as not being challenging enough; and later, when fatigue sets in, player attention decreases resulting in the snake colliding with its own body or eventually getting stuck within its own boundaries, abruptly ending the game. These challenges are player-induced and a keyplay here is to introduc AI as it remains unaffected by emotional fluctuations and fatigue-induced errors.
 
-To achieve this goal, a simple Reinforcement Learning (RL) approach was taken. Notably, successes such as Google's DeepMind Challenge¹ in [AlphaGo in 2017](https://en.wikipedia.org/wiki/AlphaGo) mastering complex games have demonstrated the efficacy of RL. Hence, it can be seen that this is a commonly applied straategy to game-theory environments --- training the AI to achieve higher scores in less time through RL. 
+To achieve this goal, a simple Reinforcement Learning (RL) approach was taken. Notably, successes such as Google's DeepMind Challenge¹ in [AlphaGo in 2017](https://en.wikipedia.org/wiki/AlphaGo) mastering complex games have demonstrated the efficacy of RL. Hence, it can be seen that this is a commonly applied strategy to game-theory environments --- training the AI to achieve higher scores in less time through RL. 
 
 ![dsadas](https://i.makeagif.com/media/5-09-2017/qNfoPW.gif)
 
@@ -62,15 +62,53 @@ Furthermore, there are numerous competitions, encompassing iterative deepening s
 
 ![adoska](https://miro.medium.com/v2/resize:fit:786/format:webp/1*ueJkuVP8fkY8p5nXN2gc7Q.png)
 
-Motivated by these advancements, initially a simple off-policy DQN algorithm was  considered, building upon the successes of previous endeavours. Further, hyperparameter selection optimization was also considered using a genetic algorithm.
+Motivated by these advancements, a study on the algorithms used was performed building upon the successes of previous endeavours. Further, hyperparameter selection optimization was also considered using a genetic algorithm.
 
 
-## 2 Methods
+## 2 Theoretical Foundation
+
+Following the previous section, a brief analysis of the suitability of the Snake game for RL methods was done focusing on the algorithms: Proximal Policy Optimization (PPO) and Deep Q-Network (DQN).
+
+The Snake game inherently embodies typical characteristics of a RL problem, making it well-suited for such algorithms. Firstly, the game environment is discrete and stationary (except in the [case of multi-agent RL](https://ricardochin.com/docs/code/snake-game/adversarial/)), as the snake can only navigate within a limited game window and can execute a finite set of actions. Secondly, at each time step, the state of the game is fully observable since the snake can perceive its surrounding environment and its own current state. Lastly, the primary objective is to maximize the game score, which translates to achieving the highest possible return.
+
+In the core, these algorithms function by enabling a machine learning model, or agent, to interact with the environment, learning optimal strategies to maximize returns. The agent operates by taking actions based on the current state of the environment and receives rewards accordingly. Through iterative learning, the agent attempts to optimize its decision-making process, aiming to maximize long-term returns by identifying the most effective strategies for action selection.
+
+![wdok](https://miro.medium.com/v2/resize:fit:1400/1*yknXrUYahqjDCc28xHk_sQ.png)
 
 
+As per visualized, methods can be categorized into model-free and model-based approaches based on whether environmental models are utilized. Model-based algorithms involve the use of environmental models in decision-making, enabling the learning of dynamic laws and state transition probabilities to inform decisions. On the other hand, model-free algorithms learn strategies directly from experience without relying on pre-defined environmental models.
 
+Both PPO and DQN algorithms fall under the model-free category. This is primarily because in many practical scenarios, the environment exhibits a large state and action space, making it challenging to accurately model its dynamics. Model-free algorithms alleviate this challenge by learning strategies directly from interactions with the environment, making them more versatile.
 
-## 3 User and AI Controlled Snake 
+{{< hint important >}}
+
+In the context of the Snake game, constructing a universal environmental model poses difficulties due to variations in the game window size and obstacle placement. Additionally, the discrete nature of states and actions in the Snake game necessitates extensive modeling and computation, resulting in high computational complexity for model-based approaches. In contrast, PPO and DQN algorithms utilize neural networks to approximate strategy and value functions, offering adaptability to different game maps and states with faster computation speeds. Hence, employing a model-free algorithm is more suitable for the Snake game.
+
+{{< /hint >}}
+
+## 3 Method Selection
+
+Based on the provided information, the lies on model-free algorithms, which can be categorized into policy-based and value-based approaches. The two widely-used algorithms from each category selected are: PPO and DQN, respectively, for separate experimentation.
+
+Value-based algorithms, such as DQN, aim to learn an Action-Value Function (AVF) that predicts the long-term return of each action in every state. In the context of the Snake game, DQN can predict the expected return for actions. The agent then selects the action with the highest predicted return to maximize its score.
+
+![dsajidajs](https://bruceoutdoors.files.wordpress.com/2017/08/2017-08-29-23_43_58-final-report-pdf-xchange-viewer.png)
+
+On the other hand, policy-based algorithms, like PPO, learn a policy function to directly select the optimal action in each state. In the Snake game, PPO learns a strategy function to choose the best action for maximizing returns. 
+
+In theory, while DQN excels in predicting action values and achieving stability, PPO outperforms in learning optimal policies swiftly and reliably, resulting in superior performance in the Snake game.
+
+The PPO algorithm employs a strategy known as the "clipped surrogate objective" during training. This strategy, rooted in the concept of proximal policy optimization, aims to maximize strategy improvement while ensuring that each updated policy remains close to the previous one. Although effective in practice, this approach introduces randomness in decision-making.
+
+![saokdoakd](https://spinningup.openai.com/en/latest/_images/math/e62a8971472597f4b014c2da064f636ffe365ba3.svg)
+
+In essence, PPO represents the strategy using a probability distribution during training and updates this distribution through sampling to enhance strategy refinement continuously. Consequently, decision-making during gameplay may vary due to the randomness inherent in each sampling process. Moreover, PPO incorporates an "exploration term" mechanism to promote exploratory behaviour within the strategy. This introduces randomness into the decision-making process, enabling the algorithm to explore new states and action combinations, thus avoiding over-reliance on existing experiences and facilitating adaptation to diverse environments.
+
+While the randomness inherent in PPO aids in better environmental adaptation and helps avoid local optima, it can also lead to suboptimal decision-making. 
+
+## 4 User Controlled Snake 
+
+For comparison purposes, initially a user-controlled Snake game was thoroughly implemented. Below, it is a detailed description of the core game mechanisms.
 
 {{< hint important>}}
 Most of the code for the game implementation was adapted using Pygame for providing a robust framework for game development in Python.

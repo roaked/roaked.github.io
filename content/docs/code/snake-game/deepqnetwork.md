@@ -7,7 +7,32 @@ weight: 2
 
 ![sidas](https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
-## 1 Reinforcement Deep Q-Network Model
+## 1 Reinforcement Deep Q-Network Architecture
+
+DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address reinforcement learning challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:
+
+- 1. **Initialization**: Initialize a neural network with random weights θ to approximate the Q function Q(s,a,θ).
+
+- 2. **Experience Replay**: Maintain a replay memory buffer {{< katex >}}\mathcal{D}{{< /katex >}} to store experiences {{< katex >}}e_t = (s_t, a_t, r_t, s_{t+1}){{< /katex >}} consisting of state-action pairs at state t, rewards, and subsequent states encountered during interactions with the environment.
+
+- 3. **Action Selection**: Utilize an epsilon-greedy policy to select actions based on the current state, balancing between exploration and exploitation.
+
+{{< katex display >}}
+a_t = \begin{cases} 
+\text{random action} & \text{with probability } \epsilon \\
+\text{argmax}_a Q(s_t, a, \theta) & \text{otherwise}
+\end{cases}
+{{< /katex >}}
+
+- 4. **Training**: Periodically sample batches of experiences from the replay memory buffer to update the neural network's parameters. The loss function used for training is typically derived from the Bellman equation, aiming to minimize the discrepancy between the predicted Q values and the target Q values.
+
+{{< katex display >}}
+\mathcal{L}(\theta) = \mathbb{E}_{(s, a, r, s') \sim U(D)} \left[ \left( r + \gamma \max_{a'} Q(s', a'; \theta^-) - Q(s, a, \theta) \right)^2 \right]
+{{< /katex >}}
+
+- 5. **Repeat**: Iterate step 3 and 4 until convergence, continually updating the neural network to better approximate the Q function.
+
+Overall, the DQN algorithm leverages deep learning techniques to efficiently handle reinforcement learning problems characterized by large state and action spaces, enabling effective learning and decision-making in complex environments.
 
 ### 1.1. LinearQNet and QTrainer Classes
 
