@@ -9,9 +9,8 @@ weight: 3
 
 {{< hint warning >}}
 
-- I would at some point like to implement a safe reinforcement learning whilst heading for optimistic exploration within a large-scale manufacturing setting instead of defining a specific trajectory! 
+- **Tweaks:** safe reinforcement learning -> incl. optimistic exploration instead of specifying a trajectory 
 
-I think it would turn out a very informative and interesting project!
 {{< /hint >}}
 
 
