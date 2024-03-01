@@ -6,7 +6,7 @@ weight: 2
 # **Phase 1. Drone System Dynamics**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 4 - The Moving UAV](https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav).{{< /hint >}}
 
 ## 1 System Dynamics Modeling 
 
@@ -728,4 +728,4 @@ These observations underscored the need for controller fine-tuning to enhance re
 In conclusion, the developed models exhibited accuracy and reliability in predicting real drone behaviour. Furthermore, they serve as a foundation for designing more effective controllers to optimize drone performance.
 
 {{< hint tip >}}
-[Advance to Controller Design Pt. 1 Here ✌️](https://ricardochin.com/docs/2code/1drone/_index3/){{< /hint >}}
+[Continuous Controller Design](https://ricardochin.com/docs/2code/1drone/_index3/){{< /hint >}}

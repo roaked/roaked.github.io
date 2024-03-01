@@ -6,7 +6,7 @@ weight: 5
 # **Phase 4. UAV Computer Vision**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/code/uav/computer-vision/#3-pixel-pilots-certification-acquired). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired](https://ricardochin.com/docs/code/uav/computer-vision/#3-pixel-pilots-certification-acquired). {{< /hint >}}
 
 ## 1 Computer Vision for Obstacle Detection
 

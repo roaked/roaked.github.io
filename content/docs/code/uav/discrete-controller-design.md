@@ -6,7 +6,7 @@ weight: 4
 # **Phase 3. Amazing Race & Crazy 8**
 
 {{< hint tip >}}
-If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 8 - Amazing Race](https://ricardochin.com/docs/code/uav/discrete-controller-design/#8-amazing-race). I have cool images! ✌️{{< /hint >}}
+If you wish to skip the theoretical and implementation details, [please click here to jump to the summarized findings Ch. 8 - Amazing Race](https://ricardochin.com/docs/code/uav/discrete-controller-design/#8-amazing-race).{{< /hint >}}
 
 ## 1 Continuing from Phase 2...
 
@@ -691,4 +691,4 @@ Trajectories emerged as critical design parameters, impacting performance signif
 Using the [MATLAB graphical interface for MPC design](https://www.mathworks.com/products/model-predictive-control.html) led to a potential loss of sensitivity when fine-tuning it. Consequently, the MPC might hold untapped potential not fully explored in this project, presenting an area for further improvement and exploration.
 
 {{< hint tip >}}
-[Advance to UAV Computer Vision Here ✌️](https://ricardochin.com/docs/code/uav/computer-vision/){{< /hint >}}
+[UAV Computer Vision Here](https://ricardochin.com/docs/code/uav/computer-vision/){{< /hint >}}
