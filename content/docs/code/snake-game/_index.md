@@ -44,7 +44,7 @@ To achieve this goal, a simple Reinforcement Learning (RL) approach was taken. N
 
 **But how to find the perfect solution?**
 
-I would like to, furthermore, delve into the foundational concepts underpinning the most prominent scientific advancecs and RL algorithms. 
+Let us delve into the foundational concepts underpinning the most prominent scientific advances in RL algorithms. 
 
 ### 1.3. Reinforcement Learning in Game Theory
 

@@ -111,7 +111,7 @@ The linearized state space model for each actuation subsystem, where the output 
 \end{bmatrix} \tilde{V}_{mi}
 {{< /katex >}}  
 
-The state space variables are, therefore, {{< katex >}} \tilde{I}_i {{< /katex >}} and {{< katex >}} \tilde{\Omega}_{i} {{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}} \tilde{V}_{m_{i}} {{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
+The state space variables are, therefore, {{< katex >}}\tilde{I}_i{{< /katex >}} and {{< katex >}} \tilde{\Omega}_{i}{{< /katex >}}. The only input provided to each motor is the applied voltage {{< katex >}} \tilde{V}_{m_{i}} {{< /katex >}}. The state space model for the complete actuation subsystem can be obtained by combining the state space models for each motor into a single state space model:
 
 {{< katex display >}} 
 
@@ -193,7 +193,7 @@ Each matrix Ai and Bi represent a 2 × 2 matrix. As all four motors share identi
 \delta_i = K_{\Omega} \Omega_i
 {{< /katex >}}  
 
-With this outcome in consideration, the angular velocities {{< katex >}}\Omega_i{{< /katex >}} can be presented solely as a function of the voltage constant {{< katex >}}K_{\Omega}_i{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
+With this outcome in consideration, the angular velocities {{< katex >}}\Omega_i{{< /katex >}} can be presented solely as a function of the voltage constant {{< katex >}}K_{\Omega_{i}}{{< /katex >}} and the actuations {{< katex >}}\delta_i{{< /katex >}}
 
 {{< katex display >}}
 \begin{bmatrix}
