@@ -1,5 +1,5 @@
 ---
-title: "Probabilistic Machine Learning"
+title: "Bayesian Optimization"
 weight: 3
 bookFlatSection: true
 ---

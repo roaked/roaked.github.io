@@ -1,5 +1,5 @@
 ---
-title: "Probabilistic Machine Learning"
+title: "Bayesian Machine Learning"
 weight: 2
 bookFlatSection: true
 ---
