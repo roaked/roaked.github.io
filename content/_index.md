@@ -17,7 +17,7 @@ Exploring physics-informed deep networks or diving into model-based learning app
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
-#### **"Run often, run long, but never outrun your joy of running"**
+## **Run with passion, live with purpose**
 
 While work plays a significant role in my life, it doesn't encapsulate my entire self. I love immersing myself in nature through long hikes and engaging in mountain sports during the summer months. As winter sets in, I always take my time hitting the slopes, whether it be resort skiing or free riding, embracing the thrill of the season. However, amidst these exhilarating activities, running holds a special place in my heart as my true addiction  --- offering me a peaceful escape from constant social interaction, despite my inherently talkative nature. I can dive into conversations about diverse topics like politics, philosophy, or the captivating field of geology for hours on end, addressing the impacts of climate change on skiing and mountain ecosystems, but I've also come to appreciate the value of solitude and tranquility, cherishing the serene moments these activities afford me.
 
