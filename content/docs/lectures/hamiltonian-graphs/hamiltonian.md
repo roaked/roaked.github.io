@@ -1,5 +1,5 @@
 ---
-title: "Hamiltonian Paths: Linked Lists"
+title: "Fortran: Linked Lists"
 weight: 4
 bookFlatSection: true
 ---
