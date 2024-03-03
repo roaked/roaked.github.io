@@ -1,6 +1,6 @@
 ---
 weight: 6
-bookHidden: false
+bookHidden: true
 title: "Electron Beam Technology"
 ---
 
