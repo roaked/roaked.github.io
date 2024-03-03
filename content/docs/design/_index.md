@@ -10,8 +10,6 @@ This is the design project repository that contains a few of my design adventure
 
 From conceptualization to realization...
 
-`Designs Projects:`
-
 - [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/design/fea-beam-simulation/)
 
 - [Double Girder Crane Design for Industrial Applications](https://ricardochin.com/docs/design/industrial-crane-design/)
