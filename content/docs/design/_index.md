@@ -6,13 +6,11 @@ title: "Design Repository"
 
 # **Abstract**
 
-Welcome to my design project repository — a mashup of my academic journey, fruitful collaborations and extracurricular competitions. This place contains a few of my design adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
-
-From late-night brainstorming sessions to immersing myself in simulations of fluid dynamics, thermal analysis, and structural mechanics, this space encapsulates the fusion of design concepts with intricate simulations.
+This is the design project repository that contains a few of my design adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
 
 From conceptualization to realization...
 
-`Designs:`
+`Designs Projects:`
 
 - [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/design/fea-beam-simulation/)
 
@@ -23,8 +21,6 @@ From conceptualization to realization...
 - [Manual Transmission Design of a Normal Compound Gear Train](https://ricardochin.com/docs/design/manual-transmission-design/#4-you-spin-me-right-round)
 
 - [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/design/electron-beam-tech/)
-
-✨
 
 
 
