@@ -32,8 +32,7 @@ bookFlatSection: true
 - probability distribution for X with pdf of the following form:
 
 {{< katex display >}}
-p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \hspace{.05cm} \text{exp} \hspace{.05cm} \left( \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \hspace{.05cm} \underbrace{w}_{\text{natural parameters}} - \hspace{.05cm} \text{log} \hspace{.05cm} \overbrace{Z(w)}^{\text{partition function}} \right) 
-{{< /katex >}}
+p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \underbrace{w}_{\text{natural parameters}} - \text{log} \, \overbrace{Z(w)}^{\text{partition function}} \right){{< /katex >}}
 
 {{< katex display >}}
 \Rightlongarrow \frac{h(x)}{Z(w)} e^{\phi(x)^T w} \hspace{.05cm} = \hspace{.05cm} p(x | w)
