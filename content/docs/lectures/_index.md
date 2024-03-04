@@ -1,5 +1,5 @@
 ---
-weight: 7
+weight: 1
 bookFlatSection: true
 title: "My Notes and Lectures"
 ---
@@ -35,16 +35,8 @@ The TeX presentations are available [@ my Github page!](https://github.com/roake
 
 - [Python Cheat Sheets by Eric Matthes](https://ehmatthes.github.io/pcc_2e/cheat_sheets/cheat_sheets/)
 
+## **LC GitHub Repo**
 
-# **Exploring DSA with LeetCode**
-
-In addition, this is a small sample of my interest for Data Structures and Algorithms (DSA) problems on LeetCode. 
-
-{{< hint warning >}}
-While I may not consider myself an expert, I'm passionate about problem-solving and enjoy exploring these challenges purely for the joy of it..{{< /hint >}}
-
-## **GitHub Repo**
-
-Explore my solutions, implementations, and additional resources in [my GitHub repository](https://github.com/roaked/leetcode). The repository contains a comprehensive collection of my LeetCode problem solutions, providing a detailed look at my coding practices and problem-solving approaches. :)
+Explore my solutions, implementations, and additional resources in [my GitHub repository](https://github.com/roaked/leetcode). 
 
 ![2913i](https://miro.medium.com/v2/resize:fit:1400/1*Kw-uI4abGgBnOJGMp1vX1g.png)
