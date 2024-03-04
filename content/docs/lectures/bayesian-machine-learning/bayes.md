@@ -25,14 +25,14 @@ bookFlatSection: true
 - this extends deductive reasoning (statistics) to plausible reasoning (probabilities)
 
 
-### **Exponential Families** 
+### **Exponential Families and Conjugate Priors** 
 
 - random variable X taking x values {{< katex >}}\subset \R^n{{< /katex >}}
 
 - probability distribution for X with pdf of the following form:
 
 {{< katex display >}}
-p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} \hspace{.05cm} \text{exp} \hspace{.05cm} \left( \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \hspace{.05cm} \underbrace{w}_{\text{natural parameters}} - \hspace{.05cm} \text{log} \hspace{.05cm} \overbrace{Z(w)}^{\text{partition function}} \right) 
+p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \hspace{.05cm} \text{exp} \hspace{.05cm} \left( \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \hspace{.05cm} \underbrace{w}_{\text{natural parameters}} - \hspace{.05cm} \text{log} \hspace{.05cm} \overbrace{Z(w)}^{\text{partition function}} \right) 
 {{< /katex >}}
 
 {{< katex display >}}
