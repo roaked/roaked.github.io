@@ -32,7 +32,7 @@ bookFlatSection: true
 - probability distribution for X with pdf of the following form:
 
 {{< katex display >}}
-p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} exp \[ \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \hspace{.01cm} \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}\] = \frac{h(x)}{Z(w)} e^{\phi(x)^T w} \hspace{.01cm} = \hspace{.01cm} p(x | w)
+p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} \hspace{.05cm} \text{exp} \hspace{.05cm} \[ \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \hspace{.05cm} \underbrace{w}_{\text{natural parameters}} - \hspace{.05cm} \text{log} \hspace{.05cm} \overbrace{Z(w)}^{\text{partition function}}\] = \frac{h(x)}{Z(w)} e^{\phi(x)^T w} \hspace{.05cm} = \hspace{.05cm} p(x | w)
 {{< /katex >}}
 
 - for notational convenience, reparametrize natural parameters w := {{< katex >}}\eta(\theta){{< /katex >}} in terms of canonical parameters {{< katex >}}\theta{{< /katex >}}
@@ -51,15 +51,15 @@ p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} exp \[ \overbrace{\phi(x)^T}^
     - find the mode {{< katex >}}ŵ{{< /katex >}} of the posterior, by solving root-finding problems
 
      {{< katex display >}}
-     \nabla_{w} \hspace{.01cm} \text{log} \hspace{.01cm} p (w | x) = \frac{\alpha + \sum_{i=1}^n \phi(x_{i})}{\nu + n}
+     \nabla_{w} \hspace{.05cm} \text{log} \hspace{.05cm} p (w | x) = \frac{\alpha + \sum_{i=1}^n \phi(x_{i})}{\nu + n}
      {{< /katex >}}
 
-    - evaluate the Hessian {{< katex >}}\Psi = \nabla_w \nabla_w^T \hspace{.01cm} \text{log} \hspace{.01cm} p(w|x){{< /katex >}} at the mode ŵ
+    - evaluate the Hessian {{< katex >}}\Psi = \nabla_w \nabla_w^T \hspace{.05cm} \text{log} \hspace{.05cm} p(w|x){{< /katex >}} at the mode ŵ
 
-    - approximate posterior as {{< katex >}}\mathcal{N}(w;ŵ, --\Psi^{-1}) {{< /katex >}} and the conjugate log partition function as:
+    - approximate posterior as {{< katex >}}\mathcal{N}(w;ŵ, -\Psi^{-1}) {{< /katex >}} and the conjugate log partition function as:
 
       {{< katex display >}}
-     F(\alpha', \nu') \approx \sqrt{(2\pi)^d |(--\Psi^{-1})|} \cdot exp[ ŵ^T \cdot \alpha' -- \hspace{.01cm} \text{log} \hspace{.01cm} Z(ŵ)^T \hspace{.01cm} \nu' ]
+     F(\alpha', \nu') \approx \sqrt{(2\pi)^d det(-\Psi^{-1})} \cdot \text{exp}[ ŵ^T \cdot \alpha' - \hspace{.01cm} \text{log} \hspace{.01cm} Z(ŵ)^T \hspace{.01cm} \nu' ]
      {{< /katex >}}
 
 
