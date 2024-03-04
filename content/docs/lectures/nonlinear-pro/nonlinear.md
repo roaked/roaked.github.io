@@ -1,11 +1,11 @@
 ---
-title: "Nonlinear Optimization"
+title: "Nonlinear Programming"
 weight: 5
 bookFlatSection: true
 bookHidden: false
 ---
 
-# **Notes on Nonlinear Optimization**
+# **Notes on Nonlinear Programming**
 
 {{< hint tip >}}
 - **git clone -> cd**
