@@ -18,7 +18,7 @@ bookFlatSection: true
 - bayes theorem on data D:
 
 {{< katex display >}}
-\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{ \underbrace{P(D)}_{\text{marginalization or evidence of the model}}} = \sum_
+\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{ \underbrace{P(D)}_{\text{marginalization or evidence of the model}}}
 {{< /katex >}}
 
 - *"discrete domain is just a subset of the continuous domain"*
@@ -27,9 +27,19 @@ bookFlatSection: true
 
 ### **Exponential Families** 
 
-- exponential families guarantee existence of conjugate priors, although not always tractable
+- random variable X taking x values {{< katex >}}\subset \R^n{{< /katex >}}
 
-- conjugate priors allow analytic inference of probabilistic models
+- probability distribution for X with pdf of the following form:
+
+{{< katex display >}}
+p_w (x) = \underbrace{h(x)}_{\text{base measure}} exp [ \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}] = \frac{h(x)}{Z(w)} e^{\phi(x)^Tw} \hspace{.01cm} = \hspace{.01cm} p(x | w)
+{{< /katex >}}
+
+- for notational convenience, reparametrize natural parameters w := {{< katex >}}\eta(\theta){{< /katex >}} in terms of canonical parameters {{< katex >}}\theta{{< /katex >}}
+
+- exponential families  {{< katex >}}(h(x), \phi(x)){{< /katex >}} as the model for some data **x** guarantee automatic existence of conjugate priors, although not always tractable
+
+- conjugate priors allow analytic Bayesian inference of probabilistic models, if we can compute the partition function Z(w) of the likelihood and the one for the conjugate prior F({{< katex >}}\alpha, \nu{{< /katex >}})
 
 - biggest challenge is finding the normalization constant
 
@@ -49,7 +59,7 @@ bookFlatSection: true
     - approximate posterior as {{< katex >}}\mathcal{N}(w;ŵ, --\Psi^{-1}) {{< /katex >}} and the conjugate log partition function as:
 
       {{< katex display >}}
-     F(\alpha', \nu') \approx \sqrt{(2\pi)^d |(--\Psi^{-1})|} \cdot exp[\^{w}^T \cdot \alpha' -- \hspace{.01cm} \text{log} \hspace{.01cm} Z(^{w})^T \hspace{.01cm} \nu' ]
+     F(\alpha', \nu') \approx \sqrt{(2\pi)^d |(--\Psi^{-1})|} \cdot exp[ ŵ^T \cdot \alpha' -- \hspace{.01cm} \text{log} \hspace{.01cm} Z(ŵ)^T \hspace{.01cm} \nu' ]
      {{< /katex >}}
 
 
