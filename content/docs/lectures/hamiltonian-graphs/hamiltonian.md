@@ -4,7 +4,7 @@ weight: 4
 bookFlatSection: true
 ---
 
-# **Pathfinder: Simulating Hamiltonian Paths in Fortran**
+# **Hamiltonian Paths Demo in Fortran**
 
 ![202](https://community.wolfram.com/c/portal/getImageAttachment?filename=sadasdewrhfggjgdfsg423567.gif&userId=11733)
 
