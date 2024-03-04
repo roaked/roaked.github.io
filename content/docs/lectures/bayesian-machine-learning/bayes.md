@@ -18,7 +18,7 @@ bookFlatSection: true
 - bayes theorem on data D:
 
 {{< katex display >}}
-\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{ \underbrace{P(D)}_{\text{marginalization or evidence of the model}}}
+\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}
 {{< /katex >}}
 
 - *"discrete domain is just a subset of the continuous domain"*
@@ -32,7 +32,7 @@ bookFlatSection: true
 - probability distribution for X with pdf of the following form:
 
 {{< katex display >}}
-p_w (x) = \underbrace{h(x)}_{\text{base measure}} exp [ \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}] = \frac{h(x)}{Z(w)} e^{\phi(x)^Tw} \hspace{.01cm} = \hspace{.01cm} p(x | w)
+p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} exp \[ \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}\] = \frac{h(x)}{Z(w)} e^{\phi(x)^Tw} \hspace{.01cm} = \hspace{.01cm} p(x | w)
 {{< /katex >}}
 
 - for notational convenience, reparametrize natural parameters w := {{< katex >}}\eta(\theta){{< /katex >}} in terms of canonical parameters {{< katex >}}\theta{{< /katex >}}
