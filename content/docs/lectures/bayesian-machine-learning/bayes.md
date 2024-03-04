@@ -7,8 +7,8 @@ bookFlatSection: true
 # **Notes on Bayesian Inference**
 
 {{< hint tip >}}
-**git clone -> cd**
-**pip install -r requirements.txt** (scipy, jax.numpy)
+- **git clone -> cd**
+- **pip install -r requirements.txt** (scipy, jax.numpy)
 {{< /hint >}}
 
 ### **Understanding Uncertainty via Probabilities**
@@ -67,5 +67,19 @@ p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrac
 
 
 {{< hint important >}}
-Laplace approximations reveal that Bayesian inference prioritizes capturing the geometry of the likelihood function around its peak (mode), rather than solely focusing on the prior distribution. In this context, uncertainty is better understood as encompassing the multitude of potential solutions simultaneously, rather than fixating on a single point estimate. It's about monitoring the breadth of plausible solutions. This means it is about observing the volume of possibilities rather than pinpointing individual points
+- Laplace approximations reveal that Bayesian inference prioritizes capturing the geometry of the likelihood function around its peak (mode), rather than solely focusing on the prior distribution
+
+
+- Uncertainty is better understood as encompassing the multitude of potential solutions simultaneously, rather than fixating on a single point estimate. It's about monitoring the breadth of plausible solutions. This means observing the volume of possibilities rather than pinpointing individual points
 {{< /hint >}}
+
+### **Gaussians**
+
+- Gaussian inference is linear algebra at its core
+
+    - products of Gaussians are Gaussians
+    - linear maps of Gaussians variables are Gaussian variables
+    - marginals of Gaussians are Gaussians 
+    - linear conditionals of Gaussians are Gaussians
+
+- if Gaussian prior over a random variable and observations are linearly related, then all conditionals, joints and marginals are Gaussian with means and covariances computable by linear algebra expressions
