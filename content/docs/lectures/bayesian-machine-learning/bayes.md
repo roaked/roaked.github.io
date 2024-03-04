@@ -35,7 +35,7 @@ bookFlatSection: true
 p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \underbrace{w}_{\text{natural parameters}} - \text{log} \, \overbrace{Z(w)}^{\text{partition function}} \right){{< /katex >}}
 
 {{< katex display >}}
-\Rightlongarrow \frac{h(x)}{Z(w)} e^{\phi(x)^T w} \hspace{.05cm} = \hspace{.05cm} p(x | w)
+= \frac{h(x)}{Z(w)} e^{\phi(x)^T w} = p(x | w)
 {{< /katex >}}
 
 - for notational convenience, reparametrize natural parameters w := {{< katex >}}\eta(\theta){{< /katex >}} in terms of canonical parameters {{< katex >}}\theta{{< /katex >}}
