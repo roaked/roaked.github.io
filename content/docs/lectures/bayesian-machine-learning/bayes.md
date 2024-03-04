@@ -32,7 +32,7 @@ bookFlatSection: true
 - probability distribution for X with pdf of the following form:
 
 {{< katex display >}}
-p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} exp \[ \overbrace{\phi(x)}^{\text{sufficient statistics}}^T \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}\] = \frac{h(x)}{Z(w)} e^{\phi(x)^Tw} \hspace{.01cm} = \hspace{.01cm} p(x | w)
+p_{w}(x) = \underbrace{h(x)}_{\text{base measure}} exp \[ \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \hspace{.01cm} \underbrace{w}_{\text{natural parameters}} -- \hspace{.01cm} \text{log} \hspace{.01cm} \overbrace{Z(w)}^{\text{partition function}}\] = \frac{h(x)}{Z(w)} e^{\phi(x)^T w} \hspace{.01cm} = \hspace{.01cm} p(x | w)
 {{< /katex >}}
 
 - for notational convenience, reparametrize natural parameters w := {{< katex >}}\eta(\theta){{< /katex >}} in terms of canonical parameters {{< katex >}}\theta{{< /katex >}}
