@@ -1,7 +1,7 @@
 ---
 weight: 7
 bookFlatSection: true
-title: "My Programming Lectures"
+title: "My Notes and Lectures"
 ---
 
 # **DSA Lectures @ GitHub**
