@@ -1,10 +1,10 @@
 ---
-weight: 1
+weight: 4
 bookFlatSection: true
 title: "My Notes and Lectures"
 ---
 
-# **DSA Lectures @ GitHub**
+# **Data Structures and Algorithms**
 
 ![q031](https://live.staticflickr.com/65535/53470685640_2730be6ede_z.jpg)
 
