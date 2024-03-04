@@ -29,10 +29,10 @@ bookFlatSection: true
 
 - random variable X taking x values {{< katex >}}\subset \R^n{{< /katex >}}
 
-- probability distribution for X with pdf of the following form:
+- probability distribution for X with *pdf* of the following form:
 
 {{< katex display >}}
-p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \underbrace{w}_{\text{natural parameters}} - \text{log} \, \overbrace{Z(w)}^{\text{partition function}} \right){{< /katex >}}
+p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrace{\phi(x)^T}^{\text{sufficient statistics}} \cdot \underbrace{w}_{\text{natural parameters}} - \text{log} \, \overbrace{Z(w)}^{\text{partition function}} \right){{< /katex >}}
 
 {{< katex display >}}
 = \frac{h(x)}{Z(w)} e^{\phi(x)^T w} = p(x | w)
