@@ -80,20 +80,22 @@ p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrac
     - products of Gaussians are Gaussians
 
     {{< katex display >}}
-    \mathcal{N}(x;a,A) \mathcal{N}(x;b,B) = \mathcal{N}(x;c,C) \mathcal{N}(a;b, A+B) \\
-    C:=(A^{-1} + B^{-1}) \hscape{.1cm} c:= C(A^{-1}a +B^{-1}b)
+    \mathcal{N}(x;a,A) \mathcal{N}(x;b,B) = \mathcal{N}(x;c,C) \mathcal{N}(a;b, A+B) 
+    {{< /katex>}}
+    {{< katex display >}}
+    C = (A^{-1} + B^{-1})^{-1}, \quad c = C(A^{-1}a + B^{-1}b)
     {{< /katex>}}
     - linear maps/projections of Gaussians variables are Gaussian variables
     {{< katex display >}}
-    p(z) = \mathcal{N}(z; \mu, \sum) \Longrightarrow p(Az) = \mathcal{N}(Az, A\mu, A\sumA^T)
+    p(z) = \mathcal{N}(z; \mu, \Sigma) \Longrightarrow p(Az) = \mathcal{N}(Az, A\mu, A\SigmaA^T)
     {{< /katex>}}
     - marginals of Gaussians are Gaussians 
     {{< katex display >}}
-    \int \mathcal{N} [[x \\ y]; [\mu_x \\ \mu_y], [\sum_{xx} \sum_{xy} \\ \sum_{yx} \sum_{yy}]] dy = \mathcal{N}(x;\mu_x, \sum_{xx})
+    \int \mathcal{N} \left[ \begin{array}{c} x \\ y \end{array}; \begin{bmatrix} \mu_x \\ \mu_y \end{bmatrix}, \begin{bmatrix} \Sigma_{xx} & \Sigma_{xy} \\ \Sigma_{yx} & \Sigma_{yy} \end{bmatrix} \right] dy = \mathcal{N}(x;\mu_x, \Sigma_{xx})
     {{< /katex>}}
     - linear conditionals of Gaussians are Gaussians
     {{< katex display >}}
-    p(x | y) = \frac{p(x,y)}{p(y)} = \mathcal{N}(x; \mu_x + \sum_{xy}\sum_{yy}^{-1}(y - \mu_y),\sum_{xx}-\sum_{xy}\sum_{yy}^{-1}\sum_{yx})
+    p(x | y) = \frac{p(x,y)}{p(y)} = \mathcal{N}(x; \mu_x + \Sigma_{xy}\Sigma_{yy}^{-1}(y - \mu_y),\Sigma_{xx}-\Sigma_{xy}\Sigma_{yy}^{-1}\Sigma_{yx})
     {{< /katex>}}
 
 - if Gaussian prior over a random variable and observations are linearly related, then all conditionals, joints and marginals are Gaussian with means and covariances computable by linear algebra expressions -- **Bayesian inference becomes linear algebra**
