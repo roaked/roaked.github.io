@@ -100,4 +100,43 @@ p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrac
 
 - if Gaussian prior over a random variable and observations are linearly related, then all conditionals, joints and marginals are Gaussian with means and covariances computable by linear algebra expressions -- **Bayesian inference becomes linear algebra**
 
+```python
+import dataclasses, jax, functools, scipy
+from jax import numpy as jnp
 
+@dataclasses.dataclass
+class Gaussian: #Gaussian distribution w/ mean mu and covariance Sigma
+    mu: jnp.ndarray # shape(D, )
+    Sigma: jnp.ndarray # shape(D, D)
+
+    @functools.cached_property
+    def L(self): 
+        """Cholesky decomposition of the covariance matrix"""
+        return jnp.linalg.cholesky(self.Sigma) #lowlevel fortran libs
+
+    @functools.cached_property
+    def L_factor(self):
+        """Cholesky factorization of the covariance matrix"""
+        return jax.scipy.linalg.cho_factor(self.Sigma, lower=True)
+
+    def condition(self, A, y, Lambda):
+        """A: observation matrix, shape (N,D)
+           y: observation, shape(N,)
+           Lambda: observation noise covariance, shape(N,N)"""
+        Gram = A @ self.Sigma @ A.T + Lambda
+        L = jax.scipy.linalg.cho_factor(Gram, lower=True)
+        mu = self.mu + self.Sigma @ A.T @ jax.scipy.linalg.cho_solve(
+            L,y-A @ self.mu
+            )
+        Sigma = self.Sigma - self.Sigma @ A.T @ jax.scipy.linalg.cho_solve(
+            L, A @ self.Sigma
+            )
+
+        return Gaussian(mu=mu, Sigma=Sigma)
+
+    def sample(self, key, num_samples = 1):
+        """Sample from the Gaussian"""
+        return jax.random.multivariate_normal(
+            key, mean = self.mu, cov = self.Sigma, shape = (num_samples,), method = "svd"
+        )
+```
