@@ -78,8 +78,24 @@ p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrac
 - Gaussian inference is linear algebra at its core
 
     - products of Gaussians are Gaussians
-    - linear maps of Gaussians variables are Gaussian variables
-    - marginals of Gaussians are Gaussians 
-    - linear conditionals of Gaussians are Gaussians
 
-- if Gaussian prior over a random variable and observations are linearly related, then all conditionals, joints and marginals are Gaussian with means and covariances computable by linear algebra expressions
+    {{< katex display >}}
+    \mathcal{N}(x;a,A) \mathcal{N}(x;b,B) = \mathcal{N}(x;c,C) \mathcal{N}(a;b, A+B) \\
+    C:=(A^{-1} + B^{-1}) \hscape{.1cm} c:= C(A^{-1}a +B^{-1}b)
+    {{< /katex>}}
+    - linear maps/projections of Gaussians variables are Gaussian variables
+    {{< katex display >}}
+    p(z) = \mathcal{N}(z; \mu, \sum) \Longrightarrow p(Az) = \mathcal{N}(Az, A\mu, A\sumA^T)
+    {{< /katex>}}
+    - marginals of Gaussians are Gaussians 
+    {{< katex display >}}
+    \int \mathcal{N} [[x \\ y]; [\mu_x \\ \mu_y], [\sum_{xx} \sum_{xy} \\ \sum_{yx} \sum_{yy}]] dy = \mathcal{N}(x;\mu_x, \sum_{xx})
+    {{< /katex>}}
+    - linear conditionals of Gaussians are Gaussians
+    {{< katex display >}}
+    p(x | y) = \frac{p(x,y)}{p(y)} = \mathcal{N}(x; \mu_x + \sum_{xy}\sum_{yy}^{-1}(y - \mu_y),\sum_{xx}-\sum_{xy}\sum_{yy}^{-1}\sum_{yx})
+    {{< /katex>}}
+
+- if Gaussian prior over a random variable and observations are linearly related, then all conditionals, joints and marginals are Gaussian with means and covariances computable by linear algebra expressions -- **Bayesian inference becomes linear algebra**
+
+
