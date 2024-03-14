@@ -87,7 +87,7 @@ p_{w}(x) = \overbrace{h(x)}^{\text{base measure}} \, \text{exp} \left( \overbrac
     {{< /katex>}}
     - linear maps/projections of Gaussians variables are Gaussian variables
     {{< katex display >}}
-    p(z) = \mathcal{N}(z; \mu, \Sigma) \Longrightarrow p(Az) = \mathcal{N}(Az, A\mu, A\SigmaA^T)
+    p(z) = \mathcal{N}(z; \mu, \Sigma) \Longrightarrow p(Az) = \mathcal{N}(Az, A\mu, A\Sigma A^T)
     {{< /katex>}}
     - marginals of Gaussians are Gaussians 
     {{< katex display >}}
