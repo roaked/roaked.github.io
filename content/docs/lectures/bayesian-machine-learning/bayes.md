@@ -139,6 +139,7 @@ class Gaussian: #Gaussian distribution w/ mean mu and covariance Sigma
     def sample(self, key, num_samples = 1):
         """Sample from the Gaussian"""
         return jax.random.multivariate_normal(
-            key, mean = self.mu, cov = self.Sigma, shape = (num_samples,), method = "svd"
-        )
+            key, mean = self.mu, cov = self.Sigma, shape = (num_samples,),
+             method = "svd"
+        ) # singular value decomposition -> dimensionality reduction USV^T
 ```
