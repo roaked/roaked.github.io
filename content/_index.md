@@ -9,7 +9,7 @@ I am a senior data scientist working on deploying ML models to production of mic
 
 I was previously involved with the research group of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group at the [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). My role revolved around predictive modeling that laid focus on the enhancement of finite-element method simulations by integrating supervised classifier algorithms for material failure analysis. In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) highlighting the benefits of resin-based additive manufacturing. 
 
-## **Uncertainty quantification**
+## **Uncertainty quantification in Bayesian machine learning**
 
 AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. I'm interested in probabilistic machine learning to tackle decision-making challenges within practical engineer applications, specifically those in advanced manufacturing and autonomous cyberphysical systems where repercussions of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount. Besides, uncertainty quantification not only improves the reliability of predictions but also provides confidence levels associated with the results contributing to insights about underlying data.
 
