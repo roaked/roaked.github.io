@@ -16,7 +16,7 @@ From conceptualization to realization...
 
 - [FEM Package Development for a Case of Torsional Loading using Prandtl Equations](https://ricardochin.com/docs/design/finite-element-method-development/)
 
-- [Manual Transmission Design of a Normal Compound Gear Train](https://ricardochin.com/docs/design/manual-transmission-design/#4-you-spin-me-right-round)
+- [Manual Transmission Design of a Normal Compound Gear Train](https://ricardochin.com/docs/design/manual-transmission-design/)
 
 - [Applications of Electron-Beam Technology for Additive Manufacturing and Joining Processes](https://ricardochin.com/docs/design/electron-beam-tech/)
 
