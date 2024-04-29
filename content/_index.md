@@ -5,7 +5,7 @@ type: docs
 
 # **My name is Ricardo**
 
-I am a senior research data scientist working on deploying scalable ML models to production through HPC clusters. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in large manufacturing settings. Alongside, I do research on reinforcement learning, physics informed ML and metaheuristic optimization. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable uncertainty quantification and mitigated model overconfidence leading to stronger data-driven insights.
+I am a senior research data scientist working on deploying scalable ML models to production through HPC clusters. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in manufacturing settings. Alongside, I do research on reinforcement learning, physics informed ML and metaheuristic optimization for cyber-physical systems applications such as those seen in robotics. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable uncertainty quantification and mitigated model overconfidence leading to stronger data-driven insights.
 
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
