@@ -10,12 +10,9 @@ I am a senior ML scientist working on deploying end-to-end AI/ML scalable soluti
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
 {{< hint info >}}
-- **Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI PM
-- **Languages (B2+):** Portuguese, English, German --- **References and CV on request**
+- **Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI Tech. PM
+- **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
-
-{{< button href="mailto:ricochin.work@gmail.com" >}}Mail{{< /button >}}
-{{< button href="https://github.com/roaked" >}}GitHub{{< /button >}}
 
 ## **Uncertainty quantification in Bayesian machine learning**
 
@@ -23,7 +20,10 @@ I was previously involved with the research team of the [Center of Intelligent S
 
 *"Intelligent systems operate autonomously in, and adapt to, complex changing environments, but our understanding of this phenomena is still limited"* --- [Institute of Max Planck Research](https://imprs.is.mpg.de/)
 
-There are many diverse ways of increasing model explainability. Naturally, all rely on an intrinsic mathematical framework and prior knowledge to accelerate this complex process, but given the fast-paced world of machine learning, I believe there is so much more. Hence, I spend a lot of time learning about new technologies. In addition, I also hold [programming lectures](https://ricardochin.com/docs/lectures/) that cover data structures and algorithms at various levels, TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also dedicate a portion of my time learning about new technologies and [teach data structures and algorithms for data scientists at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+
+{{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via business mail!{{< /button >}}
+{{< button href="https://github.com/roaked" >}}GitHub{{< /button >}}
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
