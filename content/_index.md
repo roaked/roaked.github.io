@@ -11,22 +11,22 @@ I am a senior ML scientist working on deploying end-to-end AI/ML scalable soluti
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
 {{< hint info >}}
-- **Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI Tech. PM
-- **Prefered Region: DACH** --- **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
+- **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI Tech. PM
+- **Prefered Region:** DACH --- **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
 
 ## **Uncertainty quantification in Bayesian machine learning**
 
 ¹AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. Hence, my keen interest in probabilistic machine learning to tackle decision-making challenges where outcomes of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount.
 
-*"Intelligent systems operate autonomously in, and adapt to, complex changing environments, but our understanding of this phenomena is still limited"* --- [Institute of Max Planck Research](https://imprs.is.mpg.de/)
+*"Intelligent systems operate autonomously (...) but our understanding of this phenomena is still limited"* --- [Institute Max Planck for Intelligent Systems](https://imprs.is.mpg.de/)
 
 I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also spend time learning about new technologies and [teaching data structures and algorithms to data/ml engineers at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
 
 {{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
 {{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
 
-![123e](https://live.staticflickr.com/65535/53730139641_2df5062636_z.jpg)
+![123e](https://live.staticflickr.com/65535/53730479309_a6af1c9ed4_c.jpg)
 
 ## **Run with passion, live with purpose**
 
