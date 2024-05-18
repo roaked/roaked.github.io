@@ -11,7 +11,7 @@ I was previously involved with the research team of the [Center of Intelligent S
 
 ## **Uncertainty quantification in Bayesian machine learning**
 
-¹AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. Hence, I am interested in probabilistic machine learning to tackle decision-making challenges within practical engineer applications, specifically those in advanced manufacturing and cyber-physical systems where outcomes of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount.
+¹AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. Hence, my keen interest in probabilistic machine learning to tackle decision-making challenges where outcomes of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount.
 
 *"Intelligent systems operate autonomously in, and adapt to, complex changing environments, but our understanding of this phenomena is still limited"* --- [Institute of Max Planck Research](https://imprs.is.mpg.de/)
 
