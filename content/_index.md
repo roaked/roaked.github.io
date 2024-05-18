@@ -19,14 +19,14 @@ I was previously involved with the research team of the [Center of Intelligent S
 
 ¹AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. Hence, my keen interest in probabilistic machine learning to tackle decision-making challenges where outcomes of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount.
 
-*"Intelligent systems operate autonomously (...) but our understanding of this phenomena is still limited"* --- [Institute Max Planck for Intelligent Systems](https://imprs.is.mpg.de/)
+*"Intelligent systems operate autonomously (...) but our understanding of this phenomena is still limited"* -- [IS Max Planck Institute](https://imprs.is.mpg.de/)
 
-I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also spend time learning about new technologies and [teaching data structures and algorithms to data/ml engineers at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
 
 {{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
 {{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
 
-![123e](https://live.staticflickr.com/65535/53730479309_a6af1c9ed4_c.jpg)
+![123e](https://live.staticflickr.com/65535/53729234907_9e1594ce05_c.jpg)
 
 ## **Run with passion, live with purpose**
 
