@@ -10,9 +10,8 @@ I am a senior ML scientist working on deploying end-to-end AI/ML scalable soluti
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
 {{< hint info >}}
-**Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI PM
-*bonus points if project collaborations w/ research groups or academia!*
-**Languages (B2+):** Portuguese, English, German --- **References and CV on request**
+- **Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI PM
+- **Languages (B2+):** Portuguese, English, German --- **References and CV on request**
 {{< /hint >}}
 
 {{< button href="mailto:ricochin.work@gmail.com" >}}Mail{{< /button >}}
