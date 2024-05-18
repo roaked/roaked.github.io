@@ -6,13 +6,13 @@ bookToc: false
 
 # **My name is Ricardo**
 
-I am a senior ML scientist working on deploying end-to-end AI/ML scalable solutions to production for cyber-physical systems. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in manufacturing settings. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable [uncertainty quantification and overconfidence mitigation](https://ricardochin.com/#uncertainty-quantification-in-bayesian-machine-learning)¹ leading to stronger data-driven insights. Alongside, I do research on reinforcement learning, physics informed ML and metaheuristic optimization in the field of robotics.
+I am a senior ML scientist working on deploying end-to-end AI/ML scalable solutions to production for cyber-physical systems. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in manufacturing settings. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable [uncertainty quantification and overconfidence mitigation](https://ricardochin.com/#uncertainty-quantification-in-bayesian-machine-learning)¹ leading to stronger and more robust data-driven business insights. Alongside, I do research on reinforcement learning, physics-informed ML and metaheuristic optimization in the field of robotics.
 
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
 {{< hint info >}}
 - **Prefered roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI Tech. PM
-- **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
+- **Prefered Region: DACH** --- **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
 
 ## **Uncertainty quantification in Bayesian machine learning**
@@ -26,7 +26,7 @@ I am interested in projects closely aligned with academia or research groups as 
 {{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
 {{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
 
-![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
+![123e](https://live.staticflickr.com/65535/53730139641_2df5062636_z.jpg)
 
 ## **Run with passion, live with purpose**
 
