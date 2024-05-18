@@ -1,6 +1,7 @@
 ---
 title: Portfolio
 type: docs
+bookToc: false
 ---
 
 # **My name is Ricardo**
@@ -20,10 +21,10 @@ I was previously involved with the research team of the [Center of Intelligent S
 
 *"Intelligent systems operate autonomously in, and adapt to, complex changing environments, but our understanding of this phenomena is still limited"* --- [Institute of Max Planck Research](https://imprs.is.mpg.de/)
 
-I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also dedicate a portion of my time learning about new technologies and [teach data structures and algorithms for data scientists at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also spend time learning about new technologies and [teaching data structures and algorithms to data/ml engineers at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
 
-{{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via business mail!{{< /button >}}
-{{< button href="https://github.com/roaked" >}}GitHub{{< /button >}}
+{{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
+{{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
 
 ![123e](https://live.staticflickr.com/65535/53351935583_2203c22f2f_c.jpg)
 
