@@ -5,20 +5,16 @@ type: docs
 
 # **My name is Ricardo**
 
-I am a senior ML scientist working on deploying end-to-end AI/ML scalable solutions to production for cyber-physical systems. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in manufacturing settings. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable [uncertainty quantification and overconfidence mitigation](https://ricardochin.com/#uncertainty-quantification-in-bayesian-machine-learning)¹ leading to stronger and more robust data-driven business insights. Alongside, I do research on reinforcement learning, physics-informed ML and metaheuristic optimization in the field of robotics.
+I am a senior ML scientist working on deploying end-to-end AI/ML scalable solutions to production for cyber-physical systems. My tasks encompass exploratory data analysis and feature engineering to generate explainable results in manufacturing settings. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable [uncertainty quantification and overconfidence mitigation](https://ricardochin.com/#uncertainty-quantification-in-bayesian-machine-learning) leading to stronger data-driven business insights. Alongside, I do research on reinforcement learning, physics-informed ML and metaheuristic optimization in the field of robotics.
 
 I was previously involved with the research team of the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and also with the research group of [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). In addition, I supervised a bachelor thesis at the [University of Leoben](https://www.unileoben.ac.at/en/) with a focus on additive manufacturing within industry applications.
 
 {{< hint info >}}
-- **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS/AI Tech. PM
+- **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS Tech PM
 - **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
 
-¹AI models possess impressive abilities, yet they frequently exhibit overconfidence. They behave poorly at estimating uncertainty in their predictions and often are unable to say "I don’t know" in response to an unfamiliar situation. Hence, my keen interest in probabilistic machine learning to tackle decision-making challenges where outcomes of incorrect predictions can be catastrophic, making the need for addressing uncertainty and overconfidence paramount.
-
-["Intelligent systems operate autonomously (...) but our understanding of this phenomena is still limited"](https://imprs.is.mpg.de/)
-
-I am interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of machine learning. During off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+My interests also lay in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of artificial intelligence. On the side and during off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
 
 {{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
 {{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
