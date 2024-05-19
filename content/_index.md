@@ -9,15 +9,12 @@ I am a senior ML scientist carrying out the deployment of scalable AI/ML solutio
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for [the Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
+I am also interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of artificial intelligence. On the side and during off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
+
 {{< hint info >}}
 - **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS Tech. PM
 - **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
-
-My interests also lay in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of artificial intelligence. On the side and during off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
-
-{{< button href="mailto:ricochin.work@gmail.com" >}}Feel free to contact me via this business mail!{{< /button >}}
-{{< button href="https://github.com/roaked" >}}My GitHub{{< /button >}}
 
 ![123e](https://live.staticflickr.com/65535/53730479309_a6af1c9ed4_c.jpg)
 
