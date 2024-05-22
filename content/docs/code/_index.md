@@ -8,9 +8,9 @@ title: "System Repository"
 # **Abstract**
 
 
-Welcome to the code repository showcasing a couple of my research projects.
+This is the intelligent systems repository! 
 
-I strongly believe in the power of code — it's what turns ideas into reality.
+*(mostly research projects without prod deployment / productionization)*
 
 
 - [UAV Red Bull Air Racing: System Dynamics Modeling, Controller Design and Drone Vision](https://ricardochin.com/docs/code/uav/)
