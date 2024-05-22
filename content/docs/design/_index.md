@@ -1,14 +1,12 @@
 ---
 weight: 2
 bookFlatSection: true
-title: "Design Repository"
+title: "Engineering Repository"
 ---
 
 # **Abstract**
 
-This is the design project repository that contains a few of my design adventures in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
-
-From conceptualization to realization...
+This is my engineering repository that contains a few of my designs in Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and 3D CAD projects. 
 
 - [Evaluating the Global and Local Instability Modes using Finite Element Analysis](https://ricardochin.com/docs/design/fea-beam-simulation/)
 
