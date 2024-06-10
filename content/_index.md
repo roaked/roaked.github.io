@@ -5,7 +5,7 @@ type: docs
 
 # **My name is Ricardo**
 
-I am a senior ML scientist carrying out the deployment of scalable AI/ML solutions from a proof-of-concept state to productionization. My model development tasks broadly encompass exploratory data analysis, feature engineering and experimentation in a cross-functional setting to generate explainable data-driven results. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable uncertainty quantification and overconfidence mitigation promoting more robust and reliable business insights. Alongside, I lead research projects on reinforcement learning, transfer learning, physics-informed ML and metaheuristic optimization in the field of robotics.
+I am a senior ML scientist carrying out the deployment of scalable AI/ML solutions from a proof-of-concept state to productionization. My model development tasks broadly encompass exploratory data analysis, feature engineering and experimentation in a cross-functional setting to generate explainable data-driven results. Moreover, I am well versed in advanced statistics and Bayesian modeling which enable uncertainty quantification and overconfidence mitigation promoting more robust and reliable business insights. Alongside, I lead research projects on reinforcement learning, transfer learning, physics-informed ML and metaheuristic optimization.
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
