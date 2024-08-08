@@ -5,14 +5,14 @@ type: docs
 
 # **My name is Ricardo**
 
-I am a senior ML scientist conducting high-level design and deployment of scalable AI/ML solutions from a proof-of-concept state to productionization in a research and development environment. My model integration tasks broadly encompass exploratory data analysis, anomaly detection and experimentation in a cross-functional setting to effectively generate explainable data-driven business insights. Alongside, I lead research projects that enclose state-of-the-art implementations in reinforcement learning, bayesian ML, transfer and meta learning, real-time object detection and metaheuristic optimization in the scope of logistics, automation and robotics.
+As a lead ML researcher, I focus on the high-level design of scalable software solutions, transforming proof-of-concept experiments into transactionable services. My current research lies at the forefront of interpretable generative AI, where I leverage retrieval-augmented generation pipelines to enhance adaptive decision-making in cross-functional settings and generate data-driven business insights. In addition, I have led research projects that enclose state-of-the-art implementations in reinforcement learning, uncertainty quantification, transfer and meta learning, real-time object detection and metaheuristic optimization in the scope of logistics, automation and robotics.
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
 I am also interested in projects closely aligned with academia or research groups as I believe there is still so much to discover in our fast-paced world of artificial intelligence. On the side and during off hours, I also spend time learning about new technologies and [teaching data structures and algorithms for data science at various levels](https://ricardochin.com/docs/lectures/), TeX presentations available @ [my Github page!](https://github.com/roaked/programming-lectures)
 
 {{< hint info >}}
-- **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions/MLOps Architect or DS Tech. PM
+- **Prefered Roles:** Senior or Lead DS/MLE/MLS, Solutions Architect or DS Tech PM
 - **Languages (B2+):** Portuguese, English, German --- *References and CV on request*
 {{< /hint >}}
 
