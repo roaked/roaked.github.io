@@ -5,7 +5,7 @@ type: docs
 
 # **My name is Ricardo**
 
-As a lead ML researcher, I focus on the high-level design of scalable software solutions, transforming proof-of-concept experiments into transactionable services. My current research lies at the forefront of interpretable generative AI, where I leverage retrieval-augmented generation pipelines to enhance adaptive decision-making in cross-functional settings and generate data-driven business insights. In addition, I have led research projects that enclose state-of-the-art implementations in reinforcement learning, uncertainty quantification, transfer and meta learning, real-time object detection and metaheuristic optimization in the scope of logistics, automation and robotics.
+As a lead ML researcher, I focus on the high-level design of scalable software solutions, transforming proof-of-concept experiments into transactionable services. My current research lies at the forefront of interpretable generative AI, where I leverage retrieval-augmented generation pipelines to enhance adaptive decision-making and generate data-driven business insights. In addition, I have led research projects that enclose state-of-the-art implementations in reinforcement learning, uncertainty quantification, transfer and meta learning, real-time object detection and metaheuristic optimization in the scope of logistics, automation and robotics.
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
