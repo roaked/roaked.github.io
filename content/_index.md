@@ -3,7 +3,7 @@ title: Portfolio
 type: docs
 ---
 
-# **From deep dives into LLMOps to RL... **
+# **From deep dives into LLMOps to RL...**
 
 As a lead ML researcher, I focus on the high-level design of scalable software products, transitioning from PoC experimentation into productionization. My research is at the intersection of interpretable generative AI and efficient model deployment, where I leverage retrieval-augmented generation pipelines to enhance adaptive decision-making in cross-functional settings and generate data-driven business insights. In addition, I have led research projects that enclose state-of-the-art implementations in reinforcement learning, uncertainty quantification, transfer and meta learning, real-time object detection and metaheuristic optimization.
 
