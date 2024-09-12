@@ -1,13 +1,266 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portfolio on Ricardo Chin</title><link>https://xsleaks.dev/</link><description>Recent content in Portfolio on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><managingEditor>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</managingEditor><webMaster>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</webMaster><atom:link href="https://xsleaks.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>Notes on Bayesian Inference # tip
-git clone -&amp;gt; cd pip install -r requirements.txt (scipy, jax.numpy) Understanding Uncertainty via Probabilities # sum rule: P(X) = P(X,Y) + P(X, \(\neg\) Y) product rule: P(X,Y) = P(X) \(\cdot\) P(Y | X) bayes theorem on data D: \[\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}\] &amp;ldquo;discrete domain is just a subset of the continuous domain&amp;rdquo; this extends deductive reasoning (statistics) to plausible reasoning (probabilities) Exponential Families and Conjugate Priors # random variable X taking x values \(\subset \R^n\) probability distribution for X with pdf of the following form:</description></item><item><title>Drone System Dynamics</title><link>https://xsleaks.dev/docs/code/uav/dynamics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/dynamics/</guid><description>Phase 1. Drone System Dynamics # tip
-If you wish to skip the theoretical and implementation details, please click here to jump to the summarized findings Ch. 4 - The Moving UAV. 1 System Dynamics Modeling # Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:
-Actuation System: This handles the rotors&amp;rsquo; model, the forces they generate ( \(F_p\) ), and the moments they create ( \(M_p\) ).</description></item><item><title>Genetic Algorithm</title><link>https://xsleaks.dev/docs/code/bin-packing/genetic-algorithm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/bin-packing/genetic-algorithm/</guid><description>Space in Bin Packing: Genetic Algorithm # Source Source 1 Theoretical Remarks # Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of &amp;ldquo;survival of the fittest.&amp;rdquo; By emulating this phenomenon, GAs possess the capability to &amp;ldquo;evolve&amp;rdquo; solutions for real-world problems, provided they have been encoded effectively.</description></item><item><title>Off Policy RL &amp; Neuroevolution</title><link>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</guid><description>Off Policy and DQN Parameter Optimization # 1 Reinforcement Deep Q-Network Architecture # DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address RL challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs.</description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description> Notes on Bayesian Optimization # tip
-git clone -&amp;gt; cd pip install -r requirements.txt (jax.numpy, scipy, botorch)</description></item><item><title>Continuous Controller</title><link>https://xsleaks.dev/docs/code/uav/continuous-controller-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/continuous-controller-design/</guid><description>Phase 2. Controller Design Pt. 1 # tip
-If you wish to skip the theoretical and implementation details, please click here to jump to the summarized findings Ch. 9 - Piloting in a Loop. 1 Continuing from Phase 1&amp;hellip; # Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.</description></item><item><title>Particle Swarm Optimization</title><link>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</guid><description>Disco Dance of Particles # 1 Algorithm Concept # Particle Swarm Optimization (PSO) draws its inspiration from the social dynamics seen in various species, like birds and insects, as they navigate their environments to fulfill their needs. In this method, each potential solution is likened to a particle, and these particles come together to form a dynamic swarm. Each particle possesses two key characteristics: its position and its velocity. Utilizing this velocity, each particle embarks on a journey to a new position within the search space.</description></item><item><title>Discrete Controller</title><link>https://xsleaks.dev/docs/code/uav/discrete-controller-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/discrete-controller-design/</guid><description>Phase 3. Amazing Race &amp;amp; Crazy 8 # tip
-If you wish to skip the theoretical and implementation details, please click here to jump to the summarized findings Ch. 8 - Amazing Race. 1 Continuing from Phase 2&amp;hellip; # In this phase 3, a more practical approach was adopted to tackle the problem. Discrete controllers and observers were designed for the drone, with simulations implemented to test it in a highly realistic environment.</description></item><item><title>Formula Student Lisbon</title><link>https://xsleaks.dev/docs/competitions/fst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/competitions/fst/</guid><description>FST 010e | Suspension # warning
-Disclaimer: Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.
-The content consists mainly on certain topics for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at Car Transmission Design, but for epicyclical gear trains.
-1 Background # During Formula Student (FS) competitions, students are tasked with creating, testing, and refining a race car adhering to specific guidelines outlined by Formula Student Germany (FSG) and Formula Society of Automotive Engineers (FSAE).</description></item><item><title>Policy Based Decision-Making</title><link>https://xsleaks.dev/docs/code/snake-game/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/policy/</guid><description> Model-Free Policy Based Reinforcement Learning #</description></item><item><title>Adversarial Multi-Agent RL</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description> Adversarial Multi-Agent Reinforcement Learning #</description></item><item><title>Gate Sense: Computer Vision</title><link>https://xsleaks.dev/docs/code/uav/computer-vision/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/computer-vision/</guid><description>Phase 4. UAV Computer Vision # tip
-If you wish to skip the theoretical and implementation details, please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired. 1 Computer Vision for Obstacle Detection # In preparation for the Red Bull drone race, a comprehensive dataset was compiled, consisting of images capturing gates from diverse angles, distances, and lighting conditions. These images showcase the gates amidst various backgrounds, providing a range of scenarios that drones might encounter during the race.</description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description> Notes on Nonlinear Programming # tip
-git clone -&amp;gt; cd pip install -r requirements.txt (numpy) GitHub repo</description></item><item><title>ThermoCup</title><link>https://xsleaks.dev/docs/competitions/thermocup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/competitions/thermocup/</guid><description>ThermoCup # warning
-Disclaimer: Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related. 1 What is the ThermoCup? # ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.</description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>Hamiltonian Paths Demo in Fortran # 1 Simulation and Analysis of Graph Path Selection # Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portfolio on Ricardo Chin</title><link>https://xsleaks.dev/</link><description>Recent content in Portfolio on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><managingEditor>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</managingEditor><webMaster>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</webMaster><atom:link href="https://xsleaks.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>&lt;h1 id="notes-on-bayesian-inference">
+ &lt;strong>Notes on Bayesian Inference&lt;/strong>
+ &lt;a class="anchor" href="#notes-on-bayesian-inference">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ &lt;ul>
+&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (scipy, jax.numpy)&lt;/li>
+&lt;/ul>
+
+ &lt;/blockquote>
+
+&lt;h3 id="understanding-uncertainty-via-probabilities">
+ &lt;strong>Understanding Uncertainty via Probabilities&lt;/strong>
+ &lt;a class="anchor" href="#understanding-uncertainty-via-probabilities">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>sum rule: P(X) = P(X,Y) + P(X, 
+&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" />
+&lt;script defer src="https://xsleaks.dev/katex/katex.min.js">&lt;/script>
+&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);">&lt;/script>&lt;span>
+ \(\neg\)
+&lt;/span>
+Y)&lt;/li>
+&lt;li>product rule: P(X,Y) = P(X) &lt;span>
+ \(\cdot\)
+&lt;/span>
+ P(Y | X)&lt;/li>
+&lt;li>bayes theorem on data D:&lt;/li>
+&lt;/ul>
+&lt;span>
+ \[\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}\]
+&lt;/span>
+
+&lt;ul>
+&lt;li>&lt;em>&amp;ldquo;discrete domain is just a subset of the continuous domain&amp;rdquo;&lt;/em>&lt;/li>
+&lt;li>this extends deductive reasoning (statistics) to plausible reasoning (probabilities)&lt;/li>
+&lt;/ul>
+&lt;h3 id="exponential-families-and-conjugate-priors">
+ &lt;strong>Exponential Families and Conjugate Priors&lt;/strong>
+ &lt;a class="anchor" href="#exponential-families-and-conjugate-priors">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>random variable X taking x values &lt;span>
+ \(\subset \R^n\)
+&lt;/span>
+&lt;/p></description></item><item><title>Drone System Dynamics</title><link>https://xsleaks.dev/docs/code/uav/dynamics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/dynamics/</guid><description>&lt;h1 id="phase-1-drone-system-dynamics">
+ &lt;strong>Phase 1. Drone System Dynamics&lt;/strong>
+ &lt;a class="anchor" href="#phase-1-drone-system-dynamics">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ If you wish to skip the theoretical and implementation details, &lt;a href="https://ricardochin.com/docs/2code/1drone/_index2/#4-the-moving-uav">please click here to jump to the summarized findings Ch. 4 - The Moving UAV&lt;/a>.
+ &lt;/blockquote>
+
+&lt;h2 id="1-system-dynamics-modeling">
+ 1 System Dynamics Modeling
+ &lt;a class="anchor" href="#1-system-dynamics-modeling">#&lt;/a>
+&lt;/h2>
+&lt;p>Breaking down the drone into subsystems helps manage its complexity. The quadrotor has three main parts:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Actuation System: This handles the rotors&amp;rsquo; model, the forces they generate (
+&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" />
+&lt;script defer src="https://xsleaks.dev/katex/katex.min.js">&lt;/script>
+&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);">&lt;/script>&lt;span>
+ \(F_p\)
+&lt;/span>
+), and the moments they create (&lt;span>
+ \(M_p\)
+&lt;/span>
+). Each rotor gets an input voltage (&lt;span>
+ \(V_{m_i}\)
+&lt;/span>
+) and produces an angular velocity (&lt;span>
+ \(\Omega_i\)
+&lt;/span>
+).&lt;/p></description></item><item><title>Genetic Algorithm</title><link>https://xsleaks.dev/docs/code/bin-packing/genetic-algorithm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/bin-packing/genetic-algorithm/</guid><description>&lt;h1 id="space-in-bin-packing-genetic-algorithm">
+ &lt;strong>Space in Bin Packing: Genetic Algorithm&lt;/strong>
+ &lt;a class="anchor" href="#space-in-bin-packing-genetic-algorithm">#&lt;/a>
+&lt;/h1>
+&lt;div class="book-columns flex flex-wrap">
+
+ &lt;div class="flex-even markdown-inner">
+ &lt;img src="https://user-images.githubusercontent.com/36581610/78828900-6d6a2080-79b3-11ea-81a3-bd284849c3f2.gif" alt="sa" />
+ &lt;/div>
+
+ &lt;div class="flex-even markdown-inner">
+ &lt;img src="https://user-images.githubusercontent.com/36581610/78828927-79ee7900-79b3-11ea-9b25-936f19c4bf4a.gif" alt="asd" />
+ &lt;/div>
+
+&lt;/div>
+
+&lt;details >&lt;summary>Source&lt;/summary>
+ &lt;div class="markdown-inner">
+ &lt;a href="https://github.com/greerviau/TetrisAI">Source&lt;/a>
+ &lt;/div>
+&lt;/details>
+
+&lt;h2 id="1-theoretical-remarks">
+ 1 Theoretical Remarks
+ &lt;a class="anchor" href="#1-theoretical-remarks">#&lt;/a>
+&lt;/h2>
+&lt;p>Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of &amp;ldquo;survival of the fittest.&amp;rdquo; By emulating this phenomenon, GAs possess the capability to &amp;ldquo;evolve&amp;rdquo; solutions for real-world problems, provided they have been encoded effectively.&lt;/p></description></item><item><title>Off Policy RL &amp; Neuroevolution</title><link>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</guid><description>&lt;h1 id="off-policy-and-dqn-parameter-optimization">
+ &lt;strong>Off Policy and DQN Parameter Optimization&lt;/strong>
+ &lt;a class="anchor" href="#off-policy-and-dqn-parameter-optimization">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;img src="https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png" alt="sidas" />&lt;/p>
+&lt;h2 id="1-reinforcement-deep-q-network-architecture">
+ 1 Reinforcement Deep Q-Network Architecture
+ &lt;a class="anchor" href="#1-reinforcement-deep-q-network-architecture">#&lt;/a>
+&lt;/h2>
+&lt;p>DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address RL challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:&lt;/p></description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization">
+ &lt;strong>Notes on Bayesian Optimization&lt;/strong>
+ &lt;a class="anchor" href="#notes-on-bayesian-optimization">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ &lt;ul>
+&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (jax.numpy, scipy, botorch)&lt;/li>
+&lt;/ul>
+
+ &lt;/blockquote></description></item><item><title>Continuous Controller</title><link>https://xsleaks.dev/docs/code/uav/continuous-controller-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/continuous-controller-design/</guid><description>&lt;h1 id="phase-2-controller-design-pt-1">
+ &lt;strong>Phase 2. Controller Design Pt. 1&lt;/strong>
+ &lt;a class="anchor" href="#phase-2-controller-design-pt-1">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ If you wish to skip the theoretical and implementation details, &lt;a href="https://ricardochin.com/docs/code/uav/continuous-controller-design/#9-piloting-in-a-loop">please click here to jump to the summarized findings Ch. 9 - Piloting in a Loop&lt;/a>.
+ &lt;/blockquote>
+
+&lt;h2 id="1-continuing-from-phase-1">
+ 1 Continuing from Phase 1&amp;hellip;
+ &lt;a class="anchor" href="#1-continuing-from-phase-1">#&lt;/a>
+&lt;/h2>
+&lt;p>Previously, I had addressed problem formulation and initial approaches. The primary tasks included studying the system and subsystems, creating a state-space model for the dynamical system, analyzing aspects like linearity, stability, controllability, and observability, developing Simulink models, proposing classical state feedback control, and validating the simulator for the developed models.&lt;/p></description></item><item><title>Particle Swarm Optimization</title><link>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</guid><description>&lt;h1 id="disco-dance-of-particles">
+ &lt;strong>Disco Dance of Particles&lt;/strong>
+ &lt;a class="anchor" href="#disco-dance-of-particles">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;img src="https://gbhat.com/assets/gifs/pso_nonconvex.gif" alt="12" />&lt;/p>
+&lt;h2 id="1-algorithm-concept">
+ 1 Algorithm Concept
+ &lt;a class="anchor" href="#1-algorithm-concept">#&lt;/a>
+&lt;/h2>
+&lt;p>Particle Swarm Optimization (PSO) draws its inspiration from the social dynamics seen in various species, like birds and insects, as they navigate their environments to fulfill their needs. In this method, each potential solution is likened to a particle, and these particles come together to form a dynamic swarm. Each particle possesses two key characteristics: its position and its velocity. Utilizing this velocity, each particle embarks on a journey to a new position within the search space. Upon arriving at these new positions, individual particle bests and the overall swarm bests are updated accordingly. The velocity of each particle is then fine-tuned based on its experiences, repeating this cycle until certain conditions are met.&lt;/p></description></item><item><title>Discrete Controller</title><link>https://xsleaks.dev/docs/code/uav/discrete-controller-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/discrete-controller-design/</guid><description>&lt;h1 id="phase-3-amazing-race--crazy-8">
+ &lt;strong>Phase 3. Amazing Race &amp;amp; Crazy 8&lt;/strong>
+ &lt;a class="anchor" href="#phase-3-amazing-race--crazy-8">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ If you wish to skip the theoretical and implementation details, &lt;a href="https://ricardochin.com/docs/code/uav/discrete-controller-design/#8-amazing-race">please click here to jump to the summarized findings Ch. 8 - Amazing Race&lt;/a>.
+ &lt;/blockquote>
+
+&lt;h2 id="1-continuing-from-phase-2">
+ 1 Continuing from Phase 2&amp;hellip;
+ &lt;a class="anchor" href="#1-continuing-from-phase-2">#&lt;/a>
+&lt;/h2>
+&lt;p>In this phase 3, a more practical approach was adopted to tackle the problem. Discrete controllers and observers were designed for the drone, with simulations implemented to test it in a highly realistic environment. This involved using provided tracks and fine-tuning controllers to minimize following errors while maintaining optimal speed without causing critical destabilization.&lt;/p></description></item><item><title>Formula Student Lisbon</title><link>https://xsleaks.dev/docs/competitions/fst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/competitions/fst/</guid><description>&lt;h1 id="fst-010e--suspension">
+ &lt;strong>FST 010e&lt;/strong> | Suspension
+ &lt;a class="anchor" href="#fst-010e--suspension">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;img src="https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif" alt="sada" />&lt;/p>
+
+ &lt;blockquote class="book-hint2 warning">
+ &lt;p class="hint-title warning">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice">&lt;/use>
+ &lt;/svg>&lt;span>warning&lt;/span>&lt;/p>
+ &lt;p>&lt;strong>Disclaimer&lt;/strong>: &lt;strong>Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong>&lt;/p>
+&lt;p>The content consists mainly on certain topics for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at &lt;a href="https://ricardochin.com/docs/design/manual-transmission-design/">&lt;em>Car Transmission Design&lt;/em>&lt;/a>, but for epicyclical gear trains.&lt;/p>
+
+ &lt;/blockquote>
+
+&lt;h2 id="1-background">
+ 1 Background
+ &lt;a class="anchor" href="#1-background">#&lt;/a>
+&lt;/h2>
+&lt;p>During Formula Student (FS) competitions, students are tasked with creating, testing, and refining a race car adhering to specific guidelines outlined by &lt;a href="https://www.formulastudent.de/">Formula Student Germany (FSG)&lt;/a> and &lt;a href="https://www.fsaeonline.com/">Formula Society of Automotive Engineers (FSAE)&lt;/a>. The &lt;a href="https://www.fstlisboa.com/">Formula Student Team at Tecnico Lisboa (FST Lisboa)&lt;/a> has been actively involved in these competitions since 2001. In 2019, with a team comprising over 40 members, they embarked on dual projects for their 10th generation cars. One project involved crafting a new electric prototype, termed &lt;code>FST10e&lt;/code>, while simultaneously enhancing the existing &lt;code>FST09e&lt;/code> — previously in competition during the summer of 2019 — with autonomous capabilities, transforming it into &lt;code>FST10d&lt;/code>. &lt;code>FST09e&lt;/code> was the team&amp;rsquo;s 5th electric prototype and secured a commendable 9th place overall in FSG 2019, a notably competitive event within the Formula Student season.&lt;/p></description></item><item><title>Policy Based Decision-Making</title><link>https://xsleaks.dev/docs/code/snake-game/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/policy/</guid><description>&lt;h1 id="model-free-policy-based-reinforcement-learning">
+ &lt;strong>Model-Free Policy Based Reinforcement Learning&lt;/strong>
+ &lt;a class="anchor" href="#model-free-policy-based-reinforcement-learning">#&lt;/a>
+&lt;/h1></description></item><item><title>Adversarial Multi-Agent RL</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning">
+ &lt;strong>Adversarial Multi-Agent Reinforcement Learning&lt;/strong>
+ &lt;a class="anchor" href="#adversarial-multi-agent-reinforcement-learning">#&lt;/a>
+&lt;/h1></description></item><item><title>Gate Sense: Computer Vision</title><link>https://xsleaks.dev/docs/code/uav/computer-vision/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/code/uav/computer-vision/</guid><description>&lt;h1 id="phase-4-uav-computer-vision">
+ &lt;strong>Phase 4. UAV Computer Vision&lt;/strong>
+ &lt;a class="anchor" href="#phase-4-uav-computer-vision">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ If you wish to skip the theoretical and implementation details, &lt;a href="https://ricardochin.com/docs/code/uav/computer-vision/#3-pixel-pilots-certification-acquired">please click here to jump to the summarized findings Ch. 3 - Pixel Pilots Certification Acquired&lt;/a>.
+ &lt;/blockquote>
+
+&lt;h2 id="1-computer-vision-for-obstacle-detection">
+ 1 Computer Vision for Obstacle Detection
+ &lt;a class="anchor" href="#1-computer-vision-for-obstacle-detection">#&lt;/a>
+&lt;/h2>
+&lt;p>In preparation for the Red Bull drone race, a comprehensive dataset was compiled, consisting of images capturing gates from diverse angles, distances, and lighting conditions. These images showcase the gates amidst various backgrounds, providing a range of scenarios that drones might encounter during the race. The intention behind gathering such a varied dataset is to enable the development of an algorithm capable of accurately identifying these gates despite changes in perspective, distance, lighting, and background colors, facilitating precise navigation for the drones during the high-paced race.&lt;/p></description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming">
+ &lt;strong>Notes on Nonlinear Programming&lt;/strong>
+ &lt;a class="anchor" href="#notes-on-nonlinear-programming">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 tip">
+ &lt;p class="hint-title tip">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
+ &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
+ &lt;ul>
+&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (numpy)&lt;/li>
+&lt;li>&lt;a href="https://github.com/roaked/nonlinear-opt-pattern-search-phd">GitHub repo&lt;/a>&lt;/li>
+&lt;/ul>
+
+ &lt;/blockquote></description></item><item><title>ThermoCup</title><link>https://xsleaks.dev/docs/competitions/thermocup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/competitions/thermocup/</guid><description>&lt;h1 id="thermocup">
+ &lt;strong>ThermoCup&lt;/strong>
+ &lt;a class="anchor" href="#thermocup">#&lt;/a>
+&lt;/h1>
+
+ &lt;blockquote class="book-hint2 warning">
+ &lt;p class="hint-title warning">
+ &lt;svg class="book-icon">
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice">&lt;/use>
+ &lt;/svg>&lt;span>warning&lt;/span>&lt;/p>
+ &lt;strong>Disclaimer&lt;/strong>: &lt;strong>Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong>
+ &lt;/blockquote>
+
+&lt;h2 id="1-what-is-the-thermocup">
+ 1 What is the ThermoCup?
+ &lt;a class="anchor" href="#1-what-is-the-thermocup">#&lt;/a>
+&lt;/h2>
+&lt;p>ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.&lt;/p></description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran">
+ &lt;strong>Hamiltonian Paths Demo in Fortran&lt;/strong>
+ &lt;a class="anchor" href="#hamiltonian-paths-demo-in-fortran">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;img src="https://community.wolfram.com/c/portal/getImageAttachment?filename=sadasdewrhfggjgdfsg423567.gif&amp;amp;userId=11733" alt="202" />&lt;/p>
+&lt;h2 id="1-simulation-and-analysis-of-graph-path-selection">
+ 1 Simulation and Analysis of Graph Path Selection
+ &lt;a class="anchor" href="#1-simulation-and-analysis-of-graph-path-selection">#&lt;/a>
+&lt;/h2>
+&lt;p>Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed.&lt;/p></description></item></channel></rss>
