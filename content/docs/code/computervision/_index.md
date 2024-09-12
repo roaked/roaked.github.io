@@ -1,6 +1,7 @@
 ---
 title: "Structure From Motion: Camera"
 weight: 6
+bookHidden: True
 ---
 
 ## 1 Abstract
