@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My Notes and Lectures on Ricardo Chin</title><link>https://xsleaks.dev/docs/lectures/</link><description>Recent content in My Notes and Lectures on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><managingEditor>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</managingEditor><webMaster>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</webMaster><atom:link href="https://xsleaks.dev/docs/lectures/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>&lt;h1 id="notes-on-bayesian-inference">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My Notes and Lectures on Ricardo Chin</title><link>https://xsleaks.dev/docs/lectures/</link><description>Recent content in My Notes and Lectures on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/docs/lectures/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>&lt;h1 id="notes-on-bayesian-inference">
  &lt;strong>Notes on Bayesian Inference&lt;/strong>
  &lt;a class="anchor" href="#notes-on-bayesian-inference">#&lt;/a>
 &lt;/h1>
@@ -50,7 +50,7 @@ Y)&lt;/li>
 &lt;p>random variable X taking x values &lt;span>
  \(\subset \R^n\)
 &lt;/span>
-&lt;/p></description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization">
+&lt;/p></description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization">
  &lt;strong>Notes on Bayesian Optimization&lt;/strong>
  &lt;a class="anchor" href="#notes-on-bayesian-optimization">#&lt;/a>
 &lt;/h1>
@@ -65,7 +65,7 @@ Y)&lt;/li>
 &lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (jax.numpy, scipy, botorch)&lt;/li>
 &lt;/ul>
 
- &lt;/blockquote></description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming">
+ &lt;/blockquote></description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming">
  &lt;strong>Notes on Nonlinear Programming&lt;/strong>
  &lt;a class="anchor" href="#notes-on-nonlinear-programming">#&lt;/a>
 &lt;/h1>
@@ -81,7 +81,7 @@ Y)&lt;/li>
 &lt;li>&lt;a href="https://github.com/roaked/nonlinear-opt-pattern-search-phd">GitHub repo&lt;/a>&lt;/li>
 &lt;/ul>
 
- &lt;/blockquote></description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ricardo.chin@tecnico.ulisboa.pt (Ricardo Chin)</author><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran">
+ &lt;/blockquote></description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran">
  &lt;strong>Hamiltonian Paths Demo in Fortran&lt;/strong>
  &lt;a class="anchor" href="#hamiltonian-paths-demo-in-fortran">#&lt;/a>
 &lt;/h1>
