@@ -3,7 +3,7 @@ title: Portfolio
 type: docs
 ---
 
-## **My Database**
+## **Behind the Scenes**
 
 As a lead ML researcher, I focus on the high-level design of scalable software products, transitioning from PoC experimentation into productionization. My research is at the intersection of interpretable generative AI and efficient model deployment, where I leverage retrieval-augmented generation pipelines to enhance adaptive decision-making in cross-functional settings and generate data-driven business insights. In addition, I have led research projects that enclose state-of-the-art implementations in reinforcement learning, uncertainty quantification, transfer and meta learning, real-time object detection and metaheuristic optimization.
 
@@ -13,7 +13,7 @@ I am also interested in projects closely aligned with academia or research group
 
 ![1223e](https://live.staticflickr.com/65535/54017846892_f1d1f0649a_c.jpg)
 
-## **Run with passion, live with purpose**
+## **Run with Passion, Live with Purpose**
 
 While work plays a significant role in my life, it doesn't encapsulate my entire self. I have grown to appreciate the nature through long hikes and engaging in mountain sports during the summer months. As winter sets in, I always take my time hitting the slopes, whether it be resort skiing or free riding. However, running holds a special place in my heart as my true addiction --- offering me a peaceful escape from constant social interaction, despite my inherently talkative nature. I can dive into conversations about diverse topics like economy, philosophy, or even the field of geosciences for hours on end, but I've also come to appreciate the value of solitude and tranquility.
 
