@@ -5,7 +5,7 @@ type: docs
 
 ## **Behind the Scenes**
 
-As a lead ML researcher, I focus on the high-level design of scalable software solutions, transitioning from PoC experimentation into productionization. I have worked in research projects that enclose state-of-the-art implementations in self-supervised learning, reinforcement and imitation learning, transfer and meta learning, uncertainty quantification, metaheuristics and a few engineering applications delving into object detection and computer vision.
+As a lead ML researcher, I focus on the high-level design of scalable software solutions, transitioning from PoC experimentation into productionization. I have worked in research projects that enclose state-of-the-art implementations in self-supervised learning, reinforcement and imitation learning, transfer and meta learning, uncertainty quantification, metaheuristics and a few engineering applications delving into computer vision.
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
