@@ -1,6 +1,6 @@
 ---
 weight: 3
-bookHidden: false
+bookHidden: true
 title: "Industrial Girder Crane"
 
 ---

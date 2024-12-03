@@ -1,6 +1,6 @@
 ---
 weight: 5
-bookHidden: false
+bookHidden: true
 title: "Gear Train Transmission"
 ---
 
