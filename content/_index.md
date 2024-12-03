@@ -5,7 +5,7 @@ type: docs
 
 ## **Behind the Scenes**
 
-As a lead MLE, I focus on the system design of scalable software solutions, transitioning from PoC experimentation into productionization. I have worked in projects that enclose state-of-the-art implementations in self-supervised learning, reinforcement and imitation learning, transfer and meta learning, uncertainty quantification, metaheuristics and a few engineering applications delving into computer vision.
+As a Lead Machine Learning Engineer in a research and environmental setting, I specialize in designing scalable software systems and transforming proof-of-concepts into business products. My work spans the full ML lifecycle, from exploratory data analysis to cloud deployment and MLOps. I have contributed to projects involving state-of-the-art implementations in self-supervised learning, predictive modeling, reinforcement and imitation learning, uncertainty quantification, metaheuristics and computer vision.
 
 I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
