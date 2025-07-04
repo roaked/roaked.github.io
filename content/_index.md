@@ -5,16 +5,16 @@ type: docs
 
 ## **Behind the Scenes**
 
-As a Lead Machine Learning Engineer in a research-driven environment, I lead the design of scalable software solution, transforming proof-of-concepts into business products. My work integrates the full ML lifecycle, from exploratory data analysis to cloud deployment and MLOps practices. I have contributed to projects involving state-of-the-art implementations in self-supervised learning, predictive modeling, reinforcement and imitation learning, uncertainty quantification, metaheuristics and computer vision.
+I’m a Lead Machine Learning Engineer specializing in designing and deploying scalable AI systems that transform business ideas into production-ready solutions. My work lies at the intersection of applied ML and research, with a focus on responsible self-supervised learning, multimodal architectures, reinforcement learning, anomaly and trend detection, and metaheuristic optimization.
 
-I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and a researcher for the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
+I was previously associated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and collaborated with the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
 
 ![1223e](https://live.staticflickr.com/65535/53729234907_9e1594ce05_c.jpg)
 
 ## **Run with Passion, Live with Purpose**
 
-While work plays a significant role in my life, it doesn't encapsulate my entire self. I have grown to appreciate the nature through long hikes and engaging in mountain sports during the summer months. However, running holds a special place in my heart as my true addiction --- offering me a peaceful escape from constant social interaction, despite my inherently talkative nature.
+Growing up in Lisbon, I developed a love for the seaside, while my time in the Alps introduced me to the beauty of the mountains. I enjoy long-distance trail running, road racing, mountaineering, ski touring and trad climbing as my main hobbies.
 
 ![M1sasa23e](https://live.staticflickr.com/65535/53747266535_c73e895dee_c.jpg)
 
