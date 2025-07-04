@@ -14,7 +14,7 @@ I was previously associated with the [Center of Intelligent Systems](https://csi
 
 ## **Run with Passion, Live with Purpose**
 
-Growing up in Lisbon, I developed a love for the seaside, while my time in the Alps introduced me to the beauty of the mountains. I enjoy long-distance trail running, road racing, mountaineering, ski touring and trad climbing as my main hobbies.
+Growing up in Lisbon, I developed a love for the seaside, while my time in the Alps introduced me to the beauty of the mountains. My main interests are long-distance trail running, road racing, mountaineering, ski touring and trad climbing.
 
 ![M1sasa23e](https://live.staticflickr.com/65535/53747266535_c73e895dee_c.jpg)
 
