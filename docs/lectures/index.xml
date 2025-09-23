@@ -1,93 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My Notes and Lectures on Ricardo Chin</title><link>https://xsleaks.dev/docs/lectures/</link><description>Recent content in My Notes and Lectures on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/docs/lectures/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>&lt;h1 id="notes-on-bayesian-inference">
- &lt;strong>Notes on Bayesian Inference&lt;/strong>
- &lt;a class="anchor" href="#notes-on-bayesian-inference">#&lt;/a>
-&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My Notes and Lectures on Ricardo Chin</title><link>https://xsleaks.dev/docs/lectures/</link><description>Recent content in My Notes and Lectures on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/docs/lectures/index.xml" rel="self" type="application/rss+xml"/><item><title>Bayesian Inference</title><link>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-machine-learning/bayes/</guid><description>&lt;h1 id="notes-on-bayesian-inference"&gt;
+ &lt;strong&gt;Notes on Bayesian Inference&lt;/strong&gt;
+ &lt;a class="anchor" href="#notes-on-bayesian-inference"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
 
- &lt;blockquote class="book-hint2 tip">
- &lt;p class="hint-title tip">
- &lt;svg class="book-icon">
- &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
- &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
- &lt;ul>
-&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (scipy, jax.numpy)&lt;/li>
-&lt;/ul>
+ &lt;blockquote class="book-hint2 tip"&gt;
+ &lt;p class="hint-title tip"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;tip&lt;/span&gt;&lt;/p&gt;
+ &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git clone -&amp;gt; cd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (scipy, jax.numpy)&lt;/li&gt;
+&lt;/ul&gt;
 
- &lt;/blockquote>
+ &lt;/blockquote&gt;
 
-&lt;h3 id="understanding-uncertainty-via-probabilities">
- &lt;strong>Understanding Uncertainty via Probabilities&lt;/strong>
- &lt;a class="anchor" href="#understanding-uncertainty-via-probabilities">#&lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>sum rule: P(X) = P(X,Y) + P(X, 
-&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" />
-&lt;script defer src="https://xsleaks.dev/katex/katex.min.js">&lt;/script>
-&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);">&lt;/script>&lt;span>
+&lt;h3 id="understanding-uncertainty-via-probabilities"&gt;
+ &lt;strong&gt;Understanding Uncertainty via Probabilities&lt;/strong&gt;
+ &lt;a class="anchor" href="#understanding-uncertainty-via-probabilities"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;sum rule: P(X) = P(X,Y) + P(X, 
+&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" /&gt;
+&lt;script defer src="https://xsleaks.dev/katex/katex.min.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);"&gt;&lt;/script&gt;&lt;span&gt;
  \(\neg\)
-&lt;/span>
-Y)&lt;/li>
-&lt;li>product rule: P(X,Y) = P(X) &lt;span>
+&lt;/span&gt;
+Y)&lt;/li&gt;
+&lt;li&gt;product rule: P(X,Y) = P(X) &lt;span&gt;
  \(\cdot\)
-&lt;/span>
- P(Y | X)&lt;/li>
-&lt;li>bayes theorem on data D:&lt;/li>
-&lt;/ul>
-&lt;span>
+&lt;/span&gt;
+ P(Y | X)&lt;/li&gt;
+&lt;li&gt;bayes theorem on data D:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span&gt;
  \[\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}\]
-&lt;/span>
+&lt;/span&gt;
 
-&lt;ul>
-&lt;li>&lt;em>&amp;ldquo;discrete domain is just a subset of the continuous domain&amp;rdquo;&lt;/em>&lt;/li>
-&lt;li>this extends deductive reasoning (statistics) to plausible reasoning (probabilities)&lt;/li>
-&lt;/ul>
-&lt;h3 id="exponential-families-and-conjugate-priors">
- &lt;strong>Exponential Families and Conjugate Priors&lt;/strong>
- &lt;a class="anchor" href="#exponential-families-and-conjugate-priors">#&lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>random variable X taking x values &lt;span>
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&amp;ldquo;discrete domain is just a subset of the continuous domain&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;this extends deductive reasoning (statistics) to plausible reasoning (probabilities)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="exponential-families-and-conjugate-priors"&gt;
+ &lt;strong&gt;Exponential Families and Conjugate Priors&lt;/strong&gt;
+ &lt;a class="anchor" href="#exponential-families-and-conjugate-priors"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;random variable X taking x values &lt;span&gt;
  \(\subset \R^n\)
-&lt;/span>
-&lt;/p></description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization">
- &lt;strong>Notes on Bayesian Optimization&lt;/strong>
- &lt;a class="anchor" href="#notes-on-bayesian-optimization">#&lt;/a>
-&lt;/h1>
+&lt;/span&gt;
+&lt;/p&gt;</description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization"&gt;
+ &lt;strong&gt;Notes on Bayesian Optimization&lt;/strong&gt;
+ &lt;a class="anchor" href="#notes-on-bayesian-optimization"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
 
- &lt;blockquote class="book-hint2 tip">
- &lt;p class="hint-title tip">
- &lt;svg class="book-icon">
- &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
- &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
- &lt;ul>
-&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (jax.numpy, scipy, botorch)&lt;/li>
-&lt;/ul>
+ &lt;blockquote class="book-hint2 tip"&gt;
+ &lt;p class="hint-title tip"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;tip&lt;/span&gt;&lt;/p&gt;
+ &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git clone -&amp;gt; cd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (jax.numpy, scipy, botorch)&lt;/li&gt;
+&lt;/ul&gt;
 
- &lt;/blockquote></description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming">
- &lt;strong>Notes on Nonlinear Programming&lt;/strong>
- &lt;a class="anchor" href="#notes-on-nonlinear-programming">#&lt;/a>
-&lt;/h1>
+ &lt;/blockquote&gt;</description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming"&gt;
+ &lt;strong&gt;Notes on Nonlinear Programming&lt;/strong&gt;
+ &lt;a class="anchor" href="#notes-on-nonlinear-programming"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
 
- &lt;blockquote class="book-hint2 tip">
- &lt;p class="hint-title tip">
- &lt;svg class="book-icon">
- &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice">&lt;/use>
- &lt;/svg>&lt;span>tip&lt;/span>&lt;/p>
- &lt;ul>
-&lt;li>&lt;strong>git clone -&amp;gt; cd&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>pip install -r requirements.txt&lt;/strong> (numpy)&lt;/li>
-&lt;li>&lt;a href="https://github.com/roaked/nonlinear-opt-pattern-search-phd">GitHub repo&lt;/a>&lt;/li>
-&lt;/ul>
+ &lt;blockquote class="book-hint2 tip"&gt;
+ &lt;p class="hint-title tip"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;tip&lt;/span&gt;&lt;/p&gt;
+ &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git clone -&amp;gt; cd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (numpy)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/roaked/nonlinear-opt-pattern-search-phd"&gt;GitHub repo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
- &lt;/blockquote></description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran">
- &lt;strong>Hamiltonian Paths Demo in Fortran&lt;/strong>
- &lt;a class="anchor" href="#hamiltonian-paths-demo-in-fortran">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;img src="https://community.wolfram.com/c/portal/getImageAttachment?filename=sadasdewrhfggjgdfsg423567.gif&amp;amp;userId=11733" alt="202" />&lt;/p>
-&lt;h2 id="1-simulation-and-analysis-of-graph-path-selection">
+ &lt;/blockquote&gt;</description></item><item><title>Fortran: Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran"&gt;
+ &lt;strong&gt;Hamiltonian Paths Demo in Fortran&lt;/strong&gt;
+ &lt;a class="anchor" href="#hamiltonian-paths-demo-in-fortran"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://community.wolfram.com/c/portal/getImageAttachment?filename=sadasdewrhfggjgdfsg423567.gif&amp;amp;userId=11733" alt="202" /&gt;&lt;/p&gt;
+&lt;h2 id="1-simulation-and-analysis-of-graph-path-selection"&gt;
  1 Simulation and Analysis of Graph Path Selection
- &lt;a class="anchor" href="#1-simulation-and-analysis-of-graph-path-selection">#&lt;/a>
-&lt;/h2>
-&lt;p>Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed.&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#1-simulation-and-analysis-of-graph-path-selection"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Graph theory serves as a fundamental framework for modeling and understanding various systems across scientific domains. This study presents a detailed computational simulation implemented in Fortran, focusing on the manipulation, selection, and analysis of paths and individual entities within a graph. The simulation involves stepwise operations, including path creation, criteria-based selection, and the identification of Hamiltonian paths. Through this process, the efficacy of Fortran in managing graph structures is explored and analyzed.&lt;/p&gt;</description></item></channel></rss>

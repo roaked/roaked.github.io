@@ -1,38 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Academic Competitions on Ricardo Chin</title><link>https://xsleaks.dev/docs/competitions/</link><description>Recent content in Academic Competitions on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/docs/competitions/index.xml" rel="self" type="application/rss+xml"/><item><title>Formula Student Lisbon</title><link>https://xsleaks.dev/docs/competitions/fst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/competitions/fst/</guid><description>&lt;h1 id="fst-010e--suspension">
- &lt;strong>FST 010e&lt;/strong> | Suspension
- &lt;a class="anchor" href="#fst-010e--suspension">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;img src="https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif" alt="sada" />&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Academic Competitions on Ricardo Chin</title><link>https://xsleaks.dev/docs/competitions/</link><description>Recent content in Academic Competitions on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/docs/competitions/index.xml" rel="self" type="application/rss+xml"/><item><title>Formula Student Lisbon</title><link>https://xsleaks.dev/docs/competitions/fst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/competitions/fst/</guid><description>&lt;h1 id="fst-010e--suspension"&gt;
+ &lt;strong&gt;FST 010e&lt;/strong&gt; | Suspension
+ &lt;a class="anchor" href="#fst-010e--suspension"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://media2.giphy.com/media/KyGTYGI7aNYNY3Ryr8/giphy.gif" alt="sada" /&gt;&lt;/p&gt;
 
- &lt;blockquote class="book-hint2 warning">
- &lt;p class="hint-title warning">
- &lt;svg class="book-icon">
- &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice">&lt;/use>
- &lt;/svg>&lt;span>warning&lt;/span>&lt;/p>
- &lt;p>&lt;strong>Disclaimer&lt;/strong>: &lt;strong>Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong>&lt;/p>
-&lt;p>The content consists mainly on certain topics for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at &lt;a href="https://ricardochin.com/docs/design/manual-transmission-design/">&lt;em>Car Transmission Design&lt;/em>&lt;/a>, but for epicyclical gear trains.&lt;/p>
+ &lt;blockquote class="book-hint2 warning"&gt;
+ &lt;p class="hint-title warning"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;warning&lt;/span&gt;&lt;/p&gt;
+ &lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;strong&gt;Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The content consists mainly on certain topics for car transmission design, gear fabrication and lubrication. The design and implementation follows a similar process to the one implemented at &lt;a href="https://ricardochin.com/docs/design/manual-transmission-design/"&gt;&lt;em&gt;Car Transmission Design&lt;/em&gt;&lt;/a&gt;, but for epicyclical gear trains.&lt;/p&gt;
 
- &lt;/blockquote>
+ &lt;/blockquote&gt;
 
-&lt;h2 id="1-background">
+&lt;h2 id="1-background"&gt;
  1 Background
- &lt;a class="anchor" href="#1-background">#&lt;/a>
-&lt;/h2>
-&lt;p>During Formula Student (FS) competitions, students are tasked with creating, testing, and refining a race car adhering to specific guidelines outlined by &lt;a href="https://www.formulastudent.de/">Formula Student Germany (FSG)&lt;/a> and &lt;a href="https://www.fsaeonline.com/">Formula Society of Automotive Engineers (FSAE)&lt;/a>. The &lt;a href="https://www.fstlisboa.com/">Formula Student Team at Tecnico Lisboa (FST Lisboa)&lt;/a> has been actively involved in these competitions since 2001. In 2019, with a team comprising over 40 members, they embarked on dual projects for their 10th generation cars. One project involved crafting a new electric prototype, termed &lt;code>FST10e&lt;/code>, while simultaneously enhancing the existing &lt;code>FST09e&lt;/code> — previously in competition during the summer of 2019 — with autonomous capabilities, transforming it into &lt;code>FST10d&lt;/code>. &lt;code>FST09e&lt;/code> was the team&amp;rsquo;s 5th electric prototype and secured a commendable 9th place overall in FSG 2019, a notably competitive event within the Formula Student season.&lt;/p></description></item><item><title>ThermoCup</title><link>https://xsleaks.dev/docs/competitions/thermocup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/competitions/thermocup/</guid><description>&lt;h1 id="thermocup">
- &lt;strong>ThermoCup&lt;/strong>
- &lt;a class="anchor" href="#thermocup">#&lt;/a>
-&lt;/h1>
+ &lt;a class="anchor" href="#1-background"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;During Formula Student (FS) competitions, students are tasked with creating, testing, and refining a race car adhering to specific guidelines outlined by &lt;a href="https://www.formulastudent.de/"&gt;Formula Student Germany (FSG)&lt;/a&gt; and &lt;a href="https://www.fsaeonline.com/"&gt;Formula Society of Automotive Engineers (FSAE)&lt;/a&gt;. The &lt;a href="https://www.fstlisboa.com/"&gt;Formula Student Team at Tecnico Lisboa (FST Lisboa)&lt;/a&gt; has been actively involved in these competitions since 2001. In 2019, with a team comprising over 40 members, they embarked on dual projects for their 10th generation cars. One project involved crafting a new electric prototype, termed &lt;code&gt;FST10e&lt;/code&gt;, while simultaneously enhancing the existing &lt;code&gt;FST09e&lt;/code&gt; — previously in competition during the summer of 2019 — with autonomous capabilities, transforming it into &lt;code&gt;FST10d&lt;/code&gt;. &lt;code&gt;FST09e&lt;/code&gt; was the team&amp;rsquo;s 5th electric prototype and secured a commendable 9th place overall in FSG 2019, a notably competitive event within the Formula Student season.&lt;/p&gt;</description></item><item><title>ThermoCup</title><link>https://xsleaks.dev/docs/competitions/thermocup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/competitions/thermocup/</guid><description>&lt;h1 id="thermocup"&gt;
+ &lt;strong&gt;ThermoCup&lt;/strong&gt;
+ &lt;a class="anchor" href="#thermocup"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
 
- &lt;blockquote class="book-hint2 warning">
- &lt;p class="hint-title warning">
- &lt;svg class="book-icon">
- &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice">&lt;/use>
- &lt;/svg>&lt;span>warning&lt;/span>&lt;/p>
- &lt;strong>Disclaimer&lt;/strong>: &lt;strong>Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong>
- &lt;/blockquote>
+ &lt;blockquote class="book-hint2 warning"&gt;
+ &lt;p class="hint-title warning"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#warning-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;warning&lt;/span&gt;&lt;/p&gt;
+ &lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;strong&gt;Only slight information is divulged here as most of the calculations and simulation results are NDA/IP-related.&lt;/strong&gt;
+ &lt;/blockquote&gt;
 
-&lt;h2 id="1-what-is-the-thermocup">
+&lt;h2 id="1-what-is-the-thermocup"&gt;
  1 What is the ThermoCup?
- &lt;a class="anchor" href="#1-what-is-the-thermocup">#&lt;/a>
-&lt;/h2>
-&lt;p>ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#1-what-is-the-thermocup"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;ThermoCup is a unique competition introduced initially at the Technical University of Lisbon during the MecanIST conferences in early 2016. Its primary objective is to challenge participants to conceive, design, and construct a steam boat. The competition covers a comprehensive spectrum of engineering aspects, incorporating various stages of the project lifecycle, from the initial conceptualization and design phase to the practical implementation, prototyping, and subsequent optimization processes.&lt;/p&gt;</description></item></channel></rss>
