@@ -7,6 +7,17 @@ weight: 2
 
 ![sidas](https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png)
 
+This section documents the [`snake-q-learning-genetic-algorithm`](https://github.com/roaked/snake-q-learning-genetic-algorithm) project: a Snake environment built with `pygame` and trained with an off-policy Deep Q-Network (DQN), with genetic search used to tune key learning parameters.
+
+The implementation is organized around four core components:
+
+- 1. `game.py` / `game_user.py`: environment dynamics, collisions, food placement, and rendering.
+- 2. `model.py`: Q-network definition (`LinearQNet`) and training loop wrapper (`QTrainer`).
+- 3. `agent.py`: epsilon-greedy action selection, replay-based training, and game-loop integration.
+- 4. `genetic.py`: parameter optimization over learning-rate, discount, dropout, and exploration ranges.
+
+The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.
+
 ## 1 Reinforcement Deep Q-Network Architecture
 
 DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address RL challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:
@@ -261,232 +272,85 @@ class QLearningAgent:
 The applied methodology enhances stability by mitigating overfitting to recent experiences and improves learning efficiency by allowing the agent to reuse and learn from its past interactions, contributing to more stable and effective training in RL algorithms. In the `agent.py`, particularly in the `train_and_record` function, the integration of the replay buffer involves augmenting the agent's interactions with the environment to store experiences and utilizing those experiences for training. As the agent interacts with the environment in each game step, the `remember` function within the `QLearningAgent` class captures the state-action-reward-next_state tuples and stores them in the replay buffer. They are essential for off-policy learning, and the `train_short_memory` and `train_long_memory` functions facilitate short-term and long-term learning, respectively. After each completed game, the agent leverages the stored experiences by calling `train_long_memory`, which samples a batch of experiences from the replay buffer and uses these experiences to update the agent's model via the `train_step` method in the `QTrainer` class. This integration facilitates learning from a diverse set of past interactions, contributing to more stable and efficient training by breaking temporal correlations between consecutive experiences. Adjusting memory replay features in the likes of `MAX_MEMORY` and `BATCH_SIZE` in addition to initialization variables allows not only for fine-tuning of the replay buffer's capacity and the size of experiences utilized for training, but also for studying the whole agent's learning process which can be studied using commonly known evolutionary algorithms such as: Genetic Algorithms (GAs).
 
 
-## 2 Genetic Optimization of a RL Deep-Q-Network
+## 2 Standard RL
 
+The **Standard RL** setup is the baseline training path where the DQN agent learns only from its own replay-buffer experience, without genetic tuning. In code, this mode is exposed by `train_standard_rl`, which delegates to `train_RL` in [`agent_RL.py`](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/agent_RL.py).
 
-In the context of optimizing key parameters for RL — such as batch size, learning rate, memory capacity for replay buffers, and the architecture of a target network — GAs provide a systematic approach. 
+### 2.1. How the training loop works
 
-### 2.1. Parameter Space Definition
+Each iteration follows a classic off-policy sequence:
 
-The parameter space definition refers to the specification and range of parameters that influence the architecture, behavior, and learning process of a our DQN. This includes continuous parameters like learning rate and discount factor, discrete parameters such as activation functions and optimizer types, and integer parameters like the number of hidden layers and neurons per layer.
+- 1. Build the current state from local hazards, heading, and food direction (`get_state`).
+- 2. Choose an action with epsilon-greedy exploration (`get_action`).
+- 3. Execute one game step (`game.play_step`) and collect reward, done, score, collisions, and steps.
+- 4. Perform short-memory optimization (`train_short_memory`) on the latest transition.
+- 5. Store the transition in replay memory (`remember`).
+- 6. On episode termination, run long-memory replay training (`train_long_memory`) and reset the game.
 
-{{< hint info >}}
+This gives a stable reference curve for score progression and is useful to evaluate whether additional optimization mechanisms are actually improving training quality.
 
-**Continuous Parameters**
+### 2.2. Why this baseline matters
 
-- `learning_rate`: Influences the speed at which the DQN learns. Higher values enable faster learning, while lower values promote stability.
-- `discount_factor`: Determines the importance of future rewards in the learning process. Values closer to 1 emphasize long-term rewards.
-- `dropout_rate`: Affects the number of neurons dropped out during training to prevent overfitting.
-- `exploration_rate`: Controls the level of exploration versus exploitation in the learning process.
+Standard RL is important because it isolates the core DQN behaviour:
 
-**Discrete Parameters**
+- It shows how far the agent can go with fixed hyperparameters.
+- It helps detect regressions in environment logic or reward shaping.
+- It establishes a fair comparison point for GA-tuned and non-learning controllers.
 
-- `batch_size`: Dictates the number of experiences sampled from the replay buffer for training.
-- `activation_function`: Determines the type of activation function used in neural network layers (e.g., ReLU, sigmoid, tanh).
-- `optimizer`: Specifies the optimization algorithm for updating the DQN's parameters during training (e.g., Adam, SGD, RMSprop).
-
-
-**Integer Parameters**
-
-- `num_hidden_layers`: Specifies the number of hidden layers in the neural network.
-- `neurons_per_layer`: Defines the number of neurons in each hidden layer.
-
-{{< /hint >}}
-
-For each parameter, a defined range or set of possible values is established. These ranges are carefully chosen based on prior knowledge, domain expertise, or empirical observations of their impact on the DQN's behaviour and performance. By exploring this parameter space, the GA aims to discover configurations that maximize game-related metrics, such as higher scores or fewer steps.
-
-```python
-param_ranges = {
-    # Continuous parameters
-    # Alpha / Higher values allow faster learning, while lower values ensure more stability
-    'learning_rate': (0.001, 0.1), 
-    #Gamma / Closer to 1 indicate future rewards are highly important, emphasizing long-term rewards
-    'discount_factor': (0.9, 0.999), 
-    # Higher drops out a more neurons -> prevent overfit in complex models/datasets with limited samples
-    'dropout_rate': (0.1, 0.5), 
-    # Epsilon /More exploration -> Possibly better actions /Lower -> More stability using learned policy
-    'exploration_rate': (0.1, 0.5), 
-    
-    # Discrete parameters
-    # Number of experiences sampled from the replay buffer for training
-    'batch_size': [10, 100, 250, 500, 1000, 2000, 5000], 
-    'activation_function': ['relu', 'sigmoid', 'tanh'],
-    'optimizer': ['adam', 'sgd', 'rmsprop'], 
-    
-    # Integer parameters (num_inputs, num_neurons, num_outputs of NN)
-    'num_hidden_layers': [1, 2, 3, 4, 5],
-    'neurons_per_layer': [32, 64, 128, 256, 512, 1024]
-    }
+```bash
+python agent_RL.py rl
 ```
 
-### 2.2. Genetic Algorithm
+## 3 GA-Optimized RL
 
-The algorithm starts with the initialization of a class `GeneticAlgorithm` and an initial population, both comprising diverse parameter sets. This involves creating a collection of potential solutions, representing different combinations of parameters within the specified ranges. The population's diversity plays a pivotal role in enabling the exploration of a broad spectrum of parameter configurations.
-
-
-```python
-def generate_population(self, population_size, param_ranges, chromosome_length): 
-    #Random init or heuristic init (using prior info)
-    population = []
-    for _ in range(population_size):
-        params = {}
-        for param, value_range in param_ranges.items():
-            if isinstance(value_range, tuple):  # Init cont. parameters
-                params[param] = random.uniform(value_range[0], value_range[1])
-            elif isinstance(value_range, list):  # Discrete parameters
-                params[param] = random.choice(value_range)
-            elif isinstance(value_range, int):  # Integer parameters
-                params[param] = random.randint(0, value_range)
-            elif isinstance(value_range, str):  # String parameters
-                params[param] = value_range  # Set the string value directly
-        population.append(params)
-    return population
-```
-
-Afterwards, the `fitness function` evaluates the performance of the DQN by considering various game-related metrics such as `score`, `record`, `steps`, `collisions`, and `same_positions_counter`. These metrics are utilized to compute a fitness score that quantifies the effectiveness of a parameter set within the DQN. Normalization of metrics like `score` and `steps` occurs next, ensuring that these metrics are on a comparable scale for fair evaluation. Normalization enables a coherent assessment where disparate metrics contribute equitably to the overall fitness score. Moreover, the function integrates conditional adjustments like penalties for certain conditions. For instance, it penalizes repeated visits to the same positions (`penalty_same_positions`) or inefficient utilization of steps (`penalty_efficiency_decay`), reflecting a meticulous consideration of nuanced gameplay elements.
-
-```python
-def fitness_function(self, score, record, steps, collisions, same_positions_counter):
-    # Metrics and weights
-    weight_score = 0.75
-    weight_steps, MAX_POSSIBLE_STEPS = 0.25, 300
-
-    # Normalize metrics
-    normalized_score = score / record if record != 0 else 0
-    normalized_steps = 1 - (steps / MAX_POSSIBLE_STEPS) if MAX_POSSIBLE_STEPS != 0 else 0
-
-    # Penalty for revisiting same positions > 150 (5%)
-    penalty_same_positions = 0.05 if same_positions_counter > 150 else 0
-
-    # Efficiency decay (5%)
-    efficiency_decay = max(0, (steps - score) / MAX_POSSIBLE_STEPS)
-    penalty_efficiency_decay = 0.05 * efficiency_decay
-```
-
-Ultimately, the fitness score is computed by merging the normalized metrics, weighted according to their significance, and factoring in penalties or bonuses where applicable. The goal is to synthesize a comprehensive fitness score that encapsulates the effectiveness of a particular parameter set in improving the DQN's performance within the game environment
-
-```python
-# Calculate fitness
-fitness = (
-    (normalized_score * weight_score) +
-    (normalized_steps * weight_steps) -
-    penalty_same_positions - penalty_efficiency_decay
-)
-
-return max(0, fitness)  # Ensure non-negative fitness
-```
-
-The fitness scores for the entirity of the population of parameter sets can be computed using `calculate_population_fitness`. It ensures the inclusion of at least 5 recent game metrics for evaluation or uses all available metrics if fewer than 5 are present. By iterating through these metrics, it extracts essential indicators like `score`, `record`, `steps`, `collisions`, and `same_positions_counter` for each individual set. Afterwards, there is selection: it determines which individuals, represented as parameter sets, proceed to the next generation based on their fitness scores. Initially, it normalizes the fitness scores received from the `fitness_function`, ensuring these scores reflect the effectiveness of parameter sets in enhancing the DQN's performance. Subsequently, it computes probabilities for each individual proportional to their fitness scores, favouring individuals with higher fitness. Employing a roulette wheel selection strategy, the method then selects individuals from the population according to these probabilities, allowing higher-scoring individuals a greater chance of being chosen. This selection process forms the basis for creating a new population consisting of the chosen individuals, facilitating the iterative evolution and refinement of parameter sets across successive generations within the GA framework.
-
-```python
-def selection(self, population, fitness_scores):
-    # Normalize fitness scores to probabilities
-    total_fitness = sum(fitness_scores)
-
-    if total_fitness == 0:
-        probabilities = [1 / len(fitness_scores)] * len(fitness_scores)
-    else:
-        probabilities = [fitness / total_fitness for fitness in fitness_scores]
-
-    # Ensure probabilities array size matches population size
-    while len(probabilities) < len(population):
-        probabilities.append(0.0)
-
-    # Select based on fitness (roulette wheel selection) //
-    # replace = True means one chromosome can be picked more than 1 time
-    selected_indices = np.random.choice(
-        len(population), 
-        size=self.population_size, 
-        replace=True, 
-        p=probabilities / np.sum(probabilities)  
-        # Normalize probabilities to sum up to 1
-    )
-
-    # Create a new population based on the selected indices
-    new_population = [population[idx] for idx in selected_indices] 
-    # List Comprehension - New population Array
-
-    return new_population
-```
-
-Following the `selection` of individuals, the `crossover` function exemplifies genetic recombination between two parent individuals to produce offspring individuals as potential solutions within the GA. Initially, it ensures that both parents have the same length of genetic information, converting them into lists if they are initially dictionaries. Then, based on a randomnly determined crossover probability (`crossover_rate`), it either conducts the crossover process or maintains the parents as they are. When the crossover occurs (determined by a random probability check), it identifies a crossover point within the genetic information and generates two offspring by swapping the genetic information of the parents before and after this point. These newly created offspring individuals represent combinations of genetic material from both parents, potentially leading to diverse and potentially advantageous solutions within the population. If the crossover does not happen, it returns the original parent individuals as the output.
-
-```python
-"""Single-point crossover for two parent individuals. 
-Can explore two-point crossover, uniform crossover, elitist crossover, etc."""
-def crossover(self, parent1, parent2, crossover_rate):
-
-    if isinstance(parent1, dict) and isinstance(parent2, dict):
-        # Convert dictionary values to lists
-        parent1 = list(parent1.values())
-        parent2 = list(parent2.values())
-
-    assert len(parent1) == len(parent2) # Only if same len
-
-    if random.random() < crossover_rate:
-        # Crossover point
-        crossover_point = random.randint(1, len(parent1) - 1)
-
-        # Create offspring by combining parent genes
-        offspring1 = parent1[:crossover_point] + parent2[crossover_point:]
-        offspring2 = parent2[:crossover_point] + parent1[crossover_point:]
-
-        return offspring1, offspring2
-    else: # If crossover doesn't happen, return the parents
-        return parent1, parent2
-```
-
-The `mutation` function operates on individuals — comprising genetic material representing potential solutions — and introduces small alterations to their genetic makeup based on a predefined `mutation rate`. This genetic variation mechanism enables exploration of novel solution spaces. The function iterates through the genetic information of an individual and, for each gene, checks if a randomly generated probability falls below the specified `mutation rate`. If so, it attempts to modify the gene: for numeric values, it converts the gene to an integer and performs a transformation (in this case, subtracting the value from 1), showcasing the alteration; for non-numeric values, it retains the original gene. The function aggregates these modified genes, generating a mutated individual with potential genetic diversity that might lead to the exploration of new and potentially beneficial solution areas within the GA's solution space.
-
-```python
-"""According to Genetic Algorithm, after crossover (breeding), we apply mutation 
-to the resulting offspring to introduce small changes to their genetic material 
-depending on the mutation rate, this helps explores new areas of solution space"""
-
-def mutation(self, individual, mutation_rate):
-    mutated_individual = []
-    for gene in individual:
-        if random.random() < mutation_rate:
-            try: # Assuming 'gene' is str to convert to a numerical
-                gene = int(gene)  # Convert 'gene' to an integer
-                mutated_gene = 1 - gene
-            except ValueError:
-                print("'gene' might not be a numeric value.")
-        else:
-            mutated_gene = gene
-        mutated_individual.append(mutated_gene)
-    return mutated_individual
-```
-
-Lastly, it extends the existing offspring list with newly generated offspring, resulting from genetic recombination and mutation processes. Subsequently, it implements an elitism strategy, identifying the top-performing individuals within the population based on their fitness scores and replacing the least fit part of the population with these elite individuals. This preserves highly fit solutions from the current population for the next generation, ensuring the retention of successful traits. Additionally, it evaluates the fitness of each parameter set in the current population, identifying the best-performing parameters by comparing their fitness against a stored best fitness value, thereby capturing the best parameters encountered during the Genetic Algorithm's execution. 
-
-```python
-# Replace the least fit part of the population with offspring
-elite_count = int(self.population_size * 0.1)  # Keep top 10% as elite
-elite_indices = sorted(range(len(fitness_scores)), key=lambda i: fitness_scores[i], reverse=True)[:elite_count]
-
-for idx in elite_indices:
-    offspring[idx] = self.population[idx]  # Preserve elite chromosomes
-```
-
-## 3 Results
-
-{{< columns>}}
-![123](https://s5.gifyu.com/images/SiDzT.gif)
-
-<--->
-![123019](https://s5.gifyu.com/images/SiDzw.gif)
-{{< /columns>}}
-
-`(to insert more images)`
-
-
-## 4 Outcomes 
-
-The GA can efficiently search through a defined parameter space to identify better sets of hyperparameters for the RL model. This can lead to enhanced performance, quicker convergence, and increased stability within the learning process. By fine-tuning the hyperparameters, the RL model might exhibit improved performance metrics such as higher rewards, more efficient learning, reduced training time, and potentially better generalization to unseen data, unlike using only the RL model, where it took approximately 150 games to converge to good scores.
-
-{{< hint important >}}
-An interesting take on GA is the ability to explore diverse solution spaces, by doing so it might uncover parameter configurations that promote better exploration-exploitation trade-offs, addressing challenges like the exploration-exploitation dilemma common in RL.
-{{< /hint >}}
+The **GA-Optimized RL** mode keeps the same DQN learning core but periodically searches for stronger hyperparameter configurations using a Genetic Algorithm. In code, this mode is exposed by `train_ga_optimized`, which delegates to `train`.
 
 - [Risto Miikkulainen and Lex Fridman discussing the importance of neuroevolution](https://youtu.be/CY_LEa9xQtg?t=2467) in deep networks: for instance, how applying evolutionary computation is helpful in assessing architecture topology or the layer depth
+
+### 3.1. Optimization idea
+
+Rather than assuming one static set of hyperparameters is globally optimal, the GA evaluates candidate parameter sets while training progresses. This is useful because exploration intensity, learning-rate sensitivity, and regularization needs can shift across training stages.
+
+### 3.2. What is optimized
+
+The parameter space includes values such as:
+
+- `learning_rate`
+- `discount_factor`
+- `dropout_rate`
+- `exploration_rate`
+
+Candidate sets are evaluated using gameplay signals (score, steps, collisions, repeated-position behaviour), then selection/crossover/mutation produce the next generation of candidates.
+
+### 3.3. Integration with DQN loop
+
+After episode rollouts and metric logging, the GA routine is executed and the agent updates optimization-relevant settings (for example exploration and trainer parameters) for subsequent games. This creates a hybrid system: gradient-based value learning + population-based hyperparameter search.
+
+```bash
+python agent_RL.py ga
+```
+
+Unfortunately, results weren't as good as expected.
+
+## 4 Hamiltonian
+
+The **Hamiltonian** mode is a deterministic, non-learning controller that follows a precomputed Hamiltonian cycle over the grid. In code, this mode is exposed by `train_hamiltonian_cycle`, which delegates to `train_hamiltonian`.
+
+### 4.1. Core principle
+
+A Hamiltonian cycle visits every reachable cell exactly once before returning to the start. By moving along this cycle, the snake avoids self-intersections by construction (under normal cycle-following conditions), making death much less likely than with naive movement policies.
+
+### 4.2. Why include it in this project
+
+Hamiltonian control provides a strong systems baseline:
+
+- It does not require neural-network training.
+- It is highly stable and reproducible across runs.
+- It is ideal for comparing reliability versus learning-based policies.
+
+Its limitation is flexibility: while safe, it may be less sample-efficient for quickly collecting food than a well-trained RL policy in some map states.
+
+```bash
+python agent_RL.py hamiltonian
+```
+
