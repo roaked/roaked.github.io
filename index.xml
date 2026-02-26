@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portfolio on Ricardo Chin</title><link>https://xsleaks.dev/</link><description>Recent content in Portfolio on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>BaseRL, GA-RL &amp; Hamiltonian</title><link>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</guid><description>&lt;h1 id="off-policy-and-dqn-parameter-optimization"&gt;
- &lt;strong&gt;Off Policy and DQN Parameter Optimization&lt;/strong&gt;
- &lt;a class="anchor" href="#off-policy-and-dqn-parameter-optimization"&gt;#&lt;/a&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Portfolio on Ricardo Chin</title><link>https://xsleaks.dev/</link><description>Recent content in Portfolio on Ricardo Chin</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://xsleaks.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>BaseRL, GA-RL &amp; Hamiltonian</title><link>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/deepqnetwork/</guid><description>&lt;h1 id="baseline-rl-ga-rl-and-hamiltonian-paths"&gt;
+ &lt;strong&gt;Baseline RL, GA-RL and Hamiltonian Paths&lt;/strong&gt;
+ &lt;a class="anchor" href="#baseline-rl-ga-rl-and-hamiltonian-paths"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
 &lt;div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;"&gt;
  &lt;video width="100%" height="auto" controls autoplay loop muted playsinline&gt;
