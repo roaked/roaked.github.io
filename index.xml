@@ -2,7 +2,12 @@
  &lt;strong&gt;Off Policy and DQN Parameter Optimization&lt;/strong&gt;
  &lt;a class="anchor" href="#off-policy-and-dqn-parameter-optimization"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
-&lt;p&gt;&lt;img src="https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png" alt="sidas" /&gt;&lt;/p&gt;
+&lt;div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;"&gt;
+ &lt;video width="100%" height="auto" controls autoplay loop muted playsinline&gt;
+ &lt;source src="https://xsleaks.dev/videos/first_snake.webm" type="video/webm"&gt;
+ First Snake.
+ &lt;/video&gt;
+&lt;/div&gt;
 &lt;p&gt;This section documents the &lt;a href="https://github.com/roaked/snake-q-learning-genetic-algorithm"&gt;&lt;code&gt;snake-q-learning-genetic-algorithm&lt;/code&gt;&lt;/a&gt; project: a Snake environment built with &lt;code&gt;pygame&lt;/code&gt; and trained with an off-policy Deep Q-Network (DQN), with genetic search used to tune key learning parameters.&lt;/p&gt;
 &lt;p&gt;The implementation is organized around four core components:&lt;/p&gt;
 &lt;ul&gt;
