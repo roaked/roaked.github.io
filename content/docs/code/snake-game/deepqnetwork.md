@@ -26,6 +26,13 @@ The implementation is organized around four core components:
 
 The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.
 
+### Code References (GitHub Methods)
+
+- [`LinearQNet.__init__`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+__init__+LinearQNet&type=code), [`LinearQNet.forward`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+forward+LinearQNet&type=code), [`LinearQNet.save`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+save+LinearQNet&type=code)
+- [`QTrainer.train_step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_step+QTrainer&type=code)
+- [`QLearningAgent.get_state`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+get_state+QLearningAgent&type=code), [`QLearningAgent.get_action`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+get_action+QLearningAgent&type=code), [`QLearningAgent.remember`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+remember+QLearningAgent&type=code), [`QLearningAgent.train_long_memory`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_long_memory+QLearningAgent&type=code)
+- [`train_RL`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_RL&type=code), [`train`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train&type=code), [`genetic.genetic`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+genetic+genetic.py&type=code)
+
 ## 1 Reinforcement Deep Q-Network Architecture
 
 DQN (Deep Q-Network) stands as a RL algorithm rooted in deep learning principles. It integrates a Q-Learning algorithm with a deep neural network to address RL challenges in expansive state and action spaces. In the DQN algorithm, a neural network is employed to approximate the Q function, where states and actions serve as inputs, yielding corresponding Q values as outputs. Essentially, the DQN algorithm can be broken down into the following steps:
@@ -69,7 +76,7 @@ def __init__(self, input_size, hidden_size, output_size):
     nn.init.xavier_uniform_(self.linear2.weight)
 ```
 
-The forward method defines the forward pass, applying a rectified linear unit (ReLU) activation to the hidden layer's output before generating the Q-values. Additionally, the save method facilitates saving the model's state dictionary `self.state_dict()` to a specified file path using PyTorch's `torch.save` functionality, ensuring the preservation of trained model parameters.
+The [`forward`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+forward+LinearQNet&type=code) method defines the forward pass, applying a rectified linear unit (ReLU) activation to the hidden layer's output before generating the Q-values. Additionally, the [`save`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+save+LinearQNet&type=code) method facilitates saving the model's state dictionary `self.state_dict()` to a specified file path using PyTorch's `torch.save` functionality, ensuring the preservation of trained model parameters.
 
 ```python
 def forward(self, x):
@@ -99,7 +106,7 @@ class QTrainer:
         self.criterion = nn.MSELoss()
 ```
 
-This can integrated in the train_step function which orchestrates the neural network training process by executing a single iteration of Q-learning updates. It receives an experience tuple containing information about a state, action, received reward, the resulting next state, and an indicator of whether the episode has ended. The function begins by converting these components into `PyTorch` tensors to facilitate computation within the neural network. Using the provided state, the neural network predicts Q-values for different actions, storing these predictions as `pred`. Now, we should take a look at how a new Q-value for a state-action pair based on the previous Q-value and the received reward, plus the discounted maximum Q-value achievable in the resulting state is computed. The process for the agent to adjust Q-values iteratively, gradually converging towards optimal action-selection strategies by learning from experiences obtained while interacting with the environment can be seen below for the Q-learning update rule.
+This can integrated in the [`train_step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_step+QTrainer&type=code) function which orchestrates the neural network training process by executing a single iteration of Q-learning updates. It receives an experience tuple containing information about a state, action, received reward, the resulting next state, and an indicator of whether the episode has ended. The function begins by converting these components into `PyTorch` tensors to facilitate computation within the neural network. Using the provided state, the neural network predicts Q-values for different actions, storing these predictions as `pred`. Now, we should take a look at how a new Q-value for a state-action pair based on the previous Q-value and the received reward, plus the discounted maximum Q-value achievable in the resulting state is computed. The process for the agent to adjust Q-values iteratively, gradually converging towards optimal action-selection strategies by learning from experiences obtained while interacting with the environment can be seen below for the Q-learning update rule.
 
 {{< katex display>}}
 Q(s,a) = Q(s,a) + \alpha (r + \gamma \cdot max_{a'} Q(s',a')- Q(s,a))
@@ -159,7 +166,7 @@ Modifications:
 
 ### 1.2. Deploying a Reinforcement Learning Agent
 
-Let us start by applying the constructor method (__init__) of a class. This is where several fundamental attributes and objects are initialized for a RL agent.
+Let us start by applying the constructor method ([`__init__`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+__init__+QLearningAgent&type=code)) of a class. This is where several fundamental attributes and objects are initialized for a RL agent.
 
 ```python
 def __init__(self):
@@ -224,7 +231,7 @@ def get_state(self, game):
     return np.array(state, dtype=int)
 ```
 
-The `get_state` function within the code constructs a comprehensive representation of the game state in the Snake environment. It begins by extracting vital information such as the snake's head position and defining points in multiple directions to detect potential dangers, which include positions 20 units away in various directions. The function then derives the snake's current direction by comparing it with predefined directional indicators (left, right, up, down) based on the game's orientation. It proceeds to assess the presence of **potential dangers in the straight, right, and left directions** by checking for collisions with specific points relative to the snake's current orientation. Furthermore, binary flags are employed to indicate the snake's movement direction, while the relative position of the food compared to the snake's head (left, right, up, down) is determined. Finally, all these features are flushed into an array that serves as a numeric representation of the game state. 
+The [`get_state`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+get_state+QLearningAgent&type=code) function within the code constructs a comprehensive representation of the game state in the Snake environment. It begins by extracting vital information such as the snake's head position and defining points in multiple directions to detect potential dangers, which include positions 20 units away in various directions. The function then derives the snake's current direction by comparing it with predefined directional indicators (left, right, up, down) based on the game's orientation. It proceeds to assess the presence of **potential dangers in the straight, right, and left directions** by checking for collisions with specific points relative to the snake's current orientation. Furthermore, binary flags are employed to indicate the snake's movement direction, while the relative position of the food compared to the snake's head (left, right, up, down) is determined. Finally, all these features are flushed into an array that serves as a numeric representation of the game state. 
 
 
 ```python
@@ -244,7 +251,7 @@ def get_action(self, state):
         return final_move
 ```
 
-The `get_action` method operates as the decision-maker, employing an [epsilon-greedy strategy](https://medium.com/@gridflowai/part-2-in-depth-exploration-on-epsilon-greedy-algorithm-2b19e59bbe22) to balance exploration and exploitation. This strategy dynamically adjusts the agent's behaviour by modifying the exploration rate (`epsilon`) based on the number of games played (`n_games`). If a randomnly generated value falls below the epsilon threshold, indicating exploration, the agent randomly selects an action from the available choices (**move left, right, or straight**). Conversely, in the exploitation phase, when the generated value surpasses the epsilon threshold, the agent exploits its learned knowledge. It leverages its neural network model (`self.model`) to predict Q-values for each potential action given the current state, selecting the action with the highest predicted Q-value. The resulting one-hot encoded representation (`final_move`) denotes the chosen action, guiding the agent's movement and decision-making process within the game.
+The [`get_action`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+get_action+QLearningAgent&type=code) method operates as the decision-maker, employing an [epsilon-greedy strategy](https://medium.com/@gridflowai/part-2-in-depth-exploration-on-epsilon-greedy-algorithm-2b19e59bbe22) to balance exploration and exploitation. This strategy dynamically adjusts the agent's behaviour by modifying the exploration rate (`epsilon`) based on the number of games played (`n_games`). If a randomnly generated value falls below the epsilon threshold, indicating exploration, the agent randomly selects an action from the available choices (**move left, right, or straight**). Conversely, in the exploitation phase, when the generated value surpasses the epsilon threshold, the agent exploits its learned knowledge. It leverages its neural network model (`self.model`) to predict Q-values for each potential action given the current state, selecting the action with the highest predicted Q-value. The resulting one-hot encoded representation (`final_move`) denotes the chosen action, guiding the agent's movement and decision-making process within the game.
 
 ### 1.3. Max Replay Buffer and Target Network
 

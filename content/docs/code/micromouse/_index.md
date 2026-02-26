@@ -1,21 +1,19 @@
 ---
-title: "Micromouse: Flood Fill to A*"
-bookHidden: True
-weight: 9
+title: "Micromouse: Flood Fill and A*"
+weight: 4
 ---
 
 
 # AI Pioneer Debut: Maze SLAM
 
-![1323](https://thebitplayer.com/storage/app/theseus.gif)
-
 [According to many sources](https://webmuseum.mit.edu/detail.php?module=objects&type=related&kv=76066), "the first system (...) is the Theseus. It was built by *Claude Shannon* in 1950 and was a remote-controlled mouse that was able to find its way out of a labyrinth and could remember its course.  In seven decades, the abilities of artificial intelligence have come a long way.
 
 ![q0d02](https://j.gifs.com/Yvlr6M.gif)
 
-{{< hint important>}}
 
-**Interesting ideas/documentation for a project:**
+
+{{< hint important>}}
+**Used References:** 
 {{< /hint >}}
 
 - [System design for the robot (extracted from Gal Yaroslavsky)](http://mbed.org/users/goy5022/code/MicroMouse-v1/file/ce5b1bf38077/Headers/Mapping.h)

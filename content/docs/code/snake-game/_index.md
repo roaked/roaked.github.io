@@ -11,6 +11,12 @@ weight: 8
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) and [GH repo](https://github.com/GNiendorf/snake) base code for the Snake Game
 {{< /hint >}}
 
+### **Code References (GitHub Methods)**
+
+- [SnakeGameAI class](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameAI&type=code)
+- [SnakeGameUser class](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameUser&type=code)
+- [`_init_game`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_init_game&type=code), [`_place_food`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_place_food&type=code), [`_move`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_move&type=code), [`is_collision`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+is_collision&type=code), [`play_step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+play_step&type=code)
+
 ![213d](https://i.ytimg.com/vi/xcPqs92j4r4/maxresdefault.jpg)
 
 ## 1 Introduction
@@ -131,16 +137,16 @@ else:
 # block size, etc...
 ```
 
-In addition, `SnakeGameUser` and `SnakeGameAI` classes are defined which encapsulate the game logic, managing the game state, snake movement, collision detection, and food placement.
+In addition, [`SnakeGameUser`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameUser&type=code) and [`SnakeGameAI`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameAI&type=code) classes are defined which encapsulate the game logic, managing the game state, snake movement, collision detection, and food placement.
 
 {{< hint important >}}
 Vital functions encompass:
 
 - ```def __init__``` -- Initializing game window and start up the game state
-- ```def _init_game``` -- Initialize game state variables (snake position, score, food)
-- ```def _place_food``` -- Places food randomly within the game window, avoiding snake collision
-- ```def _move``` -- Handling snake movement based on user or AI action
-- ```def play_step ```-- Process each step of the game based on user (and later AI actions). (in addition, collects user input, move snake, check collision, update score, etc.)
+- [`def _init_game`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_init_game&type=code) -- Initialize game state variables (snake position, score, food)
+- [`def _place_food`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_place_food&type=code) -- Places food randomly within the game window, avoiding snake collision
+- [`def _move`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_move&type=code) -- Handling snake movement based on user or AI action
+- [`def play_step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+play_step&type=code) -- Process each step of the game based on user (and later AI actions). (in addition, collects user input, move snake, check collision, update score, etc.)
 {{< /hint >}}
 
 Given ```__init__``` and ```__init__game``` functions, the snake is initialized with a starting position, consisting of three body parts (`self.head` and two segments) positioned horizontally to the right - this is normally executed in good practice for developing a snake game, including representing the `self.head` at the center of the window. This setup essentially creates an initial length for the snake, allowing it to start the game with a visible length and direction. The snake initially consists of these three segments, and as the game progresses and the snake moves, additional segments will be added or removed based on its movement, food consumption, and collision detection. 

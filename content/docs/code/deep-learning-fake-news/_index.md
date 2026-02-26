@@ -1,6 +1,6 @@
 ---
 title: "Fake News: Inference & Clusters"
-weight: 4
+weight: 9
 ---
 
 # **Language Features for Detection of Fake News**
