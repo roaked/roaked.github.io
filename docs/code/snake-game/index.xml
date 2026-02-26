@@ -30,7 +30,31 @@
 &lt;p&gt;The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.&lt;/p&gt;</description></item><item><title>Policy Based Decision-Making</title><link>https://xsleaks.dev/docs/code/snake-game/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/policy/</guid><description>&lt;h1 id="model-free-policy-based-reinforcement-learning"&gt;
  &lt;strong&gt;Model-Free Policy Based Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#model-free-policy-based-reinforcement-learning"&gt;#&lt;/a&gt;
-&lt;/h1&gt;</description></item><item><title>Adversarial Multi-Agent RL</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
+&lt;/h1&gt;</description></item><item><title>Adversarial MultiAgent-RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
  &lt;strong&gt;Adversarial Multi-Agent Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#adversarial-multi-agent-reinforcement-learning"&gt;#&lt;/a&gt;
-&lt;/h1&gt;</description></item></channel></rss>
+&lt;/h1&gt;
+&lt;p&gt;This page documents the &lt;strong&gt;battle mode&lt;/strong&gt; implemented in &lt;a href="https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/agent_RL.py"&gt;&lt;code&gt;agent_RL.py&lt;/code&gt;&lt;/a&gt;, where three controllers are compared in the same experiment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;GA-Optimized RL&lt;/strong&gt; (DQN + genetic hyperparameter updates)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;Standard RL&lt;/strong&gt; (baseline DQN)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;Hamiltonian&lt;/strong&gt; (deterministic cycle-following policy)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Unlike single-agent training, this setup emphasizes relative performance under shared constraints, direct competition, and robustness over many rounds.&lt;/p&gt;
+&lt;h2 id="1-multi-agent-setup"&gt;
+ 1 Multi-Agent Setup
+ &lt;a class="anchor" href="#1-multi-agent-setup"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;The adversarial environment is built around &lt;code&gt;SnakeBattleArena&lt;/code&gt;, which places all three snakes in one board and advances them in lockstep each frame.&lt;/p&gt;</description></item></channel></rss>
