@@ -1,5 +1,5 @@
 ---
-title: "Fortran: Linked Lists"
+title: "Hamiltonian Graphs & Linked Lists"
 weight: 9
 bookFlatSection: true
 ---
