@@ -30,7 +30,7 @@
 &lt;p&gt;The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.&lt;/p&gt;</description></item><item><title>Policy Based Decision-Making</title><link>https://xsleaks.dev/docs/code/snake-game/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/policy/</guid><description>&lt;h1 id="model-free-policy-based-reinforcement-learning"&gt;
  &lt;strong&gt;Model-Free Policy Based Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#model-free-policy-based-reinforcement-learning"&gt;#&lt;/a&gt;
-&lt;/h1&gt;</description></item><item><title>Adversarial MultiAgent-RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
+&lt;/h1&gt;</description></item><item><title>Adversarial Multi-Agent RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
  &lt;strong&gt;Adversarial Multi-Agent Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#adversarial-multi-agent-reinforcement-learning"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
