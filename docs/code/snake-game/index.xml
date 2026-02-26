@@ -29,11 +29,11 @@
 &lt;/ul&gt;
 &lt;p&gt;The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.&lt;/p&gt;</description></item><item><title>Adversarial Multi-Agent RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;"&gt;
  &lt;video width="49%" height="auto" controls autoplay loop muted playsinline&gt;
- &lt;source src="videos/first_competition.webm" type="video/webm"&gt;
+ &lt;source src="https://xsleaks.dev/videos/first_competition.webm" type="video/webm"&gt;
  First Competition.
  &lt;/video&gt;
  &lt;video width="49%" height="auto" controls autoplay loop muted playsinline&gt;
- &lt;source src="videos/third_competition.webm" type="video/webm"&gt;
+ &lt;source src="https://xsleaks.dev/videos/third_competition.webm" type="video/webm"&gt;
  Second Competition.
  &lt;/video&gt;
 &lt;/div&gt;
