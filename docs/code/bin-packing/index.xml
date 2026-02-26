@@ -24,9 +24,9 @@
  1 Theoretical Remarks
  &lt;a class="anchor" href="#1-theoretical-remarks"&gt;#&lt;/a&gt;
 &lt;/h2&gt;
-&lt;p&gt;Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of &amp;ldquo;survival of the fittest.&amp;rdquo; By emulating this phenomenon, GAs possess the capability to &amp;ldquo;evolve&amp;rdquo; solutions for real-world problems, provided they have been encoded effectively.&lt;/p&gt;</description></item><item><title>Particle Swarm Optimization</title><link>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</guid><description>&lt;h1 id="disco-dance-of-particles"&gt;
- &lt;strong&gt;Disco Dance of Particles&lt;/strong&gt;
- &lt;a class="anchor" href="#disco-dance-of-particles"&gt;#&lt;/a&gt;
+&lt;p&gt;Genetic Algorithm (GA) stands as an adaptive method employed for resolving search and optimization dilemmas. Operating across numerous generations, it simulates the evolutionary process observed in natural populations, adhering to the principles of natural selection and the concept of &amp;ldquo;survival of the fittest.&amp;rdquo; By emulating this phenomenon, GAs possess the capability to &amp;ldquo;evolve&amp;rdquo; solutions for real-world problems, provided they have been encoded effectively.&lt;/p&gt;</description></item><item><title>Particle Swarm Optimization</title><link>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/bin-packing/particle-swarm-optimization/</guid><description>&lt;h1 id="mix-of-particles"&gt;
+ &lt;strong&gt;Mix of Particles&lt;/strong&gt;
+ &lt;a class="anchor" href="#mix-of-particles"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
 &lt;p&gt;&lt;img src="https://gbhat.com/assets/gifs/pso_nonconvex.gif" alt="12" /&gt;&lt;/p&gt;
 &lt;h2 id="1-algorithm-concept"&gt;

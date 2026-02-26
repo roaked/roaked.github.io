@@ -63,10 +63,36 @@ Y)&lt;/li&gt;
  &lt;/svg&gt;&lt;span&gt;tip&lt;/span&gt;&lt;/p&gt;
  &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;git clone -&amp;gt; cd&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (jax.numpy, scipy, botorch)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (jax.numpy, scipy, botorch, optuna)&lt;/li&gt;
 &lt;/ul&gt;
 
- &lt;/blockquote&gt;</description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/nonlinear-pro/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming"&gt;
+ &lt;/blockquote&gt;
+
+&lt;h3 id="optimization-under-expensive-evaluations"&gt;
+ &lt;strong&gt;Optimization Under Expensive Evaluations&lt;/strong&gt;
+ &lt;a class="anchor" href="#optimization-under-expensive-evaluations"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bayesian Optimization (BO) solves black-box optimization problems where each evaluation is expensive:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" /&gt;
+&lt;script defer src="https://xsleaks.dev/katex/katex.min.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);"&gt;&lt;/script&gt;&lt;span&gt;
+ \[x^\star = \arg \max_{x \in \mathcal{X}} f(x)\]
+&lt;/span&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gradients are unavailable or too noisy&lt;/li&gt;
+&lt;li&gt;objective evaluations are costly (training loops, simulations, experiments)&lt;/li&gt;
+&lt;li&gt;query budget is limited, so every new point matters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BO minimizes regret by combining:&lt;/p&gt;</description></item><item><title>Nonlinear Programming</title><link>https://xsleaks.dev/docs/lectures/nonlinear-programming/nonlinear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/nonlinear-programming/nonlinear/</guid><description>&lt;h1 id="notes-on-nonlinear-programming"&gt;
  &lt;strong&gt;Notes on Nonlinear Programming&lt;/strong&gt;
  &lt;a class="anchor" href="#notes-on-nonlinear-programming"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
@@ -77,12 +103,81 @@ Y)&lt;/li&gt;
  &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#tip-notice"&gt;&lt;/use&gt;
  &lt;/svg&gt;&lt;span&gt;tip&lt;/span&gt;&lt;/p&gt;
  &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;git clone -&amp;gt; cd&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;pip install -r requirements.txt&lt;/strong&gt; (numpy)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/roaked/nonlinear-opt-pattern-search-phd"&gt;GitHub repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;from classes of OD&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
- &lt;/blockquote&gt;</description></item><item><title>Hamiltonian Graphs &amp; Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran"&gt;
+ &lt;/blockquote&gt;
+
+&lt;h3 id="problem-setup"&gt;
+ &lt;strong&gt;Problem Setup&lt;/strong&gt;
+ &lt;a class="anchor" href="#problem-setup"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;nonlinear programming (NLP) optimizes a nonlinear objective, with optional nonlinear constraints:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;link rel="stylesheet" href="https://xsleaks.dev/katex/katex.min.css" /&gt;
+&lt;script defer src="https://xsleaks.dev/katex/katex.min.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://xsleaks.dev/katex/auto-render.min.js" onload="renderMathInElement(document.body);"&gt;&lt;/script&gt;&lt;span&gt;
+ \[\min_{x \in \mathbb{R}^n} f(x)\]
+&lt;/span&gt;
+
+&lt;span&gt;
+ \[\text{s.t. } g_i(x) \le 0,\; i=1,\dots,m, \qquad h_j(x)=0,\; j=1,\dots,p\]
+&lt;/span&gt;
+
+&lt;ul&gt;
+&lt;li&gt;core challenge:
+&lt;ul&gt;
+&lt;li&gt;objective geometry can be curved and nonconvex&lt;/li&gt;
+&lt;li&gt;constraints can define complex feasible regions&lt;/li&gt;
+&lt;li&gt;local minima can differ strongly from global minima&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="lagrangian-and-kkt-conditions"&gt;
+ &lt;strong&gt;Lagrangian and KKT Conditions&lt;/strong&gt;
+ &lt;a class="anchor" href="#lagrangian-and-kkt-conditions"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;define Lagrangian:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span&gt;
+ \[\mathcal{L}(x,\lambda,\nu)=f(x)&amp;#43;\sum_{i=1}^{m}\lambda_i g_i(x)&amp;#43;\sum_{j=1}^{p}\nu_j h_j(x)\]
+&lt;/span&gt;
+
+&lt;ul&gt;
+&lt;li&gt;first-order necessary conditions (under regularity assumptions):
+&lt;ol&gt;
+&lt;li&gt;stationarity:
+&lt;span&gt;
+ \[\nabla_x \mathcal{L}(x^\star,\lambda^\star,\nu^\star)=0\]
+&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;primal feasibility:
+&lt;span&gt;
+ \[g_i(x^\star)\le0,\quad h_j(x^\star)=0\]
+&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;dual feasibility:
+&lt;span&gt;
+ \[\lambda_i^\star \ge 0\]
+&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;complementary slackness:
+&lt;span&gt;
+ \[\lambda_i^\star g_i(x^\star)=0\]
+&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+ &lt;blockquote class="book-hint2 important"&gt;
+ &lt;p class="hint-title important"&gt;
+ &lt;svg class="book-icon"&gt;
+ &lt;use href="https://xsleaks.dev/svg/hint-icons.svg#important-notice"&gt;&lt;/use&gt;
+ &lt;/svg&gt;&lt;span&gt;important&lt;/span&gt;&lt;/p&gt;</description></item><item><title>Hamiltonian Graphs &amp; Linked Lists</title><link>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/hamiltonian-graphs/hamiltonian/</guid><description>&lt;h1 id="hamiltonian-paths-demo-in-fortran"&gt;
  &lt;strong&gt;Hamiltonian Paths Demo in Fortran&lt;/strong&gt;
  &lt;a class="anchor" href="#hamiltonian-paths-demo-in-fortran"&gt;#&lt;/a&gt;
 &lt;/h1&gt;

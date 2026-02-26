@@ -30,7 +30,17 @@
 &lt;p&gt;The goal is to maximize score while keeping training stable, then compare baseline RL behaviour against GA-tuned configurations under the same Snake rules.&lt;/p&gt;</description></item><item><title>Policy Based Decision-Making</title><link>https://xsleaks.dev/docs/code/snake-game/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/policy/</guid><description>&lt;h1 id="model-free-policy-based-reinforcement-learning"&gt;
  &lt;strong&gt;Model-Free Policy Based Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#model-free-policy-based-reinforcement-learning"&gt;#&lt;/a&gt;
-&lt;/h1&gt;</description></item><item><title>Adversarial Multi-Agent RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
+&lt;/h1&gt;</description></item><item><title>Adversarial Multi-Agent RL, BattleMode</title><link>https://xsleaks.dev/docs/code/snake-game/adversarial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/code/snake-game/adversarial/</guid><description>&lt;div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;"&gt;
+ &lt;video width="49%" height="auto" controls autoplay loop muted playsinline&gt;
+ &lt;source src="https://xsleaks.dev/videos/first_competition.webm" type="video/webm"&gt;
+ First Competition.
+ &lt;/video&gt;
+ &lt;video width="49%" height="auto" controls autoplay loop muted playsinline&gt;
+ &lt;source src="https://xsleaks.dev/videos/third_competition.webm" type="video/webm"&gt;
+ Second Competition.
+ &lt;/video&gt;
+&lt;/div&gt;
+&lt;h1 id="adversarial-multi-agent-reinforcement-learning"&gt;
  &lt;strong&gt;Adversarial Multi-Agent Reinforcement Learning&lt;/strong&gt;
  &lt;a class="anchor" href="#adversarial-multi-agent-reinforcement-learning"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
@@ -52,9 +62,4 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Unlike single-agent training, this setup emphasizes relative performance under shared constraints, direct competition, and robustness over many rounds.&lt;/p&gt;
-&lt;h2 id="1-multi-agent-setup"&gt;
- 1 Multi-Agent Setup
- &lt;a class="anchor" href="#1-multi-agent-setup"&gt;#&lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;The adversarial environment is built around &lt;code&gt;SnakeBattleArena&lt;/code&gt;, which places all three snakes in one board and advances them in lockstep each frame.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Unlike single-agent training, this setup emphasizes relative performance under shared constraints, direct competition, and robustness over many rounds.&lt;/p&gt;</description></item></channel></rss>
