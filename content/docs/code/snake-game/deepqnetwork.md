@@ -5,7 +5,15 @@ weight: 2
 
 # **Off Policy and DQN Parameter Optimization**
 
-![sidas](https://miro.medium.com/v2/resize:fit:1200/1*zRZ46MeFZMd5F52CHM6EYA.png)
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
+  
+  <video width="100%" height="auto" controls autoplay loop muted playsinline>
+    <source src="/videos/first_snake.webm" type="video/webm">
+    First Snake.
+  </video>
+
+</div>
+
 
 This section documents the [`snake-q-learning-genetic-algorithm`](https://github.com/roaked/snake-q-learning-genetic-algorithm) project: a Snake environment built with `pygame` and trained with an off-policy Deep Q-Network (DQN), with genetic search used to tune key learning parameters.
 
