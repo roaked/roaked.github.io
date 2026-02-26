@@ -3,7 +3,7 @@ title: "BaseRL, GA-RL & Hamiltonian"
 weight: 2
 ---
 
-# **Off Policy and DQN Parameter Optimization**
+# **Baseline RL, GA-RL and Hamiltonian Paths**
 
 <div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
   

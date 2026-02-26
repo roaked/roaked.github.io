@@ -1,19 +1,16 @@
 ---
-title: "Micromouse: Flood Fill and A* (2D)"
+title: "Micromouse: Flood Fill and A*"
 weight: 4
 ---
 
 
 # AI Pioneer Debut: Maze SLAM
 
-[According to many sources](https://webmuseum.mit.edu/detail.php?module=objects&type=related&kv=76066), "the first system (...) is the Theseus. It was built by *Claude Shannon* in 1950 and was a remote-controlled mouse that was able to find its way out of a labyrinth and could remember its course.  In seven decades, the abilities of artificial intelligence have come a long way.
-
-
 <div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
   
   <video width="100%" height="auto" controls autoplay loop muted playsinline>
     <source src="/videos/first_run_astar.webm" type="video/webm">
-    First Snake.
+    First Run Slam.
   </video>
 
 </div>
