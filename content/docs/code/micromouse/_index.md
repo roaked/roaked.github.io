@@ -15,7 +15,7 @@ weight: 4
 
 </div>
 
-## **1) Simulation Driver (`MicromouseApp._tick`)**
+## **1. Simulation Driver (`MicromouseApp._tick`)**
 
 The simulation loop is implemented inside `_tick()` and scheduled using `tkinter`:
 
@@ -46,7 +46,7 @@ def _tick(self) -> None:
 - The mouse markers are interpolated via `_update_animation_state()` for smoother motion.
 - Rendering is throttled by `render_every`, then the next frame is queued with `after(...)`.
 
-## **2) Maze Representation and Generation**
+## **2. Maze Representation and Generation**
 
 ### 2D (`class Maze`)
 
@@ -78,7 +78,7 @@ Then it injects extra openings:
 extra_openings = max(1, (self.size * self.size) // 12)
 ```
 
-## **3) Floodfill Explorer Internals**
+## **3. Floodfill Explorer Internals**
 
 ### `FloodFillExplorer` (2D)
 
@@ -121,7 +121,7 @@ Step budget in the current repo implementation:
 self.max_steps = self.maze.size * self.maze.size * 8
 ```
 
-## **4) A* Runner Internals**
+## **4. A* Runner Internals**
 
 ### `AStarRunner` (2D)
 
@@ -157,6 +157,7 @@ Heuristic:
 min(abs(cell[0]-g[0]) + abs(cell[1]-g[1]) for g in self.goals)
 ```
 
+## **5. Results**
 
 <div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
   
