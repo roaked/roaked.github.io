@@ -1,5 +1,5 @@
 ---
-title: "Adversarial MultiAgent-RL, BattleMode"
+title: "Adversarial Multi-Agent RL, BattleMode"
 weight: 5
 ---
 
