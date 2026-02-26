@@ -34,7 +34,8 @@ Y)&lt;/li&gt;
 &lt;li&gt;bayes theorem on data D:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;span&gt;
- \[\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}\]
+ \[
+\underbrace{P(X | D)}_{\text{posterior of X given D}} \hspace{.1cm} = \frac{\overbrace{P(D | X)}^{\text{likelihood of X under D}} \hspace{.1cm} \cdot \hspace{.1cm} \overbrace{P(X)}^{\text{prior of X}}}{\underbrace{P(D)}_{\text{marginalization or evidence of the model}}}\]
 &lt;/span&gt;
 
 &lt;ul&gt;
