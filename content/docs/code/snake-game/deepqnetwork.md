@@ -274,28 +274,42 @@ The applied methodology enhances stability by mitigating overfitting to recent e
 
 ## 2 Standard RL
 
-The **Standard RL** setup is the baseline training path where the DQN agent learns only from its own replay-buffer experience, without genetic tuning. In code, this mode is exposed by `train_standard_rl`, which delegates to `train_RL` in [`agent_RL.py`](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/agent_RL.py).
+The **Standard RL** mode is the baseline Deep Q-Learning pipeline: no evolutionary tuning, no handcrafted global planner, only the DQN agent learning from environment interaction plus replay-buffer updates. In this repository, `train_standard_rl()` calls `train_RL()` in [`agent_RL.py`](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/agent_RL.py).
 
-### 2.1. How the training loop works
+### 2.1. Learning signal and data flow
 
-Each iteration follows a classic off-policy sequence:
+At every frame, the agent builds a compact state vector (danger flags, direction, food relation), chooses one action with epsilon-greedy logic, receives reward feedback from `play_step`, and immediately trains on that transition (`short memory`). The same transition is also stored in replay memory, so episode-end updates can train on a broader historical sample (`long memory`).
 
-- 1. Build the current state from local hazards, heading, and food direction (`get_state`).
-- 2. Choose an action with epsilon-greedy exploration (`get_action`).
-- 3. Execute one game step (`game.play_step`) and collect reward, done, score, collisions, and steps.
-- 4. Perform short-memory optimization (`train_short_memory`) on the latest transition.
-- 5. Store the transition in replay memory (`remember`).
-- 6. On episode termination, run long-memory replay training (`train_long_memory`) and reset the game.
+This gives two complementary update scales:
 
-This gives a stable reference curve for score progression and is useful to evaluate whether additional optimization mechanisms are actually improving training quality.
+- **Local adaptation** from the newest transition (fast response).
+- **Global stabilization** from replay sampling (less temporal bias).
 
-### 2.2. Why this baseline matters
+### 2.2. Code snippet (core baseline step)
 
-Standard RL is important because it isolates the core DQN behaviour:
+```python
+state_old = agent.get_state(game)
+final_move = agent.get_action(state_old)
 
-- It shows how far the agent can go with fixed hyperparameters.
-- It helps detect regressions in environment logic or reward shaping.
-- It establishes a fair comparison point for GA-tuned and non-learning controllers.
+reward, done, score, collisions, steps = game.play_step(final_move)
+state_new = agent.get_state(game)
+
+agent.train_short_memory(state_old, final_move, reward, state_new, done)
+agent.remember(state_old, final_move, reward, state_new, done)
+```
+
+### 2.3. Episode boundary update
+
+When an episode ends, the game resets and replay-based optimization is triggered:
+
+```python
+if done:
+    game._init_game()
+    agent.n_games += 1
+    agent.train_long_memory()
+```
+
+This is the reference mode for all comparisons: if an advanced method does not beat this baseline in score trend, stability, or sample efficiency, it is not adding practical value.
 
 ```bash
 python agent_RL.py rl
@@ -303,52 +317,150 @@ python agent_RL.py rl
 
 ## 3 GA-Optimized RL
 
-The **GA-Optimized RL** mode keeps the same DQN learning core but periodically searches for stronger hyperparameter configurations using a Genetic Algorithm. In code, this mode is exposed by `train_ga_optimized`, which delegates to `train`.
+The **GA-Optimized RL** mode combines DQN with a **Genetic Algorithm (GA)** that tunes training hyperparameters over time. In this repository, `train_ga_optimized()` calls `train()`, which runs DQN rollouts and periodically invokes `genetic.genetic(...)` to search stronger parameter settings.
 
 - [Risto Miikkulainen and Lex Fridman discussing the importance of neuroevolution](https://youtu.be/CY_LEa9xQtg?t=2467) in deep networks: for instance, how applying evolutionary computation is helpful in assessing architecture topology or the layer depth
 
-### 3.1. Optimization idea
+### 3.1. Why evolve hyperparameters during training
 
-Rather than assuming one static set of hyperparameters is globally optimal, the GA evaluates candidate parameter sets while training progresses. This is useful because exploration intensity, learning-rate sensitivity, and regularization needs can shift across training stages.
+A static hyperparameter set can be suboptimal across all phases of learning:
 
-### 3.2. What is optimized
+- Early phase usually benefits from more exploration.
+- Mid phase benefits from more stable optimization.
+- Later phase often requires stronger exploitation and less noise.
 
-The parameter space includes values such as:
+GA addresses this by searching parameter candidates against real gameplay outcomes instead of relying on one fixed manual configuration.
 
-- `learning_rate`
-- `discount_factor`
-- `dropout_rate`
-- `exploration_rate`
+### 3.2. Metrics and optimization loop
 
-Candidate sets are evaluated using gameplay signals (score, steps, collisions, repeated-position behaviour), then selection/crossover/mutation produce the next generation of candidates.
+Candidate sets are evaluated using gameplay metrics such as:
 
-### 3.3. Integration with DQN loop
+- `score`
+- `record`
+- `steps`
+- `collisions`
+- `same_positions`
 
-After episode rollouts and metric logging, the GA routine is executed and the agent updates optimization-relevant settings (for example exploration and trainer parameters) for subsequent games. This creates a hybrid system: gradient-based value learning + population-based hyperparameter search.
+Then selection/crossover/mutation generate the next candidate population.
+
+```python
+_, best_params, _ = genetic.genetic(
+    NUM_GENERATIONS,
+    score=score,
+    record=record,
+    steps=steps,
+    collisions=collisions,
+    same_positions_counter=same_positions_counter,
+    game_metrics_list=game_metrics_list
+)
+```
+
+### 3.3. Runtime integration with DQN
+
+The RL policy still trains with gradient updates, but the GA periodically adjusts optimization-relevant settings:
+
+```python
+if isinstance(best_params, dict):
+    agent.update_hyperparameters(best_params)
+```
+
+This creates a hybrid system:
+
+- **DQN** learns action values.
+- **GA** searches a better training regime for DQN itself.
+
+### 3.4. "Is RL still learning if it is not winning?"
+
+Yes. In this codebase, learning updates happen even during losing episodes:
+
+- Per-step update: `train_short_memory(...)` runs every transition.
+- Replay update: `train_long_memory()` runs at episode end.
+- Negative outcomes (collisions/death) are still training signals, not ignored data.
+
+So a GA-RL snake can lose many rounds and still update its Q-function. Losing does **not** mean "no learning"; it usually means "learning is unstable, too slow, or misaligned with the objective".
+
+### 3.5. Why GA-RL can still fail often
+
+In adversarial or multi-agent-like settings (including same-board battle), the environment is effectively non-stationary: opponent behavior changes the transition distribution over time. This can degrade DQN stability even when updates are happening.
+
+Common failure modes:
+
+1. **Noisy GA fitness signal**: short evaluation windows overfit to luck-heavy episodes.
+2. **Hyperparameter drift**: frequent GA switching changes optimizer dynamics before DQN can consolidate.
+3. **Objective mismatch**: pure score-based fitness may underweight survival/win consistency.
+4. **Opponent pressure**: policy quality needed to survive is higher than solo-food optimization.
+
+### 3.6. What was improved in this repository
+
+To reduce stagnation, the GA loop now uses:
+
+- candidate-specific fitness tracking (instead of mismatched population-level reuse),
+- multi-game evaluation per candidate (`games_per_candidate=3`),
+- running-average fitness updates for smoother selection pressure,
+- trend-aware fitness bonus from recent score improvement,
+- elite retention + crossover + range-aware mutation,
+- rotating candidate schedule with periodic fallback to best-known parameters.
+
+These reduce collapse frequency, but they do not guarantee immediate win-rate dominance in battle mode; the setting is still hard and non-stationary.
+
+### 3.7. Practical interpretation of results
+
+When analyzing GA-RL runs, do not use only "wins". Track:
+
+- moving average score,
+- collision/death rate over windows,
+- win rate over windows,
+- stability across seeds/runs.
+
+If win-rate is flat but score trend and survival time improve, the agent is usually still learning useful behavior.
 
 ```bash
 python agent_RL.py ga
 ```
 
-Unfortunately, results weren't as good as expected.
-
 ## 4 Hamiltonian
 
-The **Hamiltonian** mode is a deterministic, non-learning controller that follows a precomputed Hamiltonian cycle over the grid. In code, this mode is exposed by `train_hamiltonian_cycle`, which delegates to `train_hamiltonian`.
+The **Hamiltonian** mode is a deterministic controller: it does not train a neural network and does not estimate Q-values. Instead, it follows a precomputed cycle that traverses the board safely. In code, `train_hamiltonian_cycle()` calls `train_hamiltonian()`.
 
-### 4.1. Core principle
+### 4.1. Algorithm intuition
 
-A Hamiltonian cycle visits every reachable cell exactly once before returning to the start. By moving along this cycle, the snake avoids self-intersections by construction (under normal cycle-following conditions), making death much less likely than with naive movement policies.
+A Hamiltonian cycle visits each cell exactly once and returns to the start. If the snake follows this cycle consistently, it avoids the classic self-trap patterns that often end RL runs during long-body phases.
 
-### 4.2. Why include it in this project
+### 4.2. Cycle-driven action generation
 
-Hamiltonian control provides a strong systems baseline:
+The implementation creates neighbor lookups from the cycle and maps target cells to legal turn actions:
 
-- It does not require neural-network training.
-- It is highly stable and reproducible across runs.
-- It is ideal for comparing reliability versus learning-based policies.
+```python
+cycle = _build_hamiltonian_cycle(game.width, game.height, block_size)
+next_lookup = {cycle[i]: cycle[(i + 1) % len(cycle)] for i in range(len(cycle))}
+prev_lookup = {cycle[(i + 1) % len(cycle)]: cycle[i] for i in range(len(cycle))}
 
-Its limitation is flexibility: while safe, it may be less sample-efficient for quickly collecting food than a well-trained RL policy in some map states.
+head = game.snake[0]
+next_candidates = [next_lookup.get(head), prev_lookup.get(head)]
+```
+
+Then each candidate is converted into the action encoding used by `play_step`:
+
+```python
+for candidate in next_candidates:
+    if candidate is None:
+        continue
+    wanted_direction = _target_direction(head, candidate)
+    action = _direction_to_action(game.direction, wanted_direction)
+    if action is not None:
+        final_move = action
+        break
+```
+
+### 4.3. Role in evaluation
+
+Hamiltonian is valuable as a **robustness baseline**:
+
+- no stochastic training variance,
+- deterministic and reproducible,
+- strong survival behavior on large-body states.
+
+Its trade-off is lower tactical flexibility; it may be slower than a strong RL policy at short-horizon food capture because it prioritizes cycle consistency over greedy local moves.
 
 ```bash
 python agent_RL.py hamiltonian
