@@ -6,7 +6,6 @@ weight: 8
 # **Smarter Reinforcement Learning**
 
 {{< hint warning>}} 
-- **Report not updated**
 - **Bug**: Parameter ranges is mutating with values from a different param_range
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) and [GH repo](https://github.com/GNiendorf/snake) base code for the Snake Game
 {{< /hint >}}
