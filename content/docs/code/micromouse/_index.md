@@ -8,225 +8,227 @@ weight: 4
 
 [According to many sources](https://webmuseum.mit.edu/detail.php?module=objects&type=related&kv=76066), "the first system (...) is the Theseus. It was built by *Claude Shannon* in 1950 and was a remote-controlled mouse that was able to find its way out of a labyrinth and could remember its course.  In seven decades, the abilities of artificial intelligence have come a long way.
 
-## **Code References (GitHub Methods)**
 
-- [Repository root](https://github.com/roaked/micromouse)
-- [Search: simulation functions](https://github.com/roaked/micromouse/search?q=simulation&type=code)
-- [Search: Flood Fill functions](https://github.com/roaked/micromouse/search?q=flood+fill&type=code)
-- [Search: A* functions](https://github.com/roaked/micromouse/search?q=astar&type=code)
-- [Search: map/wall update methods](https://github.com/roaked/micromouse/search?q=wall+update&type=code)
-- [Search: step/move methods](https://github.com/roaked/micromouse/search?q=step+move&type=code)
+## **1) Simulation Driver (`MicromouseApp._tick`)**
 
-{{< hint note >}}
-- Use the links above as jump points to bind each section below to concrete methods as the repository evolves.
-{{< /hint >}}
-
-## **1) Purpose of the Simulation Function**
-
-The simulation function is the runtime coordinator that executes one complete micromouse episode:
-
-1. initialize maze, robot pose, and planner state
-2. run repeated sensing/mapping/planning/control updates
-3. stop on goal or failure conditions
-4. return metrics for evaluation and debugging
-
-In practice, this function is the "single source of truth" for experiment reproducibility because every policy and planner goes through the same loop contract.
-
-## **2) Expected Function Contract**
-
-A typical simulation signature follows this shape:
+The simulation loop is implemented inside `_tick()` and scheduled using `tkinter`:
 
 ```python
-def run_simulation(
-    maze,
-    planner,
-    start=(0, 0),
-    goal_cells=((7, 7), (7, 8), (8, 7), (8, 8)),
-    max_steps=10_000,
-    random_seed=0,
-):
-    ...
-```
-
-### Inputs
-
-- `maze`: ground-truth wall structure used by sensor emulation
-- `planner`: route generator (`flood_fill`, `a_star`, or hybrid)
-- `start`: initial robot cell and heading
-- `goal_cells`: target center cells
-- `max_steps`: hard cap to prevent infinite loops
-
-### Outputs
-
-The function should return rich diagnostics, not only success/fail:
-
-```python
-{
-    "reached_goal": bool,
-    "steps": int,
-    "path": list[tuple[int, int]],
-    "replans": int,
-    "collisions": int,
-    "visited_cells": int,
-    "time_ms": float,
-}
-```
-
-## **3) Per-Step Simulation Pipeline**
-
-At each simulation timestep, the function should apply the same deterministic order:
-
-1. **sense** nearby walls/corridors
-2. **update** internal occupancy/wall map
-3. **plan** next move or path prefix
-4. **validate** the action (no wall crossing)
-5. **execute** movement and heading update
-6. **log** metrics for post-run analysis
-
-Representative loop skeleton:
-
-```python
-for t in range(max_steps):
-    local_obs = sense_walls(maze_truth, state.pose)
-    state.map = update_internal_map(state.map, state.pose, local_obs)
-
-    if planner.name == "flood_fill":
-        cost_map = compute_flood_costs(state.map, goal_cells)
-        action = select_best_neighbor(state.pose, cost_map, state.map)
-    else:  # A*
-        path = a_star_path(state.map, state.pose.cell, goal_cells)
-        action = path_to_action(state.pose, path)
-
-    if action is None:
-        state.status = "stuck"
-        break
-
-    state.pose = apply_action(state.pose, action)
-    state.path.append(state.pose.cell)
-```
-
-## **4) Mapping Layer: Why It Matters**
-
-Simulation quality depends on strict separation between:
-
-- **ground truth maze** (never directly leaked to planner)
-- **discovered map** (incrementally built from sensor data)
-
-This prevents "oracle behavior" and keeps evaluation realistic.
-
-Core responsibilities in map update methods:
-
-- synchronize opposite walls between adjacent cells
-- mark visited cells and heading-specific observations
-- reject contradictory updates with assertion checks
-- keep grid indexing conventions consistent (`row,col` vs `x,y`)
-
-## **5) Planning Layer: Flood Fill and A\***
-
-### Flood Fill usage in simulation
-
-- recompute (or incrementally update) cost-to-go map
-- prefer neighbors with strictly smaller potential
-- tie-break with heading continuity to reduce turns
-
-```python
-cost[next_cell] = min(cost[current] + 1 for current in open_neighbors(next_cell))
-```
-
-### A* usage in simulation
-
-- plan shortest discovered path on current map
-- apply admissible heuristic (Manhattan distance on grid)
-- re-plan whenever new wall evidence invalidates path
-
-```python
-f(n) = g(n) + h(n),  where  h(n) = |x_n - x_goal| + |y_n - y_goal|
-```
-
-## **6) Controller + Safety Checks**
-
-Before state transition, the simulation function should enforce:
-
-- wall-crossing guard
-- bounds check
-- repeated-state/stagnation detection
-
-```python
-if crosses_wall(state.map, state.pose, action):
-    metrics["collisions"] += 1
-    state.status = "invalid_action"
-    break
-```
-
-These checks make planner bugs visible early and avoid silent drift.
-
-## **7) Termination Conditions**
-
-A robust simulation function terminates on:
-
-- goal reached (`pose.cell in goal_cells`)
-- step budget exhausted
-- invalid action/collision
-- planner returns no feasible move
-- stagnation threshold exceeded
-
-```python
-if state.pose.cell in goal_cells:
-    state.status = "success"
-    break
-if t >= max_steps - 1:
-    state.status = "timeout"
-```
-
-## **8) Metrics You Should Always Record**
-
-- `steps_to_goal`
-- `turn_count`
-- `replan_count`
-- `unique_cells_visited`
-- `dead_end_entries`
-- `wall_update_count`
-
-These metrics are essential for comparing planner variants, map update strategies, and heuristic tuning.
-
-## **9) Instrumented Full Example**
-
-```python
-def run_simulation(maze_truth, planner, start, goal_cells, max_steps=10_000):
-    state = init_state(start=start)
-    metrics = init_metrics()
-
-    for t in range(max_steps):
-        obs = sense_walls(maze_truth, state.pose)
-        update_ok = update_internal_map(state.map, state.pose, obs)
-        if not update_ok:
-            state.status = "map_error"
-            break
-
-        action = planner.next_action(state.map, state.pose, goal_cells)
-        if action is None:
-            state.status = "no_path"
-            break
-
-        if crosses_wall(state.map, state.pose, action):
-            metrics["collisions"] += 1
-            state.status = "invalid_action"
-            break
-
-        state.pose = apply_action(state.pose, action)
-        update_metrics(metrics, state)
-
-        if state.pose.cell in goal_cells:
-            state.status = "success"
-            break
+def _tick(self) -> None:
+    if self.mode == "xyz":
+        if not self.flood3d.done:
+            self.flood3d.step()
+        if self.astar3d.status == "searching":
+            for _ in range(self.astar_expansions):
+                self.astar3d.step()
+                if self.astar3d.status != "searching":
+                    break
+        elif self.astar3d.status == "found" and self.astar3d_anim_index < len(self.astar3d.path) - 1:
+            self.astar3d_anim_index += 1
+            self.astar3d_runner_cell = self.astar3d.path[self.astar3d_anim_index]
     else:
-        state.status = "timeout"
-
-    return build_result(state, metrics)
+        if not self.flood.done:
+            self.flood.step()
+        if self.astar.status == "searching":
+            for _ in range(self.astar_expansions):
+                self.astar.step()
+                if self.astar.status != "searching":
+                    break
+        elif self.astar.status == "found" and self.astar_anim_index < len(self.astar.path) - 1:
+            self.astar_anim_index += 1
+            self.astar_runner_cell = self.astar.path[self.astar_anim_index]
+    self._draw_floodfill()
+    self._draw_astar()
+    self._update_info()
+    self.root.after(self.tick_ms, self._tick)
 ```
+
+### What this does, precisely
+
+- Floodfill explorer advances by **one step per frame**.
+- A* can expand **multiple nodes per frame** (`--astar-expansions`).
+- After planning, both panels are redrawn and next frame is queued using `after(...)`.
+
+## **2) Maze Representation and Generation**
+
+### 2D (`class Maze`)
+
+- `walls[(r,c)]` stores `N/E/S/W` booleans.
+- `neighbor(...)`, `has_wall(...)`, and `can_move(...)` are movement primitives.
+- `goal_cells()` returns center cell(s): 1 center for odd grids, 4 centers for even grids.
+
+Generation is DFS maze carving + random extra openings:
+
+```python
+start = (0, 0)
+stack = [start]
+visited = {start}
+while stack:
+    current = stack[-1]
+    candidates = [(nxt, d) for nxt, d in self.neighbors(current) if nxt not in visited]
+    if not candidates:
+        stack.pop()
+        continue
+    nxt, d = self.rng.choice(candidates)
+    self._remove_wall(current, nxt, d)
+    visited.add(nxt)
+    stack.append(nxt)
+```
+
+Then it injects extra openings:
+
+```python
+extra_openings = max(1, (self.size * self.size) // 12)
+```
+
+### 3D (`class Maze3D`)
+
+- Extends walls to `N/E/S/W/U/D`.
+- Cells are indexed as `(z, r, c)`.
+- `goal_cell()` is the middle of the top layer: `(levels - 1, mid, mid)`.
+- Uses the same DFS-style carving logic across 3D neighbors + random extra openings.
+
+## **3) Floodfill Explorer Internals**
+
+### `FloodFillExplorer` (2D)
+
+State model:
+
+- `known[cell][dir]` in `{UNKNOWN, OPEN, WALL}`.
+- Boundary walls are initialized as known walls.
+- `distances` is recomputed by reverse BFS from goal set.
+
+Core update:
+
+```python
+def step(self) -> None:
+    if self.done:
+        return
+    self._sense_cell(self.position)
+    self.distances = self._compute_distances()
+    if self.position in self.goals:
+        self.done = True
+        return
+    nxt = self._pick_next_cell()
+    if nxt is None:
+        self.done = True
+        return
+    self.position = nxt
+    self.trail.append(nxt)
+    self.steps += 1
+    if self.steps >= self.max_steps:
+        self.done = True
+```
+
+Decision policy in `_pick_next_cell()`:
+
+- candidate neighbors must be `OPEN` in `known`.
+- chooses minimum of `(distance_from_floodfill, goal_manhattan)` for tie-breaking.
+
+### `FloodFillExplorer3D`
+
+- same pattern in XYZ space with Manhattan distance in 3 axes.
+- step budget scales with volume:
+
+```python
+self.max_steps = self.maze.size * self.maze.size * self.maze.levels * 10
+```
+
+## **4) A* Runner Internals**
+
+### `AStarRunner` (2D)
+
+- Priority queue stores `(f_score, counter, node)` for deterministic tie handling.
+- Uses:
+  - `open_heap` (heapq frontier)
+  - `open_set` (fast membership)
+  - `closed`
+  - `came_from`, `g_score`
+
+Expansion step:
+
+```python
+for _, _, d in DIRS:
+    if self.maze.has_wall(node, d):
+        continue
+    nxt = self.maze.neighbor(node, d)
+    if nxt is None or nxt in self.closed:
+        continue
+    trial = self.g_score[node] + 1
+    if trial < self.g_score.get(nxt, 10**9):
+        self.came_from[nxt] = node
+        self.g_score[nxt] = trial
+        f_score = trial + self._heuristic(nxt)
+        heapq.heappush(self.open_heap, (f_score, self._counter, nxt))
+        self.open_set.add(nxt)
+```
+
+Heuristic:
+
+```python
+min(abs(cell[0]-g[0]) + abs(cell[1]-g[1]) for g in self.goals)
+```
+
+### `AStarRunner3D`
+
+- exactly the same engine in 3D:
+
+```python
+min(abs(cell[0]-g[0]) + abs(cell[1]-g[1]) + abs(cell[2]-g[2]) for g in self.goals)
+```
+
+## **5) App Initialization: How Components Wire Together**
+
+In `MicromouseApp.__init__`:
+
+- in `xyz` mode:
+  - builds `Maze3D`
+  - `start3d = (0, size - 1, 0)`
+  - goal set uses `maze3d.goal_cell()`
+  - creates `FloodFillExplorer3D` + `AStarRunner3D`
+- in `2d/3d` modes:
+  - builds `Maze`
+  - `start = (size - 1, 0)`
+  - goals use `maze.goal_cells()`
+  - creates `FloodFillExplorer` + `AStarRunner`
+
+This is exactly where the simulator decides which state machine and renderer will be active.
+
+## **6) Rendering and Instrumentation**
+
+The app renders two synchronized panels:
+
+- left: Floodfill exploration status
+- right: A* search status + animated final path
+
+Important render helpers:
+
+- `_draw_floodfill_2d`, `_draw_astar_2d`
+- `_draw_floodfill_3d`, `_draw_astar_3d` (isometric blocks)
+- `_draw_floodfill_xyz`, `_draw_astar_xyz` (layered Z slices with up/down arrows)
+- `_update_info` (live status line: steps, goal reached, nodes explored)
+
+## **7) CLI Entry Points**
+
+The runtime surface is explicit in `parse_args()` + `main()`:
+
+```python
+p.add_argument("--mode", choices=("2d", "3d", "xyz"), default="2d")
+p.add_argument("--astar-expansions", type=int, default=2)
+p.add_argument("--levels", type=int, default=4)
+...
+app = MicromouseApp(...)
+app.run()
+```
+
+This means your “simulation function” from CLI is effectively:
+
+1. parse options
+2. construct `MicromouseApp`
+3. enter `_tick` loop through `run()`
 
 {{< hint important >}}
-- The simulation loop is the critical integration point: sensing, mapping, planning, and control quality all surface here. If your results look unstable, debug this function first.
+- If behavior looks wrong, debug in this order: `Maze/Maze3D` generation → `FloodFillExplorer.step` / `AStarRunner.step` → `MicromouseApp._tick` scheduling.
 {{< /hint >}}
 
 

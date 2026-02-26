@@ -10,13 +10,6 @@ weight: 8
 - **Disclaimer** - used the [freeCodeCamp.org](https://www.freecodecamp.org/news/train-an-ai-to-play-a-snake-game-using-python/) and [GH repo](https://github.com/GNiendorf/snake) base code for the Snake Game
 {{< /hint >}}
 
-### **Code References (GitHub Methods)**
-
-- [SnakeGameAI class](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameAI&type=code)
-- [SnakeGameUser class](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeGameUser&type=code)
-- [`_init_game`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_init_game&type=code), [`_place_food`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_place_food&type=code), [`_move`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_move&type=code), [`is_collision`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+is_collision&type=code), [`play_step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+play_step&type=code)
-
-![213d](https://i.ytimg.com/vi/xcPqs92j4r4/maxresdefault.jpg)
 
 ## 1 Introduction
 
