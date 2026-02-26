@@ -1,5 +1,5 @@
 ---
-title: "Off Policy RL & Neuroevolution"
+title: "BaseRL, GA-RL & Hamiltonian"
 weight: 2
 ---
 
