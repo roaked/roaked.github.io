@@ -27,15 +27,9 @@ This page documents the **battle mode** implemented in [`agent_RL.py`](https://g
 
 Unlike single-agent training, this setup emphasizes relative performance under shared constraints, direct competition, and robustness over many rounds.
 
-### Code References (GitHub Methods)
-
-- [`SnakeBattleArena`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeBattleArena&type=code), [`SnakeBattleArena.step`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+step+SnakeBattleArena&type=code), [`SnakeBattleArena.is_collision`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+is_collision+SnakeBattleArena&type=code)
-- [`train_battle_royale`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_battle_royale&type=code), [`train_compare_all`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+train_compare_all&type=code)
-- [`_hamiltonian_move`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_hamiltonian_move&type=code), [`update_hyperparameters`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+update_hyperparameters&type=code)
-
 ## 1 Multi-Agent Setup
 
-The adversarial environment is built around [`SnakeBattleArena`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=class+SnakeBattleArena&type=code), which places all three snakes in one board and advances them in lockstep each frame.
+The adversarial environment is built around `SnakeBattleArena`, which places all three snakes in one board and advances them in lockstep each frame.
 
 ### 1.1. Arena initialization
 
@@ -155,7 +149,7 @@ This allows GA-RL to adapt exploration and learning behavior while competing.
 
 ### 3.3. Hamiltonian controller
 
-The Hamiltonian snake does not train; it computes deterministic moves from cycle neighbors using [`_hamiltonian_move`](https://github.com/roaked/snake-q-learning-genetic-algorithm/search?q=def+_hamiltonian_move&type=code):
+The Hamiltonian snake does not train; it computes deterministic moves from cycle neighbors using `_hamiltonian_move`
 
 ```python
 ham_action = _hamiltonian_move(arena.get_view('ham'), next_lookup, prev_lookup)
