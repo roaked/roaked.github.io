@@ -1,5 +1,5 @@
 ---
-title: "Micromouse: Flood Fill and A*"
+title: "Micromouse: Flood Fill and A* (2D)"
 weight: 4
 ---
 
@@ -9,45 +9,45 @@ weight: 4
 [According to many sources](https://webmuseum.mit.edu/detail.php?module=objects&type=related&kv=76066), "the first system (...) is the Theseus. It was built by *Claude Shannon* in 1950 and was a remote-controlled mouse that was able to find its way out of a labyrinth and could remember its course.  In seven decades, the abilities of artificial intelligence have come a long way.
 
 
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
+  
+  <video width="100%" height="auto" controls autoplay loop muted playsinline>
+    <source src="/videos/first_run_astar.webm" type="video/webm">
+    First Snake.
+  </video>
+
+</div>
+
 ## **1) Simulation Driver (`MicromouseApp._tick`)**
 
 The simulation loop is implemented inside `_tick()` and scheduled using `tkinter`:
 
 ```python
 def _tick(self) -> None:
-    if self.mode == "xyz":
-        if not self.flood3d.done:
-            self.flood3d.step()
-        if self.astar3d.status == "searching":
-            for _ in range(self.astar_expansions):
-                self.astar3d.step()
-                if self.astar3d.status != "searching":
-                    break
-        elif self.astar3d.status == "found" and self.astar3d_anim_index < len(self.astar3d.path) - 1:
-            self.astar3d_anim_index += 1
-            self.astar3d_runner_cell = self.astar3d.path[self.astar3d_anim_index]
-    else:
-        if not self.flood.done:
-            self.flood.step()
-        if self.astar.status == "searching":
-            for _ in range(self.astar_expansions):
-                self.astar.step()
-                if self.astar.status != "searching":
-                    break
-        elif self.astar.status == "found" and self.astar_anim_index < len(self.astar.path) - 1:
-            self.astar_anim_index += 1
-            self.astar_runner_cell = self.astar.path[self.astar_anim_index]
-    self._draw_floodfill()
-    self._draw_astar()
-    self._update_info()
+    self.frame_count += 1
+    if not self.flood.done:
+        self.flood.step()
+    if self.astar.status == "searching":
+        for _ in range(self.astar_expansions):
+            self.astar.step()
+            if self.astar.status != "searching":
+                break
+    elif self.astar.status == "found" and self.astar_anim_index < len(self.astar.path) - 1:
+        self.astar_anim_index += 1
+        self.astar_runner_cell = self.astar.path[self.astar_anim_index]
+    self._update_animation_state()
+    if self.frame_count % self.render_every == 0:
+        self._draw_visualizations()
+        self._update_info()
     self.root.after(self.tick_ms, self._tick)
 ```
 
 ### What this does, precisely
 
-- Floodfill explorer advances by **one step per frame**.
-- A* can expand **multiple nodes per frame** (`--astar-expansions`).
-- After planning, both panels are redrawn and next frame is queued using `after(...)`.
+- Floodfill advances by **one exploration step per frame**.
+- A* expands **multiple nodes per frame** (`--astar-expansions`).
+- The mouse markers are interpolated via `_update_animation_state()` for smoother motion.
+- Rendering is throttled by `render_every`, then the next frame is queued with `after(...)`.
 
 ## **2) Maze Representation and Generation**
 
@@ -80,13 +80,6 @@ Then it injects extra openings:
 ```python
 extra_openings = max(1, (self.size * self.size) // 12)
 ```
-
-### 3D (`class Maze3D`)
-
-- Extends walls to `N/E/S/W/U/D`.
-- Cells are indexed as `(z, r, c)`.
-- `goal_cell()` is the middle of the top layer: `(levels - 1, mid, mid)`.
-- Uses the same DFS-style carving logic across 3D neighbors + random extra openings.
 
 ## **3) Floodfill Explorer Internals**
 
@@ -125,13 +118,10 @@ Decision policy in `_pick_next_cell()`:
 - candidate neighbors must be `OPEN` in `known`.
 - chooses minimum of `(distance_from_floodfill, goal_manhattan)` for tie-breaking.
 
-### `FloodFillExplorer3D`
-
-- same pattern in XYZ space with Manhattan distance in 3 axes.
-- step budget scales with volume:
+Step budget in the current repo implementation:
 
 ```python
-self.max_steps = self.maze.size * self.maze.size * self.maze.levels * 10
+self.max_steps = self.maze.size * self.maze.size * 8
 ```
 
 ## **4) A* Runner Internals**
@@ -158,6 +148,7 @@ for _, _, d in DIRS:
     if trial < self.g_score.get(nxt, 10**9):
         self.came_from[nxt] = node
         self.g_score[nxt] = trial
+        self._counter += 1
         f_score = trial + self._heuristic(nxt)
         heapq.heappush(self.open_heap, (f_score, self._counter, nxt))
         self.open_set.add(nxt)
@@ -169,73 +160,21 @@ Heuristic:
 min(abs(cell[0]-g[0]) + abs(cell[1]-g[1]) for g in self.goals)
 ```
 
-### `AStarRunner3D`
 
-- exactly the same engine in 3D:
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
+  
+  <video width="100%" height="auto" controls autoplay loop muted playsinline>
+    <source src="/videos/first_run_astar.webm" type="video/webm">
+    First Snake.
+  </video>
 
-```python
-min(abs(cell[0]-g[0]) + abs(cell[1]-g[1]) + abs(cell[2]-g[2]) for g in self.goals)
-```
-
-## **5) App Initialization: How Components Wire Together**
-
-In `MicromouseApp.__init__`:
-
-- in `xyz` mode:
-  - builds `Maze3D`
-  - `start3d = (0, size - 1, 0)`
-  - goal set uses `maze3d.goal_cell()`
-  - creates `FloodFillExplorer3D` + `AStarRunner3D`
-- in `2d/3d` modes:
-  - builds `Maze`
-  - `start = (size - 1, 0)`
-  - goals use `maze.goal_cells()`
-  - creates `FloodFillExplorer` + `AStarRunner`
-
-This is exactly where the simulator decides which state machine and renderer will be active.
-
-## **6) Rendering and Instrumentation**
-
-The app renders two synchronized panels:
-
-- left: Floodfill exploration status
-- right: A* search status + animated final path
-
-Important render helpers:
-
-- `_draw_floodfill_2d`, `_draw_astar_2d`
-- `_draw_floodfill_3d`, `_draw_astar_3d` (isometric blocks)
-- `_draw_floodfill_xyz`, `_draw_astar_xyz` (layered Z slices with up/down arrows)
-- `_update_info` (live status line: steps, goal reached, nodes explored)
-
-## **7) CLI Entry Points**
-
-The runtime surface is explicit in `parse_args()` + `main()`:
-
-```python
-p.add_argument("--mode", choices=("2d", "3d", "xyz"), default="2d")
-p.add_argument("--astar-expansions", type=int, default=2)
-p.add_argument("--levels", type=int, default=4)
-...
-app = MicromouseApp(...)
-app.run()
-```
-
-This means your “simulation function” from CLI is effectively:
-
-1. parse options
-2. construct `MicromouseApp`
-3. enter `_tick` loop through `run()`
-
-{{< hint important >}}
-- If behavior looks wrong, debug in this order: `Maze/Maze3D` generation → `FloodFillExplorer.step` / `AStarRunner.step` → `MicromouseApp._tick` scheduling.
-{{< /hint >}}
-
-
+</div>
 
 {{< hint important>}}
 **Used References:** 
 {{< /hint >}}
+
+- [roaked/micromouse (source repository)](https://github.com/roaked/micromouse)
 
 - [System design for the robot (extracted from Gal Yaroslavsky)](http://mbed.org/users/goy5022/code/MicroMouse-v1/file/ce5b1bf38077/Headers/Mapping.h)
 
