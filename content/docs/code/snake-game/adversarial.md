@@ -6,12 +6,12 @@ weight: 5
 <div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
   
   <video width="49%" height="auto" controls autoplay loop muted playsinline>
-    <source src="videos/first_competition.webm" type="video/webm">
+    <source src="/videos/first_competition.webm" type="video/webm">
     First Competition.
   </video>
 
   <video width="49%" height="auto" controls autoplay loop muted playsinline>
-    <source src="videos/third_competition.webm" type="video/webm">
+    <source src="/videos/third_competition.webm" type="video/webm">
     Second Competition.
   </video>
 </div>
