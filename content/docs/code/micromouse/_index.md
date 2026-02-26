@@ -5,7 +5,7 @@ weight: 9
 ---
 
 
-# AI Pioneer Theseus' Debut: Maze SLAM
+# AI Pioneer Debut: Maze SLAM
 
 ![1323](https://thebitplayer.com/storage/app/theseus.gif)
 

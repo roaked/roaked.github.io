@@ -3,7 +3,7 @@ weight: 1
 title: "AGV: Stochastic Identification"
 ---
 
-# **They See Me Rollin', They Navigatin'**
+# **Stochastic Moving Robot**
 
 # System Identification: AGV
 

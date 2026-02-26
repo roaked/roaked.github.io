@@ -47,7 +47,6 @@ By splitting the report into these segments, it is expected to inspect each aspe
 The sections are pretty extensive, containing descriptive explaination of the work done, but I have inserted an hyperlink at the beginning of each section redirecting to the last chapter containing summarized findings. 
 {{< /hint >}}
 
-![video](https://s5.gifyu.com/images/SRQm0.gif)
 
 {{< hint tip >}}
 [That said: Advance to UAV System Dynamics Design Here ✌️](https://ricardochin.com/docs/code/uav/dynamics/){{< /hint >}}

@@ -3,6 +3,20 @@ title: "Adversarial Multi-Agent RL, BattleMode"
 weight: 5
 ---
 
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center;">
+  
+  <video width="49%" height="auto" controls autoplay loop muted playsinline>
+    <source src="/videos/first_competition.webm" type="video/webm">
+    First Competition.
+  </video>
+
+  <video width="49%" height="auto" controls autoplay loop muted playsinline>
+    <source src="/videos/third_competition.webm" type="video/webm">
+    Second Competition.
+  </video>
+</div>
+
+
 # **Adversarial Multi-Agent Reinforcement Learning**
 
 This page documents the **battle mode** implemented in [`agent_RL.py`](https://github.com/roaked/snake-q-learning-genetic-algorithm/blob/main/agent_RL.py), where three controllers are compared in the same experiment:

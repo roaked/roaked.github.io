@@ -3,7 +3,7 @@ title: "EC Optimization: Space & Time"
 weight: 5
 ---
 
-# **EC: Where Algorithms Find Their Inner Darwin**
+# **EC**
 
 ![124](https://i.pinimg.com/originals/88/66/b2/8866b25a23afb5185612095ffc57eca3.gif)
 
