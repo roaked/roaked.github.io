@@ -1,0 +1,25 @@
+/* 1. Make the content area wider on desktop screens */
+/* This reduces the massive blank space on the left and right */
+.book-page {
+  max-width: 100rem; /* Default is usually around 60rem */
+}
+
+/* 2. Reduce the actual padding (margins) around the text */
+.book-page {
+  padding-left: 1rem;  /* Default is usually 2rem */
+  padding-right: 1rem; /* Default is usually 2rem */
+}
+
+/* Optional: If you want to reduce the top/bottom spacing as well */
+.book-page {
+  padding: 1rem !important; /* !important forces this to override the theme */
+}
+
+.markdown {
+  max-width: 100% !important; 
+}
+
+
+html {
+  font-size: 14px !important; /* The theme default is 16px */
+}
