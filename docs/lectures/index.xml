@@ -51,7 +51,34 @@ Y)&lt;/li&gt;
 &lt;p&gt;random variable X taking x values &lt;span&gt;
  \(\subset \R^n\)
 &lt;/span&gt;
-&lt;/p&gt;</description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization"&gt;
+&lt;/p&gt;</description></item><item><title>RecSys</title><link>https://xsleaks.dev/docs/lectures/recsys/recsys/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/recsys/recsys/</guid><description>&lt;h2 id="building-a-recsys"&gt;
+ Building a RecSys
+ &lt;a class="anchor" href="#building-a-recsys"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id="phase-0-the-cold-start-day-0---minimal-data"&gt;
+ Phase 0: The Cold Start (Day 0 - Minimal Data)
+ &lt;a class="anchor" href="#phase-0-the-cold-start-day-0---minimal-data"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Scenario:&lt;/strong&gt; You just launched a new app (newsletter platform or niche e-commerce). You have users and items, but no historical click/purchase data.&lt;/p&gt;
+&lt;p&gt;At this stage, &lt;strong&gt;collaborative filtering is not reliable&lt;/strong&gt;. Design for robustness with &lt;strong&gt;content-based filtering&lt;/strong&gt;, rules, and careful logging.&lt;/p&gt;
+&lt;h3 id="how-to-design-phase-0"&gt;
+ How to design Phase 0
+ &lt;a class="anchor" href="#how-to-design-phase-0"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Define candidate pools first: popular items, category-matched items, and new arrivals.&lt;/li&gt;
+&lt;li&gt;Add strict eligibility filters before ranking (stock, delivery zone, policy/safety).&lt;/li&gt;
+&lt;li&gt;Use onboarding answers to build a lightweight user preference profile.&lt;/li&gt;
+&lt;li&gt;Rank candidates with simple heuristics: content similarity + popularity + business constraints.&lt;/li&gt;
+&lt;li&gt;Reserve a small fixed slot budget for exploration of new items (for example, a few positions per page).&lt;/li&gt;
+&lt;li&gt;Log every impression with rank position and context so Phase 2 training data is clean.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="how-do-we-know-if-the-user-liked-a-recommended-product"&gt;
+ How do we know if the user liked a recommended product?
+ &lt;a class="anchor" href="#how-do-we-know-if-the-user-liked-a-recommended-product"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;In practice, we use &lt;strong&gt;implicit feedback&lt;/strong&gt; from logged events after an impression:&lt;/p&gt;</description></item><item><title>Bayesian Optimization</title><link>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xsleaks.dev/docs/lectures/bayesian-optimization/bayesopt/</guid><description>&lt;h1 id="notes-on-bayesian-optimization"&gt;
  &lt;strong&gt;Notes on Bayesian Optimization&lt;/strong&gt;
  &lt;a class="anchor" href="#notes-on-bayesian-optimization"&gt;#&lt;/a&gt;
 &lt;/h1&gt;
