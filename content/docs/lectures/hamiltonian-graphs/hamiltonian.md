@@ -2,6 +2,7 @@
 title: "Hamiltonian Graphs & Linked Lists"
 weight: 9
 bookFlatSection: true
+bookHidden: true
 ---
 
 # **Hamiltonian Paths Demo in Fortran**
