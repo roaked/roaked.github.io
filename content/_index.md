@@ -9,9 +9,9 @@ As a Lead MLE, I drive the end-to-end technical innovation and deployment of pro
 
 On the product R&D side, I quantify uncertainty and design probabilistic decision-support systems, embedding agentic architectures directly into enterprise ecosystems like SAP, Atlassian, Microsoft, etc. 
 
-Working in heavily regulated sectors, adhering to responsible AI and compliance to the EU AI Act is essential. To navigate the fast-moving regulatory landscape (and its foundation to GDPR), I built a GraphRAG solution that automates compliance verification. Feel free to reach out if you would like to know more!
+Working in heavily regulated sectors, adhering to responsible AI and compliance to the EU AI Act is essential. To navigate the fast-moving regulatory landscape (and its foundation to GDPR), I built a GraphRAG solution that automates compliance verification. Reach out if you'd like to know more!
  
-In parallel, my goal is also about democratizing AI internally. By leading cross-functional AI initiatives, I deliver intelligent internal tooling that directly transforms workflows across teams from Engineering & Maintenance to HR, and Customer Service.
+In parallel, my goal is also about democratizing AI internally. By leading cross-functional AI initiatives, I deliver internal tooling across teams from Engineering & Maintenance to HR, and Customer Service.
 
 I was previously affiliated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). 
 
