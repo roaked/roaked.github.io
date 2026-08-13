@@ -5,11 +5,11 @@ type: docs
 
 ## **Behind the Scenes**
 
-As a Lead Machine Learning Engineer, I drive the end-to-end technical innovation and deployment of production AI/ML solutions. My work focuses on scaling intelligent systems designed to solve complex challenges within engineering and supply chain applications.
+As a Lead Machine Learning Engineer, I am responsible for the end-to-end technical deployment of production AI/ML solutions. My core focus is architecting and scaling intelligent systems that solve challenges across engineering and supply chain domains.
 
-On the product side, I quantify uncertainty and design probabilistic decision-support systems. By embedding agentic architectures in diverse enterprise ecosystems, I build robust solutions that strictly adhere to responsible AI principles and maintain full compliance with the EU AI Act.
+On product innovation, I design probabilistic decision-support systems that transform noisy time-series and tabular data into strategic intelligence, helping enterprises confidently quantify and navigate uncertainty. My focus has also extended to integrating emerging agentic solutions, ensuring every solution is governed by Responsible AI principles and fully compliant with the EU AI Act.
 
-Beyond product development,, my goal is also about democratizing AI internally. I lead cross-functional initiatives to build intelligent tooling that empowers teams from the enterprise acrsss, ranging from Engineering and Maintenance to HR and Customer Service.
+Internally, I drive enterprise-wide AI transformation by leading cross-functional initiatives to integrate modern AI tooling into modern software ecosystems. By doing so, I ensure AI democratization across the entire organization, benefiting teams ranging from Engineering and Maintenance to HR and Customer Service.
 
 My technical foundation is rooted in research, having previously been affiliated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). Beyond day-to-day work, further interests revolve around metaheuristics optimization, reinforcement learning, multimodality, explainable time-series forecasting and anomaly detection.
 
