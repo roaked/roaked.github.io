@@ -5,13 +5,11 @@ type: docs
 
 ## **Behind the Scenes**
 
-I am a Lead Machine Learning Engineer with more than 5 years of experience productionizing intelligent software applications and designing solution architectures that solve challenges across engineering and supply chain.
+I am a Lead Machine Learning Engineer with 5+ years of experience building ML systems across supply chain, advanced manufacturing and engineering. My work is at the intersection of driving software ARR through client-facing product innovation and saving hundreds of operational hours through internal AI tooling across enterprise platforms.
 
-On product innovation, I design probabilistic decision-support systems that transform noisy time-series and tabular data into strategic intelligence, helping enterprises confidently quantify and navigate uncertainty. My focus has also extended to integrating emerging agentic solutions, ensuring every solution is governed by Responsible AI principles and fully compliant with the EU AI Act.
+My current focus is on designing scalable agentic solutions backed by centralized observability, step-level telemetry, and automated evaluations that enforce transparent governance aligned with the EU AI Act. Internally, I also lead cross-functional AI adoption and oversee enterprise AI infrastructure FinOps -- continuously optimizing context token usage to minimize inference costs while sustaining a strict >90% faithfulness threshold to guarantee output quality.
 
-Internally, I drive enterprise-wide AI transformation by leading cross-functional initiatives to integrate AI tooling into business software ecosystems. By doing so, I ensure AI democratization across the entire organization, benefiting teams ranging from Engineering and Maintenance to HR and Customer Service.
-
-My technical foundation is rooted in research, having previously been affiliated with the [Center of Intelligent Systems](https://csi.idmec.tecnico.ulisboa.pt/) at the [Technical University of Lisbon](https://tecnico.ulisboa.pt/en/) and the [Institute of Materials Science](https://www.tugraz.at/institute/imat/home) at the [Technical University of Graz](https://www.tugraz.at/en/home). Research work revolved around metaheuristics optimization, physics-informed ML, reinforcement learning, explainable time-series forecasting and anomaly detection.
+My engineering approach is rooted in applied scientific research. Spanning metaheuristics, reinforcement learning, and explainable anomaly detection, this background enables me to bridge physical engineering principles with modern cloud-native machine learning in production.
 
 ![1223e](https://live.staticflickr.com/65535/53729234907_9e1594ce05_c.jpg)
 
