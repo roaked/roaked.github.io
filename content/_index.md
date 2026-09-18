@@ -5,9 +5,9 @@ type: docs
 
 ## **Behind the Scenes**
 
-With 5+ years of experience scaling production ML across industries, I lead the solution architecture for agentic systems and shape the technical direction of AI solutions.
+With 5+ years of experience scaling production ML across industries, I lead the solution architecture and shape the technical direction of AI solutions.
 
-I build the underlying platform layer from the ground up, setting engineering standards for observability, runtime safety, dynamic fallback routing, and human-in-the-loop governance. To keep these systems economically viable and performant at scale, I drive AI FinOps initiatives to lower inference cost and latency while preserving model faithfulness through context distillation, adaptive chunk pruning, and multi-layer caching strategies.
+I define the underlying agentic platform layer, setting engineering standards for observability, runtime safety, dynamic fallback routing, and human-in-the-loop governance. To keep these systems economically viable and performant at scale, I drive AI FinOps initiatives to lower inference cost and latency while preserving model faithfulness through context distillation, adaptive chunk pruning, and multi-layer caching techniques.
 
 Strategically, I accelerate AI adoption by identifying high-value use cases and integrating intelligent workflows directly into the software environments teams rely on daily. 
 
