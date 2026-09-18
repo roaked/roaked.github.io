@@ -5,11 +5,13 @@ type: docs
 
 ## **Behind the Scenes**
 
-I am a Lead Machine Learning Engineer with 5+ years of experience delivering ML solutions across supply chain, advanced manufacturing and engineering. My work bridges commercial impact with operational excellence: driving software ARR through client-facing product innovation while saving hundreds of hours via automation workflows.
+With 5+ years of experience scaling production ML across industries, I lead the solution architecture for agentic systems and shape the technical direction of AI solutions.
 
-I build high-availability, scalable agentic systems backed by centralized observability, safety guardrails, fallback model routing and HITL oversight to ensure EU AI Act compliance. Internally, I drive company-wide AI adoption initiatives and oversee infrastructure FinOps – leveraging dynamic context distillation and token caching to cut inference spend, while maintaining a >90% faithfulness baseline threshold across LLM-as-a-judge evaluations.
+I build the underlying platform layer from the ground up, setting engineering standards for observability, runtime safety, dynamic fallback routing, and human-in-the-loop governance. To keep these systems economically viable and performant at scale, I drive AI FinOps initiatives to lower inference cost and latency while preserving model faithfulness through context distillation, adaptive chunk pruning, and multi-layer caching strategies.
 
-My engineering approach is rooted in classical ML and statistical experimentation. With experience spanning imbalanced classification, metaheuristics, reinforcement learning, and real-time sensor anomaly detection, I bridge physical engineering principles with cloud-native intelligence.
+Strategically, I accelerate AI adoption by identifying high-value use cases and integrating intelligent workflows directly into the software environments teams rely on daily. 
+
+Beyond generative AI, I bring a multi-year track record in classical ML and intelligent systems across academia and industry – specializing in statistical experimentation, real-time sensor anomaly detection, reinforcement learning, and metaheuristics.
 
 ![1223e](https://live.staticflickr.com/65535/53729234907_9e1594ce05_c.jpg)
 
