@@ -5,13 +5,13 @@ type: docs
 
 ## **Behind the Scenes**
 
-With 5+ years of experience scaling production ML across industries, I lead the solution architecture and shape the technical direction of AI solutions.
+With 5+ years of experience scaling production ML across industries and global teams, I lead solution architecture and shape the technical strategy for solutions serving thousands of users daily.
 
-I define the underlying agentic platform layer, setting engineering standards for observability, runtime safety, dynamic fallback routing, and human-in-the-loop governance. To keep these systems economically viable and performant at scale, I drive AI FinOps initiatives to lower inference cost and latency while preserving model faithfulness through context distillation, adaptive chunk pruning, and multi-layer caching techniques.
+I define the agentic platform layer, setting standards for observability, safety, reliability, and human-in-the-loop governance. I also drive AI FinOps initiatives through context distillation, adaptive pruning and caching to reduce inference costs and latency without compromising model faithfulness.
 
-Strategically, I accelerate AI adoption by identifying high-value use cases and integrating intelligent workflows directly into the software environments teams rely on daily. 
+Strategically, I accelerate AI adoption by identifying high-value opportunities and integrating workflows directly into the software environments teams rely on.
 
-Beyond generative AI, I bring a multi-year track record in classical ML and intelligent systems across academia and industry – specializing in statistical experimentation, real-time sensor anomaly detection, reinforcement learning, and metaheuristics.
+Beyond modern agemtic orchestration, I bring a multi-year track record levarging classical ML in intelligent systems across academia and industry – specializing in statistical experimentation, real-time sensor anomaly detection, reinforcement learning, and metaheuristics.
 
 ![1223e](https://live.staticflickr.com/65535/53729234907_9e1594ce05_c.jpg)
 
